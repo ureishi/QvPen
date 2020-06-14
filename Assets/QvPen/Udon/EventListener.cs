@@ -1,31 +1,30 @@
 using UdonSharp;
 using UnityEngine;
-using VRC.Udon;
 
 namespace ureishi.Udon.QvPen
 {
     public class EventListener : UdonSharpBehaviour
     {
         [SerializeField] private Transform udonBroadcaster;
-        [SerializeField] private UdonBehaviour udonBehaviour;
+        [SerializeField] private QvPen qvPen;
 
         void Start()
         {
             if (udonBroadcaster) transform.SetParent(udonBroadcaster);
         }
-        public void AllReset()
+        public void ResetAll()
         {
-            if (udonBehaviour)
+            if (qvPen)
             {
-                udonBehaviour.SendCustomEvent("Respawn");
-                udonBehaviour.SendCustomEvent("Clear");
+                qvPen.Respawn();
+                qvPen.Clear();
             }
         }
-        public void AllClear()
+        public void ClearAll()
         {
-            if (udonBehaviour)
+            if (qvPen)
             {
-                udonBehaviour.SendCustomEvent("Clear");
+                qvPen.Clear();
             }
         }
     }
