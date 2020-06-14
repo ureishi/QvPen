@@ -61,3 +61,4 @@ crashlytics-build.properties
 #
 /[Aa]ssets/
 !/[Aa]ssets/QvPen/
+!/[Aa]ssets/SerializedUdonPrograms/
