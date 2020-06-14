@@ -70,7 +70,7 @@ namespace ureishi.Udon.QvPen
 
             penManager.StartUsing();
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.EventOnPickupUseUp));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.EventOnPickupUseUp)); // UdonSharp v0.17Ç≈ÇÕthisÇïtÇØÇ»Ç¢Ç∆ÉGÉâÅ[
         }
         public override void OnDrop()
         {
@@ -78,7 +78,7 @@ namespace ureishi.Udon.QvPen
             positionConstraint.enabled = true;
             smoothFollowToggle.isOn = false;
 
-            penManager.SendCustomEvent(nameof(penManager.EndUsing));
+            penManager.EndUsing();
         }
         public override void OnPickupUseDown()
         {
@@ -90,7 +90,7 @@ namespace ureishi.Udon.QvPen
         }
         public void EventOnPickupUseDown()
         {
-            inkTrail.enabled = true;
+            if (inkTrail) inkTrail.enabled = true;
         }
         public void EventOnPickupUseUp()
         {
@@ -110,8 +110,11 @@ namespace ureishi.Udon.QvPen
 
                 inkTrail = inkInstance.GetComponent<TrailRenderer>();
             }
-            inkTrail.Clear();
-            inkTrail.enabled = false;
+            if (inkTrail)
+            {
+                inkTrail.Clear();
+                inkTrail.enabled = false;
+            }
         }
         public void Respawn()
         {
