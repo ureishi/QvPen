@@ -17,7 +17,7 @@ MonoBehaviour:
   udonAssembly: ".data_start\r\n\r\n    .export gameObjects\r\n\r\n    __refl_const_intnl_udonTypeID:
     %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
     \   gameObjects: %UnityEngineGameObjectArray, null\r\n    isActive: %SystemBoolean,
-    null\r\n    pickup: %VRCSDK3ComponentsVRCPickup, null\r\n    __0_this_intnl_ureishiUdonQvPenPickupButton_Activate:
+    null\r\n    pickup: %VRCSDK3ComponentsVRCPickup, null\r\n    __0_this_intnl_QvPenUdonPickupButton_Activate:
     %VRCUdonUdonBehaviour, this\r\n    __0_go_GameObject: %UnityEngineGameObject,
     null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32:
     %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
@@ -38,16 +38,15 @@ MonoBehaviour:
     %SystemUInt32, null\r\n    __0_intnl_VRCSDK3ComponentsVRCPickup: %VRCSDK3ComponentsVRCPickup,
     null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
     \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # namespace ureishi.Udon.QvPen\r\n        \r\n         #
-    public class PickupButton_Activate : UdonSharpBehaviour\r\n.code_start\r\n        \r\n
-    \        # [SerializeField] private GameObject[] gameObjects;\r\n        \r\n
-    \        # private VRC_Pickup pickup;\r\n        \r\n         # private bool isActive
-    = true;\r\n        \r\n         # private void Start()\r\n    .export _start\r\n
-    \       \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup)))\r\n
-    \       PUSH, __0_this_intnl_ureishiUdonQvPenPickupButton_Activate\r\n        PUSH,
-    __0_const_intnl_SystemType\r\n        PUSH, __0_intnl_UnityEngineComponent\r\n
-    \       EXTERN, \"UnityEngineComponent.__GetComponent__SystemType__UnityEngineComponent\"\r\n
+    \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
+    PickupButton_Activate : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
+    [SerializeField] private GameObject[] gameObjects;\r\n        \r\n         # private
+    VRC_Pickup pickup;\r\n        \r\n         # private bool isActive = true;\r\n
+    \       \r\n         # private void Start()\r\n    .export _start\r\n        \r\n
+    \   _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
+    \        # {\r\n        \r\n         # if (pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup)))\r\n
+    \       PUSH, __0_this_intnl_QvPenUdonPickupButton_Activate\r\n        PUSH, __0_const_intnl_SystemType\r\n
+    \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponent.__GetComponent__SystemType__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __0_intnl_VRCSDK3ComponentsVRCPickup\r\n
     \       COPY\r\n        PUSH, __0_intnl_VRCSDK3ComponentsVRCPickup\r\n        PUSH,
     pickup\r\n        COPY\r\n        PUSH, pickup\r\n        PUSH, __0_intnl_SystemBoolean\r\n
@@ -71,7 +70,7 @@ MonoBehaviour:
     \       \r\n         # pickup.pickupable = true;\r\n        PUSH, pickup\r\n        PUSH,
     __0_const_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDK3ComponentsVRCPickup.__set_pickupable__SystemBoolean\"\r\n
     \       \r\n         # GetComponent<Rigidbody>().isKinematic = true;\r\n        PUSH,
-    __0_this_intnl_ureishiUdonQvPenPickupButton_Activate\r\n        PUSH, __1_const_intnl_SystemType\r\n
+    __0_this_intnl_QvPenUdonPickupButton_Activate\r\n        PUSH, __1_const_intnl_SystemType\r\n
     \       PUSH, __0_intnl_UnityEngineRigidbody\r\n        EXTERN, \"UnityEngineRigidbody.__GetComponent__T\"\r\n
     \       PUSH, __0_intnl_UnityEngineRigidbody\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineRigidbody.__set_isKinematic__SystemBoolean__SystemVoid\"\r\n
@@ -149,763 +148,770 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 18
+      endSourceChar: 17
       line: 0
       lineChar: 6
-      spanCodeSection: "UdonSharp;\r\n"
+      spanCodeSection: 'UdonSharp;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 18
-      endSourceChar: 24
+      startSourceChar: 17
+      endSourceChar: 23
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 24
-      endSourceChar: 38
+      startSourceChar: 23
+      endSourceChar: 36
       line: 1
       lineChar: 6
-      spanCodeSection: "UnityEngine;\r\n"
+      spanCodeSection: 'UnityEngine;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 38
-      endSourceChar: 44
+      startSourceChar: 36
+      endSourceChar: 42
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 44
+      startSourceChar: 42
+      endSourceChar: 42
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 48
+      startSourceChar: 42
+      endSourceChar: 46
       line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 48
-      endSourceChar: 60
+      startSourceChar: 46
+      endSourceChar: 56
       line: 2
       lineChar: 10
-      spanCodeSection: "SDKBase;\r\n\r\n"
+      spanCodeSection: 'SDKBase;
+
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 60
-      endSourceChar: 97
+      startSourceChar: 56
+      endSourceChar: 83
       line: 4
       lineChar: 0
-      spanCodeSection: "namespace ureishi.Udon.QvPen\r\n{\r\n    "
+      spanCodeSection: "namespace QvPen.Udon\n{\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 97
-      endSourceChar: 132
+      startSourceChar: 83
+      endSourceChar: 118
       line: 6
       lineChar: 4
       spanCodeSection: 'public class PickupButton_Activate '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 132
-      endSourceChar: 134
+      startSourceChar: 118
+      endSourceChar: 120
       line: 6
       lineChar: 39
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 134
-      endSourceChar: 134
+      startSourceChar: 120
+      endSourceChar: 120
       line: 6
       lineChar: 41
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 134
-      endSourceChar: 169
+      startSourceChar: 120
+      endSourceChar: 153
       line: 6
       lineChar: 41
-      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 169
-      endSourceChar: 170
+      startSourceChar: 153
+      endSourceChar: 154
       line: 8
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 170
-      endSourceChar: 170
+      startSourceChar: 154
+      endSourceChar: 154
       line: 8
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 170
-      endSourceChar: 194
+      startSourceChar: 154
+      endSourceChar: 178
       line: 8
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 194
-      endSourceChar: 194
+      startSourceChar: 178
+      endSourceChar: 178
       line: 8
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 194
-      endSourceChar: 194
+      startSourceChar: 178
+      endSourceChar: 178
       line: 8
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 194
-      endSourceChar: 231
+      startSourceChar: 178
+      endSourceChar: 213
       line: 8
       lineChar: 33
-      spanCodeSection: "GameObject[] gameObjects;\r\n\r\n        "
+      spanCodeSection: "GameObject[] gameObjects;\n\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 231
-      endSourceChar: 239
+      startSourceChar: 213
+      endSourceChar: 221
       line: 10
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 239
-      endSourceChar: 239
+      startSourceChar: 221
+      endSourceChar: 221
       line: 10
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 239
-      endSourceChar: 269
+      startSourceChar: 221
+      endSourceChar: 249
       line: 10
       lineChar: 16
-      spanCodeSection: "VRC_Pickup pickup;\r\n\r\n        "
+      spanCodeSection: "VRC_Pickup pickup;\n\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 269
-      endSourceChar: 277
+      startSourceChar: 249
+      endSourceChar: 257
       line: 12
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 277
+      startSourceChar: 257
+      endSourceChar: 257
       line: 12
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 310
+      startSourceChar: 257
+      endSourceChar: 288
       line: 12
       lineChar: 16
-      spanCodeSection: "bool isActive = true;\r\n\r\n        "
+      spanCodeSection: "bool isActive = true;\n\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 310
-      endSourceChar: 340
+      startSourceChar: 288
+      endSourceChar: 317
       line: 14
       lineChar: 8
-      spanCodeSection: "private void Start()\r\n        "
+      spanCodeSection: "private void Start()\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 340
-      endSourceChar: 355
+      startSourceChar: 317
+      endSourceChar: 331
       line: 15
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 355
-      endSourceChar: 359
+      startSourceChar: 331
+      endSourceChar: 335
       line: 16
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 359
-      endSourceChar: 359
+      startSourceChar: 335
+      endSourceChar: 335
       line: 16
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 359
-      endSourceChar: 368
+      startSourceChar: 335
+      endSourceChar: 344
       line: 16
       lineChar: 16
       spanCodeSection: 'pickup = '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 368
-      endSourceChar: 380
+      startSourceChar: 344
+      endSourceChar: 356
       line: 16
       lineChar: 25
       spanCodeSection: (VRC_Pickup)
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 380
-      endSourceChar: 380
+      startSourceChar: 356
+      endSourceChar: 356
       line: 16
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 380
-      endSourceChar: 393
+      startSourceChar: 356
+      endSourceChar: 369
       line: 16
       lineChar: 37
       spanCodeSection: GetComponent(
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 393
-      endSourceChar: 400
+      startSourceChar: 369
+      endSourceChar: 376
       line: 16
       lineChar: 50
       spanCodeSection: typeof(
     - startInstruction: 8
       endInstruction: 119
-      startSourceChar: 400
-      endSourceChar: 427
+      startSourceChar: 376
+      endSourceChar: 402
       line: 16
       lineChar: 57
-      spanCodeSection: "VRC_Pickup)))\r\n            "
+      spanCodeSection: "VRC_Pickup)))\n            "
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 427
-      endSourceChar: 446
+      startSourceChar: 402
+      endSourceChar: 420
       line: 17
       lineChar: 12
-      spanCodeSection: "{\r\n                "
+      spanCodeSection: "{\n                "
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 446
-      endSourceChar: 446
+      startSourceChar: 420
+      endSourceChar: 420
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 446
-      endSourceChar: 446
+      startSourceChar: 420
+      endSourceChar: 420
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 446
-      endSourceChar: 446
+      startSourceChar: 420
+      endSourceChar: 420
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 446
-      endSourceChar: 453
+      startSourceChar: 420
+      endSourceChar: 427
       line: 18
       lineChar: 16
       spanCodeSection: pickup.
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 453
-      endSourceChar: 471
+      startSourceChar: 427
+      endSourceChar: 445
       line: 18
       lineChar: 23
       spanCodeSection: 'InteractionText = '
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 471
-      endSourceChar: 473
+      startSourceChar: 445
+      endSourceChar: 447
       line: 18
       lineChar: 41
       spanCodeSection: $"
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 473
-      endSourceChar: 474
+      startSourceChar: 447
+      endSourceChar: 448
       line: 18
       lineChar: 43
       spanCodeSection: '{'
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 474
-      endSourceChar: 475
+      startSourceChar: 448
+      endSourceChar: 449
       line: 18
       lineChar: 44
       spanCodeSection: (
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 475
-      endSourceChar: 475
+      startSourceChar: 449
+      endSourceChar: 449
       line: 18
       lineChar: 45
       spanCodeSection: 
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 475
-      endSourceChar: 476
+      startSourceChar: 449
+      endSourceChar: 450
       line: 18
       lineChar: 45
       spanCodeSection: '!'
     - startInstruction: 120
       endInstruction: 159
-      startSourceChar: 476
-      endSourceChar: 487
+      startSourceChar: 450
+      endSourceChar: 461
       line: 18
       lineChar: 46
       spanCodeSection: 'isActive ? '
     - startInstruction: 160
       endInstruction: 187
-      startSourceChar: 487
-      endSourceChar: 493
+      startSourceChar: 461
+      endSourceChar: 467
       line: 18
       lineChar: 57
       spanCodeSection: '"A" : '
     - startInstruction: 188
       endInstruction: 227
-      startSourceChar: 493
-      endSourceChar: 500
+      startSourceChar: 467
+      endSourceChar: 474
       line: 18
       lineChar: 63
       spanCodeSection: '"Dea")}'
     - startInstruction: 228
       endInstruction: 303
-      startSourceChar: 500
-      endSourceChar: 535
+      startSourceChar: 474
+      endSourceChar: 508
       line: 18
       lineChar: 70
-      spanCodeSection: "ctivate (Local)\";\r\n                "
+      spanCodeSection: "ctivate (Local)\";\n                "
     - startInstruction: 304
       endInstruction: 303
-      startSourceChar: 535
-      endSourceChar: 535
+      startSourceChar: 508
+      endSourceChar: 508
       line: 19
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 304
       endInstruction: 303
-      startSourceChar: 535
-      endSourceChar: 535
+      startSourceChar: 508
+      endSourceChar: 508
       line: 19
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 304
       endInstruction: 303
-      startSourceChar: 535
-      endSourceChar: 535
+      startSourceChar: 508
+      endSourceChar: 508
       line: 19
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 304
       endInstruction: 303
-      startSourceChar: 535
-      endSourceChar: 542
+      startSourceChar: 508
+      endSourceChar: 515
       line: 19
       lineChar: 16
       spanCodeSection: pickup.
     - startInstruction: 304
       endInstruction: 303
-      startSourceChar: 542
-      endSourceChar: 552
+      startSourceChar: 515
+      endSourceChar: 525
       line: 19
       lineChar: 23
       spanCodeSection: 'UseText = '
     - startInstruction: 304
       endInstruction: 327
-      startSourceChar: 552
-      endSourceChar: 573
+      startSourceChar: 525
+      endSourceChar: 545
       line: 19
       lineChar: 33
-      spanCodeSection: "\"\";\r\n                "
+      spanCodeSection: "\"\";\n                "
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 573
-      endSourceChar: 573
+      startSourceChar: 545
+      endSourceChar: 545
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 573
-      endSourceChar: 573
+      startSourceChar: 545
+      endSourceChar: 545
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 573
-      endSourceChar: 573
+      startSourceChar: 545
+      endSourceChar: 545
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 573
-      endSourceChar: 580
+      startSourceChar: 545
+      endSourceChar: 552
       line: 20
       lineChar: 16
       spanCodeSection: pickup.
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 580
-      endSourceChar: 593
+      startSourceChar: 552
+      endSourceChar: 565
       line: 20
       lineChar: 23
       spanCodeSection: 'pickupable = '
     - startInstruction: 328
       endInstruction: 351
-      startSourceChar: 593
-      endSourceChar: 616
+      startSourceChar: 565
+      endSourceChar: 587
       line: 20
       lineChar: 36
-      spanCodeSection: "true;\r\n                "
+      spanCodeSection: "true;\n                "
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 587
+      endSourceChar: 587
       line: 21
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 587
+      endSourceChar: 587
       line: 21
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 587
+      endSourceChar: 587
       line: 21
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 587
+      endSourceChar: 587
       line: 21
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 616
-      endSourceChar: 628
+      startSourceChar: 587
+      endSourceChar: 599
       line: 21
       lineChar: 16
       spanCodeSection: GetComponent
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 628
-      endSourceChar: 629
+      startSourceChar: 599
+      endSourceChar: 600
       line: 21
       lineChar: 28
       spanCodeSection: <
     - startInstruction: 352
       endInstruction: 383
-      startSourceChar: 629
-      endSourceChar: 642
+      startSourceChar: 600
+      endSourceChar: 613
       line: 21
       lineChar: 29
       spanCodeSection: Rigidbody>().
     - startInstruction: 384
       endInstruction: 383
-      startSourceChar: 642
-      endSourceChar: 656
+      startSourceChar: 613
+      endSourceChar: 627
       line: 21
       lineChar: 42
       spanCodeSection: 'isKinematic = '
     - startInstruction: 384
       endInstruction: 427
-      startSourceChar: 656
-      endSourceChar: 697
+      startSourceChar: 627
+      endSourceChar: 665
       line: 21
       lineChar: 56
-      spanCodeSection: "true;\r\n            }\r\n        }\r\n        "
+      spanCodeSection: "true;\n            }\n        }\n        "
     - startInstruction: 428
       endInstruction: 435
-      startSourceChar: 697
-      endSourceChar: 738
+      startSourceChar: 665
+      endSourceChar: 705
       line: 24
       lineChar: 8
-      spanCodeSection: "public override void OnPickup()\r\n        "
+      spanCodeSection: "public override void OnPickup()\n        "
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 738
-      endSourceChar: 753
+      startSourceChar: 705
+      endSourceChar: 719
       line: 25
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\n            "
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 753
-      endSourceChar: 757
+      startSourceChar: 719
+      endSourceChar: 723
       line: 26
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 436
       endInstruction: 475
-      startSourceChar: 757
-      endSourceChar: 765
+      startSourceChar: 723
+      endSourceChar: 731
       line: 26
       lineChar: 16
       spanCodeSection: 'pickup) '
     - startInstruction: 476
       endInstruction: 475
-      startSourceChar: 765
-      endSourceChar: 765
+      startSourceChar: 731
+      endSourceChar: 731
       line: 26
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 476
       endInstruction: 475
-      startSourceChar: 765
-      endSourceChar: 765
+      startSourceChar: 731
+      endSourceChar: 731
       line: 26
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 476
       endInstruction: 475
-      startSourceChar: 765
-      endSourceChar: 765
+      startSourceChar: 731
+      endSourceChar: 731
       line: 26
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 476
       endInstruction: 475
-      startSourceChar: 765
-      endSourceChar: 772
+      startSourceChar: 731
+      endSourceChar: 738
       line: 26
       lineChar: 24
       spanCodeSection: pickup.
     - startInstruction: 476
       endInstruction: 511
-      startSourceChar: 772
-      endSourceChar: 800
+      startSourceChar: 738
+      endSourceChar: 764
       line: 26
       lineChar: 31
-      spanCodeSection: "Drop();\r\n        }\r\n        "
+      spanCodeSection: "Drop();\n        }\n        "
     - startInstruction: 512
       endInstruction: 519
-      startSourceChar: 800
-      endSourceChar: 839
+      startSourceChar: 764
+      endSourceChar: 802
       line: 28
       lineChar: 8
-      spanCodeSection: "public override void OnDrop()\r\n        "
+      spanCodeSection: "public override void OnDrop()\n        "
     - startInstruction: 520
       endInstruction: 519
-      startSourceChar: 839
-      endSourceChar: 854
+      startSourceChar: 802
+      endSourceChar: 816
       line: 29
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\n            "
     - startInstruction: 520
       endInstruction: 519
-      startSourceChar: 854
-      endSourceChar: 854
+      startSourceChar: 816
+      endSourceChar: 816
       line: 30
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 520
       endInstruction: 519
-      startSourceChar: 854
-      endSourceChar: 854
+      startSourceChar: 816
+      endSourceChar: 816
       line: 30
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 520
       endInstruction: 519
-      startSourceChar: 854
-      endSourceChar: 866
+      startSourceChar: 816
+      endSourceChar: 828
       line: 30
       lineChar: 12
       spanCodeSection: 'isActive ^= '
     - startInstruction: 520
       endInstruction: 571
-      startSourceChar: 866
-      endSourceChar: 885
+      startSourceChar: 828
+      endSourceChar: 846
       line: 30
       lineChar: 24
-      spanCodeSection: "true;\r\n            "
+      spanCodeSection: "true;\n            "
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 885
-      endSourceChar: 885
+      startSourceChar: 846
+      endSourceChar: 846
       line: 31
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 885
-      endSourceChar: 885
+      startSourceChar: 846
+      endSourceChar: 846
       line: 31
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 885
-      endSourceChar: 885
+      startSourceChar: 846
+      endSourceChar: 846
       line: 31
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 885
-      endSourceChar: 892
+      startSourceChar: 846
+      endSourceChar: 853
       line: 31
       lineChar: 12
       spanCodeSection: pickup.
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 892
-      endSourceChar: 910
+      startSourceChar: 853
+      endSourceChar: 871
       line: 31
       lineChar: 19
       spanCodeSection: 'InteractionText = '
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 910
-      endSourceChar: 912
+      startSourceChar: 871
+      endSourceChar: 873
       line: 31
       lineChar: 37
       spanCodeSection: $"
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 912
-      endSourceChar: 913
+      startSourceChar: 873
+      endSourceChar: 874
       line: 31
       lineChar: 39
       spanCodeSection: '{'
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 913
-      endSourceChar: 914
+      startSourceChar: 874
+      endSourceChar: 875
       line: 31
       lineChar: 40
       spanCodeSection: (
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 914
-      endSourceChar: 914
+      startSourceChar: 875
+      endSourceChar: 875
       line: 31
       lineChar: 41
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 914
-      endSourceChar: 915
+      startSourceChar: 875
+      endSourceChar: 876
       line: 31
       lineChar: 41
       spanCodeSection: '!'
     - startInstruction: 572
       endInstruction: 611
-      startSourceChar: 915
-      endSourceChar: 926
+      startSourceChar: 876
+      endSourceChar: 887
       line: 31
       lineChar: 42
       spanCodeSection: 'isActive ? '
     - startInstruction: 612
       endInstruction: 639
-      startSourceChar: 926
-      endSourceChar: 932
+      startSourceChar: 887
+      endSourceChar: 893
       line: 31
       lineChar: 53
       spanCodeSection: '"A" : '
     - startInstruction: 640
       endInstruction: 679
-      startSourceChar: 932
-      endSourceChar: 939
+      startSourceChar: 893
+      endSourceChar: 900
       line: 31
       lineChar: 59
       spanCodeSection: '"Dea")}'
     - startInstruction: 680
       endInstruction: 755
-      startSourceChar: 939
-      endSourceChar: 970
+      startSourceChar: 900
+      endSourceChar: 930
       line: 31
       lineChar: 66
-      spanCodeSection: "ctivate (Local)\";\r\n            "
+      spanCodeSection: "ctivate (Local)\";\n            "
     - startInstruction: 756
       endInstruction: 755
-      startSourceChar: 970
-      endSourceChar: 979
+      startSourceChar: 930
+      endSourceChar: 939
       line: 32
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 756
       endInstruction: 755
-      startSourceChar: 979
-      endSourceChar: 989
+      startSourceChar: 939
+      endSourceChar: 949
       line: 32
       lineChar: 21
       spanCodeSection: 'var go in '
     - startInstruction: 756
       endInstruction: 879
-      startSourceChar: 989
-      endSourceChar: 1015
+      startSourceChar: 949
+      endSourceChar: 974
       line: 32
       lineChar: 31
-      spanCodeSection: "gameObjects)\r\n            "
+      spanCodeSection: "gameObjects)\n            "
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1015
-      endSourceChar: 1034
+      startSourceChar: 974
+      endSourceChar: 992
       line: 33
       lineChar: 12
-      spanCodeSection: "{\r\n                "
+      spanCodeSection: "{\n                "
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 992
+      endSourceChar: 992
       line: 34
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 992
+      endSourceChar: 992
       line: 34
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 992
+      endSourceChar: 992
       line: 34
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1034
-      endSourceChar: 1037
+      startSourceChar: 992
+      endSourceChar: 995
       line: 34
       lineChar: 16
       spanCodeSection: go.
     - startInstruction: 880
       endInstruction: 879
-      startSourceChar: 1037
-      endSourceChar: 1047
+      startSourceChar: 995
+      endSourceChar: 1005
       line: 34
       lineChar: 19
       spanCodeSection: SetActive(
     - startInstruction: 880
       endInstruction: 880
-      startSourceChar: 1047
-      endSourceChar: 1047
+      startSourceChar: 1005
+      endSourceChar: 1005
       line: 34
       lineChar: 29
       spanCodeSection: 

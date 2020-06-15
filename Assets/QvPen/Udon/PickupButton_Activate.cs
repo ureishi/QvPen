@@ -2,7 +2,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 
-namespace ureishi.Udon.QvPen
+namespace QvPen.Udon
 {
     public class PickupButton_Activate : UdonSharpBehaviour
     {

@@ -2,7 +2,7 @@ using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ureishi.Udon.QvPen
+namespace QvPen.Udon
 {
     public class Interact_uGUI : UdonSharpBehaviour
     {

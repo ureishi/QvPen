@@ -4,7 +4,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
-namespace ureishi.Udon.QvPen
+namespace QvPen.Udon
 {
     public class InteractButton : UdonSharpBehaviour
     {

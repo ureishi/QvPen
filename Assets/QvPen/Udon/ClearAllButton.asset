@@ -1,0 +1,429 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
+  m_Name: ClearAllButton
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: e0987b0ae919d6e4598398c06c8db98f,
+    type: 2}
+  udonAssembly: ".data_start\r\n\r\n    .export penManagers\r\n\r\n    __refl_const_intnl_udonTypeID:
+    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
+    \   penManagers: %UnityEngineComponentArray, null\r\n    __0_penManager_PenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
+    ClearAllButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
+    private PenManager[] penManagers;\r\n        \r\n         # public override void
+    Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # if (!Networking.IsMaster) return;\r\n        PUSH, __0_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n        PUSH,
+    __0_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n        EXTERN,
+    \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n        PUSH,
+    __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000054\r\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\r\n        \r\n         # foreach (var penManager
+    in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000124\r\n
+    \       PUSH, penManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
+    \       PUSH, __0_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
+    \       COPY\r\n        \r\n         # {\r\n        \r\n         # penManager.ClearAll();\r\n
+    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x00000080\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n.code_end\r\n"
+  assemblyError: 
+  sourceCsScript: {fileID: 11500000, guid: 7590bd0254666964d8ce62e8f54fbebf, type: 3}
+  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  compileErrors: []
+  debugInfo:
+    serializedDebugSpans:
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 6
+      endSourceChar: 18
+      line: 0
+      lineChar: 6
+      spanCodeSection: "UdonSharp;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 18
+      endSourceChar: 24
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 24
+      endSourceChar: 38
+      line: 1
+      lineChar: 6
+      spanCodeSection: "UnityEngine;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 38
+      endSourceChar: 44
+      line: 2
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 44
+      endSourceChar: 44
+      line: 2
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 44
+      endSourceChar: 48
+      line: 2
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 48
+      endSourceChar: 60
+      line: 2
+      lineChar: 10
+      spanCodeSection: "SDKBase;\r\n\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 60
+      endSourceChar: 89
+      line: 4
+      lineChar: 0
+      spanCodeSection: "namespace QvPen.Udon\r\n{\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 89
+      endSourceChar: 117
+      line: 6
+      lineChar: 4
+      spanCodeSection: 'public class ClearAllButton '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 117
+      endSourceChar: 119
+      line: 6
+      lineChar: 32
+      spanCodeSection: ': '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 119
+      endSourceChar: 119
+      line: 6
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 119
+      endSourceChar: 154
+      line: 6
+      lineChar: 34
+      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 154
+      endSourceChar: 155
+      line: 8
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 155
+      endSourceChar: 155
+      line: 8
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 155
+      endSourceChar: 179
+      line: 8
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 179
+      endSourceChar: 179
+      line: 8
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 179
+      endSourceChar: 179
+      line: 8
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 179
+      endSourceChar: 216
+      line: 8
+      lineChar: 33
+      spanCodeSection: "PenManager[] penManagers;\r\n\r\n        "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 216
+      endSourceChar: 257
+      line: 10
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\r\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 257
+      endSourceChar: 272
+      line: 11
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 272
+      endSourceChar: 276
+      line: 12
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 276
+      endSourceChar: 277
+      line: 12
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 277
+      endSourceChar: 277
+      line: 12
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 277
+      endSourceChar: 288
+      line: 12
+      lineChar: 17
+      spanCodeSection: Networking.
+    - startInstruction: 8
+      endInstruction: 63
+      startSourceChar: 288
+      endSourceChar: 298
+      line: 12
+      lineChar: 28
+      spanCodeSection: 'IsMaster) '
+    - startInstruction: 64
+      endInstruction: 83
+      startSourceChar: 298
+      endSourceChar: 333
+      line: 12
+      lineChar: 38
+      spanCodeSection: "return;\r\n            \r\n            "
+    - startInstruction: 84
+      endInstruction: 83
+      startSourceChar: 333
+      endSourceChar: 342
+      line: 14
+      lineChar: 12
+      spanCodeSection: foreach (
+    - startInstruction: 84
+      endInstruction: 83
+      startSourceChar: 342
+      endSourceChar: 360
+      line: 14
+      lineChar: 21
+      spanCodeSection: 'var penManager in '
+    - startInstruction: 84
+      endInstruction: 227
+      startSourceChar: 360
+      endSourceChar: 386
+      line: 14
+      lineChar: 39
+      spanCodeSection: "penManagers)\r\n            "
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 386
+      endSourceChar: 405
+      line: 15
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 405
+      endSourceChar: 405
+      line: 16
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 405
+      endSourceChar: 405
+      line: 16
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 405
+      endSourceChar: 405
+      line: 16
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 405
+      endSourceChar: 416
+      line: 16
+      lineChar: 16
+      spanCodeSection: penManager.
+    - startInstruction: 228
+      endInstruction: 228
+      startSourceChar: 416
+      endSourceChar: 416
+      line: 16
+      lineChar: 27
+      spanCodeSection: 
+  hasInteractEvent: 1
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11500000, guid: bb53ca2cbd3b0024380e604a00f05e07, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fieldDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+        UdonSharp.Editor]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: penManagers
+    - Name: $v
+      Entry: 7
+      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: QvPen.Udon.PenManager[], Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineComponentArray
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: penManagers
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: penManagers
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
