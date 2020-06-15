@@ -10,8 +10,6 @@ namespace QvPen.Udon
 
         public override void Interact()
         {
-            if (!Networking.IsMaster) return;
-            
             foreach (var penManager in penManagers)
             {
                 penManager.ClearAll();
