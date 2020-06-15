@@ -268,7 +268,7 @@ MonoBehaviour:
     __5_intnl_SystemSingle\r\n        EXTERN, \"SystemSingle.__op_Subtraction__SystemSingle_SystemSingle__SystemSingle\"\r\n
     \       PUSH, __5_intnl_SystemSingle\r\n        PUSH, Interval\r\n        PUSH,
     __7_intnl_SystemBoolean\r\n        EXTERN, \"SystemSingle.__op_LessThan__SystemSingle_SystemSingle__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000814\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000828\r\n
     \       \r\n         # {\r\n        \r\n         # prevTime = 0f;\r\n        PUSH,
     __0_const_intnl_SystemSingle\r\n        PUSH, prevTime\r\n        COPY\r\n        \r\n
     \        # Destroy(inkInstance);\r\n        PUSH, inkInstance\r\n        EXTERN,
@@ -282,14 +282,16 @@ MonoBehaviour:
     \       PUSH, __1_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_this_intnl_QvPenUdonPen\r\n
     \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
     __1_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    \       \r\n         # return;\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n         # prevTime = Time.time;\r\n        PUSH, prevTime\r\n        EXTERN,
     \"UnityEngineTime.__get_time__SystemSingle\"\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.All,
     mode == ModePen ? nameof(this.StartDrawing) : nameof(this.StartErasing));\r\n
     \       PUSH, mode\r\n        PUSH, ModePen\r\n        PUSH, __8_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000870\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000884\r\n
     \       PUSH, __10_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       COPY\r\n        JUMP, 0x00000884\r\n        PUSH, __11_const_intnl_SystemString\r\n
+    \       COPY\r\n        JUMP, 0x00000898\r\n        PUSH, __11_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_this_intnl_QvPenUdonPen\r\n
     \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
     __1_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
@@ -301,9 +303,9 @@ MonoBehaviour:
     mode == ModePen ? nameof(this.FinishDrawing) : nameof(this.FinishErasing));\r\n
     \       PUSH, mode\r\n        PUSH, ModePen\r\n        PUSH, __9_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000090C\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000920\r\n
     \       PUSH, __7_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n
-    \       COPY\r\n        JUMP, 0x00000920\r\n        PUSH, __8_const_intnl_SystemString\r\n
+    \       COPY\r\n        JUMP, 0x00000934\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_this_intnl_QvPenUdonPen\r\n
     \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
     __2_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
@@ -335,13 +337,13 @@ MonoBehaviour:
     \       \r\n         # {\r\n        \r\n         # if (mode != ModePen)\r\n        PUSH,
     mode\r\n        PUSH, ModePen\r\n        PUSH, __10_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
-    __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A6C\r\n        \r\n
+    __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A80\r\n        \r\n
     \        # {\r\n        \r\n         # ChangeToPen();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x0000095C\r\n        \r\n         # if(isDrawing) return;\r\n        PUSH,
-    isDrawing\r\n        JUMP_IF_FALSE, 0x00000A90\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       JUMP, 0x00000970\r\n        \r\n         # if(isDrawing) return;\r\n        PUSH,
+    isDrawing\r\n        JUMP_IF_FALSE, 0x00000AA4\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n         # SpawnInk();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000D98\r\n        \r\n         # isDrawing = true;\r\n        PUSH,
+    \       JUMP, 0x00000DAC\r\n        \r\n         # isDrawing = true;\r\n        PUSH,
     __1_const_intnl_SystemBoolean\r\n        PUSH, isDrawing\r\n        COPY\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
@@ -350,10 +352,10 @@ MonoBehaviour:
     {\r\n        \r\n         # if (mode != ModeEraser)\r\n        PUSH, mode\r\n
     \       PUSH, ModeEraser\r\n        PUSH, __11_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
-    __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B10\r\n        \r\n
+    __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B24\r\n        \r\n
     \        # {\r\n        \r\n         # ChangeToEraser();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x000009C4\r\n        \r\n         # if(isErasing) return;\r\n        PUSH,
-    isErasing\r\n        JUMP_IF_FALSE, 0x00000B34\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       JUMP, 0x000009D8\r\n        \r\n         # if(isErasing) return;\r\n        PUSH,
+    isErasing\r\n        JUMP_IF_FALSE, 0x00000B48\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n         # eraser.StartErasing();\r\n        PUSH, eraser\r\n        PUSH,
     __11_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
@@ -365,24 +367,24 @@ MonoBehaviour:
     \       \r\n         # {\r\n        \r\n         # if (mode != ModePen)\r\n        PUSH,
     mode\r\n        PUSH, ModePen\r\n        PUSH, __12_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
-    __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BBC\r\n        \r\n
+    __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BD0\r\n        \r\n
     \        # {\r\n        \r\n         # ChangeToPen();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x0000095C\r\n        \r\n         # if (!isDrawing) return;\r\n
+    \       JUMP, 0x00000970\r\n        \r\n         # if (!isDrawing) return;\r\n
     \       PUSH, isDrawing\r\n        PUSH, __13_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n        PUSH,
-    __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BF8\r\n        PUSH,
+    __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C0C\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        \r\n         # if (inkInstance != null)\r\n
     \       PUSH, inkInstance\r\n        PUSH, __0_const_intnl_UnityEngineGameObject\r\n
     \       PUSH, __14_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C90\r\n
+    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000CA4\r\n
     \       \r\n         # {\r\n        \r\n         # inkInstance.transform.SetParent(inkPool);\r\n
     \       PUSH, inkInstance\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineGameObject.__get_transform__UnityEngineTransform\"\r\n
     \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, inkPool\r\n        EXTERN,
     \"UnityEngineTransform.__SetParent__UnityEngineTransform__SystemVoid\"\r\n        \r\n
     \        # if (isInkInitialized)\r\n        PUSH, isInkInitialized\r\n        JUMP_IF_FALSE,
-    0x00000C90\r\n        \r\n         # {\r\n        \r\n         # ink.FinishDrawing();\r\n
+    0x00000CA4\r\n        \r\n         # {\r\n        \r\n         # ink.FinishDrawing();\r\n
     \       PUSH, ink\r\n        PUSH, __7_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # Destroy(ink);\r\n        PUSH, ink\r\n        EXTERN, \"UnityEngineObject.__Destroy__UnityEngineObject__SystemVoid\"\r\n
@@ -396,12 +398,12 @@ MonoBehaviour:
     \       \r\n         # {\r\n        \r\n         # if (mode != ModeEraser)\r\n
     \       PUSH, mode\r\n        PUSH, ModeEraser\r\n        PUSH, __15_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D14\r\n
+    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D28\r\n
     \       \r\n         # {\r\n        \r\n         # ChangeToEraser();\r\n        PUSH,
-    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000009C4\r\n        \r\n
+    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000009D8\r\n        \r\n
     \        # if(!isErasing) return;\r\n        PUSH, isErasing\r\n        PUSH,
     __16_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D50\r\n
+    \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D64\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
     eraser.FinishErasing();\r\n        PUSH, eraser\r\n        PUSH, __8_const_intnl_SystemString\r\n
@@ -455,7 +457,7 @@ MonoBehaviour:
     \       \r\n         # {\r\n        \r\n         # if (pickup) pickup.Drop();\r\n
     \       PUSH, pickup\r\n        PUSH, __17_intnl_SystemBoolean\r\n        EXTERN,
     \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n        PUSH,
-    __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F8C\r\n        PUSH,
+    __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000FA0\r\n        PUSH,
     pickup\r\n        EXTERN, \"VRCSDK3ComponentsVRCPickup.__Drop__SystemVoid\"\r\n
     \       \r\n         # transform.position = defaultPosition;\r\n        PUSH,
     __0_this_intnl_UnityEngineTransform\r\n        PUSH, defaultPosition\r\n        EXTERN,
@@ -471,7 +473,7 @@ MonoBehaviour:
     inkPool\r\n        PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
     __18_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000010B8\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000010CC\r\n
     \       \r\n         # {\r\n        \r\n         # Destroy(inkPool.GetChild(i).gameObject);\r\n
     \       PUSH, inkPool\r\n        PUSH, __0_i_Int32\r\n        PUSH, __5_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
@@ -481,7 +483,7 @@ MonoBehaviour:
     \       PUSH, __0_i_Int32\r\n        PUSH, __4_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
     __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000FEC\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001000\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -2747,2059 +2749,2066 @@ MonoBehaviour:
     - startInstruction: 2016
       endInstruction: 2067
       startSourceChar: 3413
-      endSourceChar: 3454
+      endSourceChar: 3444
       line: 105
       lineChar: 123
-      spanCodeSection: "ChangeToPen));\n            }\n            "
+      spanCodeSection: "ChangeToPen));\n                "
     - startInstruction: 2068
-      endInstruction: 2067
-      startSourceChar: 3454
-      endSourceChar: 3454
-      line: 107
+      endInstruction: 2087
+      startSourceChar: 3444
+      endSourceChar: 3478
+      line: 106
+      lineChar: 16
+      spanCodeSection: "return;\n            }\n            "
+    - startInstruction: 2088
+      endInstruction: 2087
+      startSourceChar: 3478
+      endSourceChar: 3478
+      line: 108
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2068
-      endInstruction: 2067
-      startSourceChar: 3454
-      endSourceChar: 3454
-      line: 107
+    - startInstruction: 2088
+      endInstruction: 2087
+      startSourceChar: 3478
+      endSourceChar: 3478
+      line: 108
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2068
-      endInstruction: 2067
-      startSourceChar: 3454
-      endSourceChar: 3465
-      line: 107
+    - startInstruction: 2088
+      endInstruction: 2087
+      startSourceChar: 3478
+      endSourceChar: 3489
+      line: 108
       lineChar: 12
       spanCodeSection: 'prevTime = '
-    - startInstruction: 2068
-      endInstruction: 2067
-      startSourceChar: 3465
-      endSourceChar: 3465
-      line: 107
+    - startInstruction: 2088
+      endInstruction: 2087
+      startSourceChar: 3489
+      endSourceChar: 3489
+      line: 108
       lineChar: 23
       spanCodeSection: 
-    - startInstruction: 2068
-      endInstruction: 2067
-      startSourceChar: 3465
-      endSourceChar: 3470
-      line: 107
+    - startInstruction: 2088
+      endInstruction: 2087
+      startSourceChar: 3489
+      endSourceChar: 3494
+      line: 108
       lineChar: 23
       spanCodeSection: Time.
-    - startInstruction: 2068
-      endInstruction: 2083
-      startSourceChar: 3470
-      endSourceChar: 3501
-      line: 107
+    - startInstruction: 2088
+      endInstruction: 2103
+      startSourceChar: 3494
+      endSourceChar: 3525
+      line: 108
       lineChar: 28
       spanCodeSection: "time;\n            \n            "
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3501
-      endSourceChar: 3501
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3525
+      endSourceChar: 3525
+      line: 110
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3501
-      endSourceChar: 3501
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3525
+      endSourceChar: 3525
+      line: 110
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3501
-      endSourceChar: 3524
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3525
+      endSourceChar: 3548
+      line: 110
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3524
-      endSourceChar: 3524
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3548
+      endSourceChar: 3548
+      line: 110
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3524
-      endSourceChar: 3543
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3548
+      endSourceChar: 3567
+      line: 110
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3543
-      endSourceChar: 3548
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3567
+      endSourceChar: 3572
+      line: 110
       lineChar: 54
       spanCodeSection: 'All, '
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3548
-      endSourceChar: 3548
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3572
+      endSourceChar: 3572
+      line: 110
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3548
-      endSourceChar: 3548
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3572
+      endSourceChar: 3572
+      line: 110
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 2084
-      endInstruction: 2083
-      startSourceChar: 3548
-      endSourceChar: 3556
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2103
+      startSourceChar: 3572
+      endSourceChar: 3580
+      line: 110
       lineChar: 59
       spanCodeSection: 'mode == '
-    - startInstruction: 2084
-      endInstruction: 2131
-      startSourceChar: 3556
-      endSourceChar: 3566
-      line: 109
+    - startInstruction: 2104
+      endInstruction: 2151
+      startSourceChar: 3580
+      endSourceChar: 3590
+      line: 110
       lineChar: 67
       spanCodeSection: 'ModePen ? '
-    - startInstruction: 2132
-      endInstruction: 2131
-      startSourceChar: 3566
-      endSourceChar: 3578
-      line: 109
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3590
+      endSourceChar: 3602
+      line: 110
       lineChar: 77
       spanCodeSection: nameof(this.
-    - startInstruction: 2132
-      endInstruction: 2159
-      startSourceChar: 3578
-      endSourceChar: 3594
-      line: 109
+    - startInstruction: 2152
+      endInstruction: 2179
+      startSourceChar: 3602
+      endSourceChar: 3618
+      line: 110
       lineChar: 89
       spanCodeSection: 'StartDrawing) : '
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3594
-      endSourceChar: 3606
-      line: 109
+    - startInstruction: 2180
+      endInstruction: 2179
+      startSourceChar: 3618
+      endSourceChar: 3630
+      line: 110
       lineChar: 105
       spanCodeSection: nameof(this.
-    - startInstruction: 2160
-      endInstruction: 2231
-      startSourceChar: 3606
-      endSourceChar: 3649
-      line: 109
+    - startInstruction: 2180
+      endInstruction: 2251
+      startSourceChar: 3630
+      endSourceChar: 3673
+      line: 110
       lineChar: 117
       spanCodeSection: "StartErasing));\n        }\n        \n        "
-    - startInstruction: 2232
-      endInstruction: 2239
-      startSourceChar: 3649
-      endSourceChar: 3694
-      line: 112
-      lineChar: 8
-      spanCodeSection: "public override void OnPickupUseUp()\n        "
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3694
-      endSourceChar: 3708
+    - startInstruction: 2252
+      endInstruction: 2259
+      startSourceChar: 3673
+      endSourceChar: 3718
       line: 113
       lineChar: 8
+      spanCodeSection: "public override void OnPickupUseUp()\n        "
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3718
+      endSourceChar: 3732
+      line: 114
+      lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3708
-      endSourceChar: 3708
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3732
+      endSourceChar: 3732
+      line: 115
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3708
-      endSourceChar: 3708
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3732
+      endSourceChar: 3732
+      line: 115
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3708
-      endSourceChar: 3731
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3732
+      endSourceChar: 3755
+      line: 115
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3731
-      endSourceChar: 3731
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3755
+      endSourceChar: 3755
+      line: 115
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3731
-      endSourceChar: 3750
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3755
+      endSourceChar: 3774
+      line: 115
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3750
-      endSourceChar: 3755
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3774
+      endSourceChar: 3779
+      line: 115
       lineChar: 54
       spanCodeSection: 'All, '
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3755
-      endSourceChar: 3755
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3779
+      endSourceChar: 3779
+      line: 115
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3755
-      endSourceChar: 3755
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3779
+      endSourceChar: 3779
+      line: 115
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 2240
-      endInstruction: 2239
-      startSourceChar: 3755
-      endSourceChar: 3763
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2259
+      startSourceChar: 3779
+      endSourceChar: 3787
+      line: 115
       lineChar: 59
       spanCodeSection: 'mode == '
-    - startInstruction: 2240
-      endInstruction: 2287
-      startSourceChar: 3763
-      endSourceChar: 3773
-      line: 114
+    - startInstruction: 2260
+      endInstruction: 2307
+      startSourceChar: 3787
+      endSourceChar: 3797
+      line: 115
       lineChar: 67
       spanCodeSection: 'ModePen ? '
-    - startInstruction: 2288
-      endInstruction: 2287
-      startSourceChar: 3773
-      endSourceChar: 3785
-      line: 114
+    - startInstruction: 2308
+      endInstruction: 2307
+      startSourceChar: 3797
+      endSourceChar: 3809
+      line: 115
       lineChar: 77
       spanCodeSection: nameof(this.
-    - startInstruction: 2288
-      endInstruction: 2315
-      startSourceChar: 3785
-      endSourceChar: 3802
-      line: 114
+    - startInstruction: 2308
+      endInstruction: 2335
+      startSourceChar: 3809
+      endSourceChar: 3826
+      line: 115
       lineChar: 89
       spanCodeSection: 'FinishDrawing) : '
-    - startInstruction: 2316
-      endInstruction: 2315
-      startSourceChar: 3802
-      endSourceChar: 3814
-      line: 114
+    - startInstruction: 2336
+      endInstruction: 2335
+      startSourceChar: 3826
+      endSourceChar: 3838
+      line: 115
       lineChar: 106
       spanCodeSection: nameof(this.
-    - startInstruction: 2316
-      endInstruction: 2387
-      startSourceChar: 3814
-      endSourceChar: 3858
-      line: 114
+    - startInstruction: 2336
+      endInstruction: 2407
+      startSourceChar: 3838
+      endSourceChar: 3882
+      line: 115
       lineChar: 118
       spanCodeSection: "FinishErasing));\n        }\n        \n        "
-    - startInstruction: 2388
-      endInstruction: 2395
-      startSourceChar: 3858
-      endSourceChar: 3892
-      line: 117
-      lineChar: 8
-      spanCodeSection: "public void ChangeToPen()\n        "
-    - startInstruction: 2396
-      endInstruction: 2395
-      startSourceChar: 3892
-      endSourceChar: 3906
+    - startInstruction: 2408
+      endInstruction: 2415
+      startSourceChar: 3882
+      endSourceChar: 3916
       line: 118
       lineChar: 8
+      spanCodeSection: "public void ChangeToPen()\n        "
+    - startInstruction: 2416
+      endInstruction: 2415
+      startSourceChar: 3916
+      endSourceChar: 3930
+      line: 119
+      lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 2396
-      endInstruction: 2395
-      startSourceChar: 3906
-      endSourceChar: 3906
-      line: 119
+    - startInstruction: 2416
+      endInstruction: 2415
+      startSourceChar: 3930
+      endSourceChar: 3930
+      line: 120
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2396
-      endInstruction: 2395
-      startSourceChar: 3906
-      endSourceChar: 3906
-      line: 119
+    - startInstruction: 2416
+      endInstruction: 2415
+      startSourceChar: 3930
+      endSourceChar: 3930
+      line: 120
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2396
-      endInstruction: 2395
-      startSourceChar: 3906
-      endSourceChar: 3913
-      line: 119
+    - startInstruction: 2416
+      endInstruction: 2415
+      startSourceChar: 3930
+      endSourceChar: 3937
+      line: 120
       lineChar: 12
       spanCodeSection: 'mode = '
-    - startInstruction: 2396
-      endInstruction: 2415
-      startSourceChar: 3913
-      endSourceChar: 3934
-      line: 119
+    - startInstruction: 2416
+      endInstruction: 2435
+      startSourceChar: 3937
+      endSourceChar: 3958
+      line: 120
       lineChar: 19
       spanCodeSection: "ModePen;\n            "
-    - startInstruction: 2416
-      endInstruction: 2415
-      startSourceChar: 3934
-      endSourceChar: 3934
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2435
+      startSourceChar: 3958
+      endSourceChar: 3958
+      line: 121
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2416
-      endInstruction: 2415
-      startSourceChar: 3934
-      endSourceChar: 3934
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2435
+      startSourceChar: 3958
+      endSourceChar: 3958
+      line: 121
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2416
-      endInstruction: 2415
-      startSourceChar: 3934
-      endSourceChar: 3934
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2435
+      startSourceChar: 3958
+      endSourceChar: 3958
+      line: 121
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2416
-      endInstruction: 2415
-      startSourceChar: 3934
-      endSourceChar: 3941
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2435
+      startSourceChar: 3958
+      endSourceChar: 3965
+      line: 121
       lineChar: 12
       spanCodeSection: eraser.
-    - startInstruction: 2416
-      endInstruction: 2415
-      startSourceChar: 3941
-      endSourceChar: 3951
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2435
+      startSourceChar: 3965
+      endSourceChar: 3975
+      line: 121
       lineChar: 19
       spanCodeSection: SetActive(
-    - startInstruction: 2416
-      endInstruction: 2491
-      startSourceChar: 3951
-      endSourceChar: 3986
-      line: 120
+    - startInstruction: 2436
+      endInstruction: 2511
+      startSourceChar: 3975
+      endSourceChar: 4010
+      line: 121
       lineChar: 29
       spanCodeSection: "false);\n        }\n        \n        "
-    - startInstruction: 2492
-      endInstruction: 2499
-      startSourceChar: 3986
-      endSourceChar: 4023
-      line: 123
-      lineChar: 8
-      spanCodeSection: "public void ChangeToEraser()\n        "
-    - startInstruction: 2500
-      endInstruction: 2499
-      startSourceChar: 4023
-      endSourceChar: 4037
+    - startInstruction: 2512
+      endInstruction: 2519
+      startSourceChar: 4010
+      endSourceChar: 4047
       line: 124
       lineChar: 8
+      spanCodeSection: "public void ChangeToEraser()\n        "
+    - startInstruction: 2520
+      endInstruction: 2519
+      startSourceChar: 4047
+      endSourceChar: 4061
+      line: 125
+      lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 2500
-      endInstruction: 2499
-      startSourceChar: 4037
-      endSourceChar: 4037
-      line: 125
+    - startInstruction: 2520
+      endInstruction: 2519
+      startSourceChar: 4061
+      endSourceChar: 4061
+      line: 126
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2500
-      endInstruction: 2499
-      startSourceChar: 4037
-      endSourceChar: 4037
-      line: 125
+    - startInstruction: 2520
+      endInstruction: 2519
+      startSourceChar: 4061
+      endSourceChar: 4061
+      line: 126
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2500
-      endInstruction: 2499
-      startSourceChar: 4037
-      endSourceChar: 4044
-      line: 125
+    - startInstruction: 2520
+      endInstruction: 2519
+      startSourceChar: 4061
+      endSourceChar: 4068
+      line: 126
       lineChar: 12
       spanCodeSection: 'mode = '
-    - startInstruction: 2500
-      endInstruction: 2519
-      startSourceChar: 4044
-      endSourceChar: 4068
-      line: 125
+    - startInstruction: 2520
+      endInstruction: 2539
+      startSourceChar: 4068
+      endSourceChar: 4092
+      line: 126
       lineChar: 19
       spanCodeSection: "ModeEraser;\n            "
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 4068
-      endSourceChar: 4068
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2539
+      startSourceChar: 4092
+      endSourceChar: 4092
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 4068
-      endSourceChar: 4068
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2539
+      startSourceChar: 4092
+      endSourceChar: 4092
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 4068
-      endSourceChar: 4068
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2539
+      startSourceChar: 4092
+      endSourceChar: 4092
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 4068
-      endSourceChar: 4075
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2539
+      startSourceChar: 4092
+      endSourceChar: 4099
+      line: 127
       lineChar: 12
       spanCodeSection: eraser.
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 4075
-      endSourceChar: 4085
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2539
+      startSourceChar: 4099
+      endSourceChar: 4109
+      line: 127
       lineChar: 19
       spanCodeSection: SetActive(
-    - startInstruction: 2520
-      endInstruction: 2595
-      startSourceChar: 4085
-      endSourceChar: 4111
-      line: 126
+    - startInstruction: 2540
+      endInstruction: 2615
+      startSourceChar: 4109
+      endSourceChar: 4135
+      line: 127
       lineChar: 29
       spanCodeSection: "true);\n        }\n\n        "
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4111
-      endSourceChar: 4119
-      line: 129
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4135
+      endSourceChar: 4143
+      line: 130
       lineChar: 8
       spanCodeSection: 'private '
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4119
-      endSourceChar: 4119
-      line: 129
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4143
+      endSourceChar: 4143
+      line: 130
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4119
-      endSourceChar: 4143
-      line: 129
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4143
+      endSourceChar: 4167
+      line: 130
       lineChar: 16
       spanCodeSection: "bool isDrawing;\n        "
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4143
-      endSourceChar: 4151
-      line: 130
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4167
+      endSourceChar: 4175
+      line: 131
       lineChar: 8
       spanCodeSection: 'private '
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4151
-      endSourceChar: 4151
-      line: 130
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4175
+      endSourceChar: 4175
+      line: 131
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 4151
-      endSourceChar: 4176
-      line: 130
+    - startInstruction: 2616
+      endInstruction: 2615
+      startSourceChar: 4175
+      endSourceChar: 4200
+      line: 131
       lineChar: 16
       spanCodeSection: "bool isErasing;\n\n        "
-    - startInstruction: 2596
-      endInstruction: 2603
-      startSourceChar: 4176
-      endSourceChar: 4211
-      line: 132
-      lineChar: 8
-      spanCodeSection: "public void StartDrawing()\n        "
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 4211
-      endSourceChar: 4225
+    - startInstruction: 2616
+      endInstruction: 2623
+      startSourceChar: 4200
+      endSourceChar: 4235
       line: 133
       lineChar: 8
+      spanCodeSection: "public void StartDrawing()\n        "
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 4235
+      endSourceChar: 4249
+      line: 134
+      lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 4225
-      endSourceChar: 4229
-      line: 134
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 4229
-      endSourceChar: 4229
-      line: 134
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 4229
-      endSourceChar: 4237
-      line: 134
-      lineChar: 16
-      spanCodeSection: 'mode != '
-    - startInstruction: 2604
-      endInstruction: 2651
-      startSourceChar: 4237
-      endSourceChar: 4258
-      line: 134
-      lineChar: 24
-      spanCodeSection: "ModePen)\n            "
-    - startInstruction: 2652
-      endInstruction: 2651
-      startSourceChar: 4258
-      endSourceChar: 4276
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 4249
+      endSourceChar: 4253
       line: 135
       lineChar: 12
-      spanCodeSection: "{\n                "
-    - startInstruction: 2652
-      endInstruction: 2651
-      startSourceChar: 4276
-      endSourceChar: 4276
-      line: 136
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2652
-      endInstruction: 2651
-      startSourceChar: 4276
-      endSourceChar: 4276
-      line: 136
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2652
-      endInstruction: 2667
-      startSourceChar: 4276
-      endSourceChar: 4330
-      line: 136
-      lineChar: 16
-      spanCodeSection: "ChangeToPen();\n            }\n            \n            "
-    - startInstruction: 2668
-      endInstruction: 2667
-      startSourceChar: 4330
-      endSourceChar: 4333
-      line: 139
-      lineChar: 12
-      spanCodeSection: if(
-    - startInstruction: 2668
-      endInstruction: 2683
-      startSourceChar: 4333
-      endSourceChar: 4344
-      line: 139
-      lineChar: 15
-      spanCodeSection: 'isDrawing) '
-    - startInstruction: 2684
-      endInstruction: 2703
-      startSourceChar: 4344
-      endSourceChar: 4364
-      line: 139
-      lineChar: 26
-      spanCodeSection: "return;\n            "
-    - startInstruction: 2704
-      endInstruction: 2703
-      startSourceChar: 4364
-      endSourceChar: 4364
-      line: 140
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2704
-      endInstruction: 2703
-      startSourceChar: 4364
-      endSourceChar: 4364
-      line: 140
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2704
-      endInstruction: 2719
-      startSourceChar: 4364
-      endSourceChar: 4388
-      line: 140
-      lineChar: 12
-      spanCodeSection: "SpawnInk();\n            "
-    - startInstruction: 2720
-      endInstruction: 2719
-      startSourceChar: 4388
-      endSourceChar: 4388
-      line: 141
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2720
-      endInstruction: 2719
-      startSourceChar: 4388
-      endSourceChar: 4388
-      line: 141
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2720
-      endInstruction: 2719
-      startSourceChar: 4388
-      endSourceChar: 4400
-      line: 141
-      lineChar: 12
-      spanCodeSection: 'isDrawing = '
-    - startInstruction: 2720
-      endInstruction: 2759
-      startSourceChar: 4400
-      endSourceChar: 4425
-      line: 141
-      lineChar: 24
-      spanCodeSection: "true;\n        }\n\n        "
-    - startInstruction: 2760
-      endInstruction: 2767
-      startSourceChar: 4425
-      endSourceChar: 4460
-      line: 144
-      lineChar: 8
-      spanCodeSection: "public void StartErasing()\n        "
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 4460
-      endSourceChar: 4474
-      line: 145
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 4474
-      endSourceChar: 4478
-      line: 146
-      lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 4478
-      endSourceChar: 4478
-      line: 146
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 4253
+      endSourceChar: 4253
+      line: 135
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 4478
-      endSourceChar: 4486
-      line: 146
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 4253
+      endSourceChar: 4261
+      line: 135
       lineChar: 16
       spanCodeSection: 'mode != '
-    - startInstruction: 2768
-      endInstruction: 2815
-      startSourceChar: 4486
-      endSourceChar: 4510
-      line: 146
-      lineChar: 24
-      spanCodeSection: "ModeEraser)\n            "
-    - startInstruction: 2816
-      endInstruction: 2815
-      startSourceChar: 4510
-      endSourceChar: 4528
-      line: 147
-      lineChar: 12
-      spanCodeSection: "{\n                "
-    - startInstruction: 2816
-      endInstruction: 2815
-      startSourceChar: 4528
-      endSourceChar: 4528
-      line: 148
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2816
-      endInstruction: 2815
-      startSourceChar: 4528
-      endSourceChar: 4528
-      line: 148
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2816
-      endInstruction: 2831
-      startSourceChar: 4528
-      endSourceChar: 4585
-      line: 148
-      lineChar: 16
-      spanCodeSection: "ChangeToEraser();\n            }\n            \n            "
-    - startInstruction: 2832
-      endInstruction: 2831
-      startSourceChar: 4585
-      endSourceChar: 4588
-      line: 151
-      lineChar: 12
-      spanCodeSection: if(
-    - startInstruction: 2832
-      endInstruction: 2847
-      startSourceChar: 4588
-      endSourceChar: 4599
-      line: 151
-      lineChar: 15
-      spanCodeSection: 'isErasing) '
-    - startInstruction: 2848
-      endInstruction: 2867
-      startSourceChar: 4599
-      endSourceChar: 4619
-      line: 151
-      lineChar: 26
-      spanCodeSection: "return;\n            "
-    - startInstruction: 2868
-      endInstruction: 2867
-      startSourceChar: 4619
-      endSourceChar: 4619
-      line: 152
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2868
-      endInstruction: 2867
-      startSourceChar: 4619
-      endSourceChar: 4619
-      line: 152
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2868
-      endInstruction: 2867
-      startSourceChar: 4619
-      endSourceChar: 4619
-      line: 152
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2868
-      endInstruction: 2867
-      startSourceChar: 4619
-      endSourceChar: 4626
-      line: 152
-      lineChar: 12
-      spanCodeSection: eraser.
-    - startInstruction: 2868
-      endInstruction: 2891
-      startSourceChar: 4626
-      endSourceChar: 4654
-      line: 152
-      lineChar: 19
-      spanCodeSection: "StartErasing();\n            "
-    - startInstruction: 2892
-      endInstruction: 2891
-      startSourceChar: 4654
-      endSourceChar: 4654
-      line: 153
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2892
-      endInstruction: 2891
-      startSourceChar: 4654
-      endSourceChar: 4654
-      line: 153
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2892
-      endInstruction: 2891
-      startSourceChar: 4654
-      endSourceChar: 4666
-      line: 153
-      lineChar: 12
-      spanCodeSection: 'isErasing = '
-    - startInstruction: 2892
-      endInstruction: 2931
-      startSourceChar: 4666
-      endSourceChar: 4691
-      line: 153
-      lineChar: 24
-      spanCodeSection: "true;\n        }\n\n        "
-    - startInstruction: 2932
-      endInstruction: 2939
-      startSourceChar: 4691
-      endSourceChar: 4727
-      line: 156
-      lineChar: 8
-      spanCodeSection: "public void FinishDrawing()\n        "
-    - startInstruction: 2940
-      endInstruction: 2939
-      startSourceChar: 4727
-      endSourceChar: 4741
-      line: 157
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 2940
-      endInstruction: 2939
-      startSourceChar: 4741
-      endSourceChar: 4745
-      line: 158
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 2940
-      endInstruction: 2939
-      startSourceChar: 4745
-      endSourceChar: 4745
-      line: 158
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2940
-      endInstruction: 2939
-      startSourceChar: 4745
-      endSourceChar: 4753
-      line: 158
-      lineChar: 16
-      spanCodeSection: 'mode != '
-    - startInstruction: 2940
-      endInstruction: 2987
-      startSourceChar: 4753
-      endSourceChar: 4774
-      line: 158
+    - startInstruction: 2624
+      endInstruction: 2671
+      startSourceChar: 4261
+      endSourceChar: 4282
+      line: 135
       lineChar: 24
       spanCodeSection: "ModePen)\n            "
-    - startInstruction: 2988
-      endInstruction: 2987
-      startSourceChar: 4774
-      endSourceChar: 4792
-      line: 159
+    - startInstruction: 2672
+      endInstruction: 2671
+      startSourceChar: 4282
+      endSourceChar: 4300
+      line: 136
       lineChar: 12
       spanCodeSection: "{\n                "
-    - startInstruction: 2988
-      endInstruction: 2987
-      startSourceChar: 4792
-      endSourceChar: 4792
-      line: 160
+    - startInstruction: 2672
+      endInstruction: 2671
+      startSourceChar: 4300
+      endSourceChar: 4300
+      line: 137
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2988
-      endInstruction: 2987
-      startSourceChar: 4792
-      endSourceChar: 4792
-      line: 160
+    - startInstruction: 2672
+      endInstruction: 2671
+      startSourceChar: 4300
+      endSourceChar: 4300
+      line: 137
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2988
-      endInstruction: 3003
-      startSourceChar: 4792
-      endSourceChar: 4834
-      line: 160
+    - startInstruction: 2672
+      endInstruction: 2687
+      startSourceChar: 4300
+      endSourceChar: 4354
+      line: 137
       lineChar: 16
-      spanCodeSection: "ChangeToPen();\n            }\n\n            "
-    - startInstruction: 3004
-      endInstruction: 3003
-      startSourceChar: 4834
-      endSourceChar: 4838
-      line: 163
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 3004
-      endInstruction: 3003
-      startSourceChar: 4838
-      endSourceChar: 4839
-      line: 163
-      lineChar: 16
-      spanCodeSection: '!'
-    - startInstruction: 3004
-      endInstruction: 3043
-      startSourceChar: 4839
-      endSourceChar: 4850
-      line: 163
-      lineChar: 17
-      spanCodeSection: 'isDrawing) '
-    - startInstruction: 3044
-      endInstruction: 3063
-      startSourceChar: 4850
-      endSourceChar: 4870
-      line: 163
-      lineChar: 28
-      spanCodeSection: "return;\n            "
-    - startInstruction: 3064
-      endInstruction: 3063
-      startSourceChar: 4870
-      endSourceChar: 4874
-      line: 164
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 3064
-      endInstruction: 3063
-      startSourceChar: 4874
-      endSourceChar: 4874
-      line: 164
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3064
-      endInstruction: 3063
-      startSourceChar: 4874
-      endSourceChar: 4889
-      line: 164
-      lineChar: 16
-      spanCodeSection: 'inkInstance != '
-    - startInstruction: 3064
-      endInstruction: 3111
-      startSourceChar: 4889
-      endSourceChar: 4907
-      line: 164
-      lineChar: 31
-      spanCodeSection: "null)\n            "
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4907
-      endSourceChar: 4925
-      line: 165
-      lineChar: 12
-      spanCodeSection: "{\n                "
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4925
-      endSourceChar: 4925
-      line: 166
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4925
-      endSourceChar: 4925
-      line: 166
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4925
-      endSourceChar: 4925
-      line: 166
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4925
-      endSourceChar: 4925
-      line: 166
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4925
-      endSourceChar: 4937
-      line: 166
-      lineChar: 16
-      spanCodeSection: inkInstance.
-    - startInstruction: 3112
-      endInstruction: 3111
-      startSourceChar: 4937
-      endSourceChar: 4947
-      line: 166
-      lineChar: 28
-      spanCodeSection: transform.
-    - startInstruction: 3112
-      endInstruction: 3135
-      startSourceChar: 4947
-      endSourceChar: 4957
-      line: 166
-      lineChar: 38
-      spanCodeSection: SetParent(
-    - startInstruction: 3136
-      endInstruction: 3159
-      startSourceChar: 4957
-      endSourceChar: 4983
-      line: 166
-      lineChar: 48
-      spanCodeSection: "inkPool);\n                "
-    - startInstruction: 3160
-      endInstruction: 3159
-      startSourceChar: 4983
-      endSourceChar: 4987
-      line: 167
-      lineChar: 16
-      spanCodeSection: if (
-    - startInstruction: 3160
-      endInstruction: 3175
-      startSourceChar: 4987
-      endSourceChar: 5021
-      line: 167
-      lineChar: 20
-      spanCodeSection: "isInkInitialized)\n                "
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 5021
-      endSourceChar: 5043
-      line: 168
-      lineChar: 16
-      spanCodeSection: "{\n                    "
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 5043
-      endSourceChar: 5043
-      line: 169
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 5043
-      endSourceChar: 5043
-      line: 169
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 5043
-      endSourceChar: 5043
-      line: 169
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 5043
-      endSourceChar: 5047
-      line: 169
-      lineChar: 20
-      spanCodeSection: ink.
-    - startInstruction: 3176
-      endInstruction: 3199
-      startSourceChar: 5047
-      endSourceChar: 5084
-      line: 169
-      lineChar: 24
-      spanCodeSection: "FinishDrawing();\n                    "
-    - startInstruction: 3200
-      endInstruction: 3199
-      startSourceChar: 5084
-      endSourceChar: 5084
-      line: 170
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 3200
-      endInstruction: 3199
-      startSourceChar: 5084
-      endSourceChar: 5084
-      line: 170
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 3200
-      endInstruction: 3199
-      startSourceChar: 5084
-      endSourceChar: 5092
-      line: 170
-      lineChar: 20
-      spanCodeSection: Destroy(
-    - startInstruction: 3200
-      endInstruction: 3215
-      startSourceChar: 5092
-      endSourceChar: 5142
-      line: 170
-      lineChar: 28
-      spanCodeSection: "ink);\n                }\n            }\n            "
-    - startInstruction: 3216
-      endInstruction: 3215
-      startSourceChar: 5142
-      endSourceChar: 5142
-      line: 173
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3216
-      endInstruction: 3215
-      startSourceChar: 5142
-      endSourceChar: 5142
-      line: 173
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3216
-      endInstruction: 3215
-      startSourceChar: 5142
-      endSourceChar: 5156
-      line: 173
-      lineChar: 12
-      spanCodeSection: 'inkInstance = '
-    - startInstruction: 3216
-      endInstruction: 3235
-      startSourceChar: 5156
-      endSourceChar: 5174
-      line: 173
-      lineChar: 26
-      spanCodeSection: "null;\n            "
-    - startInstruction: 3236
-      endInstruction: 3235
-      startSourceChar: 5174
-      endSourceChar: 5174
-      line: 174
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3236
-      endInstruction: 3235
-      startSourceChar: 5174
-      endSourceChar: 5174
-      line: 174
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3236
-      endInstruction: 3235
-      startSourceChar: 5174
-      endSourceChar: 5186
-      line: 174
-      lineChar: 12
-      spanCodeSection: 'isDrawing = '
-    - startInstruction: 3236
-      endInstruction: 3275
-      startSourceChar: 5186
-      endSourceChar: 5212
-      line: 174
-      lineChar: 24
-      spanCodeSection: "false;\n        }\n\n        "
-    - startInstruction: 3276
-      endInstruction: 3283
-      startSourceChar: 5212
-      endSourceChar: 5248
-      line: 177
-      lineChar: 8
-      spanCodeSection: "public void FinishErasing()\n        "
-    - startInstruction: 3284
-      endInstruction: 3283
-      startSourceChar: 5248
-      endSourceChar: 5262
-      line: 178
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 3284
-      endInstruction: 3283
-      startSourceChar: 5262
-      endSourceChar: 5266
-      line: 179
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 3284
-      endInstruction: 3283
-      startSourceChar: 5266
-      endSourceChar: 5266
-      line: 179
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3284
-      endInstruction: 3283
-      startSourceChar: 5266
-      endSourceChar: 5274
-      line: 179
-      lineChar: 16
-      spanCodeSection: 'mode != '
-    - startInstruction: 3284
-      endInstruction: 3331
-      startSourceChar: 5274
-      endSourceChar: 5298
-      line: 179
-      lineChar: 24
-      spanCodeSection: "ModeEraser)\n            "
-    - startInstruction: 3332
-      endInstruction: 3331
-      startSourceChar: 5298
-      endSourceChar: 5316
-      line: 180
-      lineChar: 12
-      spanCodeSection: "{\n                "
-    - startInstruction: 3332
-      endInstruction: 3331
-      startSourceChar: 5316
-      endSourceChar: 5316
-      line: 181
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3332
-      endInstruction: 3331
-      startSourceChar: 5316
-      endSourceChar: 5316
-      line: 181
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 3332
-      endInstruction: 3347
-      startSourceChar: 5316
-      endSourceChar: 5373
-      line: 181
-      lineChar: 16
-      spanCodeSection: "ChangeToEraser();\n            }\n            \n            "
-    - startInstruction: 3348
-      endInstruction: 3347
-      startSourceChar: 5373
-      endSourceChar: 5376
-      line: 184
+      spanCodeSection: "ChangeToPen();\n            }\n            \n            "
+    - startInstruction: 2688
+      endInstruction: 2687
+      startSourceChar: 4354
+      endSourceChar: 4357
+      line: 140
       lineChar: 12
       spanCodeSection: if(
-    - startInstruction: 3348
-      endInstruction: 3347
-      startSourceChar: 5376
-      endSourceChar: 5377
-      line: 184
+    - startInstruction: 2688
+      endInstruction: 2703
+      startSourceChar: 4357
+      endSourceChar: 4368
+      line: 140
       lineChar: 15
-      spanCodeSection: '!'
-    - startInstruction: 3348
-      endInstruction: 3387
-      startSourceChar: 5377
-      endSourceChar: 5388
-      line: 184
-      lineChar: 16
-      spanCodeSection: 'isErasing) '
-    - startInstruction: 3388
-      endInstruction: 3407
-      startSourceChar: 5388
-      endSourceChar: 5408
-      line: 184
-      lineChar: 27
+      spanCodeSection: 'isDrawing) '
+    - startInstruction: 2704
+      endInstruction: 2723
+      startSourceChar: 4368
+      endSourceChar: 4388
+      line: 140
+      lineChar: 26
       spanCodeSection: "return;\n            "
-    - startInstruction: 3408
-      endInstruction: 3407
-      startSourceChar: 5408
-      endSourceChar: 5408
-      line: 185
+    - startInstruction: 2724
+      endInstruction: 2723
+      startSourceChar: 4388
+      endSourceChar: 4388
+      line: 141
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3408
-      endInstruction: 3407
-      startSourceChar: 5408
-      endSourceChar: 5408
-      line: 185
+    - startInstruction: 2724
+      endInstruction: 2723
+      startSourceChar: 4388
+      endSourceChar: 4388
+      line: 141
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3408
-      endInstruction: 3407
-      startSourceChar: 5408
-      endSourceChar: 5408
-      line: 185
+    - startInstruction: 2724
+      endInstruction: 2739
+      startSourceChar: 4388
+      endSourceChar: 4412
+      line: 141
+      lineChar: 12
+      spanCodeSection: "SpawnInk();\n            "
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 4412
+      endSourceChar: 4412
+      line: 142
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3408
-      endInstruction: 3407
-      startSourceChar: 5408
-      endSourceChar: 5415
-      line: 185
-      lineChar: 12
-      spanCodeSection: eraser.
-    - startInstruction: 3408
-      endInstruction: 3431
-      startSourceChar: 5415
-      endSourceChar: 5444
-      line: 185
-      lineChar: 19
-      spanCodeSection: "FinishErasing();\n            "
-    - startInstruction: 3432
-      endInstruction: 3431
-      startSourceChar: 5444
-      endSourceChar: 5444
-      line: 186
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 4412
+      endSourceChar: 4412
+      line: 142
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3432
-      endInstruction: 3431
-      startSourceChar: 5444
-      endSourceChar: 5444
-      line: 186
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 4412
+      endSourceChar: 4424
+      line: 142
       lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3432
-      endInstruction: 3431
-      startSourceChar: 5444
-      endSourceChar: 5456
-      line: 186
-      lineChar: 12
-      spanCodeSection: 'isErasing = '
-    - startInstruction: 3432
-      endInstruction: 3471
-      startSourceChar: 5456
-      endSourceChar: 5482
-      line: 186
+      spanCodeSection: 'isDrawing = '
+    - startInstruction: 2740
+      endInstruction: 2779
+      startSourceChar: 4424
+      endSourceChar: 4449
+      line: 142
       lineChar: 24
-      spanCodeSection: "false;\n        }\n\n        "
-    - startInstruction: 3472
-      endInstruction: 3479
-      startSourceChar: 5482
-      endSourceChar: 5514
-      line: 189
+      spanCodeSection: "true;\n        }\n\n        "
+    - startInstruction: 2780
+      endInstruction: 2787
+      startSourceChar: 4449
+      endSourceChar: 4484
+      line: 145
       lineChar: 8
-      spanCodeSection: "private void SpawnInk()\n        "
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5514
-      endSourceChar: 5528
-      line: 190
+      spanCodeSection: "public void StartErasing()\n        "
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 4484
+      endSourceChar: 4498
+      line: 146
       lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5528
-      endSourceChar: 5528
-      line: 191
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5528
-      endSourceChar: 5528
-      line: 191
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5528
-      endSourceChar: 5542
-      line: 191
-      lineChar: 12
-      spanCodeSection: 'inkInstance = '
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5542
-      endSourceChar: 5542
-      line: 191
-      lineChar: 26
-      spanCodeSection: 
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5542
-      endSourceChar: 5557
-      line: 191
-      lineChar: 26
-      spanCodeSection: VRCInstantiate(
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5557
-      endSourceChar: 5557
-      line: 191
-      lineChar: 41
-      spanCodeSection: 
-    - startInstruction: 3480
-      endInstruction: 3479
-      startSourceChar: 5557
-      endSourceChar: 5567
-      line: 191
-      lineChar: 41
-      spanCodeSection: inkPrefab.
-    - startInstruction: 3480
-      endInstruction: 3527
-      startSourceChar: 5567
-      endSourceChar: 5592
-      line: 191
-      lineChar: 51
-      spanCodeSection: "gameObject);\n            "
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5592
-      endSourceChar: 5592
-      line: 192
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5592
-      endSourceChar: 5592
-      line: 192
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5592
-      endSourceChar: 5592
-      line: 192
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5592
-      endSourceChar: 5604
-      line: 192
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5604
-      endSourceChar: 5611
-      line: 192
-      lineChar: 24
-      spanCodeSection: 'name = '
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5611
-      endSourceChar: 5611
-      line: 192
-      lineChar: 31
-      spanCodeSection: 
-    - startInstruction: 3528
-      endInstruction: 3527
-      startSourceChar: 5611
-      endSourceChar: 5621
-      line: 192
-      lineChar: 31
-      spanCodeSection: inkPrefab.
-    - startInstruction: 3528
-      endInstruction: 3575
-      startSourceChar: 5621
-      endSourceChar: 5640
-      line: 192
-      lineChar: 41
-      spanCodeSection: "name;\n\n            "
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5640
-      endSourceChar: 5640
-      line: 194
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5640
-      endSourceChar: 5640
-      line: 194
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5640
-      endSourceChar: 5640
-      line: 194
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5640
-      endSourceChar: 5640
-      line: 194
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5640
-      endSourceChar: 5652
-      line: 194
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3576
-      endInstruction: 3575
-      startSourceChar: 5652
-      endSourceChar: 5662
-      line: 194
-      lineChar: 24
-      spanCodeSection: transform.
-    - startInstruction: 3576
-      endInstruction: 3599
-      startSourceChar: 5662
-      endSourceChar: 5672
-      line: 194
-      lineChar: 34
-      spanCodeSection: SetParent(
-    - startInstruction: 3600
-      endInstruction: 3623
-      startSourceChar: 5672
-      endSourceChar: 5698
-      line: 194
-      lineChar: 44
-      spanCodeSection: "spawnTarget);\n            "
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5698
-      endSourceChar: 5698
-      line: 195
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5698
-      endSourceChar: 5698
-      line: 195
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5698
-      endSourceChar: 5698
-      line: 195
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5698
-      endSourceChar: 5698
-      line: 195
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5698
-      endSourceChar: 5710
-      line: 195
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 5710
-      endSourceChar: 5720
-      line: 195
-      lineChar: 24
-      spanCodeSection: transform.
-    - startInstruction: 3624
-      endInstruction: 3647
-      startSourceChar: 5720
-      endSourceChar: 5736
-      line: 195
-      lineChar: 34
-      spanCodeSection: 'localPosition = '
-    - startInstruction: 3648
-      endInstruction: 3647
-      startSourceChar: 5736
-      endSourceChar: 5736
-      line: 195
-      lineChar: 50
-      spanCodeSection: 
-    - startInstruction: 3648
-      endInstruction: 3647
-      startSourceChar: 5736
-      endSourceChar: 5744
-      line: 195
-      lineChar: 50
-      spanCodeSection: Vector3.
-    - startInstruction: 3648
-      endInstruction: 3687
-      startSourceChar: 5744
-      endSourceChar: 5762
-      line: 195
-      lineChar: 58
-      spanCodeSection: "zero;\n            "
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5762
-      endSourceChar: 5762
-      line: 196
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5762
-      endSourceChar: 5762
-      line: 196
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5762
-      endSourceChar: 5762
-      line: 196
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5762
-      endSourceChar: 5762
-      line: 196
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5762
-      endSourceChar: 5774
-      line: 196
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3688
-      endInstruction: 3687
-      startSourceChar: 5774
-      endSourceChar: 5784
-      line: 196
-      lineChar: 24
-      spanCodeSection: transform.
-    - startInstruction: 3688
-      endInstruction: 3711
-      startSourceChar: 5784
-      endSourceChar: 5800
-      line: 196
-      lineChar: 34
-      spanCodeSection: 'localRotation = '
-    - startInstruction: 3712
-      endInstruction: 3711
-      startSourceChar: 5800
-      endSourceChar: 5800
-      line: 196
-      lineChar: 50
-      spanCodeSection: 
-    - startInstruction: 3712
-      endInstruction: 3711
-      startSourceChar: 5800
-      endSourceChar: 5811
-      line: 196
-      lineChar: 50
-      spanCodeSection: Quaternion.
-    - startInstruction: 3712
-      endInstruction: 3751
-      startSourceChar: 5811
-      endSourceChar: 5833
-      line: 196
-      lineChar: 61
-      spanCodeSection: "identity;\n            "
-    - startInstruction: 3752
-      endInstruction: 3751
-      startSourceChar: 5833
-      endSourceChar: 5833
-      line: 197
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3752
-      endInstruction: 3751
-      startSourceChar: 5833
-      endSourceChar: 5833
-      line: 197
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3752
-      endInstruction: 3751
-      startSourceChar: 5833
-      endSourceChar: 5833
-      line: 197
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3752
-      endInstruction: 3751
-      startSourceChar: 5833
-      endSourceChar: 5845
-      line: 197
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3752
-      endInstruction: 3751
-      startSourceChar: 5845
-      endSourceChar: 5855
-      line: 197
-      lineChar: 24
-      spanCodeSection: SetActive(
-    - startInstruction: 3752
-      endInstruction: 3775
-      startSourceChar: 5855
-      endSourceChar: 5874
-      line: 197
-      lineChar: 34
-      spanCodeSection: "true);\n            "
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5874
-      line: 198
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5874
-      line: 198
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5874
-      line: 198
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5874
-      line: 198
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5874
-      line: 198
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5874
-      endSourceChar: 5886
-      line: 198
-      lineChar: 12
-      spanCodeSection: inkInstance.
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5886
-      endSourceChar: 5898
-      line: 198
-      lineChar: 24
-      spanCodeSection: GetComponent
-    - startInstruction: 3776
-      endInstruction: 3775
-      startSourceChar: 5898
-      endSourceChar: 5899
-      line: 198
-      lineChar: 36
-      spanCodeSection: <
-    - startInstruction: 3776
-      endInstruction: 3831
-      startSourceChar: 5899
-      endSourceChar: 5916
-      line: 198
-      lineChar: 37
-      spanCodeSection: TrailRenderer>().
-    - startInstruction: 3832
-      endInstruction: 3831
-      startSourceChar: 5916
-      endSourceChar: 5926
-      line: 198
-      lineChar: 54
-      spanCodeSection: 'enabled = '
-    - startInstruction: 3832
-      endInstruction: 3855
-      startSourceChar: 5926
-      endSourceChar: 5944
-      line: 198
-      lineChar: 64
-      spanCodeSection: "true;\n            "
-    - startInstruction: 3856
-      endInstruction: 3855
-      startSourceChar: 5944
-      endSourceChar: 5944
-      line: 199
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3856
-      endInstruction: 3855
-      startSourceChar: 5944
-      endSourceChar: 5944
-      line: 199
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3856
-      endInstruction: 3855
-      startSourceChar: 5944
-      endSourceChar: 5970
-      line: 199
-      lineChar: 12
-      spanCodeSection: 'isInitializeInkRequired = '
-    - startInstruction: 3856
-      endInstruction: 3875
-      startSourceChar: 5970
-      endSourceChar: 5988
-      line: 199
-      lineChar: 38
-      spanCodeSection: "true;\n            "
-    - startInstruction: 3876
-      endInstruction: 3875
-      startSourceChar: 5988
-      endSourceChar: 5988
-      line: 200
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3876
-      endInstruction: 3875
-      startSourceChar: 5988
-      endSourceChar: 5988
-      line: 200
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3876
-      endInstruction: 3875
-      startSourceChar: 5988
-      endSourceChar: 6007
-      line: 200
-      lineChar: 12
-      spanCodeSection: 'isInkInitialized = '
-    - startInstruction: 3876
-      endInstruction: 3915
-      startSourceChar: 6007
-      endSourceChar: 6033
-      line: 200
-      lineChar: 31
-      spanCodeSection: "false;\n        }\n\n        "
-    - startInstruction: 3916
-      endInstruction: 3923
-      startSourceChar: 6033
-      endSourceChar: 6063
-      line: 203
-      lineChar: 8
-      spanCodeSection: "public void Respawn()\n        "
-    - startInstruction: 3924
-      endInstruction: 3923
-      startSourceChar: 6063
-      endSourceChar: 6077
-      line: 204
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 3924
-      endInstruction: 3923
-      startSourceChar: 6077
-      endSourceChar: 6081
-      line: 205
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 4498
+      endSourceChar: 4502
+      line: 147
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 3924
-      endInstruction: 3963
-      startSourceChar: 6081
-      endSourceChar: 6089
-      line: 205
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 4502
+      endSourceChar: 4502
+      line: 147
       lineChar: 16
-      spanCodeSection: 'pickup) '
-    - startInstruction: 3964
-      endInstruction: 3963
-      startSourceChar: 6089
-      endSourceChar: 6089
-      line: 205
+      spanCodeSection: 
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 4502
+      endSourceChar: 4510
+      line: 147
+      lineChar: 16
+      spanCodeSection: 'mode != '
+    - startInstruction: 2788
+      endInstruction: 2835
+      startSourceChar: 4510
+      endSourceChar: 4534
+      line: 147
       lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 3964
-      endInstruction: 3963
-      startSourceChar: 6089
-      endSourceChar: 6089
-      line: 205
-      lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 3964
-      endInstruction: 3963
-      startSourceChar: 6089
-      endSourceChar: 6089
-      line: 205
-      lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 3964
-      endInstruction: 3963
-      startSourceChar: 6089
-      endSourceChar: 6096
-      line: 205
-      lineChar: 24
-      spanCodeSection: pickup.
-    - startInstruction: 3964
-      endInstruction: 3979
-      startSourceChar: 6096
-      endSourceChar: 6116
-      line: 205
-      lineChar: 31
-      spanCodeSection: "Drop();\n            "
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 6116
-      endSourceChar: 6116
-      line: 206
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 6116
-      endSourceChar: 6116
-      line: 206
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 6116
-      endSourceChar: 6116
-      line: 206
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 6116
-      endSourceChar: 6126
-      line: 206
-      lineChar: 12
-      spanCodeSection: transform.
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 6126
-      endSourceChar: 6137
-      line: 206
-      lineChar: 22
-      spanCodeSection: 'position = '
-    - startInstruction: 3980
-      endInstruction: 4003
-      startSourceChar: 6137
-      endSourceChar: 6166
-      line: 206
-      lineChar: 33
-      spanCodeSection: "defaultPosition;\n            "
-    - startInstruction: 4004
-      endInstruction: 4003
-      startSourceChar: 6166
-      endSourceChar: 6166
-      line: 207
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 4004
-      endInstruction: 4003
-      startSourceChar: 6166
-      endSourceChar: 6166
-      line: 207
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 4004
-      endInstruction: 4003
-      startSourceChar: 6166
-      endSourceChar: 6166
-      line: 207
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 4004
-      endInstruction: 4003
-      startSourceChar: 6166
-      endSourceChar: 6176
-      line: 207
-      lineChar: 12
-      spanCodeSection: transform.
-    - startInstruction: 4004
-      endInstruction: 4003
-      startSourceChar: 6176
-      endSourceChar: 6187
-      line: 207
-      lineChar: 22
-      spanCodeSection: 'rotation = '
-    - startInstruction: 4004
-      endInstruction: 4047
-      startSourceChar: 6187
-      endSourceChar: 6231
-      line: 207
-      lineChar: 33
-      spanCodeSection: "defaultRotation;\n        }\n        \n        "
-    - startInstruction: 4048
-      endInstruction: 4055
-      startSourceChar: 6231
-      endSourceChar: 6259
-      line: 210
-      lineChar: 8
-      spanCodeSection: "public void Clear()\n        "
-    - startInstruction: 4056
-      endInstruction: 4055
-      startSourceChar: 6259
-      endSourceChar: 6273
-      line: 211
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 4056
-      endInstruction: 4055
-      startSourceChar: 6273
-      endSourceChar: 6278
-      line: 212
-      lineChar: 12
-      spanCodeSection: for (
-    - startInstruction: 4056
-      endInstruction: 4055
-      startSourceChar: 6278
-      endSourceChar: 6278
-      line: 212
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 4056
-      endInstruction: 4055
-      startSourceChar: 6278
-      endSourceChar: 6284
-      line: 212
-      lineChar: 17
-      spanCodeSection: 'var i '
-    - startInstruction: 4056
-      endInstruction: 4055
-      startSourceChar: 6284
-      endSourceChar: 6286
-      line: 212
-      lineChar: 23
-      spanCodeSection: '= '
-    - startInstruction: 4056
-      endInstruction: 4075
-      startSourceChar: 6286
-      endSourceChar: 6289
-      line: 212
-      lineChar: 25
-      spanCodeSection: '0; '
-    - startInstruction: 4076
-      endInstruction: 4075
-      startSourceChar: 6289
-      endSourceChar: 6289
-      line: 212
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 4076
-      endInstruction: 4075
-      startSourceChar: 6289
-      endSourceChar: 6293
-      line: 212
-      lineChar: 28
-      spanCodeSection: 'i < '
-    - startInstruction: 4076
-      endInstruction: 4075
-      startSourceChar: 6293
-      endSourceChar: 6293
-      line: 212
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 4076
-      endInstruction: 4075
-      startSourceChar: 6293
-      endSourceChar: 6301
-      line: 212
-      lineChar: 32
-      spanCodeSection: inkPool.
-    - startInstruction: 4076
-      endInstruction: 4147
-      startSourceChar: 6301
-      endSourceChar: 6330
-      line: 212
-      lineChar: 40
-      spanCodeSection: "childCount; i++)\n            "
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6330
-      endSourceChar: 6348
-      line: 213
+      spanCodeSection: "ModeEraser)\n            "
+    - startInstruction: 2836
+      endInstruction: 2835
+      startSourceChar: 4534
+      endSourceChar: 4552
+      line: 148
       lineChar: 12
       spanCodeSection: "{\n                "
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6348
-      endSourceChar: 6348
-      line: 214
+    - startInstruction: 2836
+      endInstruction: 2835
+      startSourceChar: 4552
+      endSourceChar: 4552
+      line: 149
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6348
-      endSourceChar: 6348
-      line: 214
+    - startInstruction: 2836
+      endInstruction: 2835
+      startSourceChar: 4552
+      endSourceChar: 4552
+      line: 149
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6348
-      endSourceChar: 6356
+    - startInstruction: 2836
+      endInstruction: 2851
+      startSourceChar: 4552
+      endSourceChar: 4609
+      line: 149
+      lineChar: 16
+      spanCodeSection: "ChangeToEraser();\n            }\n            \n            "
+    - startInstruction: 2852
+      endInstruction: 2851
+      startSourceChar: 4609
+      endSourceChar: 4612
+      line: 152
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 2852
+      endInstruction: 2867
+      startSourceChar: 4612
+      endSourceChar: 4623
+      line: 152
+      lineChar: 15
+      spanCodeSection: 'isErasing) '
+    - startInstruction: 2868
+      endInstruction: 2887
+      startSourceChar: 4623
+      endSourceChar: 4643
+      line: 152
+      lineChar: 26
+      spanCodeSection: "return;\n            "
+    - startInstruction: 2888
+      endInstruction: 2887
+      startSourceChar: 4643
+      endSourceChar: 4643
+      line: 153
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2888
+      endInstruction: 2887
+      startSourceChar: 4643
+      endSourceChar: 4643
+      line: 153
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2888
+      endInstruction: 2887
+      startSourceChar: 4643
+      endSourceChar: 4643
+      line: 153
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2888
+      endInstruction: 2887
+      startSourceChar: 4643
+      endSourceChar: 4650
+      line: 153
+      lineChar: 12
+      spanCodeSection: eraser.
+    - startInstruction: 2888
+      endInstruction: 2911
+      startSourceChar: 4650
+      endSourceChar: 4678
+      line: 153
+      lineChar: 19
+      spanCodeSection: "StartErasing();\n            "
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 4678
+      endSourceChar: 4678
+      line: 154
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 4678
+      endSourceChar: 4678
+      line: 154
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 4678
+      endSourceChar: 4690
+      line: 154
+      lineChar: 12
+      spanCodeSection: 'isErasing = '
+    - startInstruction: 2912
+      endInstruction: 2951
+      startSourceChar: 4690
+      endSourceChar: 4715
+      line: 154
+      lineChar: 24
+      spanCodeSection: "true;\n        }\n\n        "
+    - startInstruction: 2952
+      endInstruction: 2959
+      startSourceChar: 4715
+      endSourceChar: 4751
+      line: 157
+      lineChar: 8
+      spanCodeSection: "public void FinishDrawing()\n        "
+    - startInstruction: 2960
+      endInstruction: 2959
+      startSourceChar: 4751
+      endSourceChar: 4765
+      line: 158
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 2960
+      endInstruction: 2959
+      startSourceChar: 4765
+      endSourceChar: 4769
+      line: 159
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 2960
+      endInstruction: 2959
+      startSourceChar: 4769
+      endSourceChar: 4769
+      line: 159
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 2960
+      endInstruction: 2959
+      startSourceChar: 4769
+      endSourceChar: 4777
+      line: 159
+      lineChar: 16
+      spanCodeSection: 'mode != '
+    - startInstruction: 2960
+      endInstruction: 3007
+      startSourceChar: 4777
+      endSourceChar: 4798
+      line: 159
+      lineChar: 24
+      spanCodeSection: "ModePen)\n            "
+    - startInstruction: 3008
+      endInstruction: 3007
+      startSourceChar: 4798
+      endSourceChar: 4816
+      line: 160
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 3008
+      endInstruction: 3007
+      startSourceChar: 4816
+      endSourceChar: 4816
+      line: 161
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3008
+      endInstruction: 3007
+      startSourceChar: 4816
+      endSourceChar: 4816
+      line: 161
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3008
+      endInstruction: 3023
+      startSourceChar: 4816
+      endSourceChar: 4858
+      line: 161
+      lineChar: 16
+      spanCodeSection: "ChangeToPen();\n            }\n\n            "
+    - startInstruction: 3024
+      endInstruction: 3023
+      startSourceChar: 4858
+      endSourceChar: 4862
+      line: 164
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 3024
+      endInstruction: 3023
+      startSourceChar: 4862
+      endSourceChar: 4863
+      line: 164
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 3024
+      endInstruction: 3063
+      startSourceChar: 4863
+      endSourceChar: 4874
+      line: 164
+      lineChar: 17
+      spanCodeSection: 'isDrawing) '
+    - startInstruction: 3064
+      endInstruction: 3083
+      startSourceChar: 4874
+      endSourceChar: 4894
+      line: 164
+      lineChar: 28
+      spanCodeSection: "return;\n            "
+    - startInstruction: 3084
+      endInstruction: 3083
+      startSourceChar: 4894
+      endSourceChar: 4898
+      line: 165
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 3084
+      endInstruction: 3083
+      startSourceChar: 4898
+      endSourceChar: 4898
+      line: 165
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3084
+      endInstruction: 3083
+      startSourceChar: 4898
+      endSourceChar: 4913
+      line: 165
+      lineChar: 16
+      spanCodeSection: 'inkInstance != '
+    - startInstruction: 3084
+      endInstruction: 3131
+      startSourceChar: 4913
+      endSourceChar: 4931
+      line: 165
+      lineChar: 31
+      spanCodeSection: "null)\n            "
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4931
+      endSourceChar: 4949
+      line: 166
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4949
+      endSourceChar: 4949
+      line: 167
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4949
+      endSourceChar: 4949
+      line: 167
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4949
+      endSourceChar: 4949
+      line: 167
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4949
+      endSourceChar: 4949
+      line: 167
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4949
+      endSourceChar: 4961
+      line: 167
+      lineChar: 16
+      spanCodeSection: inkInstance.
+    - startInstruction: 3132
+      endInstruction: 3131
+      startSourceChar: 4961
+      endSourceChar: 4971
+      line: 167
+      lineChar: 28
+      spanCodeSection: transform.
+    - startInstruction: 3132
+      endInstruction: 3155
+      startSourceChar: 4971
+      endSourceChar: 4981
+      line: 167
+      lineChar: 38
+      spanCodeSection: SetParent(
+    - startInstruction: 3156
+      endInstruction: 3179
+      startSourceChar: 4981
+      endSourceChar: 5007
+      line: 167
+      lineChar: 48
+      spanCodeSection: "inkPool);\n                "
+    - startInstruction: 3180
+      endInstruction: 3179
+      startSourceChar: 5007
+      endSourceChar: 5011
+      line: 168
+      lineChar: 16
+      spanCodeSection: if (
+    - startInstruction: 3180
+      endInstruction: 3195
+      startSourceChar: 5011
+      endSourceChar: 5045
+      line: 168
+      lineChar: 20
+      spanCodeSection: "isInkInitialized)\n                "
+    - startInstruction: 3196
+      endInstruction: 3195
+      startSourceChar: 5045
+      endSourceChar: 5067
+      line: 169
+      lineChar: 16
+      spanCodeSection: "{\n                    "
+    - startInstruction: 3196
+      endInstruction: 3195
+      startSourceChar: 5067
+      endSourceChar: 5067
+      line: 170
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 3196
+      endInstruction: 3195
+      startSourceChar: 5067
+      endSourceChar: 5067
+      line: 170
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 3196
+      endInstruction: 3195
+      startSourceChar: 5067
+      endSourceChar: 5067
+      line: 170
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 3196
+      endInstruction: 3195
+      startSourceChar: 5067
+      endSourceChar: 5071
+      line: 170
+      lineChar: 20
+      spanCodeSection: ink.
+    - startInstruction: 3196
+      endInstruction: 3219
+      startSourceChar: 5071
+      endSourceChar: 5108
+      line: 170
+      lineChar: 24
+      spanCodeSection: "FinishDrawing();\n                    "
+    - startInstruction: 3220
+      endInstruction: 3219
+      startSourceChar: 5108
+      endSourceChar: 5108
+      line: 171
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 3220
+      endInstruction: 3219
+      startSourceChar: 5108
+      endSourceChar: 5108
+      line: 171
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 3220
+      endInstruction: 3219
+      startSourceChar: 5108
+      endSourceChar: 5116
+      line: 171
+      lineChar: 20
+      spanCodeSection: Destroy(
+    - startInstruction: 3220
+      endInstruction: 3235
+      startSourceChar: 5116
+      endSourceChar: 5166
+      line: 171
+      lineChar: 28
+      spanCodeSection: "ink);\n                }\n            }\n            "
+    - startInstruction: 3236
+      endInstruction: 3235
+      startSourceChar: 5166
+      endSourceChar: 5166
+      line: 174
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3236
+      endInstruction: 3235
+      startSourceChar: 5166
+      endSourceChar: 5166
+      line: 174
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3236
+      endInstruction: 3235
+      startSourceChar: 5166
+      endSourceChar: 5180
+      line: 174
+      lineChar: 12
+      spanCodeSection: 'inkInstance = '
+    - startInstruction: 3236
+      endInstruction: 3255
+      startSourceChar: 5180
+      endSourceChar: 5198
+      line: 174
+      lineChar: 26
+      spanCodeSection: "null;\n            "
+    - startInstruction: 3256
+      endInstruction: 3255
+      startSourceChar: 5198
+      endSourceChar: 5198
+      line: 175
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3256
+      endInstruction: 3255
+      startSourceChar: 5198
+      endSourceChar: 5198
+      line: 175
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3256
+      endInstruction: 3255
+      startSourceChar: 5198
+      endSourceChar: 5210
+      line: 175
+      lineChar: 12
+      spanCodeSection: 'isDrawing = '
+    - startInstruction: 3256
+      endInstruction: 3295
+      startSourceChar: 5210
+      endSourceChar: 5236
+      line: 175
+      lineChar: 24
+      spanCodeSection: "false;\n        }\n\n        "
+    - startInstruction: 3296
+      endInstruction: 3303
+      startSourceChar: 5236
+      endSourceChar: 5272
+      line: 178
+      lineChar: 8
+      spanCodeSection: "public void FinishErasing()\n        "
+    - startInstruction: 3304
+      endInstruction: 3303
+      startSourceChar: 5272
+      endSourceChar: 5286
+      line: 179
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 3304
+      endInstruction: 3303
+      startSourceChar: 5286
+      endSourceChar: 5290
+      line: 180
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 3304
+      endInstruction: 3303
+      startSourceChar: 5290
+      endSourceChar: 5290
+      line: 180
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3304
+      endInstruction: 3303
+      startSourceChar: 5290
+      endSourceChar: 5298
+      line: 180
+      lineChar: 16
+      spanCodeSection: 'mode != '
+    - startInstruction: 3304
+      endInstruction: 3351
+      startSourceChar: 5298
+      endSourceChar: 5322
+      line: 180
+      lineChar: 24
+      spanCodeSection: "ModeEraser)\n            "
+    - startInstruction: 3352
+      endInstruction: 3351
+      startSourceChar: 5322
+      endSourceChar: 5340
+      line: 181
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 3352
+      endInstruction: 3351
+      startSourceChar: 5340
+      endSourceChar: 5340
+      line: 182
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3352
+      endInstruction: 3351
+      startSourceChar: 5340
+      endSourceChar: 5340
+      line: 182
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3352
+      endInstruction: 3367
+      startSourceChar: 5340
+      endSourceChar: 5397
+      line: 182
+      lineChar: 16
+      spanCodeSection: "ChangeToEraser();\n            }\n            \n            "
+    - startInstruction: 3368
+      endInstruction: 3367
+      startSourceChar: 5397
+      endSourceChar: 5400
+      line: 185
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 3368
+      endInstruction: 3367
+      startSourceChar: 5400
+      endSourceChar: 5401
+      line: 185
+      lineChar: 15
+      spanCodeSection: '!'
+    - startInstruction: 3368
+      endInstruction: 3407
+      startSourceChar: 5401
+      endSourceChar: 5412
+      line: 185
+      lineChar: 16
+      spanCodeSection: 'isErasing) '
+    - startInstruction: 3408
+      endInstruction: 3427
+      startSourceChar: 5412
+      endSourceChar: 5432
+      line: 185
+      lineChar: 27
+      spanCodeSection: "return;\n            "
+    - startInstruction: 3428
+      endInstruction: 3427
+      startSourceChar: 5432
+      endSourceChar: 5432
+      line: 186
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3428
+      endInstruction: 3427
+      startSourceChar: 5432
+      endSourceChar: 5432
+      line: 186
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3428
+      endInstruction: 3427
+      startSourceChar: 5432
+      endSourceChar: 5432
+      line: 186
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3428
+      endInstruction: 3427
+      startSourceChar: 5432
+      endSourceChar: 5439
+      line: 186
+      lineChar: 12
+      spanCodeSection: eraser.
+    - startInstruction: 3428
+      endInstruction: 3451
+      startSourceChar: 5439
+      endSourceChar: 5468
+      line: 186
+      lineChar: 19
+      spanCodeSection: "FinishErasing();\n            "
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 5468
+      endSourceChar: 5468
+      line: 187
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 5468
+      endSourceChar: 5468
+      line: 187
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 5468
+      endSourceChar: 5480
+      line: 187
+      lineChar: 12
+      spanCodeSection: 'isErasing = '
+    - startInstruction: 3452
+      endInstruction: 3491
+      startSourceChar: 5480
+      endSourceChar: 5506
+      line: 187
+      lineChar: 24
+      spanCodeSection: "false;\n        }\n\n        "
+    - startInstruction: 3492
+      endInstruction: 3499
+      startSourceChar: 5506
+      endSourceChar: 5538
+      line: 190
+      lineChar: 8
+      spanCodeSection: "private void SpawnInk()\n        "
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5538
+      endSourceChar: 5552
+      line: 191
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5552
+      endSourceChar: 5552
+      line: 192
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5552
+      endSourceChar: 5552
+      line: 192
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5552
+      endSourceChar: 5566
+      line: 192
+      lineChar: 12
+      spanCodeSection: 'inkInstance = '
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5566
+      endSourceChar: 5566
+      line: 192
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5566
+      endSourceChar: 5581
+      line: 192
+      lineChar: 26
+      spanCodeSection: VRCInstantiate(
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5581
+      endSourceChar: 5581
+      line: 192
+      lineChar: 41
+      spanCodeSection: 
+    - startInstruction: 3500
+      endInstruction: 3499
+      startSourceChar: 5581
+      endSourceChar: 5591
+      line: 192
+      lineChar: 41
+      spanCodeSection: inkPrefab.
+    - startInstruction: 3500
+      endInstruction: 3547
+      startSourceChar: 5591
+      endSourceChar: 5616
+      line: 192
+      lineChar: 51
+      spanCodeSection: "gameObject);\n            "
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5616
+      endSourceChar: 5616
+      line: 193
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5616
+      endSourceChar: 5616
+      line: 193
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5616
+      endSourceChar: 5616
+      line: 193
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5616
+      endSourceChar: 5628
+      line: 193
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5628
+      endSourceChar: 5635
+      line: 193
+      lineChar: 24
+      spanCodeSection: 'name = '
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5635
+      endSourceChar: 5635
+      line: 193
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 3548
+      endInstruction: 3547
+      startSourceChar: 5635
+      endSourceChar: 5645
+      line: 193
+      lineChar: 31
+      spanCodeSection: inkPrefab.
+    - startInstruction: 3548
+      endInstruction: 3595
+      startSourceChar: 5645
+      endSourceChar: 5664
+      line: 193
+      lineChar: 41
+      spanCodeSection: "name;\n\n            "
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5664
+      endSourceChar: 5664
+      line: 195
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5664
+      endSourceChar: 5664
+      line: 195
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5664
+      endSourceChar: 5664
+      line: 195
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5664
+      endSourceChar: 5664
+      line: 195
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5664
+      endSourceChar: 5676
+      line: 195
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3596
+      endInstruction: 3595
+      startSourceChar: 5676
+      endSourceChar: 5686
+      line: 195
+      lineChar: 24
+      spanCodeSection: transform.
+    - startInstruction: 3596
+      endInstruction: 3619
+      startSourceChar: 5686
+      endSourceChar: 5696
+      line: 195
+      lineChar: 34
+      spanCodeSection: SetParent(
+    - startInstruction: 3620
+      endInstruction: 3643
+      startSourceChar: 5696
+      endSourceChar: 5722
+      line: 195
+      lineChar: 44
+      spanCodeSection: "spawnTarget);\n            "
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5722
+      endSourceChar: 5722
+      line: 196
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5722
+      endSourceChar: 5722
+      line: 196
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5722
+      endSourceChar: 5722
+      line: 196
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5722
+      endSourceChar: 5722
+      line: 196
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5722
+      endSourceChar: 5734
+      line: 196
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3644
+      endInstruction: 3643
+      startSourceChar: 5734
+      endSourceChar: 5744
+      line: 196
+      lineChar: 24
+      spanCodeSection: transform.
+    - startInstruction: 3644
+      endInstruction: 3667
+      startSourceChar: 5744
+      endSourceChar: 5760
+      line: 196
+      lineChar: 34
+      spanCodeSection: 'localPosition = '
+    - startInstruction: 3668
+      endInstruction: 3667
+      startSourceChar: 5760
+      endSourceChar: 5760
+      line: 196
+      lineChar: 50
+      spanCodeSection: 
+    - startInstruction: 3668
+      endInstruction: 3667
+      startSourceChar: 5760
+      endSourceChar: 5768
+      line: 196
+      lineChar: 50
+      spanCodeSection: Vector3.
+    - startInstruction: 3668
+      endInstruction: 3707
+      startSourceChar: 5768
+      endSourceChar: 5786
+      line: 196
+      lineChar: 58
+      spanCodeSection: "zero;\n            "
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5786
+      endSourceChar: 5786
+      line: 197
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5786
+      endSourceChar: 5786
+      line: 197
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5786
+      endSourceChar: 5786
+      line: 197
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5786
+      endSourceChar: 5786
+      line: 197
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5786
+      endSourceChar: 5798
+      line: 197
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3708
+      endInstruction: 3707
+      startSourceChar: 5798
+      endSourceChar: 5808
+      line: 197
+      lineChar: 24
+      spanCodeSection: transform.
+    - startInstruction: 3708
+      endInstruction: 3731
+      startSourceChar: 5808
+      endSourceChar: 5824
+      line: 197
+      lineChar: 34
+      spanCodeSection: 'localRotation = '
+    - startInstruction: 3732
+      endInstruction: 3731
+      startSourceChar: 5824
+      endSourceChar: 5824
+      line: 197
+      lineChar: 50
+      spanCodeSection: 
+    - startInstruction: 3732
+      endInstruction: 3731
+      startSourceChar: 5824
+      endSourceChar: 5835
+      line: 197
+      lineChar: 50
+      spanCodeSection: Quaternion.
+    - startInstruction: 3732
+      endInstruction: 3771
+      startSourceChar: 5835
+      endSourceChar: 5857
+      line: 197
+      lineChar: 61
+      spanCodeSection: "identity;\n            "
+    - startInstruction: 3772
+      endInstruction: 3771
+      startSourceChar: 5857
+      endSourceChar: 5857
+      line: 198
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3772
+      endInstruction: 3771
+      startSourceChar: 5857
+      endSourceChar: 5857
+      line: 198
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3772
+      endInstruction: 3771
+      startSourceChar: 5857
+      endSourceChar: 5857
+      line: 198
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3772
+      endInstruction: 3771
+      startSourceChar: 5857
+      endSourceChar: 5869
+      line: 198
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3772
+      endInstruction: 3771
+      startSourceChar: 5869
+      endSourceChar: 5879
+      line: 198
+      lineChar: 24
+      spanCodeSection: SetActive(
+    - startInstruction: 3772
+      endInstruction: 3795
+      startSourceChar: 5879
+      endSourceChar: 5898
+      line: 198
+      lineChar: 34
+      spanCodeSection: "true);\n            "
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5898
+      line: 199
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5898
+      line: 199
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5898
+      line: 199
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5898
+      line: 199
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5898
+      line: 199
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5898
+      endSourceChar: 5910
+      line: 199
+      lineChar: 12
+      spanCodeSection: inkInstance.
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5910
+      endSourceChar: 5922
+      line: 199
+      lineChar: 24
+      spanCodeSection: GetComponent
+    - startInstruction: 3796
+      endInstruction: 3795
+      startSourceChar: 5922
+      endSourceChar: 5923
+      line: 199
+      lineChar: 36
+      spanCodeSection: <
+    - startInstruction: 3796
+      endInstruction: 3851
+      startSourceChar: 5923
+      endSourceChar: 5940
+      line: 199
+      lineChar: 37
+      spanCodeSection: TrailRenderer>().
+    - startInstruction: 3852
+      endInstruction: 3851
+      startSourceChar: 5940
+      endSourceChar: 5950
+      line: 199
+      lineChar: 54
+      spanCodeSection: 'enabled = '
+    - startInstruction: 3852
+      endInstruction: 3875
+      startSourceChar: 5950
+      endSourceChar: 5968
+      line: 199
+      lineChar: 64
+      spanCodeSection: "true;\n            "
+    - startInstruction: 3876
+      endInstruction: 3875
+      startSourceChar: 5968
+      endSourceChar: 5968
+      line: 200
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3876
+      endInstruction: 3875
+      startSourceChar: 5968
+      endSourceChar: 5968
+      line: 200
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3876
+      endInstruction: 3875
+      startSourceChar: 5968
+      endSourceChar: 5994
+      line: 200
+      lineChar: 12
+      spanCodeSection: 'isInitializeInkRequired = '
+    - startInstruction: 3876
+      endInstruction: 3895
+      startSourceChar: 5994
+      endSourceChar: 6012
+      line: 200
+      lineChar: 38
+      spanCodeSection: "true;\n            "
+    - startInstruction: 3896
+      endInstruction: 3895
+      startSourceChar: 6012
+      endSourceChar: 6012
+      line: 201
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3896
+      endInstruction: 3895
+      startSourceChar: 6012
+      endSourceChar: 6012
+      line: 201
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3896
+      endInstruction: 3895
+      startSourceChar: 6012
+      endSourceChar: 6031
+      line: 201
+      lineChar: 12
+      spanCodeSection: 'isInkInitialized = '
+    - startInstruction: 3896
+      endInstruction: 3935
+      startSourceChar: 6031
+      endSourceChar: 6057
+      line: 201
+      lineChar: 31
+      spanCodeSection: "false;\n        }\n\n        "
+    - startInstruction: 3936
+      endInstruction: 3943
+      startSourceChar: 6057
+      endSourceChar: 6087
+      line: 204
+      lineChar: 8
+      spanCodeSection: "public void Respawn()\n        "
+    - startInstruction: 3944
+      endInstruction: 3943
+      startSourceChar: 6087
+      endSourceChar: 6101
+      line: 205
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 3944
+      endInstruction: 3943
+      startSourceChar: 6101
+      endSourceChar: 6105
+      line: 206
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 3944
+      endInstruction: 3983
+      startSourceChar: 6105
+      endSourceChar: 6113
+      line: 206
+      lineChar: 16
+      spanCodeSection: 'pickup) '
+    - startInstruction: 3984
+      endInstruction: 3983
+      startSourceChar: 6113
+      endSourceChar: 6113
+      line: 206
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 3984
+      endInstruction: 3983
+      startSourceChar: 6113
+      endSourceChar: 6113
+      line: 206
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 3984
+      endInstruction: 3983
+      startSourceChar: 6113
+      endSourceChar: 6113
+      line: 206
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 3984
+      endInstruction: 3983
+      startSourceChar: 6113
+      endSourceChar: 6120
+      line: 206
+      lineChar: 24
+      spanCodeSection: pickup.
+    - startInstruction: 3984
+      endInstruction: 3999
+      startSourceChar: 6120
+      endSourceChar: 6140
+      line: 206
+      lineChar: 31
+      spanCodeSection: "Drop();\n            "
+    - startInstruction: 4000
+      endInstruction: 3999
+      startSourceChar: 6140
+      endSourceChar: 6140
+      line: 207
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4000
+      endInstruction: 3999
+      startSourceChar: 6140
+      endSourceChar: 6140
+      line: 207
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4000
+      endInstruction: 3999
+      startSourceChar: 6140
+      endSourceChar: 6140
+      line: 207
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4000
+      endInstruction: 3999
+      startSourceChar: 6140
+      endSourceChar: 6150
+      line: 207
+      lineChar: 12
+      spanCodeSection: transform.
+    - startInstruction: 4000
+      endInstruction: 3999
+      startSourceChar: 6150
+      endSourceChar: 6161
+      line: 207
+      lineChar: 22
+      spanCodeSection: 'position = '
+    - startInstruction: 4000
+      endInstruction: 4023
+      startSourceChar: 6161
+      endSourceChar: 6190
+      line: 207
+      lineChar: 33
+      spanCodeSection: "defaultPosition;\n            "
+    - startInstruction: 4024
+      endInstruction: 4023
+      startSourceChar: 6190
+      endSourceChar: 6190
+      line: 208
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4024
+      endInstruction: 4023
+      startSourceChar: 6190
+      endSourceChar: 6190
+      line: 208
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4024
+      endInstruction: 4023
+      startSourceChar: 6190
+      endSourceChar: 6190
+      line: 208
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 4024
+      endInstruction: 4023
+      startSourceChar: 6190
+      endSourceChar: 6200
+      line: 208
+      lineChar: 12
+      spanCodeSection: transform.
+    - startInstruction: 4024
+      endInstruction: 4023
+      startSourceChar: 6200
+      endSourceChar: 6211
+      line: 208
+      lineChar: 22
+      spanCodeSection: 'rotation = '
+    - startInstruction: 4024
+      endInstruction: 4067
+      startSourceChar: 6211
+      endSourceChar: 6255
+      line: 208
+      lineChar: 33
+      spanCodeSection: "defaultRotation;\n        }\n        \n        "
+    - startInstruction: 4068
+      endInstruction: 4075
+      startSourceChar: 6255
+      endSourceChar: 6283
+      line: 211
+      lineChar: 8
+      spanCodeSection: "public void Clear()\n        "
+    - startInstruction: 4076
+      endInstruction: 4075
+      startSourceChar: 6283
+      endSourceChar: 6297
+      line: 212
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 4076
+      endInstruction: 4075
+      startSourceChar: 6297
+      endSourceChar: 6302
+      line: 213
+      lineChar: 12
+      spanCodeSection: for (
+    - startInstruction: 4076
+      endInstruction: 4075
+      startSourceChar: 6302
+      endSourceChar: 6302
+      line: 213
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 4076
+      endInstruction: 4075
+      startSourceChar: 6302
+      endSourceChar: 6308
+      line: 213
+      lineChar: 17
+      spanCodeSection: 'var i '
+    - startInstruction: 4076
+      endInstruction: 4075
+      startSourceChar: 6308
+      endSourceChar: 6310
+      line: 213
+      lineChar: 23
+      spanCodeSection: '= '
+    - startInstruction: 4076
+      endInstruction: 4095
+      startSourceChar: 6310
+      endSourceChar: 6313
+      line: 213
+      lineChar: 25
+      spanCodeSection: '0; '
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 6313
+      endSourceChar: 6313
+      line: 213
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 6313
+      endSourceChar: 6317
+      line: 213
+      lineChar: 28
+      spanCodeSection: 'i < '
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 6317
+      endSourceChar: 6317
+      line: 213
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 6317
+      endSourceChar: 6325
+      line: 213
+      lineChar: 32
+      spanCodeSection: inkPool.
+    - startInstruction: 4096
+      endInstruction: 4167
+      startSourceChar: 6325
+      endSourceChar: 6354
+      line: 213
+      lineChar: 40
+      spanCodeSection: "childCount; i++)\n            "
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6354
+      endSourceChar: 6372
       line: 214
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6372
+      endSourceChar: 6372
+      line: 215
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6372
+      endSourceChar: 6372
+      line: 215
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6372
+      endSourceChar: 6380
+      line: 215
       lineChar: 16
       spanCodeSection: Destroy(
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6356
-      endSourceChar: 6356
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6380
+      endSourceChar: 6380
+      line: 215
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6356
-      endSourceChar: 6356
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6380
+      endSourceChar: 6380
+      line: 215
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6356
-      endSourceChar: 6356
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6380
+      endSourceChar: 6380
+      line: 215
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6356
-      endSourceChar: 6364
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6380
+      endSourceChar: 6388
+      line: 215
       lineChar: 24
       spanCodeSection: inkPool.
-    - startInstruction: 4148
-      endInstruction: 4147
-      startSourceChar: 6364
-      endSourceChar: 6373
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4167
+      startSourceChar: 6388
+      endSourceChar: 6397
+      line: 215
       lineChar: 32
       spanCodeSection: GetChild(
-    - startInstruction: 4148
-      endInstruction: 4179
-      startSourceChar: 6373
-      endSourceChar: 6376
-      line: 214
+    - startInstruction: 4168
+      endInstruction: 4199
+      startSourceChar: 6397
+      endSourceChar: 6400
+      line: 215
       lineChar: 41
       spanCodeSection: i).
-    - startInstruction: 4180
-      endInstruction: 4180
-      startSourceChar: 6376
-      endSourceChar: 6376
-      line: 214
+    - startInstruction: 4200
+      endInstruction: 4200
+      startSourceChar: 6400
+      endSourceChar: 6400
+      line: 215
       lineChar: 44
       spanCodeSection: 
   hasInteractEvent: 0
