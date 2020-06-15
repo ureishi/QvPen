@@ -4,7 +4,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
-namespace ureishi.Udon.QvPen
+namespace QvPen.Udon
 {
     public class BroadcastEvent : UdonSharpBehaviour
     {
@@ -20,7 +20,7 @@ namespace ureishi.Udon.QvPen
             if (isMasterOnlyEvent && !Networking.IsMaster) return;
             if (isOwnerOnlyEvent && !Networking.IsOwner(gameObject)) return;
             if (!broadcastTransform) return;
-            for (int i = 0; i < broadcastTransform.childCount; i++)
+            for (var i = 0; i < broadcastTransform.childCount; i++)
             {
                 var udonBehaviour = (UdonBehaviour)broadcastTransform.GetChild(i).GetComponent(typeof(UdonBehaviour));
                 if (!udonBehaviour) continue;

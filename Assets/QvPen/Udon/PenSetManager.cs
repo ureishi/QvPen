@@ -1,13 +1,12 @@
-
 using UdonSharp;
-using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
 
-public class PenSetManager : UdonSharpBehaviour
+namespace QvPen.Udon
 {
-    void Start()
+    public class PenSetManager : UdonSharpBehaviour
     {
+        private void Start()
+        {
         
+        }
     }
 }
