@@ -104,6 +104,7 @@ namespace QvPen.Udon
                 prevTime = 0f;
                 Destroy(inkInstance);
                 SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(this.ChangeToEraser) : nameof(this.ChangeToPen));
+                return;
             }
             prevTime = Time.time;
             
