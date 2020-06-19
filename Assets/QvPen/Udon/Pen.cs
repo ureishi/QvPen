@@ -7,7 +7,7 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
-        [SerializeField] private Ink inkPrefab;
+        [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
         
         [SerializeField] private Transform inkPosition;
@@ -21,11 +21,8 @@ namespace QvPen.Udon
         private PenManager penManager;
         private bool isUser;
 
-        // For Ink
-        private Ink ink;
+        // For ink
         private GameObject inkInstance;
-        private bool isInitializeInkRequired;
-        private bool isInkInitialized;
         
         // For respawn
         private Vector3 defaultPosition;
@@ -51,19 +48,6 @@ namespace QvPen.Udon
 
             defaultPosition = transform.position;
             defaultRotation = transform.rotation;
-        }
-        
-        private void Update()
-        {
-            if (isInitializeInkRequired && !isInkInitialized)
-            {
-                ink = inkInstance.GetComponent<Ink>();
-                if (ink != null)
-                {
-                    isInkInitialized = true;
-                    isInitializeInkRequired = false;
-                }
-            }
         }
         
         private void LateUpdate()
@@ -165,14 +149,69 @@ namespace QvPen.Udon
             if (inkInstance != null)
             {
                 inkInstance.transform.SetParent(inkPool);
-                if (isInkInitialized)
-                {
-                    ink.FinishDrawing();
-                    Destroy(ink);
-                }
+                CreateInkMeshCollider();
             }
             inkInstance = null;
             isDrawing = false;
+        }
+
+        private void CreateInkMeshCollider()
+        {
+            var trailRenderer = inkInstance.GetComponent<TrailRenderer>();
+            var meshFilter = inkInstance.GetComponent<MeshFilter>();
+            var meshCollider = inkInstance.GetComponent<MeshCollider>();
+            
+            var positionCount = trailRenderer.positionCount;
+            if (positionCount < 2)
+            {
+                positionCount = 2;
+            }
+
+            var verticesParPoint = 2;
+            var trianglesCountParPoint = 6;
+            var positions = new Vector3[positionCount];
+            var vertices = new Vector3[positionCount * verticesParPoint];
+            var triangles = new int[(positionCount - 1) * trianglesCountParPoint];
+
+            var colliderWidth = 0.005f;
+            var offsetXP = new Vector3(colliderWidth, 0, 0);
+            var offsetXN = new Vector3(-colliderWidth, 0, 0);
+
+            trailRenderer.GetPositions(positions);
+            if (positionCount == 2)
+            {
+                positions[0] =inkInstance.transform.position;
+                positions[1] =inkInstance.transform.position + Vector3.down * colliderWidth;
+            }
+
+            // Create vertices
+            for (var i = 0; i < positionCount; i++)
+            {
+                var position = inkInstance.transform.InverseTransformPoint(positions[i]);
+                vertices[i * verticesParPoint + 0] = position + offsetXP;
+                vertices[i * verticesParPoint + 1] = position + offsetXN;
+            }
+
+            // Create triangles
+            for (var i = 0; i < positionCount - 1; i++)
+            {
+                triangles[i * trianglesCountParPoint + 0] = i * verticesParPoint + 0;
+                triangles[i * trianglesCountParPoint + 1] = i * verticesParPoint + 1;
+                triangles[i * trianglesCountParPoint + 2] = i * verticesParPoint + 2;
+                triangles[i * trianglesCountParPoint + 3] = i * verticesParPoint + 3;
+                triangles[i * trianglesCountParPoint + 4] = i * verticesParPoint + 2;
+                triangles[i * trianglesCountParPoint + 5] = i * verticesParPoint + 1;
+            }
+
+            // Instantiate a mesh
+            var mesh = meshFilter.mesh;
+
+            mesh.vertices = vertices;
+            mesh.triangles = triangles;
+            mesh.RecalculateNormals();
+
+            meshFilter.mesh = mesh;
+            meshCollider.sharedMesh = mesh;
         }
 
         public void FinishErasing()
@@ -197,8 +236,6 @@ namespace QvPen.Udon
             inkInstance.transform.localRotation = Quaternion.identity;
             inkInstance.SetActive(true);
             inkInstance.GetComponent<TrailRenderer>().enabled = true;
-            isInitializeInkRequired = true;
-            isInkInitialized = false;
         }
 
         public void Respawn()
