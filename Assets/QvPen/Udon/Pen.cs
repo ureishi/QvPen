@@ -46,7 +46,7 @@ namespace QvPen.Udon
             eraser.SetActive(false);
             inkPrefab.gameObject.SetActive(false);
 
-            pickup.InteractionText = nameof(Udon.Pen);
+            pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
 
             defaultPosition = transform.position;
@@ -85,16 +85,15 @@ namespace QvPen.Udon
             isUser = true;
             penManager.StartUsing();
             
-            // UdonSharp v0.17Ç≈ÇÕthisÇïtÇØÇ»Ç¢Ç∆ÉGÉâÅ[
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.ChangeToPen)); 
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeToPen)); 
         }
         
         public override void OnDrop()
         {
             isUser = false;
             penManager.EndUsing();
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(this.FinishDrawing) : nameof(this.FinishErasing));
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.ChangeToPen)); 
+            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(FinishDrawing) : nameof(FinishErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeToPen)); 
         }
         
         public override void OnPickupUseDown()
@@ -103,17 +102,17 @@ namespace QvPen.Udon
             {
                 prevTime = 0f;
                 Destroy(inkInstance);
-                SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(this.ChangeToEraser) : nameof(this.ChangeToPen));
+                SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(ChangeToEraser) : nameof(ChangeToPen));
                 return;
             }
             prevTime = Time.time;
             
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(this.StartDrawing) : nameof(this.StartErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(StartDrawing) : nameof(StartErasing));
         }
         
         public override void OnPickupUseUp()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(this.FinishDrawing) : nameof(this.FinishErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(FinishDrawing) : nameof(FinishErasing));
         }
         
         public void ChangeToPen()

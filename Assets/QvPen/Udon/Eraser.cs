@@ -36,12 +36,12 @@ namespace QvPen.Udon
 
         public override void OnPickupUseDown()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.StartErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartErasing));
         }
 
         public override void OnPickupUseUp()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(this.FinishErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(FinishErasing));
         }
 
         public void StartErasing()

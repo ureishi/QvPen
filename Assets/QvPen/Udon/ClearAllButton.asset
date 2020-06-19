@@ -20,30 +20,22 @@ MonoBehaviour:
     %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
     null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
     %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_QvPenUdonPenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
+    \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
     \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
     ClearAllButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
     private PenManager[] penManagers;\r\n        \r\n         # public override void
     Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # if (!Networking.IsMaster) return;\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n        PUSH,
-    __0_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n        PUSH,
-    __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000054\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n         # foreach (var penManager
-    in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \        # foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000124\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000D8\r\n
     \       PUSH, penManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
@@ -52,7 +44,7 @@ MonoBehaviour:
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000080\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000034\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -225,106 +217,64 @@ MonoBehaviour:
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 272
-      endSourceChar: 276
+      endSourceChar: 281
       line: 12
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 276
-      endSourceChar: 277
-      line: 12
-      lineChar: 16
-      spanCodeSection: '!'
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 277
-      endSourceChar: 277
-      line: 12
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 277
-      endSourceChar: 288
-      line: 12
-      lineChar: 17
-      spanCodeSection: Networking.
-    - startInstruction: 8
-      endInstruction: 63
-      startSourceChar: 288
-      endSourceChar: 298
-      line: 12
-      lineChar: 28
-      spanCodeSection: 'IsMaster) '
-    - startInstruction: 64
-      endInstruction: 83
-      startSourceChar: 298
-      endSourceChar: 333
-      line: 12
-      lineChar: 38
-      spanCodeSection: "return;\r\n            \r\n            "
-    - startInstruction: 84
-      endInstruction: 83
-      startSourceChar: 333
-      endSourceChar: 342
-      line: 14
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 84
-      endInstruction: 83
-      startSourceChar: 342
-      endSourceChar: 360
-      line: 14
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 281
+      endSourceChar: 299
+      line: 12
       lineChar: 21
       spanCodeSection: 'var penManager in '
-    - startInstruction: 84
-      endInstruction: 227
-      startSourceChar: 360
-      endSourceChar: 386
-      line: 14
+    - startInstruction: 8
+      endInstruction: 151
+      startSourceChar: 299
+      endSourceChar: 325
+      line: 12
       lineChar: 39
       spanCodeSection: "penManagers)\r\n            "
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 386
-      endSourceChar: 405
-      line: 15
+    - startInstruction: 152
+      endInstruction: 151
+      startSourceChar: 325
+      endSourceChar: 344
+      line: 13
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 405
-      endSourceChar: 405
-      line: 16
+    - startInstruction: 152
+      endInstruction: 151
+      startSourceChar: 344
+      endSourceChar: 344
+      line: 14
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 405
-      endSourceChar: 405
-      line: 16
+    - startInstruction: 152
+      endInstruction: 151
+      startSourceChar: 344
+      endSourceChar: 344
+      line: 14
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 405
-      endSourceChar: 405
-      line: 16
+    - startInstruction: 152
+      endInstruction: 151
+      startSourceChar: 344
+      endSourceChar: 344
+      line: 14
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 405
-      endSourceChar: 416
-      line: 16
+    - startInstruction: 152
+      endInstruction: 151
+      startSourceChar: 344
+      endSourceChar: 355
+      line: 14
       lineChar: 16
       spanCodeSection: penManager.
-    - startInstruction: 228
-      endInstruction: 228
-      startSourceChar: 416
-      endSourceChar: 416
-      line: 16
+    - startInstruction: 152
+      endInstruction: 152
+      startSourceChar: 355
+      endSourceChar: 355
+      line: 14
       lineChar: 27
       spanCodeSection: 
   hasInteractEvent: 1
