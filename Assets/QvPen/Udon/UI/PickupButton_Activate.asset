@@ -35,8 +35,8 @@ MonoBehaviour:
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # isShown = !isShown;\r\n        PUSH, isShown\r\n        PUSH, isShown\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       \r\n         # message.text = isShown ? \"Hide\\n<size=14>(Local)</size>\"
-    : \"Show\\n<size=14>(Local)</size>\";\r\n        PUSH, isShown\r\n        JUMP_IF_FALSE,
+    \       \r\n         # message.text = isShown ? \"Hide All\\n<size=14>(Local)</size>\"
+    : \"Show All\\n<size=14>(Local)</size>\";\r\n        PUSH, isShown\r\n        JUMP_IF_FALSE,
     0x0000004C\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
     \       COPY\r\n        JUMP, 0x00000060\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_SystemString\r\n        COPY\r\n        PUSH, message\r\n
@@ -373,84 +373,84 @@ MonoBehaviour:
     - startInstruction: 48
       endInstruction: 75
       startSourceChar: 423
-      endSourceChar: 457
+      endSourceChar: 461
       line: 17
       lineChar: 37
-      spanCodeSection: '"Hide\n<size=14>(Local)</size>" : '
+      spanCodeSection: '"Hide All\n<size=14>(Local)</size>" : '
     - startInstruction: 76
       endInstruction: 119
-      startSourceChar: 457
-      endSourceChar: 502
+      startSourceChar: 461
+      endSourceChar: 510
       line: 17
-      lineChar: 71
-      spanCodeSection: "\"Show\\n<size=14>(Local)</size>\";\n            "
+      lineChar: 75
+      spanCodeSection: "\"Show All\\n<size=14>(Local)</size>\";\n            "
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 502
-      endSourceChar: 511
+      startSourceChar: 510
+      endSourceChar: 519
       line: 18
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 120
       endInstruction: 119
-      startSourceChar: 511
-      endSourceChar: 521
+      startSourceChar: 519
+      endSourceChar: 529
       line: 18
       lineChar: 21
       spanCodeSection: 'var go in '
     - startInstruction: 120
       endInstruction: 243
-      startSourceChar: 521
-      endSourceChar: 546
+      startSourceChar: 529
+      endSourceChar: 554
       line: 18
       lineChar: 31
       spanCodeSection: "gameObjects)\n            "
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 546
-      endSourceChar: 564
+      startSourceChar: 554
+      endSourceChar: 572
       line: 19
       lineChar: 12
       spanCodeSection: "{\n                "
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 564
-      endSourceChar: 564
+      startSourceChar: 572
+      endSourceChar: 572
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 564
-      endSourceChar: 564
+      startSourceChar: 572
+      endSourceChar: 572
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 564
-      endSourceChar: 564
+      startSourceChar: 572
+      endSourceChar: 572
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 564
-      endSourceChar: 567
+      startSourceChar: 572
+      endSourceChar: 575
       line: 20
       lineChar: 16
       spanCodeSection: go.
     - startInstruction: 244
       endInstruction: 243
-      startSourceChar: 567
-      endSourceChar: 577
+      startSourceChar: 575
+      endSourceChar: 585
       line: 20
       lineChar: 19
       spanCodeSection: SetActive(
     - startInstruction: 244
       endInstruction: 244
-      startSourceChar: 577
-      endSourceChar: 577
+      startSourceChar: 585
+      endSourceChar: 585
       line: 20
       lineChar: 29
       spanCodeSection: 

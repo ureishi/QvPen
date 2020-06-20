@@ -15,7 +15,7 @@ namespace QvPen.Udon.UI
         {
             isShown = !isShown;
             
-            message.text = isShown ? "Hide\n<size=14>(Local)</size>" : "Show\n<size=14>(Local)</size>";
+            message.text = isShown ? "Hide All\n<size=14>(Local)</size>" : "Show All\n<size=14>(Local)</size>";
             foreach (var go in gameObjects)
             {
                 go.SetActive(isShown);
