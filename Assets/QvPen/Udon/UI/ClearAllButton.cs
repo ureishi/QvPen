@@ -1,8 +1,7 @@
 using UdonSharp;
 using UnityEngine;
-using VRC.SDKBase;
 
-namespace QvPen.Udon
+namespace QvPen.Udon.UI
 {
     public class ClearAllButton : UdonSharpBehaviour
     {
