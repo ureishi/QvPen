@@ -7,6 +7,7 @@ namespace QvPen.Udon
 {
     public class Eraser : UdonSharpBehaviour
     {
+        // For stand-alone erasers
         [SerializeField] private VRC_Pickup pickup;
         
         [SerializeField] private Renderer renderer;
@@ -23,7 +24,10 @@ namespace QvPen.Udon
         private void Start()
         {
             renderer.enabled = true;
-            renderer.sharedMaterial = normal;
+            if (pickup == null)
+            {
+                renderer.sharedMaterial = normal;
+            }
             
             defaultPosition = transform.position;
             defaultRotation = transform.rotation;
@@ -54,6 +58,16 @@ namespace QvPen.Udon
         {
             isErasing = false;
             renderer.sharedMaterial = normal;
+        }
+
+        public override void OnPickup()
+        {
+            renderer.sharedMaterial = normal;
+        }
+
+        public override void OnDrop()
+        {
+            renderer.sharedMaterial = erasing;
         }
 
         private void OnTriggerEnter(Collider other)
