@@ -58,7 +58,6 @@ namespace QvPen.Udon
 
         private void OnTriggerEnter(Collider other)
         {
-                Debug.Log("D0");
             if (
                 isErasing &&
                 other != null &&
@@ -67,7 +66,6 @@ namespace QvPen.Udon
                 other.gameObject.name == "Ink"
                 )
             {
-                Debug.Log("D1");
                 Destroy(other.gameObject);
             }
         }
