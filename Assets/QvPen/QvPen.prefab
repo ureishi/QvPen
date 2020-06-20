@@ -848,7 +848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Hide
+  m_Text: 'Hide All
 
     <size=14>(Local)</size>'
 --- !u!1 &891563771569726932
