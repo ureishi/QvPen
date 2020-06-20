@@ -7,6 +7,10 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
+        #region Local
+
+        
+
         [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
         
@@ -23,6 +27,7 @@ namespace QvPen.Udon
 
         // For ink
         private GameObject inkInstance;
+        private int inkCount;
         
         // For respawn
         private Vector3 defaultPosition;
@@ -85,11 +90,21 @@ namespace QvPen.Udon
             if (Time.time - prevTime < Interval)
             {
                 prevTime = 0f;
-                // TODO: DestroyされたGameObjectにアクセスしようとしたらUdonBehaviourが落ちるバグが修正されたら，ペン→消しゴムの切替時に余分に出るインクを消す処理を入れる
-                // https://vrchat.canny.io/vrchat-udon-closed-alpha-bugs/p/null-check-on-gameobject-will-throw-exception-if-the-gameobj-is-destroyed
-                // Destroy(inkInstance);
+                
+                if (mode == ModePen)
+                {
+                    var childCount = inkPool.childCount;
+                    if (childCount > 0)
+                    {
+                        Destroy(inkPool.GetChild(childCount - 1).gameObject);
+                    }
+                }
+
                 SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(ChangeToEraser) : nameof(ChangeToPen));
-                return;
+                if (mode == ModePen)
+                {
+                    return;
+                }
             }
             prevTime = Time.time;
             
@@ -216,6 +231,22 @@ namespace QvPen.Udon
             meshCollider.sharedMesh = mesh;
         }
 
+        private void SpawnInk()
+        {
+            inkInstance = VRCInstantiate(inkPrefab.gameObject);
+            inkInstance.name = $"{inkPrefab.name}{inkCount++:000000}";
+
+            inkInstance.transform.SetParent(spawnTarget);
+            inkInstance.transform.localPosition = Vector3.zero;
+            inkInstance.transform.localRotation = Quaternion.identity;
+            inkInstance.SetActive(true);
+            inkInstance.GetComponent<TrailRenderer>().enabled = true;
+        }
+        
+        #endregion
+
+        #region Network
+
         public void FinishErasing()
         {
             if (mode != ModeEraser)
@@ -226,18 +257,6 @@ namespace QvPen.Udon
             if(!isErasing) return;
             eraser.FinishErasing();
             isErasing = false;
-        }
-
-        private void SpawnInk()
-        {
-            inkInstance = VRCInstantiate(inkPrefab.gameObject);
-            inkInstance.name = inkPrefab.name;
-
-            inkInstance.transform.SetParent(spawnTarget);
-            inkInstance.transform.localPosition = Vector3.zero;
-            inkInstance.transform.localRotation = Quaternion.identity;
-            inkInstance.SetActive(true);
-            inkInstance.GetComponent<TrailRenderer>().enabled = true;
         }
 
         public void Respawn()
@@ -254,5 +273,7 @@ namespace QvPen.Udon
                 Destroy(inkPool.GetChild(i).gameObject);
             }
         }
+
+        #endregion
     }
 }

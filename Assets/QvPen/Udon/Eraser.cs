@@ -77,7 +77,7 @@ namespace QvPen.Udon
                 other != null &&
                 other.gameObject != null &&
                 other.gameObject.layer == 17 &&
-                other.gameObject.name == "Ink"
+                other.gameObject.name.StartsWith("Ink")
                 )
             {
                 Destroy(other.gameObject);
