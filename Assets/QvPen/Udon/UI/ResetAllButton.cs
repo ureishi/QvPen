@@ -1,10 +1,9 @@
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
-using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
-namespace QvPen.Udon
+namespace QvPen.Udon.UI
 {
     public class ResetAllButton : UdonSharpBehaviour
     {

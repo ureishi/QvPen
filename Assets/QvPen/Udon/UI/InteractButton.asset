@@ -10,46 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: BroadcastEvent
+  m_Name: InteractButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 92454c89b176291468ef3b89c66b1195,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: e507bacdaa057514c8b501beb1b68b67,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export isMasterOnlyEvent\r\n    .export isOwnerOnlyEvent\r\n
-    \   .export isGlobalEvent\r\n    .export broadcastTransform\r\n    .export customEventName\r\n\r\n
+    \   .export isGlobalEvent\r\n    .export udonBehaviour\r\n    .export customEventName\r\n\r\n
     \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
     %SystemString, null\r\n    isGlobalEvent: %SystemBoolean, null\r\n    isMasterOnlyEvent:
     %SystemBoolean, null\r\n    isOwnerOnlyEvent: %SystemBoolean, null\r\n    customEventName:
-    %SystemString, null\r\n    broadcastTransform: %UnityEngineTransform, null\r\n
-    \   __0_this_intnl_UnityEngineGameObject: %UnityEngineGameObject, this\r\n    __0_i_Int32:
-    %SystemInt32, null\r\n    __0_udonBehaviour_UdonBehaviour: %VRCUdonUdonBehaviour,
-    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
-    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemType:
-    %SystemType, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemString, null\r\n    udonBehaviour: %VRCUdonUdonBehaviour, null\r\n    __0_this_intnl_UnityEngineGameObject:
+    %UnityEngineGameObject, this\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
+    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __10_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __11_intnl_SystemBoolean: %SystemBoolean, null\r\n    __12_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __13_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __6_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __7_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __8_intnl_SystemBoolean: %SystemBoolean, null\r\n    __9_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
-    null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
-    %SystemString, null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform,
-    null\r\n    __0_intnl_VRCUdonCommonInterfacesIUdonEventReceiver: %VRCUdonUdonBehaviour,
-    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    %SystemBoolean, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
     \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
     \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
     \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
-    namespace ureishi.Udon.QvPen\r\n        \r\n         # public class BroadcastEvent
+    namespace QvPen.Udon.UI\r\n        \r\n         # public class InteractButton
     : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
     private bool isMasterOnlyEvent = false;\r\n        \r\n         # [SerializeField]
     private bool isOwnerOnlyEvent = false;\r\n        \r\n         # [SerializeField]
     private bool isGlobalEvent = false;\r\n        \r\n         # [SerializeField]
-    private Transform broadcastTransform;\r\n        \r\n         # [SerializeField]
+    private UdonBehaviour udonBehaviour;\r\n        \r\n         # [SerializeField]
     private string customEventName = \"Unnamed\";\r\n        \r\n         # public
     override void Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
@@ -78,53 +68,30 @@ MonoBehaviour:
     \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
     0x00000158\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \        # if (!broadcastTransform) return;\r\n        PUSH, broadcastTransform\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
+    \        # if (!udonBehaviour) return;\r\n        PUSH, udonBehaviour\r\n        PUSH,
+    __8_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
     \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001AC\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    for (int i = 0; i < broadcastTransform.childCount; i++)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH, broadcastTransform\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
-    __10_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000384\r\n
-    \       \r\n         # {\r\n        \r\n         # var udonBehaviour = (UdonBehaviour)broadcastTransform.GetChild(i).GetComponent(typeof(UdonBehaviour));\r\n
-    \       PUSH, broadcastTransform\r\n        PUSH, __0_i_Int32\r\n        PUSH,
-    __0_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
-    \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_const_intnl_SystemType\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineTransform.__GetComponent__SystemType__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __0_intnl_VRCUdonCommonInterfacesIUdonEventReceiver\r\n
-    \       COPY\r\n        PUSH, __0_intnl_VRCUdonCommonInterfacesIUdonEventReceiver\r\n
-    \       PUSH, __0_udonBehaviour_UdonBehaviour\r\n        COPY\r\n        \r\n
-    \        # if (!udonBehaviour) continue;\r\n        PUSH, __0_udonBehaviour_UdonBehaviour\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        PUSH, __12_intnl_SystemBoolean\r\n
+    if (!isGlobalEvent)\r\n        PUSH, isGlobalEvent\r\n        PUSH, __10_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002B8\r\n
-    \       JUMP, 0x00000348\r\n        \r\n         # if (!isGlobalEvent)\r\n        PUSH,
-    isGlobalEvent\r\n        PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000314\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000208\r\n
     \       \r\n         # udonBehaviour.SendCustomEvent(customEventName);\r\n        PUSH,
-    __0_udonBehaviour_UdonBehaviour\r\n        PUSH, customEventName\r\n        PUSH,
-    __0_intnl_SystemString\r\n        COPY # Copy-on-write symbol value dirtied\r\n
-    \       PUSH, customEventName\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x00000348\r\n        \r\n         # else\r\n        \r\n         #
+    udonBehaviour\r\n        PUSH, customEventName\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, customEventName\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       JUMP, 0x0000023C\r\n        \r\n         # else\r\n        \r\n         #
     udonBehaviour.SendCustomNetworkEvent(NetworkEventTarget.All, customEventName);\r\n
-    \       PUSH, __0_udonBehaviour_UdonBehaviour\r\n        PUSH, customEventName\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        COPY # Copy-on-write symbol value
-    dirtied\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, customEventName\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        COPY\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000001C0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+    \       PUSH, udonBehaviour\r\n        PUSH, customEventName\r\n        PUSH,
+    __1_intnl_SystemString\r\n        COPY # Copy-on-write symbol value dirtied\r\n
+    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
+    customEventName\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: fa3a11c20e1577241b6dd30bb76159b6, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 5e0782eef3057db45901970cb63a5313, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
   compileErrors: []
   debugInfo:
@@ -153,863 +120,657 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 18
+      endSourceChar: 17
       line: 0
       lineChar: 6
-      spanCodeSection: "UdonSharp;\r\n"
+      spanCodeSection: 'UdonSharp;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 18
-      endSourceChar: 24
+      startSourceChar: 17
+      endSourceChar: 23
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 24
-      endSourceChar: 38
+      startSourceChar: 23
+      endSourceChar: 36
       line: 1
       lineChar: 6
-      spanCodeSection: "UnityEngine;\r\n"
+      spanCodeSection: 'UnityEngine;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 38
-      endSourceChar: 44
+      startSourceChar: 36
+      endSourceChar: 42
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 44
+      startSourceChar: 42
+      endSourceChar: 42
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 48
+      startSourceChar: 42
+      endSourceChar: 46
       line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 48
-      endSourceChar: 58
+      startSourceChar: 46
+      endSourceChar: 55
       line: 2
       lineChar: 10
-      spanCodeSection: "SDKBase;\r\n"
+      spanCodeSection: 'SDKBase;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 58
-      endSourceChar: 64
+      startSourceChar: 55
+      endSourceChar: 61
       line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 64
+      startSourceChar: 61
+      endSourceChar: 61
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 68
+      startSourceChar: 61
+      endSourceChar: 65
       line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 68
-      endSourceChar: 75
+      startSourceChar: 65
+      endSourceChar: 71
       line: 3
       lineChar: 10
-      spanCodeSection: "Udon;\r\n"
+      spanCodeSection: 'Udon;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 75
-      endSourceChar: 81
+      startSourceChar: 71
+      endSourceChar: 77
       line: 4
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 81
-      endSourceChar: 81
+      startSourceChar: 77
+      endSourceChar: 77
       line: 4
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 81
-      endSourceChar: 81
+      startSourceChar: 77
+      endSourceChar: 77
       line: 4
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 81
-      endSourceChar: 81
+      startSourceChar: 77
+      endSourceChar: 77
       line: 4
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 81
-      endSourceChar: 85
+      startSourceChar: 77
+      endSourceChar: 81
       line: 4
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 85
-      endSourceChar: 90
+      startSourceChar: 81
+      endSourceChar: 86
       line: 4
       lineChar: 10
       spanCodeSection: Udon.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 90
-      endSourceChar: 97
+      startSourceChar: 86
+      endSourceChar: 93
       line: 4
       lineChar: 15
       spanCodeSection: Common.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 97
-      endSourceChar: 112
+      startSourceChar: 93
+      endSourceChar: 106
       line: 4
       lineChar: 22
-      spanCodeSection: "Interfaces;\r\n\r\n"
+      spanCodeSection: 'Interfaces;
+
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 112
-      endSourceChar: 149
+      startSourceChar: 106
+      endSourceChar: 136
       line: 6
       lineChar: 0
-      spanCodeSection: "namespace ureishi.Udon.QvPen\r\n{\r\n    "
+      spanCodeSection: "namespace QvPen.Udon.UI\n{\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 149
-      endSourceChar: 177
+      startSourceChar: 136
+      endSourceChar: 164
       line: 8
       lineChar: 4
-      spanCodeSection: 'public class BroadcastEvent '
+      spanCodeSection: 'public class InteractButton '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 177
-      endSourceChar: 179
+      startSourceChar: 164
+      endSourceChar: 166
       line: 8
       lineChar: 32
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 179
+      startSourceChar: 166
+      endSourceChar: 166
       line: 8
       lineChar: 34
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 214
+      startSourceChar: 166
+      endSourceChar: 199
       line: 8
       lineChar: 34
-      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 214
-      endSourceChar: 215
+      startSourceChar: 199
+      endSourceChar: 200
       line: 10
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 215
-      endSourceChar: 215
+      startSourceChar: 200
+      endSourceChar: 200
       line: 10
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 215
-      endSourceChar: 239
+      startSourceChar: 200
+      endSourceChar: 224
       line: 10
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 239
-      endSourceChar: 239
+      startSourceChar: 224
+      endSourceChar: 224
       line: 10
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 239
-      endSourceChar: 280
+      startSourceChar: 224
+      endSourceChar: 264
       line: 10
       lineChar: 33
-      spanCodeSection: "bool isMasterOnlyEvent = false;\r\n        "
+      spanCodeSection: "bool isMasterOnlyEvent = false;\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 280
-      endSourceChar: 281
+      startSourceChar: 264
+      endSourceChar: 265
       line: 11
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 281
-      endSourceChar: 281
+      startSourceChar: 265
+      endSourceChar: 265
       line: 11
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 281
-      endSourceChar: 305
+      startSourceChar: 265
+      endSourceChar: 289
       line: 11
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 305
-      endSourceChar: 305
+      startSourceChar: 289
+      endSourceChar: 289
       line: 11
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 305
-      endSourceChar: 347
+      startSourceChar: 289
+      endSourceChar: 329
       line: 11
       lineChar: 33
-      spanCodeSection: "bool isOwnerOnlyEvent = false;\r\n\r\n        "
+      spanCodeSection: "bool isOwnerOnlyEvent = false;\n\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 347
-      endSourceChar: 348
+      startSourceChar: 329
+      endSourceChar: 330
       line: 13
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 348
-      endSourceChar: 348
+      startSourceChar: 330
+      endSourceChar: 330
       line: 13
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 348
-      endSourceChar: 372
+      startSourceChar: 330
+      endSourceChar: 354
       line: 13
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 372
-      endSourceChar: 372
+      startSourceChar: 354
+      endSourceChar: 354
       line: 13
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 372
-      endSourceChar: 409
+      startSourceChar: 354
+      endSourceChar: 390
       line: 13
       lineChar: 33
-      spanCodeSection: "bool isGlobalEvent = false;\r\n        "
+      spanCodeSection: "bool isGlobalEvent = false;\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 409
-      endSourceChar: 410
+      startSourceChar: 390
+      endSourceChar: 391
       line: 14
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 410
-      endSourceChar: 410
+      startSourceChar: 391
+      endSourceChar: 391
       line: 14
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 410
-      endSourceChar: 434
+      startSourceChar: 391
+      endSourceChar: 415
       line: 14
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 434
-      endSourceChar: 434
+      startSourceChar: 415
+      endSourceChar: 415
       line: 14
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 434
-      endSourceChar: 473
+      startSourceChar: 415
+      endSourceChar: 452
       line: 14
       lineChar: 33
-      spanCodeSection: "Transform broadcastTransform;\r\n        "
+      spanCodeSection: "UdonBehaviour udonBehaviour;\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 473
-      endSourceChar: 474
+      startSourceChar: 452
+      endSourceChar: 453
       line: 15
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 474
-      endSourceChar: 474
+      startSourceChar: 453
+      endSourceChar: 453
       line: 15
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 474
-      endSourceChar: 498
+      startSourceChar: 453
+      endSourceChar: 477
       line: 15
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 498
-      endSourceChar: 498
+      startSourceChar: 477
+      endSourceChar: 477
       line: 15
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 498
-      endSourceChar: 545
+      startSourceChar: 477
+      endSourceChar: 522
       line: 15
       lineChar: 33
-      spanCodeSection: "string customEventName = \"Unnamed\";\r\n\r\n        "
+      spanCodeSection: "string customEventName = \"Unnamed\";\n\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 545
-      endSourceChar: 586
+      startSourceChar: 522
+      endSourceChar: 562
       line: 17
       lineChar: 8
-      spanCodeSection: "public override void Interact()\r\n        "
+      spanCodeSection: "public override void Interact()\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 586
-      endSourceChar: 601
+      startSourceChar: 562
+      endSourceChar: 576
       line: 18
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 601
-      endSourceChar: 605
+      startSourceChar: 576
+      endSourceChar: 580
       line: 19
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 605
-      endSourceChar: 605
+      startSourceChar: 580
+      endSourceChar: 580
       line: 19
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 43
-      startSourceChar: 605
-      endSourceChar: 626
+      startSourceChar: 580
+      endSourceChar: 601
       line: 19
       lineChar: 16
       spanCodeSection: 'isMasterOnlyEvent && '
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 626
-      endSourceChar: 627
+      startSourceChar: 601
+      endSourceChar: 602
       line: 19
       lineChar: 37
       spanCodeSection: '!'
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 627
-      endSourceChar: 627
+      startSourceChar: 602
+      endSourceChar: 602
       line: 19
       lineChar: 38
       spanCodeSection: 
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 627
-      endSourceChar: 638
+      startSourceChar: 602
+      endSourceChar: 613
       line: 19
       lineChar: 38
       spanCodeSection: Networking.
     - startInstruction: 44
       endInstruction: 151
-      startSourceChar: 638
-      endSourceChar: 648
+      startSourceChar: 613
+      endSourceChar: 623
       line: 19
       lineChar: 49
       spanCodeSection: 'IsMaster) '
     - startInstruction: 152
       endInstruction: 171
-      startSourceChar: 648
-      endSourceChar: 669
+      startSourceChar: 623
+      endSourceChar: 643
       line: 19
       lineChar: 59
-      spanCodeSection: "return;\r\n            "
+      spanCodeSection: "return;\n            "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 669
-      endSourceChar: 673
+      startSourceChar: 643
+      endSourceChar: 647
       line: 20
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 673
-      endSourceChar: 673
+      startSourceChar: 647
+      endSourceChar: 647
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 207
-      startSourceChar: 673
-      endSourceChar: 693
+      startSourceChar: 647
+      endSourceChar: 667
       line: 20
       lineChar: 16
       spanCodeSection: 'isOwnerOnlyEvent && '
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 693
-      endSourceChar: 694
+      startSourceChar: 667
+      endSourceChar: 668
       line: 20
       lineChar: 36
       spanCodeSection: '!'
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 694
-      endSourceChar: 694
+      startSourceChar: 668
+      endSourceChar: 668
       line: 20
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 694
-      endSourceChar: 694
+      startSourceChar: 668
+      endSourceChar: 668
       line: 20
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 694
-      endSourceChar: 705
+      startSourceChar: 668
+      endSourceChar: 679
       line: 20
       lineChar: 37
       spanCodeSection: Networking.
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 705
-      endSourceChar: 713
+      startSourceChar: 679
+      endSourceChar: 687
       line: 20
       lineChar: 48
       spanCodeSection: IsOwner(
     - startInstruction: 208
       endInstruction: 323
-      startSourceChar: 713
-      endSourceChar: 726
+      startSourceChar: 687
+      endSourceChar: 700
       line: 20
       lineChar: 56
       spanCodeSection: 'gameObject)) '
     - startInstruction: 324
       endInstruction: 343
-      startSourceChar: 726
-      endSourceChar: 747
+      startSourceChar: 700
+      endSourceChar: 720
       line: 20
       lineChar: 69
-      spanCodeSection: "return;\r\n            "
+      spanCodeSection: "return;\n            "
     - startInstruction: 344
       endInstruction: 343
-      startSourceChar: 747
-      endSourceChar: 751
+      startSourceChar: 720
+      endSourceChar: 724
       line: 21
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 344
       endInstruction: 343
-      startSourceChar: 751
-      endSourceChar: 752
+      startSourceChar: 724
+      endSourceChar: 725
       line: 21
       lineChar: 16
       spanCodeSection: '!'
     - startInstruction: 344
       endInstruction: 407
-      startSourceChar: 752
-      endSourceChar: 772
+      startSourceChar: 725
+      endSourceChar: 740
       line: 21
       lineChar: 17
-      spanCodeSection: 'broadcastTransform) '
+      spanCodeSection: 'udonBehaviour) '
     - startInstruction: 408
       endInstruction: 427
-      startSourceChar: 772
-      endSourceChar: 793
+      startSourceChar: 740
+      endSourceChar: 760
       line: 21
-      lineChar: 37
-      spanCodeSection: "return;\r\n            "
+      lineChar: 32
+      spanCodeSection: "return;\n            "
     - startInstruction: 428
       endInstruction: 427
-      startSourceChar: 793
-      endSourceChar: 798
+      startSourceChar: 760
+      endSourceChar: 764
       line: 22
       lineChar: 12
-      spanCodeSection: for (
+      spanCodeSection: if (
     - startInstruction: 428
       endInstruction: 427
-      startSourceChar: 798
-      endSourceChar: 798
+      startSourceChar: 764
+      endSourceChar: 765
+      line: 22
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 428
+      endInstruction: 467
+      startSourceChar: 765
+      endSourceChar: 796
       line: 22
       lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 428
-      endInstruction: 427
-      startSourceChar: 798
-      endSourceChar: 798
-      line: 22
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 428
-      endInstruction: 427
-      startSourceChar: 798
-      endSourceChar: 804
-      line: 22
-      lineChar: 17
-      spanCodeSection: 'int i '
-    - startInstruction: 428
-      endInstruction: 427
-      startSourceChar: 804
-      endSourceChar: 806
-      line: 22
-      lineChar: 23
-      spanCodeSection: '= '
-    - startInstruction: 428
-      endInstruction: 447
-      startSourceChar: 806
-      endSourceChar: 809
-      line: 22
-      lineChar: 25
-      spanCodeSection: '0; '
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 809
-      endSourceChar: 809
-      line: 22
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 809
-      endSourceChar: 813
-      line: 22
-      lineChar: 28
-      spanCodeSection: 'i < '
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 813
-      endSourceChar: 813
-      line: 22
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 813
-      endSourceChar: 832
-      line: 22
-      lineChar: 32
-      spanCodeSection: broadcastTransform.
-    - startInstruction: 448
-      endInstruction: 519
-      startSourceChar: 832
-      endSourceChar: 862
-      line: 22
-      lineChar: 51
-      spanCodeSection: "childCount; i++)\r\n            "
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 862
-      endSourceChar: 881
+      spanCodeSection: "isGlobalEvent)\n                "
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
       line: 23
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 881
-      endSourceChar: 881
-      line: 24
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 881
-      endSourceChar: 881
-      line: 24
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
+      line: 23
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 881
-      endSourceChar: 899
-      line: 24
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
+      line: 23
       lineChar: 16
-      spanCodeSection: 'var udonBehaviour '
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 899
-      endSourceChar: 901
-      line: 24
-      lineChar: 34
-      spanCodeSection: '= '
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 901
-      endSourceChar: 916
-      line: 24
-      lineChar: 36
-      spanCodeSection: (UdonBehaviour)
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 24
-      lineChar: 51
       spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 24
-      lineChar: 51
-      spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 24
-      lineChar: 51
-      spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 24
-      lineChar: 51
-      spanCodeSection: 
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 916
-      endSourceChar: 935
-      line: 24
-      lineChar: 51
-      spanCodeSection: broadcastTransform.
-    - startInstruction: 520
-      endInstruction: 519
-      startSourceChar: 935
-      endSourceChar: 944
-      line: 24
-      lineChar: 70
-      spanCodeSection: GetChild(
-    - startInstruction: 520
-      endInstruction: 551
-      startSourceChar: 944
-      endSourceChar: 947
-      line: 24
-      lineChar: 79
-      spanCodeSection: i).
-    - startInstruction: 552
-      endInstruction: 551
-      startSourceChar: 947
-      endSourceChar: 960
-      line: 24
-      lineChar: 82
-      spanCodeSection: GetComponent(
-    - startInstruction: 552
-      endInstruction: 551
-      startSourceChar: 960
-      endSourceChar: 967
-      line: 24
-      lineChar: 95
-      spanCodeSection: typeof(
-    - startInstruction: 552
-      endInstruction: 623
-      startSourceChar: 967
-      endSourceChar: 1001
-      line: 24
-      lineChar: 102
-      spanCodeSection: "UdonBehaviour));\r\n                "
-    - startInstruction: 624
-      endInstruction: 623
-      startSourceChar: 1001
-      endSourceChar: 1005
-      line: 25
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 810
+      line: 23
       lineChar: 16
-      spanCodeSection: if (
-    - startInstruction: 624
-      endInstruction: 623
-      startSourceChar: 1005
-      endSourceChar: 1006
-      line: 25
-      lineChar: 20
-      spanCodeSection: '!'
-    - startInstruction: 624
-      endInstruction: 687
-      startSourceChar: 1006
-      endSourceChar: 1021
-      line: 25
-      lineChar: 21
-      spanCodeSection: 'udonBehaviour) '
-    - startInstruction: 688
-      endInstruction: 695
-      startSourceChar: 1021
-      endSourceChar: 1048
-      line: 25
-      lineChar: 36
-      spanCodeSection: "continue;\r\n                "
-    - startInstruction: 696
-      endInstruction: 695
-      startSourceChar: 1048
-      endSourceChar: 1052
-      line: 26
-      lineChar: 16
-      spanCodeSection: if (
-    - startInstruction: 696
-      endInstruction: 695
-      startSourceChar: 1052
-      endSourceChar: 1053
-      line: 26
-      lineChar: 20
-      spanCodeSection: '!'
-    - startInstruction: 696
-      endInstruction: 735
-      startSourceChar: 1053
-      endSourceChar: 1089
-      line: 26
-      lineChar: 21
-      spanCodeSection: "isGlobalEvent)\r\n                    "
-    - startInstruction: 736
-      endInstruction: 735
-      startSourceChar: 1089
-      endSourceChar: 1089
-      line: 27
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 736
-      endInstruction: 735
-      startSourceChar: 1089
-      endSourceChar: 1089
-      line: 27
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 736
-      endInstruction: 735
-      startSourceChar: 1089
-      endSourceChar: 1089
-      line: 27
-      lineChar: 20
-      spanCodeSection: 
-    - startInstruction: 736
-      endInstruction: 735
-      startSourceChar: 1089
-      endSourceChar: 1103
-      line: 27
-      lineChar: 20
       spanCodeSection: udonBehaviour.
-    - startInstruction: 736
-      endInstruction: 735
-      startSourceChar: 1103
-      endSourceChar: 1119
-      line: 27
-      lineChar: 34
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 810
+      endSourceChar: 826
+      line: 23
+      lineChar: 30
       spanCodeSection: SendCustomEvent(
-    - startInstruction: 736
-      endInstruction: 787
-      startSourceChar: 1119
-      endSourceChar: 1154
-      line: 27
-      lineChar: 50
-      spanCodeSection: "customEventName);\r\n                "
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1154
-      endSourceChar: 1180
-      line: 28
+    - startInstruction: 468
+      endInstruction: 519
+      startSourceChar: 826
+      endSourceChar: 856
+      line: 23
+      lineChar: 46
+      spanCodeSection: "customEventName);\n            "
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 856
+      endSourceChar: 877
+      line: 24
+      lineChar: 12
+      spanCodeSection: "else\n                "
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
       lineChar: 16
-      spanCodeSection: "else\r\n                    "
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1180
-      endSourceChar: 1180
-      line: 29
-      lineChar: 20
       spanCodeSection: 
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1180
-      endSourceChar: 1180
-      line: 29
-      lineChar: 20
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
+      lineChar: 16
       spanCodeSection: 
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1180
-      endSourceChar: 1180
-      line: 29
-      lineChar: 20
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
+      lineChar: 16
       spanCodeSection: 
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1180
-      endSourceChar: 1194
-      line: 29
-      lineChar: 20
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 891
+      line: 25
+      lineChar: 16
       spanCodeSection: udonBehaviour.
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1194
-      endSourceChar: 1217
-      line: 29
-      lineChar: 34
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 891
+      endSourceChar: 914
+      line: 25
+      lineChar: 30
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1217
-      endSourceChar: 1217
-      line: 29
-      lineChar: 57
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 25
+      lineChar: 53
       spanCodeSection: 
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1217
-      endSourceChar: 1236
-      line: 29
-      lineChar: 57
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 914
+      endSourceChar: 933
+      line: 25
+      lineChar: 53
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 788
-      endInstruction: 787
-      startSourceChar: 1236
-      endSourceChar: 1241
-      line: 29
-      lineChar: 76
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 933
+      endSourceChar: 938
+      line: 25
+      lineChar: 72
       spanCodeSection: 'All, '
-    - startInstruction: 788
-      endInstruction: 788
-      startSourceChar: 1241
-      endSourceChar: 1241
-      line: 29
-      lineChar: 81
+    - startInstruction: 520
+      endInstruction: 520
+      startSourceChar: 938
+      endSourceChar: 938
+      line: 25
+      lineChar: 77
       spanCodeSection: 
   hasInteractEvent: 1
   serializationData:
@@ -1235,7 +996,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: broadcastTransform
+      Data: udonBehaviour
     - Name: $v
       Entry: 7
       Data: 15|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -1247,7 +1008,7 @@ MonoBehaviour:
       Data: 17|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UnityEngine.Transform, UnityEngine.CoreModule
+      Data: VRC.Udon.UdonBehaviour, VRC.Udon
     - Name: 
       Entry: 8
       Data: 
@@ -1259,13 +1020,13 @@ MonoBehaviour:
       Data: 0
     - Name: symbolResolvedTypeName
       Entry: 1
-      Data: UnityEngineTransform
+      Data: VRCUdonUdonBehaviour
     - Name: symbolOriginalName
       Entry: 1
-      Data: broadcastTransform
+      Data: udonBehaviour
     - Name: symbolUniqueName
       Entry: 1
-      Data: broadcastTransform
+      Data: udonBehaviour
     - Name: symbolDefaultValue
       Entry: 6
       Data: 

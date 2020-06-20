@@ -24,17 +24,17 @@ MonoBehaviour:
     %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_QvPenUdonPenManager:
     %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
     null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
-    \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
-    ClearAllButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    private PenManager[] penManagers;\r\n        \r\n         # public override void
-    Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
-    \       PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \        # using UnityEngine;\r\n        \r\n         # namespace QvPen.Udon.UI\r\n
+    \       \r\n         # public class ClearAllButton : UdonSharpBehaviour\r\n.code_start\r\n
+    \       \r\n         # [SerializeField] private PenManager[] penManagers;\r\n
+    \       \r\n         # public override void Interact()\r\n    .export _interact\r\n
+    \       \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # foreach (var penManager in
+    penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, penManagers\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
+    __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
     \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000D8\r\n
     \       PUSH, penManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
@@ -91,190 +91,162 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 24
-      endSourceChar: 38
+      endSourceChar: 40
       line: 1
       lineChar: 6
-      spanCodeSection: "UnityEngine;\r\n"
+      spanCodeSection: "UnityEngine;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 38
-      endSourceChar: 44
-      line: 2
+      startSourceChar: 40
+      endSourceChar: 72
+      line: 3
       lineChar: 0
-      spanCodeSection: 'using '
+      spanCodeSection: "namespace QvPen.Udon.UI\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 44
-      line: 2
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 48
-      line: 2
-      lineChar: 6
-      spanCodeSection: VRC.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 48
-      endSourceChar: 60
-      line: 2
-      lineChar: 10
-      spanCodeSection: "SDKBase;\r\n\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 60
-      endSourceChar: 89
-      line: 4
-      lineChar: 0
-      spanCodeSection: "namespace QvPen.Udon\r\n{\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 89
-      endSourceChar: 117
-      line: 6
+      startSourceChar: 72
+      endSourceChar: 100
+      line: 5
       lineChar: 4
       spanCodeSection: 'public class ClearAllButton '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 117
-      endSourceChar: 119
-      line: 6
+      startSourceChar: 100
+      endSourceChar: 102
+      line: 5
       lineChar: 32
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 119
-      endSourceChar: 119
-      line: 6
+      startSourceChar: 102
+      endSourceChar: 102
+      line: 5
       lineChar: 34
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 119
-      endSourceChar: 154
-      line: 6
+      startSourceChar: 102
+      endSourceChar: 137
+      line: 5
       lineChar: 34
       spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 154
-      endSourceChar: 155
-      line: 8
+      startSourceChar: 137
+      endSourceChar: 138
+      line: 7
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 155
-      endSourceChar: 155
-      line: 8
+      startSourceChar: 138
+      endSourceChar: 138
+      line: 7
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 155
-      endSourceChar: 179
-      line: 8
+      startSourceChar: 138
+      endSourceChar: 162
+      line: 7
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 179
-      line: 8
+      startSourceChar: 162
+      endSourceChar: 162
+      line: 7
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 179
-      line: 8
+      startSourceChar: 162
+      endSourceChar: 162
+      line: 7
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 216
-      line: 8
+      startSourceChar: 162
+      endSourceChar: 199
+      line: 7
       lineChar: 33
       spanCodeSection: "PenManager[] penManagers;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 216
-      endSourceChar: 257
-      line: 10
+      startSourceChar: 199
+      endSourceChar: 240
+      line: 9
       lineChar: 8
       spanCodeSection: "public override void Interact()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 257
-      endSourceChar: 272
-      line: 11
+      startSourceChar: 240
+      endSourceChar: 255
+      line: 10
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 272
-      endSourceChar: 281
-      line: 12
+      startSourceChar: 255
+      endSourceChar: 264
+      line: 11
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 281
-      endSourceChar: 299
-      line: 12
+      startSourceChar: 264
+      endSourceChar: 282
+      line: 11
       lineChar: 21
       spanCodeSection: 'var penManager in '
     - startInstruction: 8
       endInstruction: 151
-      startSourceChar: 299
-      endSourceChar: 325
-      line: 12
+      startSourceChar: 282
+      endSourceChar: 308
+      line: 11
       lineChar: 39
       spanCodeSection: "penManagers)\r\n            "
     - startInstruction: 152
       endInstruction: 151
-      startSourceChar: 325
-      endSourceChar: 344
-      line: 13
+      startSourceChar: 308
+      endSourceChar: 327
+      line: 12
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 152
       endInstruction: 151
-      startSourceChar: 344
-      endSourceChar: 344
-      line: 14
+      startSourceChar: 327
+      endSourceChar: 327
+      line: 13
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 152
       endInstruction: 151
-      startSourceChar: 344
-      endSourceChar: 344
-      line: 14
+      startSourceChar: 327
+      endSourceChar: 327
+      line: 13
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 152
       endInstruction: 151
-      startSourceChar: 344
-      endSourceChar: 344
-      line: 14
+      startSourceChar: 327
+      endSourceChar: 327
+      line: 13
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 152
       endInstruction: 151
-      startSourceChar: 344
-      endSourceChar: 355
-      line: 14
+      startSourceChar: 327
+      endSourceChar: 338
+      line: 13
       lineChar: 16
       spanCodeSection: penManager.
     - startInstruction: 152
       endInstruction: 152
-      startSourceChar: 355
-      endSourceChar: 355
-      line: 14
+      startSourceChar: 338
+      endSourceChar: 338
+      line: 13
       lineChar: 27
       spanCodeSection: 
   hasInteractEvent: 1
