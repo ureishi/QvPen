@@ -160,13 +160,13 @@ MonoBehaviour:
     \       PUSH, __10_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __2_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x000004C4\r\n        \r\n         # other.gameObject.name == \"Ink\"\r\n        PUSH,
-    __0_other_Collider\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n        EXTERN,
-    \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n        PUSH,
-    __2_intnl_UnityEngineGameObject\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN,
-    \"UnityEngineGameObject.__get_name__SystemString\"\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       PUSH, __2_const_intnl_SystemString\r\n        PUSH, __11_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    0x000004C4\r\n        \r\n         # other.gameObject.name.StartsWith(\"Ink\")\r\n
+    \       PUSH, __0_other_Collider\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n
+    \       EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
+    \       PUSH, __2_intnl_UnityEngineGameObject\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"UnityEngineGameObject.__get_name__SystemString\"\r\n        PUSH,
+    __0_intnl_SystemString\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
+    __11_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__StartsWith__SystemString__SystemBoolean\"\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        PUSH, __11_intnl_SystemBoolean\r\n
     \       PUSH, __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __12_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n
@@ -1448,6 +1448,13 @@ MonoBehaviour:
     - startInstruction: 1088
       endInstruction: 1087
       startSourceChar: 2007
+      endSourceChar: 2007
+      line: 79
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 2007
       endSourceChar: 2013
       line: 79
       lineChar: 16
@@ -1460,212 +1467,219 @@ MonoBehaviour:
       lineChar: 22
       spanCodeSection: gameObject.
     - startInstruction: 1088
-      endInstruction: 1135
+      endInstruction: 1111
       startSourceChar: 2024
-      endSourceChar: 2032
+      endSourceChar: 2029
       line: 79
       lineChar: 33
-      spanCodeSection: 'name == '
+      spanCodeSection: name.
+    - startInstruction: 1112
+      endInstruction: 1135
+      startSourceChar: 2029
+      endSourceChar: 2040
+      line: 79
+      lineChar: 38
+      spanCodeSection: StartsWith(
     - startInstruction: 1136
       endInstruction: 1235
-      startSourceChar: 2032
-      endSourceChar: 2068
+      startSourceChar: 2040
+      endSourceChar: 2077
       line: 79
-      lineChar: 41
-      spanCodeSection: "\"Ink\"\n                )\n            "
+      lineChar: 49
+      spanCodeSection: "\"Ink\")\n                )\n            "
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2068
-      endSourceChar: 2086
+      startSourceChar: 2077
+      endSourceChar: 2095
       line: 81
       lineChar: 12
       spanCodeSection: "{\n                "
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2086
-      endSourceChar: 2086
+      startSourceChar: 2095
+      endSourceChar: 2095
       line: 82
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2086
-      endSourceChar: 2086
+      startSourceChar: 2095
+      endSourceChar: 2095
       line: 82
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2086
-      endSourceChar: 2094
+      startSourceChar: 2095
+      endSourceChar: 2103
       line: 82
       lineChar: 16
       spanCodeSection: Destroy(
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2094
-      endSourceChar: 2094
+      startSourceChar: 2103
+      endSourceChar: 2103
       line: 82
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 2094
-      endSourceChar: 2100
+      startSourceChar: 2103
+      endSourceChar: 2109
       line: 82
       lineChar: 24
       spanCodeSection: other.
     - startInstruction: 1236
       endInstruction: 1295
-      startSourceChar: 2100
-      endSourceChar: 2146
+      startSourceChar: 2109
+      endSourceChar: 2155
       line: 82
       lineChar: 30
       spanCodeSection: "gameObject);\n            }\n        }\n\n        "
     - startInstruction: 1296
       endInstruction: 1303
-      startSourceChar: 2146
-      endSourceChar: 2176
+      startSourceChar: 2155
+      endSourceChar: 2185
       line: 86
       lineChar: 8
       spanCodeSection: "public void Respawn()\n        "
     - startInstruction: 1304
       endInstruction: 1303
-      startSourceChar: 2176
-      endSourceChar: 2190
+      startSourceChar: 2185
+      endSourceChar: 2199
       line: 87
       lineChar: 8
       spanCodeSection: "{\n            "
     - startInstruction: 1304
       endInstruction: 1303
-      startSourceChar: 2190
-      endSourceChar: 2194
+      startSourceChar: 2199
+      endSourceChar: 2203
       line: 88
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 1304
       endInstruction: 1343
-      startSourceChar: 2194
-      endSourceChar: 2202
+      startSourceChar: 2203
+      endSourceChar: 2211
       line: 88
       lineChar: 16
       spanCodeSection: 'pickup) '
     - startInstruction: 1344
       endInstruction: 1343
-      startSourceChar: 2202
-      endSourceChar: 2202
+      startSourceChar: 2211
+      endSourceChar: 2211
       line: 88
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1344
       endInstruction: 1343
-      startSourceChar: 2202
-      endSourceChar: 2202
+      startSourceChar: 2211
+      endSourceChar: 2211
       line: 88
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1344
       endInstruction: 1343
-      startSourceChar: 2202
-      endSourceChar: 2202
+      startSourceChar: 2211
+      endSourceChar: 2211
       line: 88
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1344
       endInstruction: 1343
-      startSourceChar: 2202
-      endSourceChar: 2209
+      startSourceChar: 2211
+      endSourceChar: 2218
       line: 88
       lineChar: 24
       spanCodeSection: pickup.
     - startInstruction: 1344
       endInstruction: 1359
-      startSourceChar: 2209
-      endSourceChar: 2229
+      startSourceChar: 2218
+      endSourceChar: 2238
       line: 88
       lineChar: 31
       spanCodeSection: "Drop();\n            "
     - startInstruction: 1360
       endInstruction: 1359
-      startSourceChar: 2229
-      endSourceChar: 2229
+      startSourceChar: 2238
+      endSourceChar: 2238
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1360
       endInstruction: 1359
-      startSourceChar: 2229
-      endSourceChar: 2229
+      startSourceChar: 2238
+      endSourceChar: 2238
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1360
       endInstruction: 1359
-      startSourceChar: 2229
-      endSourceChar: 2229
+      startSourceChar: 2238
+      endSourceChar: 2238
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1360
       endInstruction: 1359
-      startSourceChar: 2229
-      endSourceChar: 2239
+      startSourceChar: 2238
+      endSourceChar: 2248
       line: 89
       lineChar: 12
       spanCodeSection: transform.
     - startInstruction: 1360
       endInstruction: 1359
-      startSourceChar: 2239
-      endSourceChar: 2250
+      startSourceChar: 2248
+      endSourceChar: 2259
       line: 89
       lineChar: 22
       spanCodeSection: 'position = '
     - startInstruction: 1360
       endInstruction: 1383
-      startSourceChar: 2250
-      endSourceChar: 2279
+      startSourceChar: 2259
+      endSourceChar: 2288
       line: 89
       lineChar: 33
       spanCodeSection: "defaultPosition;\n            "
     - startInstruction: 1384
       endInstruction: 1383
-      startSourceChar: 2279
-      endSourceChar: 2279
+      startSourceChar: 2288
+      endSourceChar: 2288
       line: 90
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1384
       endInstruction: 1383
-      startSourceChar: 2279
-      endSourceChar: 2279
+      startSourceChar: 2288
+      endSourceChar: 2288
       line: 90
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1384
       endInstruction: 1383
-      startSourceChar: 2279
-      endSourceChar: 2279
+      startSourceChar: 2288
+      endSourceChar: 2288
       line: 90
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1384
       endInstruction: 1383
-      startSourceChar: 2279
-      endSourceChar: 2289
+      startSourceChar: 2288
+      endSourceChar: 2298
       line: 90
       lineChar: 12
       spanCodeSection: transform.
     - startInstruction: 1384
       endInstruction: 1383
-      startSourceChar: 2289
-      endSourceChar: 2300
+      startSourceChar: 2298
+      endSourceChar: 2309
       line: 90
       lineChar: 22
       spanCodeSection: 'rotation = '
     - startInstruction: 1384
       endInstruction: 1384
-      startSourceChar: 2300
-      endSourceChar: 2300
+      startSourceChar: 2309
+      endSourceChar: 2309
       line: 90
       lineChar: 33
       spanCodeSection: 
