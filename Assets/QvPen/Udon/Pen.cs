@@ -85,7 +85,9 @@ namespace QvPen.Udon
             if (Time.time - prevTime < Interval)
             {
                 prevTime = 0f;
-                Destroy(inkInstance);
+                // TODO: DestroyされたGameObjectにアクセスしようとしたらUdonBehaviourが落ちるバグが修正されたら，ペン→消しゴムの切替時に余分に出るインクを消す処理を入れる
+                // https://vrchat.canny.io/vrchat-udon-closed-alpha-bugs/p/null-check-on-gameobject-will-throw-exception-if-the-gameobj-is-destroyed
+                // Destroy(inkInstance);
                 SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(ChangeToEraser) : nameof(ChangeToPen));
                 return;
             }
