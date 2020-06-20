@@ -7,10 +7,6 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
-        #region Local
-
-        
-
         [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
         
@@ -22,25 +18,28 @@ namespace QvPen.Udon
 
         [SerializeField] private float followSpeed;
         
+        // PenManager
         private PenManager penManager;
         private bool isUser;
 
-        // For ink
+        // Ink
         private GameObject inkInstance;
         private int inkCount;
         
-        // For respawn
+        // Respawn
         private Vector3 defaultPosition;
         private Quaternion defaultRotation;
 
-        // For double click
-        private float prevTime;
-        private const float Interval = 0.2f;
+        // Double click
+        private float prevClickTime;
+        private const float ClickInterval = 0.2f;
 
-        // Mode Pen or Eraser
-        private const int ModePen = 0;
-        private const int ModeEraser = 1;
-        private int mode = ModePen;
+        // State
+        private const int StatePenIdle = 0;
+        private const int StatePenUsing = 1;
+        private const int StateEraserIdle = 2;
+        private const int StateEraserUsing = 3;
+        private int currentState = StatePenIdle;
 
         public void Init(PenManager manager)
         {
@@ -69,107 +68,225 @@ namespace QvPen.Udon
             }
         }
         
+        #region Events
+        
         public override void OnPickup()
         {
             isUser = true;
             penManager.StartUsing();
             
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeToPen)); 
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
         
         public override void OnDrop()
         {
             isUser = false;
             penManager.EndUsing();
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(FinishDrawing) : nameof(FinishErasing));
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeToPen)); 
+            
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
         
         public override void OnPickupUseDown()
         {
-            if (Time.time - prevTime < Interval)
+            if (Time.time - prevClickTime < ClickInterval)
             {
-                prevTime = 0f;
-                
-                if (mode == ModePen)
+                prevClickTime = 0f;
+                switch (currentState)
                 {
-                    var childCount = inkPool.childCount;
-                    if (childCount > 0)
-                    {
-                        Destroy(inkPool.GetChild(childCount - 1).gameObject);
-                    }
-                }
-
-                SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(ChangeToEraser) : nameof(ChangeToPen));
-                if (mode == ModePen)
-                {
-                    return;
+                    case StatePenIdle:
+                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(DestroyJustBeforeInk));
+                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseIdle));
+                        break;
+                    case StateEraserIdle:
+                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
+                        break;
+                    default:
+                        Debug.LogError($"Unexpected state : {currentState} at {nameof(OnPickupUseDown)} Double Clicked");
+                        break;
                 }
             }
-            prevTime = Time.time;
-            
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(StartDrawing) : nameof(StartErasing));
+            else
+            {
+                prevClickTime = Time.time;
+                switch (currentState)
+                {
+                    case StatePenIdle:
+                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
+                        break;
+                    case StateEraserIdle:
+                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseUsing));
+                        break;
+                    default:
+                        Debug.LogError($"Unexpected state : {currentState} at {nameof(OnPickupUseDown)}");
+                        break;
+                }
+            }
         }
-        
+
         public override void OnPickupUseUp()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, mode == ModePen ? nameof(FinishDrawing) : nameof(FinishErasing));
+            switch (currentState)
+            {
+                case StatePenUsing:
+                    SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
+                    break;
+                case StateEraserUsing:
+                    SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseIdle));
+                    break;
+                default:
+                    Debug.LogError($"Unexpected state : {currentState} at {nameof(OnPickupUseUp)}");
+                    break;
+            }
         }
         
-        public void ChangeToPen()
+        #endregion
+
+        public void DestroyJustBeforeInk()
         {
-            mode = ModePen;
-            eraser.SetActive(false);
+            var childCount = inkPool.childCount;
+            if (childCount > 0)
+            {
+                Destroy(inkPool.GetChild(childCount - 1).gameObject);
+            }
+        }
+
+        #region ChangeState
+
+        public void ChangeStateToPenIdle()
+        {
+            switch (currentState)
+            {
+                case StatePenUsing:
+                    FinishDrawing();
+                    break;
+                case StateEraserIdle:
+                    ChangeToPen();
+                    break;
+                case StateEraserUsing:
+                    FinishErasing();
+                    ChangeToPen();
+                    break;
+            }
+            currentState = StatePenIdle;
         }
         
-        public void ChangeToEraser()
+        public void ChangeStateToPenUsing()
         {
-            mode = ModeEraser;
-            eraser.SetActive(true);
+            switch (currentState)
+            {
+                case StatePenIdle:
+                    StartDrawing();
+                    break;
+                case StateEraserIdle:
+                    ChangeToPen();
+                    StartDrawing();
+                    break;
+                case StateEraserUsing:
+                    FinishErasing();
+                    ChangeToPen();
+                    StartDrawing();
+                    break;
+            }
+            currentState = StatePenUsing;
         }
 
-        private bool isDrawing;
-        private bool isErasing;
-
-        public void StartDrawing()
+        public void ChangeStateToEraseIdle()
         {
-            if (mode != ModePen)
+            switch (currentState)
             {
-                ChangeToPen();
+                case StatePenIdle:
+                    ChangeToEraser();
+                    break;
+                case StatePenUsing:
+                    FinishDrawing();
+                    ChangeToEraser();
+                    break;
+                case StateEraserUsing:
+                    FinishErasing();
+                    break;
             }
-            
-            if(isDrawing) return;
-            SpawnInk();
-            isDrawing = true;
+            currentState = StateEraserIdle;
         }
 
-        public void StartErasing()
+        public void ChangeStateToEraseUsing()
         {
-            if (mode != ModeEraser)
+            switch (currentState)
             {
-                ChangeToEraser();
+                case StatePenIdle:
+                    ChangeToEraser();
+                    StartErasing();
+                    break;
+                case StatePenUsing:
+                    FinishDrawing();
+                    ChangeToEraser();
+                    StartErasing();
+                    break;
+                case StateEraserIdle:
+                    StartErasing();
+                    break;
             }
-            
-            if(isErasing) return;
-            eraser.StartErasing();
-            isErasing = true;
+            currentState = StateEraserUsing;
+        }
+        
+        #endregion
+
+        public void Respawn()
+        {
+            if (pickup) pickup.Drop();
+            transform.position = defaultPosition;
+            transform.rotation = defaultRotation;
+        }
+        
+        public void Clear()
+        {
+            for (var i = 0; i < inkPool.childCount; i++)
+            {
+                Destroy(inkPool.GetChild(i).gameObject);
+            }
         }
 
-        public void FinishDrawing()
+        private void StartDrawing()
         {
-            if (mode != ModePen)
-            {
-                ChangeToPen();
-            }
+            inkInstance = VRCInstantiate(inkPrefab.gameObject);
+            inkInstance.name = $"{inkPrefab.name}{inkCount++:000000}";
 
-            if (!isDrawing) return;
+            inkInstance.transform.SetParent(spawnTarget);
+            inkInstance.transform.localPosition = Vector3.zero;
+            inkInstance.transform.localRotation = Quaternion.identity;
+            inkInstance.SetActive(true);
+            inkInstance.GetComponent<TrailRenderer>().enabled = true;
+        }
+
+        private void FinishDrawing()
+        {
             if (inkInstance != null)
             {
                 inkInstance.transform.SetParent(inkPool);
                 CreateInkMeshCollider();
             }
+
             inkInstance = null;
-            isDrawing = false;
+        }
+
+        private void StartErasing()
+        {
+            eraser.StartErasing();
+        }
+
+        private void FinishErasing()
+        {
+            eraser.FinishErasing();
+        }
+
+        private void ChangeToPen()
+        {
+            eraser.FinishErasing();
+            eraser.SetActive(false);
+        }
+        
+        private void ChangeToEraser()
+        {
+            eraser.SetActive(true);
         }
 
         private void CreateInkMeshCollider()
@@ -230,50 +347,5 @@ namespace QvPen.Udon
             meshFilter.mesh = mesh;
             meshCollider.sharedMesh = mesh;
         }
-
-        private void SpawnInk()
-        {
-            inkInstance = VRCInstantiate(inkPrefab.gameObject);
-            inkInstance.name = $"{inkPrefab.name}{inkCount++:000000}";
-
-            inkInstance.transform.SetParent(spawnTarget);
-            inkInstance.transform.localPosition = Vector3.zero;
-            inkInstance.transform.localRotation = Quaternion.identity;
-            inkInstance.SetActive(true);
-            inkInstance.GetComponent<TrailRenderer>().enabled = true;
-        }
-        
-        #endregion
-
-        #region Network
-
-        public void FinishErasing()
-        {
-            if (mode != ModeEraser)
-            {
-                ChangeToEraser();
-            }
-            
-            if(!isErasing) return;
-            eraser.FinishErasing();
-            isErasing = false;
-        }
-
-        public void Respawn()
-        {
-            if (pickup) pickup.Drop();
-            transform.position = defaultPosition;
-            transform.rotation = defaultRotation;
-        }
-        
-        public void Clear()
-        {
-            for (var i = 0; i < inkPool.childCount; i++)
-            {
-                Destroy(inkPool.GetChild(i).gameObject);
-            }
-        }
-
-        #endregion
     }
 }
