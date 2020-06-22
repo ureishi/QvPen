@@ -27,6 +27,7 @@ namespace QvPen.Udon
         private int inkCount;
 
         // Double click
+        private bool useDoubleClick;
         private float prevClickTime;
         private const float ClickInterval = 0.2f;
 
@@ -81,7 +82,7 @@ namespace QvPen.Udon
         
         public override void OnPickupUseDown()
         {
-            if (Time.time - prevClickTime < ClickInterval)
+            if (useDoubleClick && Time.time - prevClickTime < ClickInterval)
             {
                 prevClickTime = 0f;
                 switch (currentState)
@@ -130,6 +131,12 @@ namespace QvPen.Udon
                     Debug.LogError($"Unexpected state : {currentState} at {nameof(OnPickupUseUp)}");
                     break;
             }
+        }
+
+        public void SetUseDoubleClick(bool value)
+        {
+            useDoubleClick = value;
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
         
         #endregion
