@@ -14,68 +14,139 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: d64031666e2915a4c84a19c6f0db55d9,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export penManagers\r\n    .export eraserManagers\r\n\r\n
-    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
-    %SystemString, null\r\n    eraserManagers: %UnityEngineComponentArray, null\r\n
-    \   penManagers: %UnityEngineComponentArray, null\r\n    __0_eraserManager_EraserManager:
-    %VRCUdonUdonBehaviour, null\r\n    __0_penManager_PenManager: %VRCUdonUdonBehaviour,
-    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
-    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+  udonAssembly: ".data_start\r\n\r\n    .export message\r\n    .export penManagers\r\n
+    \   .export eraserManagers\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    eraserManagers:
+    %UnityEngineComponentArray, null\r\n    penManagers: %UnityEngineComponentArray,
+    null\r\n    message: %UnityEngineUIText, null\r\n    master: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    onPlayerJoinedPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    onPlayerLeftPlayer:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_masterName_String: %SystemString, null\r\n
+    \   __0_eraserManager_EraserManager: %VRCUdonUdonBehaviour, null\r\n    __0_penManager_PenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __1_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __2_player_VRCPlayerApi:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
+    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
+    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
+    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
+    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __0_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour, null\r\n
-    \   __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
-    namespace QvPen.Udon.UI\r\n        \r\n         # public class ResetAllButton
-    : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
+    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
+    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __0_intnl_QvPenUdonEraserManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
+    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    \       \r\n         # using System;\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
+    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
+    \       \r\n         # namespace QvPen.Udon.UI\r\n        \r\n         # public
+    class ResetAllButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
+    [SerializeField] private Text message;\r\n        \r\n         # [SerializeField]
     private PenManager[] penManagers;\r\n        \r\n         # [SerializeField] private
-    EraserManager[] eraserManagers;\r\n        \r\n         # public override void
-    Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # if (!Networking.IsMaster) return;\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n        PUSH,
-    __0_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n        PUSH,
-    __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000054\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n         # foreach (var penManager
-    in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    EraserManager[] eraserManagers;\r\n        \r\n         # private VRCPlayerApi
+    master;\r\n        \r\n         # public override void OnPlayerLeft(VRCPlayerApi
+    player)\r\n    .export _onPlayerLeft\r\n        \r\n    _onPlayerLeft:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerLeftPlayer\r\n
+    \       PUSH, __0_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
+    {\r\n        \r\n         # OnPlayerListChanged(player);\r\n        PUSH, __0_player_VRCPlayerApi\r\n
+    \       PUSH, __2_player_VRCPlayerApi\r\n        COPY\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000000B0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public override void OnPlayerJoined(VRCPlayerApi
+    player)\r\n    .export _onPlayerJoined\r\n        \r\n    _onPlayerJoined:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerJoinedPlayer\r\n
+    \       PUSH, __1_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
+    {\r\n        \r\n         # OnPlayerListChanged(player);\r\n        PUSH, __1_player_VRCPlayerApi\r\n
+    \       PUSH, __2_player_VRCPlayerApi\r\n        COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000000B0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # private void OnPlayerListChanged(VRCPlayerApi
+    player)\r\n    OnPlayerListChanged:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # if (player.isMaster)\r\n        PUSH,
+    __2_player_VRCPlayerApi\r\n        PUSH, __0_intnl_SystemBoolean\r\n        EXTERN,
+    \"VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean\"\r\n        PUSH, __0_intnl_SystemBoolean\r\n
+    \       JUMP_IF_FALSE, 0x000000EC\r\n        \r\n         # {\r\n        \r\n
+    \        # master = player;\r\n        PUSH, __2_player_VRCPlayerApi\r\n        PUSH,
+    master\r\n        COPY\r\n        \r\n         # var masterName = master == null
+    ? \"master\" : master.displayName;\r\n        PUSH, master\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000138\r\n
+    \       PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       COPY\r\n        JUMP, 0x00000150\r\n        PUSH, master\r\n        PUSH,
+    __0_intnl_SystemString\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_masterName_String\r\n
+    \       COPY\r\n        \r\n         # message.text =\r\n        \r\n         #
+    $\"<size=18>Reset All</size>\\n\\n\" +\r\n        PUSH, __1_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        \r\n
+    \        # $\"<size=8>[Only {masterName} can do]</size>\\n\\n\" +\r\n        PUSH,
+    __2_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
+    __0_masterName_String\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __1_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
+    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __3_const_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __1_intnl_interpolatedStr_String\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        \r\n
+    \        # $\"<size=14>(Global)</size>\";\r\n        PUSH, __4_const_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
+    __3_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH,
+    __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, message\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public override void Interact()\r\n    .export
+    _interact\r\n        \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # if (!Networking.IsMaster) return;\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002C8\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
+    foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000012C\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000003A0\r\n
     \       PUSH, penManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
     \       COPY\r\n        \r\n         # {\r\n        \r\n         # penManager.SendCustomNetworkEvent(NetworkEventTarget.All,
     nameof(PenManager.ResetAll));\r\n        PUSH, __0_penManager_PenManager\r\n        PUSH,
-    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH, __5_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000080\r\n        \r\n         # foreach (var eraserManager
+    \       JUMP, 0x000002F4\r\n        \r\n         # foreach (var eraserManager
     in eraserManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, eraserManagers\r\n        PUSH,
     __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000204\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000478\r\n
     \       PUSH, eraserManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_QvPenUdonEraserManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_eraserManager_EraserManager\r\n
     \       COPY\r\n        \r\n         # {\r\n        \r\n         # eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All,
     nameof(PenManager.ResetAll));\r\n        PUSH, __0_eraserManager_EraserManager\r\n
     \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
-    __0_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    __5_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000158\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x000003CC\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -108,112 +179,158 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 17
+      endSourceChar: 14
       line: 0
+      lineChar: 6
+      spanCodeSection: 'System;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 14
+      endSourceChar: 20
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 20
+      endSourceChar: 31
+      line: 1
       lineChar: 6
       spanCodeSection: 'UdonSharp;
 
 '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 17
-      endSourceChar: 23
-      line: 1
+      startSourceChar: 31
+      endSourceChar: 37
+      line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 23
-      endSourceChar: 36
-      line: 1
+      startSourceChar: 37
+      endSourceChar: 50
+      line: 2
       lineChar: 6
       spanCodeSection: 'UnityEngine;
 
 '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 36
-      endSourceChar: 42
-      line: 2
+      startSourceChar: 50
+      endSourceChar: 56
+      line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 42
-      line: 2
+      startSourceChar: 56
+      endSourceChar: 56
+      line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 46
-      line: 2
+      startSourceChar: 56
+      endSourceChar: 68
+      line: 3
+      lineChar: 6
+      spanCodeSection: UnityEngine.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 68
+      endSourceChar: 72
+      line: 3
+      lineChar: 18
+      spanCodeSection: 'UI;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 72
+      endSourceChar: 78
+      line: 4
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 78
+      endSourceChar: 78
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 78
+      endSourceChar: 82
+      line: 4
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 55
-      line: 2
+      startSourceChar: 82
+      endSourceChar: 91
+      line: 4
       lineChar: 10
       spanCodeSection: 'SDKBase;
 
 '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 55
-      endSourceChar: 61
-      line: 3
+      startSourceChar: 91
+      endSourceChar: 97
+      line: 5
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 61
-      line: 3
+      startSourceChar: 97
+      endSourceChar: 97
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 61
-      line: 3
+      startSourceChar: 97
+      endSourceChar: 97
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 61
-      line: 3
+      startSourceChar: 97
+      endSourceChar: 97
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 65
-      line: 3
+      startSourceChar: 97
+      endSourceChar: 101
+      line: 5
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 65
-      endSourceChar: 70
-      line: 3
+      startSourceChar: 101
+      endSourceChar: 106
+      line: 5
       lineChar: 10
       spanCodeSection: Udon.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 70
-      endSourceChar: 77
-      line: 3
+      startSourceChar: 106
+      endSourceChar: 113
+      line: 5
       lineChar: 15
       spanCodeSection: Common.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 77
-      endSourceChar: 90
-      line: 3
+      startSourceChar: 113
+      endSourceChar: 126
+      line: 5
       lineChar: 22
       spanCodeSection: 'Interfaces;
 
@@ -221,373 +338,807 @@ MonoBehaviour:
 '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 90
-      endSourceChar: 120
-      line: 5
+      startSourceChar: 126
+      endSourceChar: 156
+      line: 7
       lineChar: 0
       spanCodeSection: "namespace QvPen.Udon.UI\n{\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 120
-      endSourceChar: 148
-      line: 7
+      startSourceChar: 156
+      endSourceChar: 184
+      line: 9
       lineChar: 4
       spanCodeSection: 'public class ResetAllButton '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 148
-      endSourceChar: 150
-      line: 7
+      startSourceChar: 184
+      endSourceChar: 186
+      line: 9
       lineChar: 32
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 150
-      endSourceChar: 150
-      line: 7
+      startSourceChar: 186
+      endSourceChar: 186
+      line: 9
       lineChar: 34
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 150
-      endSourceChar: 183
-      line: 7
+      startSourceChar: 186
+      endSourceChar: 219
+      line: 9
       lineChar: 34
       spanCodeSection: "UdonSharpBehaviour\n    {\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 183
-      endSourceChar: 184
-      line: 9
+      startSourceChar: 219
+      endSourceChar: 220
+      line: 11
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 184
-      endSourceChar: 184
-      line: 9
+      startSourceChar: 220
+      endSourceChar: 220
+      line: 11
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 184
-      endSourceChar: 208
-      line: 9
+      startSourceChar: 220
+      endSourceChar: 244
+      line: 11
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 208
-      endSourceChar: 208
-      line: 9
+      startSourceChar: 244
+      endSourceChar: 244
+      line: 11
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 208
-      endSourceChar: 208
-      line: 9
+      startSourceChar: 244
+      endSourceChar: 266
+      line: 11
+      lineChar: 33
+      spanCodeSection: "Text message;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 266
+      endSourceChar: 267
+      line: 12
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 267
+      endSourceChar: 267
+      line: 12
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 267
+      endSourceChar: 291
+      line: 12
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 291
+      endSourceChar: 291
+      line: 12
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 208
-      endSourceChar: 242
-      line: 9
+      startSourceChar: 291
+      endSourceChar: 291
+      line: 12
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 291
+      endSourceChar: 325
+      line: 12
       lineChar: 33
       spanCodeSection: "PenManager[] penManagers;\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 242
-      endSourceChar: 243
-      line: 10
+      startSourceChar: 325
+      endSourceChar: 326
+      line: 13
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 243
-      endSourceChar: 243
-      line: 10
+      startSourceChar: 326
+      endSourceChar: 326
+      line: 13
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 243
-      endSourceChar: 267
-      line: 10
+      startSourceChar: 326
+      endSourceChar: 350
+      line: 13
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 267
-      endSourceChar: 267
-      line: 10
+      startSourceChar: 350
+      endSourceChar: 350
+      line: 13
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 267
-      endSourceChar: 267
-      line: 10
+      startSourceChar: 350
+      endSourceChar: 350
+      line: 13
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 267
-      endSourceChar: 316
-      line: 10
+      startSourceChar: 350
+      endSourceChar: 399
+      line: 13
       lineChar: 33
       spanCodeSection: "EraserManager[] eraserManagers;\n        \n        "
     - startInstruction: 0
-      endInstruction: 7
-      startSourceChar: 316
-      endSourceChar: 356
-      line: 12
+      endInstruction: -1
+      startSourceChar: 399
+      endSourceChar: 407
+      line: 15
       lineChar: 8
-      spanCodeSection: "public override void Interact()\n        "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 356
-      endSourceChar: 370
-      line: 13
+      spanCodeSection: 'private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 407
+      endSourceChar: 407
+      line: 15
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 407
+      endSourceChar: 437
+      line: 15
+      lineChar: 16
+      spanCodeSection: "VRCPlayerApi master;\n\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 437
+      endSourceChar: 471
+      line: 17
+      lineChar: 8
+      spanCodeSection: public override void OnPlayerLeft(
+    - startInstruction: 0
+      endInstruction: 27
+      startSourceChar: 471
+      endSourceChar: 500
+      line: 17
+      lineChar: 42
+      spanCodeSection: "VRCPlayerApi player)\n        "
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 500
+      endSourceChar: 514
+      line: 18
       lineChar: 8
       spanCodeSection: "{\n            "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 370
-      endSourceChar: 374
-      line: 14
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 514
+      endSourceChar: 514
+      line: 19
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 514
+      endSourceChar: 514
+      line: 19
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 514
+      endSourceChar: 534
+      line: 19
+      lineChar: 12
+      spanCodeSection: OnPlayerListChanged(
+    - startInstruction: 28
+      endInstruction: 83
+      startSourceChar: 534
+      endSourceChar: 562
+      line: 19
+      lineChar: 32
+      spanCodeSection: "player);\n        }\n\n        "
+    - startInstruction: 84
+      endInstruction: 83
+      startSourceChar: 562
+      endSourceChar: 598
+      line: 22
+      lineChar: 8
+      spanCodeSection: public override void OnPlayerJoined(
+    - startInstruction: 84
+      endInstruction: 111
+      startSourceChar: 598
+      endSourceChar: 627
+      line: 22
+      lineChar: 44
+      spanCodeSection: "VRCPlayerApi player)\n        "
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 627
+      endSourceChar: 641
+      line: 23
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 641
+      endSourceChar: 641
+      line: 24
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 641
+      endSourceChar: 641
+      line: 24
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 641
+      endSourceChar: 661
+      line: 24
+      lineChar: 12
+      spanCodeSection: OnPlayerListChanged(
+    - startInstruction: 112
+      endInstruction: 167
+      startSourceChar: 661
+      endSourceChar: 689
+      line: 24
+      lineChar: 32
+      spanCodeSection: "player);\n        }\n\n        "
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 689
+      endSourceChar: 722
+      line: 27
+      lineChar: 8
+      spanCodeSection: private void OnPlayerListChanged(
+    - startInstruction: 168
+      endInstruction: 175
+      startSourceChar: 722
+      endSourceChar: 751
+      line: 27
+      lineChar: 41
+      spanCodeSection: "VRCPlayerApi player)\n        "
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 751
+      endSourceChar: 765
+      line: 28
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 765
+      endSourceChar: 769
+      line: 29
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 374
-      endSourceChar: 375
-      line: 14
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 769
+      endSourceChar: 769
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 769
+      endSourceChar: 776
+      line: 29
+      lineChar: 16
+      spanCodeSection: player.
+    - startInstruction: 176
+      endInstruction: 215
+      startSourceChar: 776
+      endSourceChar: 798
+      line: 29
+      lineChar: 23
+      spanCodeSection: "isMaster)\n            "
+    - startInstruction: 216
+      endInstruction: 215
+      startSourceChar: 798
+      endSourceChar: 816
+      line: 30
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 216
+      endInstruction: 215
+      startSourceChar: 816
+      endSourceChar: 816
+      line: 31
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 216
+      endInstruction: 215
+      startSourceChar: 816
+      endSourceChar: 816
+      line: 31
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 216
+      endInstruction: 215
+      startSourceChar: 816
+      endSourceChar: 825
+      line: 31
+      lineChar: 16
+      spanCodeSection: 'master = '
+    - startInstruction: 216
+      endInstruction: 235
+      startSourceChar: 825
+      endSourceChar: 860
+      line: 31
+      lineChar: 25
+      spanCodeSection: "player;\n            }\n\n            "
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 860
+      endSourceChar: 860
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 860
+      endSourceChar: 860
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 860
+      endSourceChar: 875
+      line: 34
+      lineChar: 12
+      spanCodeSection: 'var masterName '
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 875
+      endSourceChar: 877
+      line: 34
+      lineChar: 27
+      spanCodeSection: '= '
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 34
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 34
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 877
+      endSourceChar: 887
+      line: 34
+      lineChar: 29
+      spanCodeSection: 'master == '
+    - startInstruction: 236
+      endInstruction: 283
+      startSourceChar: 887
+      endSourceChar: 894
+      line: 34
+      lineChar: 39
+      spanCodeSection: 'null ? '
+    - startInstruction: 284
+      endInstruction: 311
+      startSourceChar: 894
+      endSourceChar: 905
+      line: 34
+      lineChar: 46
+      spanCodeSection: '"master" : '
+    - startInstruction: 312
+      endInstruction: 311
+      startSourceChar: 905
+      endSourceChar: 905
+      line: 34
+      lineChar: 57
+      spanCodeSection: 
+    - startInstruction: 312
+      endInstruction: 311
+      startSourceChar: 905
+      endSourceChar: 912
+      line: 34
+      lineChar: 57
+      spanCodeSection: master.
+    - startInstruction: 312
+      endInstruction: 355
+      startSourceChar: 912
+      endSourceChar: 937
+      line: 34
+      lineChar: 64
+      spanCodeSection: "displayName;\n            "
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 35
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 35
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 35
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 937
+      endSourceChar: 945
+      line: 35
+      lineChar: 12
+      spanCodeSection: message.
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 945
+      endSourceChar: 968
+      line: 35
+      lineChar: 20
+      spanCodeSection: "text =\n                "
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 968
+      endSourceChar: 968
+      line: 36
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 968
+      endSourceChar: 968
+      line: 36
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 356
+      endInstruction: 355
+      startSourceChar: 968
+      endSourceChar: 970
+      line: 36
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 356
+      endInstruction: 375
+      startSourceChar: 970
+      endSourceChar: 1019
+      line: 36
+      lineChar: 18
+      spanCodeSection: "<size=18>Reset All</size>\\n\\n\" +\n                "
+    - startInstruction: 376
+      endInstruction: 375
+      startSourceChar: 1019
+      endSourceChar: 1021
+      line: 37
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 376
+      endInstruction: 395
+      startSourceChar: 1021
+      endSourceChar: 1035
+      line: 37
+      lineChar: 18
+      spanCodeSection: '<size=8>[Only '
+    - startInstruction: 396
+      endInstruction: 395
+      startSourceChar: 1035
+      endSourceChar: 1036
+      line: 37
+      lineChar: 32
+      spanCodeSection: '{'
+    - startInstruction: 396
+      endInstruction: 447
+      startSourceChar: 1036
+      endSourceChar: 1047
+      line: 37
+      lineChar: 33
+      spanCodeSection: masterName}
+    - startInstruction: 448
+      endInstruction: 531
+      startSourceChar: 1047
+      endSourceChar: 1086
+      line: 37
+      lineChar: 44
+      spanCodeSection: " can do]</size>\\n\\n\" +\n                "
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1086
+      endSourceChar: 1088
+      line: 38
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 532
+      endInstruction: 627
+      startSourceChar: 1088
+      endSourceChar: 1134
+      line: 38
+      lineChar: 18
+      spanCodeSection: "<size=14>(Global)</size>\";\n        }\n\n        "
+    - startInstruction: 628
+      endInstruction: 635
+      startSourceChar: 1134
+      endSourceChar: 1174
+      line: 41
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\n        "
+    - startInstruction: 636
+      endInstruction: 635
+      startSourceChar: 1174
+      endSourceChar: 1188
+      line: 42
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 636
+      endInstruction: 635
+      startSourceChar: 1188
+      endSourceChar: 1192
+      line: 43
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 636
+      endInstruction: 635
+      startSourceChar: 1192
+      endSourceChar: 1193
+      line: 43
       lineChar: 16
       spanCodeSection: '!'
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 375
-      endSourceChar: 375
-      line: 14
+    - startInstruction: 636
+      endInstruction: 635
+      startSourceChar: 1193
+      endSourceChar: 1193
+      line: 43
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 375
-      endSourceChar: 386
-      line: 14
+    - startInstruction: 636
+      endInstruction: 635
+      startSourceChar: 1193
+      endSourceChar: 1204
+      line: 43
       lineChar: 17
       spanCodeSection: Networking.
-    - startInstruction: 8
-      endInstruction: 63
-      startSourceChar: 386
-      endSourceChar: 396
-      line: 14
+    - startInstruction: 636
+      endInstruction: 691
+      startSourceChar: 1204
+      endSourceChar: 1214
+      line: 43
       lineChar: 28
       spanCodeSection: 'IsMaster) '
-    - startInstruction: 64
-      endInstruction: 83
-      startSourceChar: 396
-      endSourceChar: 429
-      line: 14
+    - startInstruction: 692
+      endInstruction: 711
+      startSourceChar: 1214
+      endSourceChar: 1247
+      line: 43
       lineChar: 38
       spanCodeSection: "return;\n            \n            "
-    - startInstruction: 84
-      endInstruction: 83
-      startSourceChar: 429
-      endSourceChar: 438
-      line: 16
+    - startInstruction: 712
+      endInstruction: 711
+      startSourceChar: 1247
+      endSourceChar: 1256
+      line: 45
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 84
-      endInstruction: 83
-      startSourceChar: 438
-      endSourceChar: 456
-      line: 16
+    - startInstruction: 712
+      endInstruction: 711
+      startSourceChar: 1256
+      endSourceChar: 1274
+      line: 45
       lineChar: 21
       spanCodeSection: 'var penManager in '
-    - startInstruction: 84
-      endInstruction: 227
-      startSourceChar: 456
-      endSourceChar: 481
-      line: 16
+    - startInstruction: 712
+      endInstruction: 855
+      startSourceChar: 1274
+      endSourceChar: 1299
+      line: 45
       lineChar: 39
       spanCodeSection: "penManagers)\n            "
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 481
-      endSourceChar: 499
-      line: 17
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1299
+      endSourceChar: 1317
+      line: 46
       lineChar: 12
       spanCodeSection: "{\n                "
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 499
-      endSourceChar: 499
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1317
+      endSourceChar: 1317
+      line: 47
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 499
-      endSourceChar: 499
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1317
+      endSourceChar: 1317
+      line: 47
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 499
-      endSourceChar: 499
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1317
+      endSourceChar: 1317
+      line: 47
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 499
-      endSourceChar: 510
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1317
+      endSourceChar: 1328
+      line: 47
       lineChar: 16
       spanCodeSection: penManager.
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 510
-      endSourceChar: 533
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1328
+      endSourceChar: 1351
+      line: 47
       lineChar: 27
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 533
-      endSourceChar: 533
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1351
+      endSourceChar: 1351
+      line: 47
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 533
-      endSourceChar: 552
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1351
+      endSourceChar: 1370
+      line: 47
       lineChar: 50
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 552
-      endSourceChar: 557
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1370
+      endSourceChar: 1375
+      line: 47
       lineChar: 69
       spanCodeSection: 'All, '
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 557
-      endSourceChar: 575
-      line: 18
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 1375
+      endSourceChar: 1393
+      line: 47
       lineChar: 74
       spanCodeSection: nameof(PenManager.
-    - startInstruction: 228
-      endInstruction: 299
-      startSourceChar: 575
-      endSourceChar: 613
-      line: 18
+    - startInstruction: 856
+      endInstruction: 927
+      startSourceChar: 1393
+      endSourceChar: 1431
+      line: 47
       lineChar: 92
       spanCodeSection: "ResetAll));\n            }\n            "
-    - startInstruction: 300
-      endInstruction: 299
-      startSourceChar: 613
-      endSourceChar: 622
-      line: 20
+    - startInstruction: 928
+      endInstruction: 927
+      startSourceChar: 1431
+      endSourceChar: 1440
+      line: 49
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 300
-      endInstruction: 299
-      startSourceChar: 622
-      endSourceChar: 643
-      line: 20
+    - startInstruction: 928
+      endInstruction: 927
+      startSourceChar: 1440
+      endSourceChar: 1461
+      line: 49
       lineChar: 21
       spanCodeSection: 'var eraserManager in '
-    - startInstruction: 300
-      endInstruction: 443
-      startSourceChar: 643
-      endSourceChar: 671
-      line: 20
+    - startInstruction: 928
+      endInstruction: 1071
+      startSourceChar: 1461
+      endSourceChar: 1489
+      line: 49
       lineChar: 42
       spanCodeSection: "eraserManagers)\n            "
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 671
-      endSourceChar: 689
-      line: 21
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1489
+      endSourceChar: 1507
+      line: 50
       lineChar: 12
       spanCodeSection: "{\n                "
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 689
-      endSourceChar: 689
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1507
+      endSourceChar: 1507
+      line: 51
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 689
-      endSourceChar: 689
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1507
+      endSourceChar: 1507
+      line: 51
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 689
-      endSourceChar: 689
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1507
+      endSourceChar: 1507
+      line: 51
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 689
-      endSourceChar: 703
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1507
+      endSourceChar: 1521
+      line: 51
       lineChar: 16
       spanCodeSection: eraserManager.
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 703
-      endSourceChar: 726
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1521
+      endSourceChar: 1544
+      line: 51
       lineChar: 30
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 726
-      endSourceChar: 726
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1544
+      endSourceChar: 1544
+      line: 51
       lineChar: 53
       spanCodeSection: 
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 726
-      endSourceChar: 745
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1544
+      endSourceChar: 1563
+      line: 51
       lineChar: 53
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 745
-      endSourceChar: 750
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1563
+      endSourceChar: 1568
+      line: 51
       lineChar: 72
       spanCodeSection: 'All, '
-    - startInstruction: 444
-      endInstruction: 443
-      startSourceChar: 750
-      endSourceChar: 768
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1071
+      startSourceChar: 1568
+      endSourceChar: 1586
+      line: 51
       lineChar: 77
       spanCodeSection: nameof(PenManager.
-    - startInstruction: 444
-      endInstruction: 444
-      startSourceChar: 768
-      endSourceChar: 768
-      line: 22
+    - startInstruction: 1072
+      endInstruction: 1072
+      startSourceChar: 1586
+      endSourceChar: 1586
+      line: 51
       lineChar: 95
       spanCodeSection: 
   hasInteractEvent: 1
@@ -615,13 +1166,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: penManagers
+      Data: message
     - Name: $v
       Entry: 7
       Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -631,6 +1182,75 @@ MonoBehaviour:
     - Name: internalType
       Entry: 7
       Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEngine.UI.Text, UnityEngine.UI
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineUIText
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: message
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: message
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: penManagers
+    - Name: $v
+      Entry: 7
+      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 9|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: QvPen.Udon.PenManager[], Assembly-CSharp
@@ -660,13 +1280,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 11|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -693,13 +1313,13 @@ MonoBehaviour:
       Data: eraserManagers
     - Name: $v
       Entry: 7
-      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 9|System.RuntimeType, mscorlib
+      Data: 14|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: QvPen.Udon.EraserManager[], Assembly-CSharp
@@ -729,13 +1349,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 15|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 11|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 16|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -748,6 +1368,69 @@ MonoBehaviour:
     - Name: userBehaviourSource
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: master
+    - Name: $v
+      Entry: 7
+      Data: 17|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 18|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 19|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: VRC.SDKBase.VRCPlayerApi, VRCSDKBase
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 2
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCSDKBaseVRCPlayerApi
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: master
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: master
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
