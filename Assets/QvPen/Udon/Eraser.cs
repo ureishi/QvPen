@@ -15,10 +15,6 @@ namespace QvPen.Udon
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
 
-        // For respawn
-        private Vector3 defaultPosition;
-        private Quaternion defaultRotation;
-
         private bool isErasing;
 
         private void Start()
@@ -28,9 +24,6 @@ namespace QvPen.Udon
             {
                 renderer.sharedMaterial = normal;
             }
-            
-            defaultPosition = transform.position;
-            defaultRotation = transform.rotation;
         }
 
         public void SetActive(bool value)
@@ -87,8 +80,11 @@ namespace QvPen.Udon
         public void Respawn()
         {
             if (pickup) pickup.Drop();
-            transform.position = defaultPosition;
-            transform.rotation = defaultRotation;
+            if (Networking.LocalPlayer.IsOwner(gameObject))
+            {
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.identity;
+            }
         }
     }
 }

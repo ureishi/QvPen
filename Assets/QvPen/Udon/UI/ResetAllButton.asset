@@ -108,476 +108,485 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 18
+      endSourceChar: 17
       line: 0
       lineChar: 6
-      spanCodeSection: "UdonSharp;\r\n"
+      spanCodeSection: 'UdonSharp;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 18
-      endSourceChar: 24
+      startSourceChar: 17
+      endSourceChar: 23
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 24
-      endSourceChar: 38
+      startSourceChar: 23
+      endSourceChar: 36
       line: 1
       lineChar: 6
-      spanCodeSection: "UnityEngine;\r\n"
+      spanCodeSection: 'UnityEngine;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 38
-      endSourceChar: 44
+      startSourceChar: 36
+      endSourceChar: 42
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 44
+      startSourceChar: 42
+      endSourceChar: 42
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 48
+      startSourceChar: 42
+      endSourceChar: 46
       line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 48
-      endSourceChar: 58
+      startSourceChar: 46
+      endSourceChar: 55
       line: 2
       lineChar: 10
-      spanCodeSection: "SDKBase;\r\n"
+      spanCodeSection: 'SDKBase;
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 58
-      endSourceChar: 64
+      startSourceChar: 55
+      endSourceChar: 61
       line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 64
+      startSourceChar: 61
+      endSourceChar: 61
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 64
+      startSourceChar: 61
+      endSourceChar: 61
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 64
+      startSourceChar: 61
+      endSourceChar: 61
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 64
-      endSourceChar: 68
+      startSourceChar: 61
+      endSourceChar: 65
       line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 68
-      endSourceChar: 73
+      startSourceChar: 65
+      endSourceChar: 70
       line: 3
       lineChar: 10
       spanCodeSection: Udon.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 73
-      endSourceChar: 80
+      startSourceChar: 70
+      endSourceChar: 77
       line: 3
       lineChar: 15
       spanCodeSection: Common.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 80
-      endSourceChar: 95
+      startSourceChar: 77
+      endSourceChar: 90
       line: 3
       lineChar: 22
-      spanCodeSection: "Interfaces;\r\n\r\n"
+      spanCodeSection: 'Interfaces;
+
+
+'
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 95
-      endSourceChar: 127
+      startSourceChar: 90
+      endSourceChar: 120
       line: 5
       lineChar: 0
-      spanCodeSection: "namespace QvPen.Udon.UI\r\n{\r\n    "
+      spanCodeSection: "namespace QvPen.Udon.UI\n{\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 127
-      endSourceChar: 155
+      startSourceChar: 120
+      endSourceChar: 148
       line: 7
       lineChar: 4
       spanCodeSection: 'public class ResetAllButton '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 155
-      endSourceChar: 157
+      startSourceChar: 148
+      endSourceChar: 150
       line: 7
       lineChar: 32
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 157
-      endSourceChar: 157
+      startSourceChar: 150
+      endSourceChar: 150
       line: 7
       lineChar: 34
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 157
-      endSourceChar: 192
+      startSourceChar: 150
+      endSourceChar: 183
       line: 7
       lineChar: 34
-      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 192
-      endSourceChar: 193
+      startSourceChar: 183
+      endSourceChar: 184
       line: 9
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 193
-      endSourceChar: 193
+      startSourceChar: 184
+      endSourceChar: 184
       line: 9
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 193
-      endSourceChar: 217
+      startSourceChar: 184
+      endSourceChar: 208
       line: 9
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 217
-      endSourceChar: 217
+      startSourceChar: 208
+      endSourceChar: 208
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 217
-      endSourceChar: 217
+      startSourceChar: 208
+      endSourceChar: 208
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 217
-      endSourceChar: 252
+      startSourceChar: 208
+      endSourceChar: 242
       line: 9
       lineChar: 33
-      spanCodeSection: "PenManager[] penManagers;\r\n        "
+      spanCodeSection: "PenManager[] penManagers;\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 252
-      endSourceChar: 253
+      startSourceChar: 242
+      endSourceChar: 243
       line: 10
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 253
-      endSourceChar: 253
+      startSourceChar: 243
+      endSourceChar: 243
       line: 10
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 253
-      endSourceChar: 277
+      startSourceChar: 243
+      endSourceChar: 267
       line: 10
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 277
+      startSourceChar: 267
+      endSourceChar: 267
       line: 10
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 277
+      startSourceChar: 267
+      endSourceChar: 267
       line: 10
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 328
+      startSourceChar: 267
+      endSourceChar: 316
       line: 10
       lineChar: 33
-      spanCodeSection: "EraserManager[] eraserManagers;\r\n        \r\n        "
+      spanCodeSection: "EraserManager[] eraserManagers;\n        \n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 328
-      endSourceChar: 369
+      startSourceChar: 316
+      endSourceChar: 356
       line: 12
       lineChar: 8
-      spanCodeSection: "public override void Interact()\r\n        "
+      spanCodeSection: "public override void Interact()\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 369
-      endSourceChar: 384
+      startSourceChar: 356
+      endSourceChar: 370
       line: 13
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 384
-      endSourceChar: 388
+      startSourceChar: 370
+      endSourceChar: 374
       line: 14
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 388
-      endSourceChar: 389
+      startSourceChar: 374
+      endSourceChar: 375
       line: 14
       lineChar: 16
       spanCodeSection: '!'
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 389
-      endSourceChar: 389
+      startSourceChar: 375
+      endSourceChar: 375
       line: 14
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 389
-      endSourceChar: 400
+      startSourceChar: 375
+      endSourceChar: 386
       line: 14
       lineChar: 17
       spanCodeSection: Networking.
     - startInstruction: 8
       endInstruction: 63
-      startSourceChar: 400
-      endSourceChar: 410
+      startSourceChar: 386
+      endSourceChar: 396
       line: 14
       lineChar: 28
       spanCodeSection: 'IsMaster) '
     - startInstruction: 64
       endInstruction: 83
-      startSourceChar: 410
-      endSourceChar: 445
+      startSourceChar: 396
+      endSourceChar: 429
       line: 14
       lineChar: 38
-      spanCodeSection: "return;\r\n            \r\n            "
+      spanCodeSection: "return;\n            \n            "
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 445
-      endSourceChar: 454
+      startSourceChar: 429
+      endSourceChar: 438
       line: 16
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 454
-      endSourceChar: 472
+      startSourceChar: 438
+      endSourceChar: 456
       line: 16
       lineChar: 21
       spanCodeSection: 'var penManager in '
     - startInstruction: 84
       endInstruction: 227
-      startSourceChar: 472
-      endSourceChar: 498
+      startSourceChar: 456
+      endSourceChar: 481
       line: 16
       lineChar: 39
-      spanCodeSection: "penManagers)\r\n            "
+      spanCodeSection: "penManagers)\n            "
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 498
-      endSourceChar: 517
+      startSourceChar: 481
+      endSourceChar: 499
       line: 17
       lineChar: 12
-      spanCodeSection: "{\r\n                "
+      spanCodeSection: "{\n                "
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 517
-      endSourceChar: 517
+      startSourceChar: 499
+      endSourceChar: 499
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 517
-      endSourceChar: 517
+      startSourceChar: 499
+      endSourceChar: 499
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 517
-      endSourceChar: 517
+      startSourceChar: 499
+      endSourceChar: 499
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 517
-      endSourceChar: 528
+      startSourceChar: 499
+      endSourceChar: 510
       line: 18
       lineChar: 16
       spanCodeSection: penManager.
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 528
-      endSourceChar: 551
+      startSourceChar: 510
+      endSourceChar: 533
       line: 18
       lineChar: 27
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 551
-      endSourceChar: 551
+      startSourceChar: 533
+      endSourceChar: 533
       line: 18
       lineChar: 50
       spanCodeSection: 
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 551
-      endSourceChar: 570
+      startSourceChar: 533
+      endSourceChar: 552
       line: 18
       lineChar: 50
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 570
-      endSourceChar: 575
+      startSourceChar: 552
+      endSourceChar: 557
       line: 18
       lineChar: 69
       spanCodeSection: 'All, '
     - startInstruction: 228
       endInstruction: 227
-      startSourceChar: 575
-      endSourceChar: 593
+      startSourceChar: 557
+      endSourceChar: 575
       line: 18
       lineChar: 74
       spanCodeSection: nameof(PenManager.
     - startInstruction: 228
       endInstruction: 299
-      startSourceChar: 593
-      endSourceChar: 633
+      startSourceChar: 575
+      endSourceChar: 613
       line: 18
       lineChar: 92
-      spanCodeSection: "ResetAll));\r\n            }\r\n            "
+      spanCodeSection: "ResetAll));\n            }\n            "
     - startInstruction: 300
       endInstruction: 299
-      startSourceChar: 633
-      endSourceChar: 642
+      startSourceChar: 613
+      endSourceChar: 622
       line: 20
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 300
       endInstruction: 299
-      startSourceChar: 642
-      endSourceChar: 663
+      startSourceChar: 622
+      endSourceChar: 643
       line: 20
       lineChar: 21
       spanCodeSection: 'var eraserManager in '
     - startInstruction: 300
       endInstruction: 443
-      startSourceChar: 663
-      endSourceChar: 692
+      startSourceChar: 643
+      endSourceChar: 671
       line: 20
       lineChar: 42
-      spanCodeSection: "eraserManagers)\r\n            "
+      spanCodeSection: "eraserManagers)\n            "
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 692
-      endSourceChar: 711
+      startSourceChar: 671
+      endSourceChar: 689
       line: 21
       lineChar: 12
-      spanCodeSection: "{\r\n                "
+      spanCodeSection: "{\n                "
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 711
-      endSourceChar: 711
+      startSourceChar: 689
+      endSourceChar: 689
       line: 22
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 711
-      endSourceChar: 711
+      startSourceChar: 689
+      endSourceChar: 689
       line: 22
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 711
-      endSourceChar: 711
+      startSourceChar: 689
+      endSourceChar: 689
       line: 22
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 711
-      endSourceChar: 725
+      startSourceChar: 689
+      endSourceChar: 703
       line: 22
       lineChar: 16
       spanCodeSection: eraserManager.
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 725
-      endSourceChar: 748
+      startSourceChar: 703
+      endSourceChar: 726
       line: 22
       lineChar: 30
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 748
-      endSourceChar: 748
+      startSourceChar: 726
+      endSourceChar: 726
       line: 22
       lineChar: 53
       spanCodeSection: 
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 748
-      endSourceChar: 767
+      startSourceChar: 726
+      endSourceChar: 745
       line: 22
       lineChar: 53
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 767
-      endSourceChar: 772
+      startSourceChar: 745
+      endSourceChar: 750
       line: 22
       lineChar: 72
       spanCodeSection: 'All, '
     - startInstruction: 444
       endInstruction: 443
-      startSourceChar: 772
-      endSourceChar: 790
+      startSourceChar: 750
+      endSourceChar: 768
       line: 22
       lineChar: 77
       spanCodeSection: nameof(PenManager.
     - startInstruction: 444
       endInstruction: 444
-      startSourceChar: 790
-      endSourceChar: 790
+      startSourceChar: 768
+      endSourceChar: 768
       line: 22
       lineChar: 95
       spanCodeSection: 
