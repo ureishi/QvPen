@@ -28,6 +28,7 @@ namespace QvPen.Udon
 
             pen.Init(this);
         }
+        
         public void StartUsing()
         {
             if (!Networking.IsOwner(gameObject))
@@ -39,6 +40,7 @@ namespace QvPen.Udon
             clearButton.SetActive(false);
             inUseButton.SetActive(true);
         }
+        
         public void EndUsing()
         {
             if (!Networking.IsOwner(gameObject))
@@ -50,6 +52,7 @@ namespace QvPen.Udon
             clearButton.SetActive(true);
             inUseButton.SetActive(false);
         }
+        
         public override void OnPreSerialization()
         {
             userName = textInUse.text;
@@ -72,6 +75,7 @@ namespace QvPen.Udon
                 pen.Clear();
             }
         }
+        
         public void ClearAll()
         {
             if (pen)
@@ -79,5 +83,14 @@ namespace QvPen.Udon
                 pen.Clear();
             }
         }
+        
+        public void SetUseDoubleClick(bool value)
+        {
+            if (pen)
+            {
+                pen.SetUseDoubleClick(value);
+            }
+        }
+        
     }
 }
