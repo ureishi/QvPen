@@ -1,0 +1,1137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
+  m_Name: InteractButton
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: e507bacdaa057514c8b501beb1b68b67,
+    type: 2}
+  udonAssembly: ".data_start\r\n\r\n    .export isMasterOnlyEvent\r\n    .export isOwnerOnlyEvent\r\n
+    \   .export isGlobalEvent\r\n    .export udonBehaviour\r\n    .export customEventName\r\n\r\n
+    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\r\n    isGlobalEvent: %SystemBoolean, null\r\n    isMasterOnlyEvent:
+    %SystemBoolean, null\r\n    isOwnerOnlyEvent: %SystemBoolean, null\r\n    customEventName:
+    %SystemString, null\r\n    udonBehaviour: %VRCUdonUdonBehaviour, null\r\n    __0_this_intnl_UnityEngineGameObject:
+    %UnityEngineGameObject, this\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
+    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __10_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __6_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __7_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __8_intnl_SystemBoolean: %SystemBoolean, null\r\n    __9_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
+    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
+    \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
+    namespace QvPen.Udon.UI\r\n        \r\n         # public class InteractButton
+    : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
+    private bool isMasterOnlyEvent = false;\r\n        \r\n         # [SerializeField]
+    private bool isOwnerOnlyEvent = false;\r\n        \r\n         # [SerializeField]
+    private bool isGlobalEvent = false;\r\n        \r\n         # [SerializeField]
+    private UdonBehaviour udonBehaviour;\r\n        \r\n         # [SerializeField]
+    private string customEventName = \"Unnamed\";\r\n        \r\n         # public
+    override void Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # if (isMasterOnlyEvent && !Networking.IsMaster) return;\r\n
+    \       PUSH, isMasterOnlyEvent\r\n        PUSH, __0_intnl_SystemBoolean\r\n        COPY\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000088\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __0_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x000000AC\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
+    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
+    \        # if (isOwnerOnlyEvent && !Networking.IsOwner(gameObject)) return;\r\n
+    \       PUSH, isOwnerOnlyEvent\r\n        PUSH, __4_intnl_SystemBoolean\r\n        COPY\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000134\r\n
+    \       PUSH, __0_this_intnl_UnityEngineGameObject\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean\"\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x00000158\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
+    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
+    \        # if (!udonBehaviour) return;\r\n        PUSH, udonBehaviour\r\n        PUSH,
+    __8_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001AC\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
+    if (!isGlobalEvent)\r\n        PUSH, isGlobalEvent\r\n        PUSH, __10_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000208\r\n
+    \       \r\n         # udonBehaviour.SendCustomEvent(customEventName);\r\n        PUSH,
+    udonBehaviour\r\n        PUSH, customEventName\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, customEventName\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       JUMP, 0x0000023C\r\n        \r\n         # else\r\n        \r\n         #
+    udonBehaviour.SendCustomNetworkEvent(NetworkEventTarget.All, customEventName);\r\n
+    \       PUSH, udonBehaviour\r\n        PUSH, customEventName\r\n        PUSH,
+    __1_intnl_SystemString\r\n        COPY # Copy-on-write symbol value dirtied\r\n
+    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH,
+    customEventName\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
+  assemblyError: 
+  sourceCsScript: {fileID: 11500000, guid: 5e0782eef3057db45901970cb63a5313, type: 3}
+  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  compileErrors: []
+  debugInfo:
+    serializedDebugSpans:
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 6
+      endSourceChar: 17
+      line: 0
+      lineChar: 6
+      spanCodeSection: 'UdonSharp;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 17
+      endSourceChar: 23
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 23
+      endSourceChar: 36
+      line: 1
+      lineChar: 6
+      spanCodeSection: 'UnityEngine;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 36
+      endSourceChar: 42
+      line: 2
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 42
+      line: 2
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 46
+      line: 2
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 46
+      endSourceChar: 55
+      line: 2
+      lineChar: 10
+      spanCodeSection: 'SDKBase;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 55
+      endSourceChar: 61
+      line: 3
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 61
+      line: 3
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 65
+      line: 3
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 65
+      endSourceChar: 71
+      line: 3
+      lineChar: 10
+      spanCodeSection: 'Udon;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 71
+      endSourceChar: 77
+      line: 4
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 77
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 77
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 77
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 81
+      line: 4
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 81
+      endSourceChar: 86
+      line: 4
+      lineChar: 10
+      spanCodeSection: Udon.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 86
+      endSourceChar: 93
+      line: 4
+      lineChar: 15
+      spanCodeSection: Common.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 93
+      endSourceChar: 106
+      line: 4
+      lineChar: 22
+      spanCodeSection: 'Interfaces;
+
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 106
+      endSourceChar: 136
+      line: 6
+      lineChar: 0
+      spanCodeSection: "namespace QvPen.Udon.UI\n{\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 136
+      endSourceChar: 164
+      line: 8
+      lineChar: 4
+      spanCodeSection: 'public class InteractButton '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 164
+      endSourceChar: 166
+      line: 8
+      lineChar: 32
+      spanCodeSection: ': '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 166
+      endSourceChar: 166
+      line: 8
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 166
+      endSourceChar: 199
+      line: 8
+      lineChar: 34
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 199
+      endSourceChar: 200
+      line: 10
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 200
+      endSourceChar: 200
+      line: 10
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 200
+      endSourceChar: 224
+      line: 10
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 224
+      endSourceChar: 224
+      line: 10
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 224
+      endSourceChar: 264
+      line: 10
+      lineChar: 33
+      spanCodeSection: "bool isMasterOnlyEvent = false;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 264
+      endSourceChar: 265
+      line: 11
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 265
+      endSourceChar: 265
+      line: 11
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 265
+      endSourceChar: 289
+      line: 11
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 289
+      endSourceChar: 289
+      line: 11
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 289
+      endSourceChar: 329
+      line: 11
+      lineChar: 33
+      spanCodeSection: "bool isOwnerOnlyEvent = false;\n\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 329
+      endSourceChar: 330
+      line: 13
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 330
+      endSourceChar: 330
+      line: 13
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 330
+      endSourceChar: 354
+      line: 13
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 354
+      endSourceChar: 354
+      line: 13
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 354
+      endSourceChar: 390
+      line: 13
+      lineChar: 33
+      spanCodeSection: "bool isGlobalEvent = false;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 390
+      endSourceChar: 391
+      line: 14
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 14
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 391
+      endSourceChar: 415
+      line: 14
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 415
+      endSourceChar: 415
+      line: 14
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 415
+      endSourceChar: 452
+      line: 14
+      lineChar: 33
+      spanCodeSection: "UdonBehaviour udonBehaviour;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 452
+      endSourceChar: 453
+      line: 15
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 453
+      endSourceChar: 453
+      line: 15
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 453
+      endSourceChar: 477
+      line: 15
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 477
+      endSourceChar: 477
+      line: 15
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 477
+      endSourceChar: 522
+      line: 15
+      lineChar: 33
+      spanCodeSection: "string customEventName = \"Unnamed\";\n\n        "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 522
+      endSourceChar: 562
+      line: 17
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 562
+      endSourceChar: 576
+      line: 18
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 576
+      endSourceChar: 580
+      line: 19
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 580
+      endSourceChar: 580
+      line: 19
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 43
+      startSourceChar: 580
+      endSourceChar: 601
+      line: 19
+      lineChar: 16
+      spanCodeSection: 'isMasterOnlyEvent && '
+    - startInstruction: 44
+      endInstruction: 43
+      startSourceChar: 601
+      endSourceChar: 602
+      line: 19
+      lineChar: 37
+      spanCodeSection: '!'
+    - startInstruction: 44
+      endInstruction: 43
+      startSourceChar: 602
+      endSourceChar: 602
+      line: 19
+      lineChar: 38
+      spanCodeSection: 
+    - startInstruction: 44
+      endInstruction: 43
+      startSourceChar: 602
+      endSourceChar: 613
+      line: 19
+      lineChar: 38
+      spanCodeSection: Networking.
+    - startInstruction: 44
+      endInstruction: 151
+      startSourceChar: 613
+      endSourceChar: 623
+      line: 19
+      lineChar: 49
+      spanCodeSection: 'IsMaster) '
+    - startInstruction: 152
+      endInstruction: 171
+      startSourceChar: 623
+      endSourceChar: 643
+      line: 19
+      lineChar: 59
+      spanCodeSection: "return;\n            "
+    - startInstruction: 172
+      endInstruction: 171
+      startSourceChar: 643
+      endSourceChar: 647
+      line: 20
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 172
+      endInstruction: 171
+      startSourceChar: 647
+      endSourceChar: 647
+      line: 20
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 172
+      endInstruction: 207
+      startSourceChar: 647
+      endSourceChar: 667
+      line: 20
+      lineChar: 16
+      spanCodeSection: 'isOwnerOnlyEvent && '
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 667
+      endSourceChar: 668
+      line: 20
+      lineChar: 36
+      spanCodeSection: '!'
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 668
+      endSourceChar: 668
+      line: 20
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 668
+      endSourceChar: 668
+      line: 20
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 668
+      endSourceChar: 679
+      line: 20
+      lineChar: 37
+      spanCodeSection: Networking.
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 679
+      endSourceChar: 687
+      line: 20
+      lineChar: 48
+      spanCodeSection: IsOwner(
+    - startInstruction: 208
+      endInstruction: 323
+      startSourceChar: 687
+      endSourceChar: 700
+      line: 20
+      lineChar: 56
+      spanCodeSection: 'gameObject)) '
+    - startInstruction: 324
+      endInstruction: 343
+      startSourceChar: 700
+      endSourceChar: 720
+      line: 20
+      lineChar: 69
+      spanCodeSection: "return;\n            "
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 720
+      endSourceChar: 724
+      line: 21
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 724
+      endSourceChar: 725
+      line: 21
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 344
+      endInstruction: 407
+      startSourceChar: 725
+      endSourceChar: 740
+      line: 21
+      lineChar: 17
+      spanCodeSection: 'udonBehaviour) '
+    - startInstruction: 408
+      endInstruction: 427
+      startSourceChar: 740
+      endSourceChar: 760
+      line: 21
+      lineChar: 32
+      spanCodeSection: "return;\n            "
+    - startInstruction: 428
+      endInstruction: 427
+      startSourceChar: 760
+      endSourceChar: 764
+      line: 22
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 428
+      endInstruction: 427
+      startSourceChar: 764
+      endSourceChar: 765
+      line: 22
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 428
+      endInstruction: 467
+      startSourceChar: 765
+      endSourceChar: 796
+      line: 22
+      lineChar: 17
+      spanCodeSection: "isGlobalEvent)\n                "
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
+      line: 23
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
+      line: 23
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 796
+      line: 23
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 796
+      endSourceChar: 810
+      line: 23
+      lineChar: 16
+      spanCodeSection: udonBehaviour.
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 810
+      endSourceChar: 826
+      line: 23
+      lineChar: 30
+      spanCodeSection: SendCustomEvent(
+    - startInstruction: 468
+      endInstruction: 519
+      startSourceChar: 826
+      endSourceChar: 856
+      line: 23
+      lineChar: 46
+      spanCodeSection: "customEventName);\n            "
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 856
+      endSourceChar: 877
+      line: 24
+      lineChar: 12
+      spanCodeSection: "else\n                "
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 877
+      line: 25
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 877
+      endSourceChar: 891
+      line: 25
+      lineChar: 16
+      spanCodeSection: udonBehaviour.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 891
+      endSourceChar: 914
+      line: 25
+      lineChar: 30
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 25
+      lineChar: 53
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 914
+      endSourceChar: 933
+      line: 25
+      lineChar: 53
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 933
+      endSourceChar: 938
+      line: 25
+      lineChar: 72
+      spanCodeSection: 'All, '
+    - startInstruction: 520
+      endInstruction: 520
+      startSourceChar: 938
+      endSourceChar: 938
+      line: 25
+      lineChar: 77
+      spanCodeSection: 
+  hasInteractEvent: 1
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fieldDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+        UdonSharp.Editor]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: isMasterOnlyEvent
+    - Name: $v
+      Entry: 7
+      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Boolean, mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemBoolean
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: isMasterOnlyEvent
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: isMasterOnlyEvent
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: isOwnerOnlyEvent
+    - Name: $v
+      Entry: 7
+      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemBoolean
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: isOwnerOnlyEvent
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: isOwnerOnlyEvent
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 10|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: isGlobalEvent
+    - Name: $v
+      Entry: 7
+      Data: 11|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 12|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemBoolean
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: isGlobalEvent
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: isGlobalEvent
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 14|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: udonBehaviour
+    - Name: $v
+      Entry: 7
+      Data: 15|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 16|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 17|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: VRC.Udon.UdonBehaviour, VRC.Udon
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: udonBehaviour
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: udonBehaviour
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 19|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: customEventName
+    - Name: $v
+      Entry: 7
+      Data: 20|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 21|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 22|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.String, mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemString
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: customEventName
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: customEventName
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 24|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
