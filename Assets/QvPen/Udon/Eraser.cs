@@ -41,6 +41,16 @@ namespace QvPen.Udon
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(FinishErasing));
         }
 
+        public override void OnPickup()
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
+        }
+
+        public override void OnDrop()
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnDropEvent));
+        }
+
         public void StartErasing()
         {
             isErasing = true;
@@ -53,12 +63,12 @@ namespace QvPen.Udon
             renderer.sharedMaterial = normal;
         }
 
-        public override void OnPickup()
+        public void OnPickupEvent()
         {
             renderer.sharedMaterial = normal;
         }
 
-        public override void OnDrop()
+        public void OnDropEvent()
         {
             renderer.sharedMaterial = erasing;
         }
