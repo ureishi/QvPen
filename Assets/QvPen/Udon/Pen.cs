@@ -13,11 +13,11 @@ namespace QvPen.Udon
         [SerializeField] private Transform inkPosition;
         [SerializeField] private Transform spawnTarget;
         [SerializeField] private Transform inkPool;
-        
-        [SerializeField] private VRC_Pickup pickup;
 
         [SerializeField] private float followSpeed;
         
+        private VRC_Pickup pickup;
+
         // PenManager
         private PenManager penManager;
         private bool isUser;
@@ -43,7 +43,7 @@ namespace QvPen.Udon
             penManager = manager;
             eraser.SetActive(false);
             inkPrefab.SetActive(false);
-
+            pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
         }
@@ -232,7 +232,7 @@ namespace QvPen.Udon
 
         public void Respawn()
         {
-            if (pickup) pickup.Drop();
+            pickup.Drop();
             if (Networking.LocalPlayer.IsOwner(gameObject))
             {
                 transform.localPosition = Vector3.zero;
