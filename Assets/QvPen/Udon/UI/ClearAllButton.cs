@@ -5,13 +5,24 @@ namespace QvPen.Udon.UI
 {
     public class ClearAllButton : UdonSharpBehaviour
     {
-        [SerializeField] private PenManager[] penManagers;
+        [SerializeField] private Transform pensParent;
+
+        private PenManager[] penManagers;
+
+        private void Start()
+        {
+            penManagers = new PenManager[pensParent.childCount];
+            for (int i = 0; i < pensParent.childCount; i++)
+            {
+                penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();
+            }
+        }
 
         public override void Interact()
         {
             foreach (var penManager in penManagers)
             {
-                penManager.ClearAll();
+                if (penManager) penManager.ClearAll();
             }
         }
     }

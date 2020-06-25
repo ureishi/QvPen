@@ -9,9 +9,11 @@ namespace QvPen.Udon
     {
         // For stand-alone erasers
         [SerializeField] private VRC_Pickup pickup;
-        
+
+#pragma warning disable CS0108
         [SerializeField] private Renderer renderer;
-        
+#pragma warning restore CS0108
+
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
 
@@ -20,7 +22,7 @@ namespace QvPen.Udon
         private void Start()
         {
             renderer.enabled = true;
-            if (pickup == null)
+            if (!pickup)
             {
                 renderer.sharedMaterial = normal;
             }
@@ -77,8 +79,8 @@ namespace QvPen.Udon
         {
             if (
                 isErasing &&
-                other != null &&
-                other.gameObject != null &&
+                other &&
+                other.gameObject &&
                 other.gameObject.layer == 17 &&
                 other.gameObject.name.StartsWith("Ink")
                 )

@@ -8,16 +8,15 @@ namespace QvPen.Udon
     public class PenManager : UdonSharpBehaviour
     {
         [SerializeField] private Pen pen;
-        
+
+        [SerializeField] private Text textInUse;
         [SerializeField] private GameObject respawnButton;
         [SerializeField] private GameObject clearButton;
-        [SerializeField] private GameObject inUseButton;
-        [SerializeField] private Text textInUse;
 
         [UdonSynced] private bool isInUse;
-        [UdonSynced] private string userName = "";
+        [UdonSynced] private string userName;
 
-        private string displayName;
+        private string displayName = "Occupied";
 
         private void Start()
         {
@@ -28,69 +27,61 @@ namespace QvPen.Udon
 
             pen.Init(this);
         }
-        
+
         public void StartUsing()
         {
             if (!Networking.IsOwner(gameObject))
             {
                 Networking.SetOwner(Networking.LocalPlayer, gameObject);
             }
+
             textInUse.text = displayName;
+            textInUse.gameObject.SetActive(true);
             respawnButton.SetActive(false);
             clearButton.SetActive(false);
-            inUseButton.SetActive(true);
         }
-        
+
         public void EndUsing()
         {
             if (!Networking.IsOwner(gameObject))
             {
                 Networking.SetOwner(Networking.LocalPlayer, gameObject);
             }
+
             textInUse.text = "";
+            textInUse.gameObject.SetActive(false);
             respawnButton.SetActive(true);
             clearButton.SetActive(true);
-            inUseButton.SetActive(false);
         }
-        
+
         public override void OnPreSerialization()
         {
             userName = textInUse.text;
-            isInUse = inUseButton.activeSelf;
+            isInUse = textInUse.gameObject.activeSelf;
         }
 
         public override void OnDeserialization()
         {
             textInUse.text = userName;
+            textInUse.gameObject.SetActive(isInUse);
             respawnButton.SetActive(!isInUse);
             clearButton.SetActive(!isInUse);
-            inUseButton.SetActive(isInUse);
         }
 
         public void ResetAll()
         {
-            if (pen)
-            {
-                pen.Respawn();
-                pen.Clear();
-            }
+            pen.Respawn();
+            pen.Clear();
         }
-        
+
         public void ClearAll()
         {
-            if (pen)
-            {
-                pen.Clear();
-            }
+            pen.Clear();
         }
-        
+
         public void SetUseDoubleClick(bool value)
         {
-            if (pen)
-            {
-                pen.SetUseDoubleClick(value);
-            }
+            pen.SetUseDoubleClick(value);
         }
-        
     }
 }

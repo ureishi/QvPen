@@ -14,83 +14,160 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 124c284b7d8d09341b49e2d7ffcf3078,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export message\r\n    .export penManagers\r\n\r\n
+  udonAssembly: ".data_start\r\n\r\n    .export message\r\n    .export pensParent\r\n\r\n
     \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
-    %SystemString, null\r\n    penManagers: %UnityEngineComponentArray, null\r\n    message:
-    %UnityEngineUIText, null\r\n    use: %SystemBoolean, null\r\n    __0_go_PenManager:
-    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
-    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
-    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
-    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
-    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
-    %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
-    \   __8_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemUInt32:
-    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
+    %SystemString, null\r\n    message: %UnityEngineUIText, null\r\n    pensParent:
+    %UnityEngineTransform, null\r\n    use: %SystemBoolean, null\r\n    penManagers:
+    %UnityEngineComponentArray, null\r\n    __0_i_Int32: %SystemInt32, null\r\n    __0_penManager_PenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean,
+    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_const_intnl_SystemInt64: %SystemInt64, null\r\n
+    \   __1_const_intnl_SystemInt64: %SystemInt64, null\r\n    __0_const_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
+    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
+    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
+    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
+    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
+    \   __7_const_intnl_SystemString: %SystemString, null\r\n    __8_const_intnl_SystemString:
+    %SystemString, null\r\n    __9_const_intnl_SystemString: %SystemString, null\r\n
+    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_QvPenUdonPenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32,
+    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
+    null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __1_intnl_SystemInt64: %SystemInt64, null\r\n    __0_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
     \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
-    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __0_intnl_QvPenUdonPenManager:
+    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineTransform:
+    %UnityEngineTransform, null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
+    null\r\n    __1_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __2_intnl_QvPenUdonPenManager:
     %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
     null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
     \        # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
     \       \r\n         # namespace QvPen.Udon.UI\r\n        \r\n         # public
     class PenOrEraserModeButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n
     \        # [SerializeField] private Text message;\r\n        \r\n         # [SerializeField]
-    private PenManager[] penManagers;\r\n        \r\n         # private bool use;\r\n
-    \       \r\n         # public override void Interact()\r\n    .export _interact\r\n
-    \       \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # use = !use;\r\n        PUSH,
-    use\r\n        PUSH, use\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    private Transform pensParent;\r\n        \r\n         # private bool use = true;\r\n
+    \       \r\n         # private PenManager[] penManagers;\r\n        \r\n         #
+    private void Start()\r\n    .export _start\r\n        \r\n    _start:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # penManagers = new PenManager[pensParent.childCount];\r\n        PUSH,
+    pensParent\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, penManagers\r\n        EXTERN,
+    \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
+    \       \r\n         # for (int i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
+    __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
+    pensParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002F4\r\n
+    \       \r\n         # {\r\n        \r\n         # penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();\r\n
+    \       PUSH, pensParent\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
+    \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
+    \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_const_intnl_SystemType\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        EXTERN, \"UnityEngineComponent.__GetComponents__SystemType__UnityEngineComponentArray\"\r\n
+    \       PUSH, __0_const_intnl_QvPenUdonPenManager\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n
+    \       COPY\r\n        PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000298\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
+    \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_QvPenUdonPenManager\r\n
+    \       COPY\r\n        PUSH, __1_intnl_QvPenUdonPenManager\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001FC\r\n
+    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
+    \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
+    __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
+    \       JUMP, 0x00000210\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
+    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000025C\r\n
+    \       PUSH, __1_intnl_QvPenUdonPenManager\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n
+    \       COPY\r\n        JUMP, 0x00000298\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000114\r\n        PUSH, penManagers\r\n        PUSH,
+    __0_i_Int32\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n        EXTERN,
+    \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
+    __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x0000004C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public override void Interact()\r\n    .export
+    _interact\r\n        \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # use ^= true;\r\n        PUSH,
+    use\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_LogicalXor__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        PUSH, use\r\n        COPY\r\n
     \       \r\n         # message.text =\r\n        \r\n         # $\"<size=18>{(use
-    ? \"Disable\" : \"Enable\")}</size>\\n\" +\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    ? \"Disable\" : \"Enable\")}</size>\\n\" +\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    use\r\n        JUMP_IF_FALSE, 0x00000060\r\n        PUSH, __1_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        COPY\r\n        JUMP, 0x00000074\r\n
-    \       PUSH, __2_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
+    use\r\n        JUMP_IF_FALSE, 0x00000384\r\n        PUSH, __2_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        COPY\r\n        JUMP, 0x00000398\r\n
+    \       PUSH, __3_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
     __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
     __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __3_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __4_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        \r\n         # $\"Pen \u2194 Eraser\\n\" +\r\n        PUSH,
-    __4_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    __5_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
     __1_intnl_interpolatedStr_String\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        \r\n
-    \        # $\"<size=8>[Double-click the pen]</size>\\n\" +\r\n        PUSH, __5_const_intnl_SystemString\r\n
+    \        # $\"<size=8>[Double-click the pen]</size>\\n\" +\r\n        PUSH, __6_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
     __3_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH,
     __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       \r\n         # $\"<size=14>(Local)</size>\";\r\n        PUSH, __6_const_intnl_SystemString\r\n
+    \       \r\n         # $\"<size=14>(Local)</size>\";\r\n        PUSH, __7_const_intnl_SystemString\r\n
     \       PUSH, __3_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
     __4_intnl_SystemString\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n        PUSH,
     __5_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, message\r\n        PUSH, __5_intnl_SystemString\r\n        EXTERN,
     \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        \r\n         #
-    foreach (var go in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
-    \       PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000294\r\n
-    \       PUSH, penManagers\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_QvPenUdonPenManager\r\n        PUSH, __0_go_PenManager\r\n
-    \       COPY\r\n        \r\n         # {\r\n        \r\n         # go.SetUseDoubleClick(use);\r\n
-    \       PUSH, __0_go_PenManager\r\n        PUSH, __7_const_intnl_SystemString\r\n
+    foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
+    \       PUSH, __6_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __6_intnl_SystemInt32\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005E0\r\n
+    \       PUSH, penManagers\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH,
+    __2_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
+    \       PUSH, __2_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
+    \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (penManager)
+    penManager.SetUseDoubleClick(use);\r\n        PUSH, __0_penManager_PenManager\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005B8\r\n
+    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, use\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, use\r\n        PUSH, __1_intnl_SystemBoolean\r\n        COPY # Copy-on-write
-    symbol value dirtied\r\n        PUSH, __0_go_PenManager\r\n        PUSH, __8_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000001BC\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       PUSH, use\r\n        PUSH, __7_intnl_SystemBoolean\r\n        COPY # Copy-on-write
+    symbol value dirtied\r\n        PUSH, __0_penManager_PenManager\r\n        PUSH,
+    __9_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x000004E0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -270,317 +347,625 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 240
-      endSourceChar: 240
+      endSourceChar: 273
       line: 9
       lineChar: 33
-      spanCodeSection: 
+      spanCodeSection: "Transform pensParent;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 240
-      endSourceChar: 277
-      line: 9
-      lineChar: 33
-      spanCodeSection: "PenManager[] penManagers;\r\n\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 277
-      endSourceChar: 285
+      startSourceChar: 273
+      endSourceChar: 281
       line: 11
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 285
-      endSourceChar: 285
+      startSourceChar: 281
+      endSourceChar: 281
       line: 11
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 285
-      endSourceChar: 306
+      startSourceChar: 281
+      endSourceChar: 309
       line: 11
       lineChar: 16
-      spanCodeSection: "bool use;\r\n\r\n        "
+      spanCodeSection: "bool use = true;\r\n\r\n        "
     - startInstruction: 0
-      endInstruction: 7
-      startSourceChar: 306
-      endSourceChar: 347
+      endInstruction: -1
+      startSourceChar: 309
+      endSourceChar: 317
       line: 13
       lineChar: 8
-      spanCodeSection: "public override void Interact()\r\n        "
+      spanCodeSection: 'private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 317
+      endSourceChar: 317
+      line: 13
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 317
+      endSourceChar: 317
+      line: 13
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 317
+      endSourceChar: 354
+      line: 13
+      lineChar: 16
+      spanCodeSection: "PenManager[] penManagers;\r\n\r\n        "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 354
+      endSourceChar: 384
+      line: 15
+      lineChar: 8
+      spanCodeSection: "private void Start()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 347
-      endSourceChar: 362
-      line: 14
+      startSourceChar: 384
+      endSourceChar: 399
+      line: 16
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 362
-      endSourceChar: 362
-      line: 15
+      startSourceChar: 399
+      endSourceChar: 399
+      line: 17
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 362
-      endSourceChar: 362
-      line: 15
+      startSourceChar: 399
+      endSourceChar: 399
+      line: 17
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 362
-      endSourceChar: 368
-      line: 15
+      startSourceChar: 399
+      endSourceChar: 413
+      line: 17
       lineChar: 12
-      spanCodeSection: 'use = '
+      spanCodeSection: 'penManagers = '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 368
-      endSourceChar: 369
-      line: 15
-      lineChar: 18
-      spanCodeSection: '!'
+      startSourceChar: 413
+      endSourceChar: 417
+      line: 17
+      lineChar: 26
+      spanCodeSection: 'new '
     - startInstruction: 8
-      endInstruction: 31
-      startSourceChar: 369
-      endSourceChar: 389
-      line: 15
-      lineChar: 19
-      spanCodeSection: "use;\r\n\r\n            "
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 389
-      endSourceChar: 389
+      endInstruction: 7
+      startSourceChar: 417
+      endSourceChar: 417
       line: 17
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 417
+      endSourceChar: 427
+      line: 17
+      lineChar: 30
+      spanCodeSection: PenManager
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 427
+      endSourceChar: 428
+      line: 17
+      lineChar: 40
+      spanCodeSection: '['
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 428
+      endSourceChar: 428
+      line: 17
+      lineChar: 41
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 428
+      endSourceChar: 439
+      line: 17
+      lineChar: 41
+      spanCodeSection: pensParent.
+    - startInstruction: 8
+      endInstruction: 55
+      startSourceChar: 439
+      endSourceChar: 465
+      line: 17
+      lineChar: 52
+      spanCodeSection: "childCount];\r\n            "
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 465
+      endSourceChar: 470
+      line: 18
       lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 389
-      endSourceChar: 389
-      line: 17
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 389
-      endSourceChar: 389
-      line: 17
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 389
-      endSourceChar: 397
-      line: 17
-      lineChar: 12
-      spanCodeSection: message.
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 397
-      endSourceChar: 421
-      line: 17
-      lineChar: 20
-      spanCodeSection: "text =\r\n                "
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 421
-      endSourceChar: 421
+      spanCodeSection: for (
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 470
+      endSourceChar: 470
       line: 18
-      lineChar: 16
+      lineChar: 17
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 421
-      endSourceChar: 421
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 470
+      endSourceChar: 470
       line: 18
-      lineChar: 16
+      lineChar: 17
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 421
-      endSourceChar: 421
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 470
+      endSourceChar: 476
       line: 18
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 421
-      endSourceChar: 423
+      lineChar: 17
+      spanCodeSection: 'int i '
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 476
+      endSourceChar: 478
       line: 18
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 32
-      endInstruction: 51
-      startSourceChar: 423
-      endSourceChar: 432
+      lineChar: 23
+      spanCodeSection: '= '
+    - startInstruction: 56
+      endInstruction: 75
+      startSourceChar: 478
+      endSourceChar: 481
       line: 18
-      lineChar: 18
-      spanCodeSection: <size=18>
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 432
-      endSourceChar: 433
-      line: 18
-      lineChar: 27
-      spanCodeSection: '{'
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 433
-      endSourceChar: 434
+      lineChar: 25
+      spanCodeSection: '0; '
+    - startInstruction: 76
+      endInstruction: 75
+      startSourceChar: 481
+      endSourceChar: 481
       line: 18
       lineChar: 28
-      spanCodeSection: (
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 434
-      endSourceChar: 434
-      line: 18
-      lineChar: 29
       spanCodeSection: 
-    - startInstruction: 52
-      endInstruction: 67
-      startSourceChar: 434
-      endSourceChar: 440
+    - startInstruction: 76
+      endInstruction: 75
+      startSourceChar: 481
+      endSourceChar: 485
       line: 18
-      lineChar: 29
-      spanCodeSection: 'use ? '
-    - startInstruction: 68
-      endInstruction: 95
-      startSourceChar: 440
-      endSourceChar: 452
+      lineChar: 28
+      spanCodeSection: 'i < '
+    - startInstruction: 76
+      endInstruction: 75
+      startSourceChar: 485
+      endSourceChar: 485
       line: 18
-      lineChar: 35
-      spanCodeSection: '"Disable" : '
-    - startInstruction: 96
-      endInstruction: 167
-      startSourceChar: 452
-      endSourceChar: 462
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 76
+      endInstruction: 75
+      startSourceChar: 485
+      endSourceChar: 496
       line: 18
-      lineChar: 47
-      spanCodeSection: '"Enable")}'
-    - startInstruction: 168
-      endInstruction: 219
-      startSourceChar: 462
-      endSourceChar: 492
+      lineChar: 32
+      spanCodeSection: pensParent.
+    - startInstruction: 76
+      endInstruction: 147
+      startSourceChar: 496
+      endSourceChar: 526
       line: 18
-      lineChar: 57
-      spanCodeSection: "</size>\\n\" +\r\n                "
-    - startInstruction: 220
-      endInstruction: 219
-      startSourceChar: 492
-      endSourceChar: 494
+      lineChar: 43
+      spanCodeSection: "childCount; i++)\r\n            "
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 526
+      endSourceChar: 545
       line: 19
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 220
-      endInstruction: 271
-      startSourceChar: 494
-      endSourceChar: 529
-      line: 19
-      lineChar: 18
-      spanCodeSection: "Pen \u2194 Eraser\\n\" +\r\n                "
-    - startInstruction: 272
-      endInstruction: 271
-      startSourceChar: 529
-      endSourceChar: 531
-      line: 20
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 272
-      endInstruction: 323
-      startSourceChar: 531
-      endSourceChar: 591
-      line: 20
-      lineChar: 18
-      spanCodeSection: "<size=8>[Double-click the pen]</size>\\n\" +\r\n                "
-    - startInstruction: 324
-      endInstruction: 323
-      startSourceChar: 591
-      endSourceChar: 593
-      line: 21
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 324
-      endInstruction: 399
-      startSourceChar: 593
-      endSourceChar: 646
-      line: 21
-      lineChar: 18
-      spanCodeSection: "<size=14>(Local)</size>\";\r\n            \r\n            "
-    - startInstruction: 400
-      endInstruction: 399
-      startSourceChar: 646
-      endSourceChar: 655
-      line: 23
-      lineChar: 12
-      spanCodeSection: foreach (
-    - startInstruction: 400
-      endInstruction: 399
-      startSourceChar: 655
-      endSourceChar: 665
-      line: 23
-      lineChar: 21
-      spanCodeSection: 'var go in '
-    - startInstruction: 400
-      endInstruction: 543
-      startSourceChar: 665
-      endSourceChar: 691
-      line: 23
-      lineChar: 31
-      spanCodeSection: "penManagers)\r\n            "
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 691
-      endSourceChar: 710
-      line: 24
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 710
-      endSourceChar: 710
-      line: 25
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 545
+      endSourceChar: 545
+      line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 710
-      endSourceChar: 710
-      line: 25
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 545
+      endSourceChar: 545
+      line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 710
-      endSourceChar: 710
-      line: 25
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 545
+      endSourceChar: 545
+      line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 710
-      endSourceChar: 713
-      line: 25
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 545
+      endSourceChar: 557
+      line: 20
       lineChar: 16
-      spanCodeSection: go.
-    - startInstruction: 544
-      endInstruction: 543
-      startSourceChar: 713
-      endSourceChar: 731
+      spanCodeSection: penManagers[
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 557
+      endSourceChar: 557
+      line: 20
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 557
+      endSourceChar: 562
+      line: 20
+      lineChar: 28
+      spanCodeSection: 'i] = '
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 562
+      endSourceChar: 562
+      line: 20
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 562
+      endSourceChar: 562
+      line: 20
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 562
+      endSourceChar: 562
+      line: 20
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 562
+      endSourceChar: 562
+      line: 20
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 562
+      endSourceChar: 573
+      line: 20
+      lineChar: 33
+      spanCodeSection: pensParent.
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 573
+      endSourceChar: 582
+      line: 20
+      lineChar: 44
+      spanCodeSection: GetChild(
+    - startInstruction: 148
+      endInstruction: 179
+      startSourceChar: 582
+      endSourceChar: 585
+      line: 20
+      lineChar: 53
+      spanCodeSection: i).
+    - startInstruction: 180
+      endInstruction: 179
+      startSourceChar: 585
+      endSourceChar: 597
+      line: 20
+      lineChar: 56
+      spanCodeSection: GetComponent
+    - startInstruction: 180
+      endInstruction: 179
+      startSourceChar: 597
+      endSourceChar: 598
+      line: 20
+      lineChar: 68
+      spanCodeSection: <
+    - startInstruction: 180
+      endInstruction: 775
+      startSourceChar: 598
+      endSourceChar: 648
+      line: 20
+      lineChar: 69
+      spanCodeSection: "PenManager>();\r\n            }\r\n        }\r\n        "
+    - startInstruction: 776
+      endInstruction: 783
+      startSourceChar: 648
+      endSourceChar: 689
+      line: 23
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\r\n        "
+    - startInstruction: 784
+      endInstruction: 783
+      startSourceChar: 689
+      endSourceChar: 704
+      line: 24
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 784
+      endInstruction: 783
+      startSourceChar: 704
+      endSourceChar: 704
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 784
+      endInstruction: 783
+      startSourceChar: 704
+      endSourceChar: 704
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 784
+      endInstruction: 783
+      startSourceChar: 704
+      endSourceChar: 711
+      line: 25
+      lineChar: 12
+      spanCodeSection: 'use ^= '
+    - startInstruction: 784
+      endInstruction: 835
+      startSourceChar: 711
+      endSourceChar: 732
       line: 25
       lineChar: 19
+      spanCodeSection: "true;\r\n\r\n            "
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 732
+      endSourceChar: 732
+      line: 27
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 732
+      endSourceChar: 732
+      line: 27
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 732
+      endSourceChar: 732
+      line: 27
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 732
+      endSourceChar: 740
+      line: 27
+      lineChar: 12
+      spanCodeSection: message.
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 740
+      endSourceChar: 764
+      line: 27
+      lineChar: 20
+      spanCodeSection: "text =\r\n                "
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 764
+      endSourceChar: 764
+      line: 28
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 764
+      endSourceChar: 764
+      line: 28
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 764
+      endSourceChar: 764
+      line: 28
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 764
+      endSourceChar: 766
+      line: 28
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 836
+      endInstruction: 855
+      startSourceChar: 766
+      endSourceChar: 775
+      line: 28
+      lineChar: 18
+      spanCodeSection: <size=18>
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 775
+      endSourceChar: 776
+      line: 28
+      lineChar: 27
+      spanCodeSection: '{'
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 776
+      endSourceChar: 777
+      line: 28
+      lineChar: 28
+      spanCodeSection: (
+    - startInstruction: 856
+      endInstruction: 855
+      startSourceChar: 777
+      endSourceChar: 777
+      line: 28
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 856
+      endInstruction: 871
+      startSourceChar: 777
+      endSourceChar: 783
+      line: 28
+      lineChar: 29
+      spanCodeSection: 'use ? '
+    - startInstruction: 872
+      endInstruction: 899
+      startSourceChar: 783
+      endSourceChar: 795
+      line: 28
+      lineChar: 35
+      spanCodeSection: '"Disable" : '
+    - startInstruction: 900
+      endInstruction: 971
+      startSourceChar: 795
+      endSourceChar: 805
+      line: 28
+      lineChar: 47
+      spanCodeSection: '"Enable")}'
+    - startInstruction: 972
+      endInstruction: 1023
+      startSourceChar: 805
+      endSourceChar: 835
+      line: 28
+      lineChar: 57
+      spanCodeSection: "</size>\\n\" +\r\n                "
+    - startInstruction: 1024
+      endInstruction: 1023
+      startSourceChar: 835
+      endSourceChar: 837
+      line: 29
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 1024
+      endInstruction: 1075
+      startSourceChar: 837
+      endSourceChar: 872
+      line: 29
+      lineChar: 18
+      spanCodeSection: "Pen \u2194 Eraser\\n\" +\r\n                "
+    - startInstruction: 1076
+      endInstruction: 1075
+      startSourceChar: 872
+      endSourceChar: 874
+      line: 30
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 1076
+      endInstruction: 1127
+      startSourceChar: 874
+      endSourceChar: 934
+      line: 30
+      lineChar: 18
+      spanCodeSection: "<size=8>[Double-click the pen]</size>\\n\" +\r\n                "
+    - startInstruction: 1128
+      endInstruction: 1127
+      startSourceChar: 934
+      endSourceChar: 936
+      line: 31
+      lineChar: 16
+      spanCodeSection: $"
+    - startInstruction: 1128
+      endInstruction: 1203
+      startSourceChar: 936
+      endSourceChar: 977
+      line: 31
+      lineChar: 18
+      spanCodeSection: "<size=14>(Local)</size>\";\r\n\r\n            "
+    - startInstruction: 1204
+      endInstruction: 1203
+      startSourceChar: 977
+      endSourceChar: 986
+      line: 33
+      lineChar: 12
+      spanCodeSection: foreach (
+    - startInstruction: 1204
+      endInstruction: 1203
+      startSourceChar: 986
+      endSourceChar: 1004
+      line: 33
+      lineChar: 21
+      spanCodeSection: 'var penManager in '
+    - startInstruction: 1204
+      endInstruction: 1347
+      startSourceChar: 1004
+      endSourceChar: 1030
+      line: 33
+      lineChar: 39
+      spanCodeSection: "penManagers)\r\n            "
+    - startInstruction: 1348
+      endInstruction: 1347
+      startSourceChar: 1030
+      endSourceChar: 1049
+      line: 34
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 1348
+      endInstruction: 1347
+      startSourceChar: 1049
+      endSourceChar: 1053
+      line: 35
+      lineChar: 16
+      spanCodeSection: if (
+    - startInstruction: 1348
+      endInstruction: 1387
+      startSourceChar: 1053
+      endSourceChar: 1065
+      line: 35
+      lineChar: 20
+      spanCodeSection: 'penManager) '
+    - startInstruction: 1388
+      endInstruction: 1387
+      startSourceChar: 1065
+      endSourceChar: 1065
+      line: 35
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 1388
+      endInstruction: 1387
+      startSourceChar: 1065
+      endSourceChar: 1065
+      line: 35
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 1388
+      endInstruction: 1387
+      startSourceChar: 1065
+      endSourceChar: 1065
+      line: 35
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 1388
+      endInstruction: 1387
+      startSourceChar: 1065
+      endSourceChar: 1076
+      line: 35
+      lineChar: 32
+      spanCodeSection: penManager.
+    - startInstruction: 1388
+      endInstruction: 1387
+      startSourceChar: 1076
+      endSourceChar: 1094
+      line: 35
+      lineChar: 43
       spanCodeSection: SetUseDoubleClick(
-    - startInstruction: 544
-      endInstruction: 544
-      startSourceChar: 731
-      endSourceChar: 731
-      line: 25
-      lineChar: 37
+    - startInstruction: 1388
+      endInstruction: 1388
+      startSourceChar: 1094
+      endSourceChar: 1094
+      line: 35
+      lineChar: 61
       spanCodeSection: 
   hasInteractEvent: 1
   serializationData:
@@ -606,7 +991,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -681,7 +1066,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: penManagers
+      Data: pensParent
     - Name: $v
       Entry: 7
       Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -693,7 +1078,7 @@ MonoBehaviour:
       Data: 9|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: QvPen.Udon.PenManager[], Assembly-CSharp
+      Data: UnityEngine.Transform, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -705,13 +1090,13 @@ MonoBehaviour:
       Data: 0
     - Name: symbolResolvedTypeName
       Entry: 1
-      Data: UnityEngineComponentArray
+      Data: UnityEngineTransform
     - Name: symbolOriginalName
       Entry: 1
-      Data: penManagers
+      Data: pensParent
     - Name: symbolUniqueName
       Entry: 1
-      Data: penManagers
+      Data: pensParent
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
@@ -737,8 +1122,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: userBehaviourSource
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -802,6 +1187,69 @@ MonoBehaviour:
     - Name: userBehaviourSource
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: penManagers
+    - Name: $v
+      Entry: 7
+      Data: 16|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 17|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 18|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: QvPen.Udon.PenManager[], Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 2
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineComponentArray
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: penManagers
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: penManagers
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
