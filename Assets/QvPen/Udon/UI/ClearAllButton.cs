@@ -12,7 +12,7 @@ namespace QvPen.Udon.UI
         private void Start()
         {
             penManagers = new PenManager[pensParent.childCount];
-            for (int i = 0; i < pensParent.childCount; i++)
+            for (var i = 0; i < pensParent.childCount; i++)
             {
                 penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();
             }
