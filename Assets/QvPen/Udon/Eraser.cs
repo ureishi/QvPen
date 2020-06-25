@@ -91,7 +91,7 @@ namespace QvPen.Udon
 
         public void Respawn()
         {
-            if (pickup) pickup.Drop();
+            pickup.Drop();
             if (Networking.LocalPlayer.IsOwner(gameObject))
             {
                 transform.localPosition = Vector3.zero;
