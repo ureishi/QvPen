@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: ShowOrHideButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 19b734574fc35d346a7bac0ffc638a3c,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 5457fc0a62983c3479dd547efdd3f202,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export message\r\n    .export gameObjects\r\n\r\n
     \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
     %SystemString, null\r\n    gameObjects: %UnityEngineGameObjectArray, null\r\n
     \   message: %UnityEngineUIText, null\r\n    isShown: %SystemBoolean, null\r\n
-    \   __0_go_GameObject: %UnityEngineGameObject, null\r\n    __0_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __0_const_intnl_SystemString: %SystemString, null\r\n    __1_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemString:
+    \   __0_go_GameObject: %UnityEngineGameObject, null\r\n    __0_const_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
+    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
     %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
     \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
     \       \r\n         # using UnityEngine.UI;\r\n        \r\n         # namespace
@@ -33,27 +36,33 @@ MonoBehaviour:
     \        # private bool isShown = true;\r\n        \r\n         # public override
     void Interact()\r\n    .export _interact\r\n        \r\n    _interact:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # isShown = !isShown;\r\n        PUSH, isShown\r\n        PUSH, isShown\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       \r\n         # message.text = isShown ? \"Hide All\\n<size=14>(Local)</size>\"
-    : \"Show All\\n<size=14>(Local)</size>\";\r\n        PUSH, isShown\r\n        JUMP_IF_FALSE,
-    0x0000004C\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       COPY\r\n        JUMP, 0x00000060\r\n        PUSH, __1_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        COPY\r\n        PUSH, message\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
-    \       \r\n         # foreach (var go in gameObjects)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \        # isShown ^= true;\r\n        PUSH, isShown\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_LogicalXor__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        PUSH, isShown\r\n        COPY\r\n
+    \       \r\n         # message.text = $\"{(isShown ? \"Hide\": \"Show\")}\\n<size=14>(Local)</size>\";\r\n
+    \       PUSH, isShown\r\n        JUMP_IF_FALSE, 0x00000068\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        COPY\r\n        JUMP, 0x0000007C\r\n
+    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __0_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __2_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
+    \       PUSH, message\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN,
+    \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        \r\n         #
+    foreach (var go in gameObjects)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, gameObjects\r\n
     \       PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineGameObjectArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000134\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000198\r\n
     \       PUSH, gameObjects\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
     __0_go_GameObject\r\n        EXTERN, \"UnityEngineGameObjectArray.__Get__SystemInt32__UnityEngineGameObject\"\r\n
     \       \r\n         # {\r\n        \r\n         # go.SetActive(isShown);\r\n
     \       PUSH, __0_go_GameObject\r\n        PUSH, isShown\r\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000000A4\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000108\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -86,371 +95,385 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 17
+      endSourceChar: 18
       line: 0
       lineChar: 6
-      spanCodeSection: 'UdonSharp;
-
-'
+      spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 17
-      endSourceChar: 23
+      startSourceChar: 18
+      endSourceChar: 24
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 23
-      endSourceChar: 36
+      startSourceChar: 24
+      endSourceChar: 38
       line: 1
       lineChar: 6
-      spanCodeSection: 'UnityEngine;
-
-'
+      spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 36
-      endSourceChar: 42
+      startSourceChar: 38
+      endSourceChar: 44
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 42
+      startSourceChar: 44
+      endSourceChar: 44
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 54
+      startSourceChar: 44
+      endSourceChar: 56
       line: 2
       lineChar: 6
       spanCodeSection: UnityEngine.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 54
-      endSourceChar: 59
+      startSourceChar: 56
+      endSourceChar: 63
       line: 2
       lineChar: 18
-      spanCodeSection: 'UI;
-
-
-'
+      spanCodeSection: "UI;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 59
-      endSourceChar: 89
+      startSourceChar: 63
+      endSourceChar: 95
       line: 4
       lineChar: 0
-      spanCodeSection: "namespace QvPen.Udon.UI\n{\n    "
+      spanCodeSection: "namespace QvPen.Udon.UI\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 89
-      endSourceChar: 119
+      startSourceChar: 95
+      endSourceChar: 125
       line: 6
       lineChar: 4
       spanCodeSection: 'public class ShowOrHideButton '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 119
-      endSourceChar: 121
+      startSourceChar: 125
+      endSourceChar: 127
       line: 6
       lineChar: 34
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 121
-      endSourceChar: 121
+      startSourceChar: 127
+      endSourceChar: 127
       line: 6
       lineChar: 36
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 121
-      endSourceChar: 154
+      startSourceChar: 127
+      endSourceChar: 162
       line: 6
       lineChar: 36
-      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
+      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 154
-      endSourceChar: 155
+      startSourceChar: 162
+      endSourceChar: 163
       line: 8
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 155
-      endSourceChar: 155
+      startSourceChar: 163
+      endSourceChar: 163
       line: 8
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 155
-      endSourceChar: 179
+      startSourceChar: 163
+      endSourceChar: 187
       line: 8
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 179
+      startSourceChar: 187
+      endSourceChar: 187
       line: 8
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 179
-      endSourceChar: 201
+      startSourceChar: 187
+      endSourceChar: 210
       line: 8
       lineChar: 33
-      spanCodeSection: "Text message;\n        "
+      spanCodeSection: "Text message;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 201
-      endSourceChar: 202
+      startSourceChar: 210
+      endSourceChar: 211
       line: 9
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 202
-      endSourceChar: 202
+      startSourceChar: 211
+      endSourceChar: 211
       line: 9
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 202
-      endSourceChar: 226
+      startSourceChar: 211
+      endSourceChar: 235
       line: 9
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 226
-      endSourceChar: 226
+      startSourceChar: 235
+      endSourceChar: 235
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 226
-      endSourceChar: 226
+      startSourceChar: 235
+      endSourceChar: 235
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 226
-      endSourceChar: 261
+      startSourceChar: 235
+      endSourceChar: 272
       line: 9
       lineChar: 33
-      spanCodeSection: "GameObject[] gameObjects;\n\n        "
+      spanCodeSection: "GameObject[] gameObjects;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 261
-      endSourceChar: 269
+      startSourceChar: 272
+      endSourceChar: 280
       line: 11
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 269
-      endSourceChar: 269
+      startSourceChar: 280
+      endSourceChar: 280
       line: 11
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 269
-      endSourceChar: 299
+      startSourceChar: 280
+      endSourceChar: 312
       line: 11
       lineChar: 16
-      spanCodeSection: "bool isShown = true;\n\n        "
+      spanCodeSection: "bool isShown = true;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 299
-      endSourceChar: 339
+      startSourceChar: 312
+      endSourceChar: 353
       line: 13
       lineChar: 8
-      spanCodeSection: "public override void Interact()\n        "
+      spanCodeSection: "public override void Interact()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 339
-      endSourceChar: 353
+      startSourceChar: 353
+      endSourceChar: 368
       line: 14
       lineChar: 8
-      spanCodeSection: "{\n            "
+      spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 353
-      endSourceChar: 353
+      startSourceChar: 368
+      endSourceChar: 368
       line: 15
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 353
-      endSourceChar: 353
+      startSourceChar: 368
+      endSourceChar: 368
       line: 15
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 353
-      endSourceChar: 363
+      startSourceChar: 368
+      endSourceChar: 379
       line: 15
       lineChar: 12
-      spanCodeSection: 'isShown = '
+      spanCodeSection: 'isShown ^= '
     - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 363
-      endSourceChar: 364
-      line: 15
-      lineChar: 22
-      spanCodeSection: '!'
-    - startInstruction: 8
-      endInstruction: 31
-      startSourceChar: 364
-      endSourceChar: 398
+      endInstruction: 59
+      startSourceChar: 379
+      endSourceChar: 412
       line: 15
       lineChar: 23
-      spanCodeSection: "isShown;\n            \n            "
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 398
-      endSourceChar: 398
+      spanCodeSection: "true;\r\n            \r\n            "
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 412
+      endSourceChar: 412
       line: 17
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 398
-      endSourceChar: 398
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 412
+      endSourceChar: 412
       line: 17
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 398
-      endSourceChar: 398
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 412
+      endSourceChar: 412
       line: 17
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 398
-      endSourceChar: 406
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 412
+      endSourceChar: 420
       line: 17
       lineChar: 12
       spanCodeSection: message.
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 406
-      endSourceChar: 413
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 420
+      endSourceChar: 427
       line: 17
       lineChar: 20
       spanCodeSection: 'text = '
-    - startInstruction: 32
-      endInstruction: 31
-      startSourceChar: 413
-      endSourceChar: 413
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 427
+      endSourceChar: 429
       line: 17
       lineChar: 27
+      spanCodeSection: $"
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 429
+      endSourceChar: 430
+      line: 17
+      lineChar: 29
+      spanCodeSection: '{'
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 430
+      endSourceChar: 431
+      line: 17
+      lineChar: 30
+      spanCodeSection: (
+    - startInstruction: 60
+      endInstruction: 59
+      startSourceChar: 431
+      endSourceChar: 431
+      line: 17
+      lineChar: 31
       spanCodeSection: 
-    - startInstruction: 32
-      endInstruction: 47
-      startSourceChar: 413
-      endSourceChar: 423
-      line: 17
-      lineChar: 27
-      spanCodeSection: 'isShown ? '
-    - startInstruction: 48
+    - startInstruction: 60
       endInstruction: 75
-      startSourceChar: 423
-      endSourceChar: 461
+      startSourceChar: 431
+      endSourceChar: 441
       line: 17
-      lineChar: 37
-      spanCodeSection: '"Hide All\n<size=14>(Local)</size>" : '
+      lineChar: 31
+      spanCodeSection: 'isShown ? '
     - startInstruction: 76
-      endInstruction: 119
-      startSourceChar: 461
-      endSourceChar: 510
+      endInstruction: 103
+      startSourceChar: 441
+      endSourceChar: 449
       line: 17
-      lineChar: 75
-      spanCodeSection: "\"Show All\\n<size=14>(Local)</size>\";\n            "
-    - startInstruction: 120
-      endInstruction: 119
-      startSourceChar: 510
-      endSourceChar: 519
+      lineChar: 41
+      spanCodeSection: '"Hide": '
+    - startInstruction: 104
+      endInstruction: 143
+      startSourceChar: 449
+      endSourceChar: 457
+      line: 17
+      lineChar: 49
+      spanCodeSection: '"Show")}'
+    - startInstruction: 144
+      endInstruction: 219
+      startSourceChar: 457
+      endSourceChar: 498
+      line: 17
+      lineChar: 57
+      spanCodeSection: "\\n<size=14>(Local)</size>\";\r\n            "
+    - startInstruction: 220
+      endInstruction: 219
+      startSourceChar: 498
+      endSourceChar: 507
       line: 18
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 120
-      endInstruction: 119
-      startSourceChar: 519
-      endSourceChar: 529
+    - startInstruction: 220
+      endInstruction: 219
+      startSourceChar: 507
+      endSourceChar: 517
       line: 18
       lineChar: 21
       spanCodeSection: 'var go in '
-    - startInstruction: 120
-      endInstruction: 243
-      startSourceChar: 529
-      endSourceChar: 554
+    - startInstruction: 220
+      endInstruction: 343
+      startSourceChar: 517
+      endSourceChar: 543
       line: 18
       lineChar: 31
-      spanCodeSection: "gameObjects)\n            "
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 554
-      endSourceChar: 572
+      spanCodeSection: "gameObjects)\r\n            "
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 543
+      endSourceChar: 562
       line: 19
       lineChar: 12
-      spanCodeSection: "{\n                "
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 572
-      endSourceChar: 572
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 562
+      endSourceChar: 562
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 572
-      endSourceChar: 572
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 562
+      endSourceChar: 562
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 572
-      endSourceChar: 572
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 562
+      endSourceChar: 562
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 572
-      endSourceChar: 575
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 562
+      endSourceChar: 565
       line: 20
       lineChar: 16
       spanCodeSection: go.
-    - startInstruction: 244
-      endInstruction: 243
-      startSourceChar: 575
-      endSourceChar: 585
+    - startInstruction: 344
+      endInstruction: 343
+      startSourceChar: 565
+      endSourceChar: 575
       line: 20
       lineChar: 19
       spanCodeSection: SetActive(
-    - startInstruction: 244
-      endInstruction: 244
-      startSourceChar: 585
-      endSourceChar: 585
+    - startInstruction: 344
+      endInstruction: 344
+      startSourceChar: 575
+      endSourceChar: 575
       line: 20
       lineChar: 29
       spanCodeSection: 

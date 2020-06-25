@@ -7,23 +7,33 @@ namespace QvPen.Udon.UI
     public class PenOrEraserModeButton : UdonSharpBehaviour
     {
         [SerializeField] private Text message;
-        [SerializeField] private PenManager[] penManagers;
+        [SerializeField] private Transform pensParent;
 
-        private bool use;
+        private bool use = true;
 
+        private PenManager[] penManagers;
+
+        private void Start()
+        {
+            penManagers = new PenManager[pensParent.childCount];
+            for (int i = 0; i < pensParent.childCount; i++)
+            {
+                penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();
+            }
+        }
         public override void Interact()
         {
-            use = !use;
+            use ^= true;
 
             message.text =
                 $"<size=18>{(use ? "Disable" : "Enable")}</size>\n" +
                 $"Pen ↔ Eraser\n" +
                 $"<size=8>[Double-click the pen]</size>\n" +
                 $"<size=14>(Local)</size>";
-            
-            foreach (var go in penManagers)
+
+            foreach (var penManager in penManagers)
             {
-                go.SetUseDoubleClick(use);
+                if (penManager) penManager.SetUseDoubleClick(use);
             }
         }
     }
