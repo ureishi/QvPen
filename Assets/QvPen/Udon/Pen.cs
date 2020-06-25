@@ -27,7 +27,7 @@ namespace QvPen.Udon
         private int inkCount;
 
         // Double click
-        private bool useDoubleClick;
+        private bool useDoubleClick = true;
         private float prevClickTime;
         private const float ClickInterval = 0.2f;
 
@@ -42,7 +42,7 @@ namespace QvPen.Udon
         {
             penManager = manager;
             eraser.SetActive(false);
-            inkPrefab.gameObject.SetActive(false);
+            inkPrefab.SetActive(false);
 
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
@@ -250,7 +250,7 @@ namespace QvPen.Udon
 
         private void StartDrawing()
         {
-            inkInstance = VRCInstantiate(inkPrefab.gameObject);
+            inkInstance = VRCInstantiate(inkPrefab);
             inkInstance.name = $"{inkPrefab.name}{inkCount++:000000}";
 
             inkInstance.transform.SetParent(spawnTarget);

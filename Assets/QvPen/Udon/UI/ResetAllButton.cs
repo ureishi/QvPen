@@ -20,13 +20,13 @@ namespace QvPen.Udon.UI
         private void Start()
         {
             penManagers = new PenManager[pensParent.childCount];
-            for (int i = 0; i < pensParent.childCount; i++)
+            for (var i = 0; i < pensParent.childCount; i++)
             {
                 penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();
             }
 
             eraserManagers = new EraserManager[erasersParent.childCount];
-            for (int i = 0; i < erasersParent.childCount; i++)
+            for (var i = 0; i < erasersParent.childCount; i++)
             {
                 eraserManagers[i] = erasersParent.GetChild(i).GetComponent<EraserManager>();
             }
@@ -57,7 +57,7 @@ namespace QvPen.Udon.UI
 
         private void UpdateMessage()
         {
-            string masterName = master == null ? "master" : master.displayName;
+            var masterName = master == null ? "master" : master.displayName;
             message.text =
                 $"<size=18>Reset All</size>\n\n" +
                 $"<size=8>[Only {masterName} can do]</size>\n\n" +
