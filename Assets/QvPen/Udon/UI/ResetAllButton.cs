@@ -19,6 +19,8 @@ namespace QvPen.Udon.UI
 
         private void Start()
         {
+            master = Networking.LocalPlayer;
+
             penManagers = new PenManager[pensParent.childCount];
             for (var i = 0; i < pensParent.childCount; i++)
             {
@@ -34,10 +36,6 @@ namespace QvPen.Udon.UI
 
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            if (master == null)
-            {
-                master = player;
-            }
             if (player.playerId <= master.playerId)
             {
                 master = player;
@@ -47,10 +45,9 @@ namespace QvPen.Udon.UI
 
         public override void OnPlayerLeft(VRCPlayerApi player)
         {
-            // Waiting for Udon to improve...
             if (player == master)
             {
-                master = null;
+                master = Networking.GetOwner(gameObject);
                 UpdateMessage();
             }
         }

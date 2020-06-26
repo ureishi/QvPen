@@ -66,7 +66,7 @@ MonoBehaviour:
     pensParent\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, penManagers\r\n        EXTERN,
     \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (int i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
+    \       \r\n         # for (var i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
     __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
     pensParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
@@ -501,17 +501,10 @@ MonoBehaviour:
     - startInstruction: 56
       endInstruction: 55
       startSourceChar: 470
-      endSourceChar: 470
-      line: 18
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 470
       endSourceChar: 476
       line: 18
       lineChar: 17
-      spanCodeSection: 'int i '
+      spanCodeSection: 'var i '
     - startInstruction: 56
       endInstruction: 55
       startSourceChar: 476
@@ -676,295 +669,295 @@ MonoBehaviour:
     - startInstruction: 180
       endInstruction: 775
       startSourceChar: 598
-      endSourceChar: 648
+      endSourceChar: 650
       line: 20
       lineChar: 69
-      spanCodeSection: "PenManager>();\r\n            }\r\n        }\r\n        "
+      spanCodeSection: "PenManager>();\r\n            }\r\n        }\r\n\r\n        "
     - startInstruction: 776
       endInstruction: 783
-      startSourceChar: 648
-      endSourceChar: 689
-      line: 23
+      startSourceChar: 650
+      endSourceChar: 691
+      line: 24
       lineChar: 8
       spanCodeSection: "public override void Interact()\r\n        "
     - startInstruction: 784
       endInstruction: 783
-      startSourceChar: 689
-      endSourceChar: 704
-      line: 24
+      startSourceChar: 691
+      endSourceChar: 706
+      line: 25
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 784
       endInstruction: 783
-      startSourceChar: 704
-      endSourceChar: 704
-      line: 25
+      startSourceChar: 706
+      endSourceChar: 706
+      line: 26
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 784
       endInstruction: 783
-      startSourceChar: 704
-      endSourceChar: 704
-      line: 25
+      startSourceChar: 706
+      endSourceChar: 706
+      line: 26
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 784
       endInstruction: 783
-      startSourceChar: 704
-      endSourceChar: 711
-      line: 25
+      startSourceChar: 706
+      endSourceChar: 713
+      line: 26
       lineChar: 12
       spanCodeSection: 'use ^= '
     - startInstruction: 784
       endInstruction: 835
-      startSourceChar: 711
-      endSourceChar: 732
-      line: 25
+      startSourceChar: 713
+      endSourceChar: 734
+      line: 26
       lineChar: 19
       spanCodeSection: "true;\r\n\r\n            "
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 732
-      endSourceChar: 732
-      line: 27
+      startSourceChar: 734
+      endSourceChar: 734
+      line: 28
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 732
-      endSourceChar: 732
-      line: 27
+      startSourceChar: 734
+      endSourceChar: 734
+      line: 28
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 732
-      endSourceChar: 732
-      line: 27
+      startSourceChar: 734
+      endSourceChar: 734
+      line: 28
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 732
-      endSourceChar: 740
-      line: 27
+      startSourceChar: 734
+      endSourceChar: 742
+      line: 28
       lineChar: 12
       spanCodeSection: message.
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 740
-      endSourceChar: 764
-      line: 27
+      startSourceChar: 742
+      endSourceChar: 766
+      line: 28
       lineChar: 20
       spanCodeSection: "text =\r\n                "
     - startInstruction: 836
       endInstruction: 835
-      startSourceChar: 764
-      endSourceChar: 764
-      line: 28
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 836
-      endInstruction: 835
-      startSourceChar: 764
-      endSourceChar: 764
-      line: 28
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 836
-      endInstruction: 835
-      startSourceChar: 764
-      endSourceChar: 764
-      line: 28
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 836
-      endInstruction: 835
-      startSourceChar: 764
+      startSourceChar: 766
       endSourceChar: 766
-      line: 28
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 766
+      endSourceChar: 766
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 766
+      endSourceChar: 766
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 836
+      endInstruction: 835
+      startSourceChar: 766
+      endSourceChar: 768
+      line: 29
       lineChar: 16
       spanCodeSection: $"
     - startInstruction: 836
       endInstruction: 855
-      startSourceChar: 766
-      endSourceChar: 775
-      line: 28
+      startSourceChar: 768
+      endSourceChar: 777
+      line: 29
       lineChar: 18
       spanCodeSection: <size=18>
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 775
-      endSourceChar: 776
-      line: 28
+      startSourceChar: 777
+      endSourceChar: 778
+      line: 29
       lineChar: 27
       spanCodeSection: '{'
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 776
-      endSourceChar: 777
-      line: 28
+      startSourceChar: 778
+      endSourceChar: 779
+      line: 29
       lineChar: 28
       spanCodeSection: (
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 777
-      endSourceChar: 777
-      line: 28
+      startSourceChar: 779
+      endSourceChar: 779
+      line: 29
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 856
       endInstruction: 871
-      startSourceChar: 777
-      endSourceChar: 783
-      line: 28
+      startSourceChar: 779
+      endSourceChar: 785
+      line: 29
       lineChar: 29
       spanCodeSection: 'use ? '
     - startInstruction: 872
       endInstruction: 899
-      startSourceChar: 783
-      endSourceChar: 795
-      line: 28
+      startSourceChar: 785
+      endSourceChar: 797
+      line: 29
       lineChar: 35
       spanCodeSection: '"Disable" : '
     - startInstruction: 900
       endInstruction: 971
-      startSourceChar: 795
-      endSourceChar: 805
-      line: 28
+      startSourceChar: 797
+      endSourceChar: 807
+      line: 29
       lineChar: 47
       spanCodeSection: '"Enable")}'
     - startInstruction: 972
       endInstruction: 1023
-      startSourceChar: 805
-      endSourceChar: 835
-      line: 28
+      startSourceChar: 807
+      endSourceChar: 837
+      line: 29
       lineChar: 57
       spanCodeSection: "</size>\\n\" +\r\n                "
     - startInstruction: 1024
       endInstruction: 1023
-      startSourceChar: 835
-      endSourceChar: 837
-      line: 29
+      startSourceChar: 837
+      endSourceChar: 839
+      line: 30
       lineChar: 16
       spanCodeSection: $"
     - startInstruction: 1024
       endInstruction: 1075
-      startSourceChar: 837
-      endSourceChar: 872
-      line: 29
+      startSourceChar: 839
+      endSourceChar: 874
+      line: 30
       lineChar: 18
       spanCodeSection: "Pen \u2194 Eraser\\n\" +\r\n                "
     - startInstruction: 1076
       endInstruction: 1075
-      startSourceChar: 872
-      endSourceChar: 874
-      line: 30
+      startSourceChar: 874
+      endSourceChar: 876
+      line: 31
       lineChar: 16
       spanCodeSection: $"
     - startInstruction: 1076
       endInstruction: 1127
-      startSourceChar: 874
-      endSourceChar: 934
-      line: 30
+      startSourceChar: 876
+      endSourceChar: 936
+      line: 31
       lineChar: 18
       spanCodeSection: "<size=8>[Double-click the pen]</size>\\n\" +\r\n                "
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 934
-      endSourceChar: 936
-      line: 31
+      startSourceChar: 936
+      endSourceChar: 938
+      line: 32
       lineChar: 16
       spanCodeSection: $"
     - startInstruction: 1128
       endInstruction: 1203
-      startSourceChar: 936
-      endSourceChar: 977
-      line: 31
+      startSourceChar: 938
+      endSourceChar: 979
+      line: 32
       lineChar: 18
       spanCodeSection: "<size=14>(Local)</size>\";\r\n\r\n            "
     - startInstruction: 1204
       endInstruction: 1203
-      startSourceChar: 977
-      endSourceChar: 986
-      line: 33
+      startSourceChar: 979
+      endSourceChar: 988
+      line: 34
       lineChar: 12
       spanCodeSection: foreach (
     - startInstruction: 1204
       endInstruction: 1203
-      startSourceChar: 986
-      endSourceChar: 1004
-      line: 33
+      startSourceChar: 988
+      endSourceChar: 1006
+      line: 34
       lineChar: 21
       spanCodeSection: 'var penManager in '
     - startInstruction: 1204
       endInstruction: 1347
-      startSourceChar: 1004
-      endSourceChar: 1030
-      line: 33
+      startSourceChar: 1006
+      endSourceChar: 1032
+      line: 34
       lineChar: 39
       spanCodeSection: "penManagers)\r\n            "
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1030
-      endSourceChar: 1049
-      line: 34
+      startSourceChar: 1032
+      endSourceChar: 1051
+      line: 35
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1049
-      endSourceChar: 1053
-      line: 35
+      startSourceChar: 1051
+      endSourceChar: 1055
+      line: 36
       lineChar: 16
       spanCodeSection: if (
     - startInstruction: 1348
       endInstruction: 1387
-      startSourceChar: 1053
-      endSourceChar: 1065
-      line: 35
+      startSourceChar: 1055
+      endSourceChar: 1067
+      line: 36
       lineChar: 20
       spanCodeSection: 'penManager) '
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 1065
-      endSourceChar: 1065
-      line: 35
+      startSourceChar: 1067
+      endSourceChar: 1067
+      line: 36
       lineChar: 32
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 1065
-      endSourceChar: 1065
-      line: 35
+      startSourceChar: 1067
+      endSourceChar: 1067
+      line: 36
       lineChar: 32
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 1065
-      endSourceChar: 1065
-      line: 35
+      startSourceChar: 1067
+      endSourceChar: 1067
+      line: 36
       lineChar: 32
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 1065
-      endSourceChar: 1076
-      line: 35
+      startSourceChar: 1067
+      endSourceChar: 1078
+      line: 36
       lineChar: 32
       spanCodeSection: penManager.
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 1076
-      endSourceChar: 1094
-      line: 35
+      startSourceChar: 1078
+      endSourceChar: 1096
+      line: 36
       lineChar: 43
       spanCodeSection: SetUseDoubleClick(
     - startInstruction: 1388
       endInstruction: 1388
-      startSourceChar: 1094
-      endSourceChar: 1094
-      line: 35
+      startSourceChar: 1096
+      endSourceChar: 1096
+      line: 36
       lineChar: 61
       spanCodeSection: 
   hasInteractEvent: 1
