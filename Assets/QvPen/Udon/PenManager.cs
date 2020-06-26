@@ -56,7 +56,7 @@ namespace QvPen.Udon
 
         public override void OnPreSerialization()
         {
-            isInUse = textInUse.gameObject.activeSelf;
+            isInUse = inUseUI.activeSelf;
         }
 
         public override void OnDeserialization()
