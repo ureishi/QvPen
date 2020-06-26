@@ -9,14 +9,14 @@ namespace QvPen.Udon
     {
         [SerializeField] private Pen pen;
 
-        [SerializeField] private Text textInUse;
         [SerializeField] private GameObject respawnButton;
         [SerializeField] private GameObject clearButton;
+        [SerializeField] private GameObject inUseUI;
+        [SerializeField] private Text textInUse;
 
         [UdonSynced] private bool isInUse;
-        [UdonSynced] private string userName;
 
-        private string displayName = "Occupied";
+        private string displayName;
 
         private void Start()
         {
@@ -35,10 +35,10 @@ namespace QvPen.Udon
                 Networking.SetOwner(Networking.LocalPlayer, gameObject);
             }
 
-            textInUse.text = displayName;
-            textInUse.gameObject.SetActive(true);
             respawnButton.SetActive(false);
             clearButton.SetActive(false);
+            inUseUI.SetActive(true);
+            textInUse.text = displayName;
         }
 
         public void EndUsing()
@@ -48,24 +48,24 @@ namespace QvPen.Udon
                 Networking.SetOwner(Networking.LocalPlayer, gameObject);
             }
 
-            textInUse.text = "";
-            textInUse.gameObject.SetActive(false);
             respawnButton.SetActive(true);
             clearButton.SetActive(true);
+            inUseUI.SetActive(false);
+            textInUse.text = "Occupied";
         }
 
         public override void OnPreSerialization()
         {
-            userName = textInUse.text;
             isInUse = textInUse.gameObject.activeSelf;
         }
 
         public override void OnDeserialization()
         {
-            textInUse.text = userName;
-            textInUse.gameObject.SetActive(isInUse);
+            var owner = Networking.GetOwner(pen.gameObject);
             respawnButton.SetActive(!isInUse);
             clearButton.SetActive(!isInUse);
+            inUseUI.SetActive(isInUse);
+            textInUse.text = owner != null ? owner.displayName : "Occupied";
         }
 
         public void ResetAll()

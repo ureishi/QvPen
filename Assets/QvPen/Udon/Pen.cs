@@ -9,13 +9,13 @@ namespace QvPen.Udon
     {
         [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
-        
+
         [SerializeField] private Transform inkPosition;
         [SerializeField] private Transform spawnTarget;
         [SerializeField] private Transform inkPool;
 
         [SerializeField] private float followSpeed;
-        
+
         private VRC_Pickup pickup;
 
         // PenManager
@@ -29,7 +29,7 @@ namespace QvPen.Udon
         // Double click
         private bool useDoubleClick = true;
         private float prevClickTime;
-        private const float ClickInterval = 0.2f;
+        private const float ClickInterval = 0.18f;
 
         // State
         private const int StatePenIdle = 0;
@@ -47,7 +47,7 @@ namespace QvPen.Udon
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
         }
-        
+
         private void LateUpdate()
         {
             if (isUser)
@@ -61,25 +61,25 @@ namespace QvPen.Udon
                 spawnTarget.rotation = inkPosition.rotation;
             }
         }
-        
+
         #region Events
-        
+
         public override void OnPickup()
         {
             isUser = true;
             penManager.StartUsing();
-            
+
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
-        
+
         public override void OnDrop()
         {
             isUser = false;
             penManager.EndUsing();
-            
+
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
-        
+
         public override void OnPickupUseDown()
         {
             if (useDoubleClick && Time.time - prevClickTime < ClickInterval)
@@ -138,7 +138,7 @@ namespace QvPen.Udon
             useDoubleClick = value;
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
-        
+
         #endregion
 
         public void DestroyJustBeforeInk()
@@ -169,7 +169,7 @@ namespace QvPen.Udon
             }
             currentState = StatePenIdle;
         }
-        
+
         public void ChangeStateToPenUsing()
         {
             switch (currentState)
@@ -227,7 +227,7 @@ namespace QvPen.Udon
             }
             currentState = StateEraserUsing;
         }
-        
+
         #endregion
 
         public void Respawn()
@@ -239,7 +239,7 @@ namespace QvPen.Udon
                 transform.localRotation = Quaternion.identity;
             }
         }
-        
+
         public void Clear()
         {
             for (var i = 0; i < inkPool.childCount; i++)
@@ -286,7 +286,7 @@ namespace QvPen.Udon
             eraser.FinishErasing();
             eraser.SetActive(false);
         }
-        
+
         private void ChangeToEraser()
         {
             eraser.SetActive(true);
@@ -294,50 +294,49 @@ namespace QvPen.Udon
 
         private void CreateInkMeshCollider()
         {
-            var trailRenderer = inkInstance.GetComponent<TrailRenderer>();
-            var meshFilter = inkInstance.GetComponent<MeshFilter>();
-            var meshCollider = inkInstance.GetComponent<MeshCollider>();
-            
+            var trailRenderer = inkInstance.transform.GetComponent<TrailRenderer>();
+            var meshFilter = inkInstance.transform.GetComponent<MeshFilter>();
+            var meshCollider = inkInstance.transform.GetComponent<MeshCollider>();
+
             var positionCount = trailRenderer.positionCount;
             if (positionCount < 2)
             {
                 positionCount = 2;
             }
 
-            var verticesParPoint = 2;
-            var trianglesCountParPoint = 6;
+            const int verticesParPoint = 2;
+            const int trianglesParPoint = 6;
             var positions = new Vector3[positionCount];
             var vertices = new Vector3[positionCount * verticesParPoint];
-            var triangles = new int[(positionCount - 1) * trianglesCountParPoint];
+            var triangles = new int[(positionCount - 1) * trianglesParPoint];
 
-            var colliderWidth = 0.005f;
-            var offsetXP = new Vector3(colliderWidth, 0, 0);
-            var offsetXN = new Vector3(-colliderWidth, 0, 0);
+            const float colliderWidth = 0.005f;
+            var offsetX = Vector3.right * colliderWidth;
 
             trailRenderer.GetPositions(positions);
             if (positionCount == 2)
             {
-                positions[0] =inkInstance.transform.position;
-                positions[1] =inkInstance.transform.position + Vector3.down * colliderWidth;
+                positions[0] = inkInstance.transform.position;
+                positions[1] = inkInstance.transform.position + Vector3.down * colliderWidth;
             }
 
             // Create vertices
             for (var i = 0; i < positionCount; i++)
             {
                 var position = inkInstance.transform.InverseTransformPoint(positions[i]);
-                vertices[i * verticesParPoint + 0] = position + offsetXP;
-                vertices[i * verticesParPoint + 1] = position + offsetXN;
+                vertices[i * verticesParPoint + 0] = position + offsetX;
+                vertices[i * verticesParPoint + 1] = position - offsetX;
             }
 
             // Create triangles
             for (var i = 0; i < positionCount - 1; i++)
             {
-                triangles[i * trianglesCountParPoint + 0] = i * verticesParPoint + 0;
-                triangles[i * trianglesCountParPoint + 1] = i * verticesParPoint + 1;
-                triangles[i * trianglesCountParPoint + 2] = i * verticesParPoint + 2;
-                triangles[i * trianglesCountParPoint + 3] = i * verticesParPoint + 3;
-                triangles[i * trianglesCountParPoint + 4] = i * verticesParPoint + 2;
-                triangles[i * trianglesCountParPoint + 5] = i * verticesParPoint + 1;
+                triangles[i * trianglesParPoint + 0] = i * verticesParPoint + 0;
+                triangles[i * trianglesParPoint + 1] = i * verticesParPoint + 1;
+                triangles[i * trianglesParPoint + 2] = i * verticesParPoint + 2;
+                triangles[i * trianglesParPoint + 3] = i * verticesParPoint + 3;
+                triangles[i * trianglesParPoint + 4] = i * verticesParPoint + 2;
+                triangles[i * trianglesParPoint + 5] = i * verticesParPoint + 1;
             }
 
             // Instantiate a mesh

@@ -7,23 +7,33 @@ namespace QvPen.Udon
 {
     public class Eraser : UdonSharpBehaviour
     {
-        // For stand-alone erasers
-        [SerializeField] private VRC_Pickup pickup;
-
-#pragma warning disable CS0108
-        [SerializeField] private Renderer renderer;
-#pragma warning restore CS0108
+        // Layer 14: PickupNoEnvironment
+        [SerializeField] private int inkPrefabLayer = 14;
 
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
+
+#pragma warning disable CS0108
+        private Renderer renderer;
+#pragma warning restore CS0108
+        private VRC_Pickup pickup;
 
         private bool isErasing;
 
         private void Start()
         {
+            renderer = GetComponent<Renderer>();
             renderer.enabled = true;
-            if (!pickup)
+
+            pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
+            if (pickup)
             {
+                pickup.InteractionText = nameof(Eraser);
+                pickup.UseText = "Erase";
+            }
+            else
+            {
+                // For stand-alone erasers
                 renderer.sharedMaterial = normal;
             }
         }
@@ -81,7 +91,7 @@ namespace QvPen.Udon
                 isErasing &&
                 other &&
                 other.gameObject &&
-                other.gameObject.layer == 17 &&
+                other.gameObject.layer == inkPrefabLayer &&
                 other.gameObject.name.StartsWith("Ink")
                 )
             {

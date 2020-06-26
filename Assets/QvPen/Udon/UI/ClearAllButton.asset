@@ -50,7 +50,7 @@ MonoBehaviour:
     pensParent\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, penManagers\r\n        EXTERN,
     \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (int i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
+    \       \r\n         # for (var i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
     __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
     pensParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
@@ -367,17 +367,10 @@ MonoBehaviour:
     - startInstruction: 56
       endInstruction: 55
       startSourceChar: 356
-      endSourceChar: 356
-      line: 14
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 356
       endSourceChar: 362
       line: 14
       lineChar: 17
-      spanCodeSection: 'int i '
+      spanCodeSection: 'var i '
     - startInstruction: 56
       endInstruction: 55
       startSourceChar: 362

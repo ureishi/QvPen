@@ -21,48 +21,47 @@ MonoBehaviour:
     \   pensParent: %UnityEngineTransform, null\r\n    eraserManagers: %UnityEngineComponentArray,
     null\r\n    penManagers: %UnityEngineComponentArray, null\r\n    master: %VRCSDKBaseVRCPlayerApi,
     null\r\n    onPlayerJoinedPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    onPlayerLeftPlayer:
-    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_i_Int32: %SystemInt32, null\r\n    __0_masterName_String:
-    %SystemString, null\r\n    __0_eraserManager_EraserManager: %VRCUdonUdonBehaviour,
-    null\r\n    __0_penManager_PenManager: %VRCUdonUdonBehaviour, null\r\n    __0_player_VRCPlayerApi:
-    %VRCSDKBaseVRCPlayerApi, null\r\n    __1_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_SystemInt64: %SystemInt64, null\r\n
-    \   __1_const_intnl_SystemInt64: %SystemInt64, null\r\n    __2_const_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
-    %VRCUdonCommonInterfacesNetworkEventTarget, null\r\n    __0_const_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
-    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
-    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
-    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_QvPenUdonEraserManager:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_this_intnl_UnityEngineGameObject: %UnityEngineGameObject,
+    this\r\n    __0_i_Int32: %SystemInt32, null\r\n    __0_masterName_String: %SystemString,
+    null\r\n    __0_eraserManager_EraserManager: %VRCUdonUdonBehaviour, null\r\n    __0_penManager_PenManager:
+    %VRCUdonUdonBehaviour, null\r\n    __0_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __1_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __0_const_intnl_SystemInt64: %SystemInt64, null\r\n    __1_const_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __2_const_intnl_SystemInt64: %SystemInt64, null\r\n
+    \   __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
+    null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
+    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
+    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
+    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_QvPenUdonEraserManager:
     %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
     null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32:
     %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
     null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
     \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __10_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __11_intnl_SystemBoolean: %SystemBoolean, null\r\n    __2_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __6_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __7_intnl_SystemBoolean: %SystemBoolean, null\r\n    __8_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __9_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __0_intnl_UnityEngineComponentArray:
-    %UnityEngineComponentArray, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __1_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __9_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __1_intnl_SystemInt64: %SystemInt64, null\r\n    __0_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
-    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
+    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __6_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __7_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __8_intnl_SystemBoolean: %SystemBoolean, null\r\n    __9_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
+    null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __7_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __8_intnl_SystemInt32: %SystemInt32, null\r\n    __9_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_SystemInt64: %SystemInt64, null\r\n    __1_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
-    %SystemString, null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform,
-    null\r\n    __0_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour, null\r\n
-    \   __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __1_intnl_QvPenUdonEraserManager:
+    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineTransform:
+    %UnityEngineTransform, null\r\n    __0_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour,
+    null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __1_intnl_QvPenUdonEraserManager:
     %VRCUdonUdonBehaviour, null\r\n    __1_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
     null\r\n    __2_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour, null\r\n
     \   __2_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
@@ -78,16 +77,17 @@ MonoBehaviour:
     \        # private VRCPlayerApi master;\r\n        \r\n         # private void
     Start()\r\n    .export _start\r\n        \r\n    _start:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    penManagers = new PenManager[pensParent.childCount];\r\n        PUSH, pensParent\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, penManagers\r\n        EXTERN,
-    \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (int i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
+    master = Networking.LocalPlayer;\r\n        PUSH, master\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       \r\n         # penManagers = new PenManager[pensParent.childCount];\r\n
+    \       PUSH, pensParent\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
+    \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       PUSH, penManagers\r\n        EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
+    \       \r\n         # for (var i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
     __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
     pensParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002F4\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000304\r\n
     \       \r\n         # {\r\n        \r\n         # penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();\r\n
     \       PUSH, pensParent\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
@@ -99,7 +99,7 @@ MonoBehaviour:
     \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000298\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002A8\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __3_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_QvPenUdonPenManager\r\n
@@ -107,37 +107,37 @@ MonoBehaviour:
     \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
     \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001FC\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000020C\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x00000210\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x00000220\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
     \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000025C\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000026C\r\n
     \       PUSH, __1_intnl_QvPenUdonPenManager\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n
-    \       COPY\r\n        JUMP, 0x00000298\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x000002A8\r\n        PUSH, __3_intnl_SystemInt32\r\n
     \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000114\r\n        PUSH, penManagers\r\n        PUSH,
+    \       COPY\r\n        JUMP, 0x00000124\r\n        PUSH, penManagers\r\n        PUSH,
     __0_i_Int32\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n        EXTERN,
     \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
     __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x0000004C\r\n        \r\n         # eraserManagers = new EraserManager[erasersParent.childCount];\r\n
+    \       JUMP, 0x0000005C\r\n        \r\n         # eraserManagers = new EraserManager[erasersParent.childCount];\r\n
     \       PUSH, erasersParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN,
     \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
     \       PUSH, eraserManagers\r\n        EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (int i = 0; i < erasersParent.childCount; i++)\r\n
+    \       \r\n         # for (var i = 0; i < erasersParent.childCount; i++)\r\n
     \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n
     \       PUSH, erasersParent\r\n        PUSH, __2_intnl_SystemInt32\r\n        EXTERN,
     \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __0_i_Int32\r\n
     \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005E0\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005F0\r\n
     \       \r\n         # {\r\n        \r\n         # eraserManagers[i] = erasersParent.GetChild(i).GetComponent<EraserManager>();\r\n
     \       PUSH, erasersParent\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
@@ -149,7 +149,7 @@ MonoBehaviour:
     \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000584\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000594\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_QvPenUdonEraserManager\r\n
@@ -158,140 +158,137 @@ MonoBehaviour:
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
     \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004E8\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004F8\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x000004FC\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x0000050C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
     \       PUSH, __2_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000548\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000558\r\n
     \       PUSH, __1_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_intnl_QvPenUdonEraserManager\r\n
-    \       COPY\r\n        JUMP, 0x00000584\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000594\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000400\r\n        PUSH, eraserManagers\r\n        PUSH,
+    \       COPY\r\n        JUMP, 0x00000410\r\n        PUSH, eraserManagers\r\n        PUSH,
     __0_i_Int32\r\n        PUSH, __0_intnl_QvPenUdonEraserManager\r\n        EXTERN,
     \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __3_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
     __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000338\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000348\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public override void OnPlayerJoined(VRCPlayerApi
     player)\r\n    .export _onPlayerJoined\r\n        \r\n    _onPlayerJoined:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerJoinedPlayer\r\n
     \       PUSH, __0_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
-    {\r\n        \r\n         # if (master == null)\r\n        PUSH, master\r\n        PUSH,
-    __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000654\r\n
-    \       \r\n         # {\r\n        \r\n         # master = player;\r\n        PUSH,
-    __0_player_VRCPlayerApi\r\n        PUSH, master\r\n        COPY\r\n        \r\n
-    \        # if (player.playerId <= master.playerId)\r\n        PUSH, __0_player_VRCPlayerApi\r\n
-    \       PUSH, __6_intnl_SystemInt32\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n
-    \       PUSH, master\r\n        PUSH, __7_intnl_SystemInt32\r\n        EXTERN,
-    \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n        PUSH, __6_intnl_SystemInt32\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006D8\r\n
+    {\r\n        \r\n         # if (player.playerId <= master.playerId)\r\n        PUSH,
+    __0_player_VRCPlayerApi\r\n        PUSH, __6_intnl_SystemInt32\r\n        EXTERN,
+    \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n        PUSH, master\r\n
+    \       PUSH, __7_intnl_SystemInt32\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n
+    \       PUSH, __6_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemInt32\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006A4\r\n
     \       \r\n         # {\r\n        \r\n         # master = player;\r\n        PUSH,
     __0_player_VRCPlayerApi\r\n        PUSH, master\r\n        COPY\r\n        \r\n
     \        # UpdateMessage();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000778\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000748\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public override void OnPlayerLeft(VRCPlayerApi
     player)\r\n    .export _onPlayerLeft\r\n        \r\n    _onPlayerLeft:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerLeftPlayer\r\n
     \       PUSH, __1_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
     {\r\n        \r\n         # if (player == master)\r\n        PUSH, __1_player_VRCPlayerApi\r\n
-    \       PUSH, master\r\n        PUSH, __6_intnl_SystemBoolean\r\n        EXTERN,
+    \       PUSH, master\r\n        PUSH, __5_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n        PUSH,
-    __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000075C\r\n        \r\n         #
-    {\r\n        \r\n         # master = null;\r\n        PUSH, __0_const_intnl_SystemObject\r\n
-    \       PUSH, master\r\n        COPY\r\n        \r\n         # UpdateMessage();\r\n
-    \       PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000778\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # private void UpdateMessage()\r\n    UpdateMessage:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # string masterName = master == null ? \"master\" : master.displayName;\r\n
+    __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000072C\r\n        \r\n         #
+    {\r\n        \r\n         # master = Networking.GetOwner(gameObject);\r\n        PUSH,
+    __0_this_intnl_UnityEngineGameObject\r\n        PUSH, master\r\n        EXTERN,
+    \"VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       \r\n         # UpdateMessage();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x00000748\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # private void UpdateMessage()\r\n    UpdateMessage:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # var masterName = master == null ? \"master\" : master.displayName;\r\n
     \       PUSH, master\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000007C4\r\n
-    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_masterName_String\r\n
-    \       COPY\r\n        JUMP, 0x000007DC\r\n        PUSH, master\r\n        PUSH,
-    __0_masterName_String\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
-    \       \r\n         # message.text =\r\n        \r\n         # $\"<size=18>Reset
-    All</size>\\n\\n\" +\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
-    __0_intnl_interpolatedStr_String\r\n        COPY\r\n        \r\n         # $\"<size=8>[Only
-    {masterName} can do]</size>\\n\\n\" +\r\n        PUSH, __3_const_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __1_intnl_interpolatedStr_String\r\n        PUSH, __0_masterName_String\r\n        PUSH,
-    __0_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000794\r\n
+    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       COPY\r\n        JUMP, 0x000007AC\r\n        PUSH, master\r\n        PUSH,
+    __0_intnl_SystemString\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_masterName_String\r\n
+    \       COPY\r\n        \r\n         # message.text =\r\n        \r\n         #
+    $\"<size=18>Reset All</size>\\n\\n\" +\r\n        PUSH, __2_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        \r\n
+    \        # $\"<size=8>[Only {masterName} can do]</size>\\n\\n\" +\r\n        PUSH,
+    __3_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __4_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    __0_masterName_String\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
     __1_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __4_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       \r\n         # $\"<size=14>(Global)</size>\";\r\n        PUSH, __5_const_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __1_intnl_interpolatedStr_String\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        \r\n
+    \        # $\"<size=14>(Global)</size>\";\r\n        PUSH, __5_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __2_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH,
-    __3_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, message\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    __3_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH,
+    __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, message\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
     \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public override void Interact()\r\n    .export
     _interact\r\n        \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # if (!Networking.IsMaster) return;\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000940\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000924\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
     foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
     \       PUSH, __9_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __9_intnl_SystemInt32\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A40\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A24\r\n
     \       PUSH, penManagers\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH,
     __2_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __2_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
     \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (penManager)
     penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.ResetAll));\r\n
-    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __11_intnl_SystemBoolean\r\n
+    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __10_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A18\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000009FC\r\n
     \       PUSH, __0_penManager_PenManager\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
     \       PUSH, __6_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x0000096C\r\n        \r\n         # foreach (var eraserManager
+    \       JUMP, 0x00000950\r\n        \r\n         # foreach (var eraserManager
     in eraserManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     __8_intnl_SystemInt32\r\n        COPY\r\n        PUSH, eraserManagers\r\n        PUSH,
     __9_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __9_intnl_SystemInt32\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B40\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B24\r\n
     \       PUSH, eraserManagers\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH,
     __2_intnl_QvPenUdonEraserManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __2_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_eraserManager_EraserManager\r\n
     \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (eraserManager)
     eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EraserManager.ResetAll));\r\n
-    \       PUSH, __0_eraserManager_EraserManager\r\n        PUSH, __11_intnl_SystemBoolean\r\n
+    \       PUSH, __0_eraserManager_EraserManager\r\n        PUSH, __10_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B18\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000AFC\r\n
     \       PUSH, __0_eraserManager_EraserManager\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
     \       PUSH, __6_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000A6C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000A50\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -702,1317 +699,1303 @@ MonoBehaviour:
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 559
-      endSourceChar: 573
+      endSourceChar: 568
       line: 21
       lineChar: 12
-      spanCodeSection: 'penManagers = '
+      spanCodeSection: 'master = '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 573
-      endSourceChar: 577
+      startSourceChar: 568
+      endSourceChar: 568
       line: 21
-      lineChar: 26
-      spanCodeSection: 'new '
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 577
-      endSourceChar: 577
-      line: 21
-      lineChar: 30
+      lineChar: 21
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 577
-      endSourceChar: 587
+      startSourceChar: 568
+      endSourceChar: 579
       line: 21
-      lineChar: 30
-      spanCodeSection: PenManager
+      lineChar: 21
+      spanCodeSection: Networking.
     - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 587
-      endSourceChar: 588
+      endInstruction: 23
+      startSourceChar: 579
+      endSourceChar: 607
       line: 21
-      lineChar: 40
-      spanCodeSection: '['
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 588
-      endSourceChar: 588
-      line: 21
-      lineChar: 41
-      spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 588
-      endSourceChar: 599
-      line: 21
-      lineChar: 41
-      spanCodeSection: pensParent.
-    - startInstruction: 8
-      endInstruction: 55
-      startSourceChar: 599
-      endSourceChar: 625
-      line: 21
-      lineChar: 52
-      spanCodeSection: "childCount];\r\n            "
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 625
-      endSourceChar: 630
-      line: 22
-      lineChar: 12
-      spanCodeSection: for (
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 630
-      endSourceChar: 630
-      line: 22
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 630
-      endSourceChar: 630
-      line: 22
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 630
-      endSourceChar: 636
-      line: 22
-      lineChar: 17
-      spanCodeSection: 'int i '
-    - startInstruction: 56
-      endInstruction: 55
-      startSourceChar: 636
-      endSourceChar: 638
-      line: 22
-      lineChar: 23
-      spanCodeSection: '= '
-    - startInstruction: 56
-      endInstruction: 75
-      startSourceChar: 638
-      endSourceChar: 641
-      line: 22
-      lineChar: 25
-      spanCodeSection: '0; '
-    - startInstruction: 76
-      endInstruction: 75
-      startSourceChar: 641
-      endSourceChar: 641
-      line: 22
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 76
-      endInstruction: 75
-      startSourceChar: 641
-      endSourceChar: 645
-      line: 22
-      lineChar: 28
-      spanCodeSection: 'i < '
-    - startInstruction: 76
-      endInstruction: 75
-      startSourceChar: 645
-      endSourceChar: 645
-      line: 22
       lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 76
-      endInstruction: 75
-      startSourceChar: 645
-      endSourceChar: 656
-      line: 22
-      lineChar: 32
-      spanCodeSection: pensParent.
-    - startInstruction: 76
-      endInstruction: 147
-      startSourceChar: 656
-      endSourceChar: 686
-      line: 22
-      lineChar: 43
-      spanCodeSection: "childCount; i++)\r\n            "
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 686
-      endSourceChar: 705
+      spanCodeSection: "LocalPlayer;\r\n\r\n            "
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 607
+      endSourceChar: 607
       line: 23
       lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 705
-      endSourceChar: 705
-      line: 24
-      lineChar: 16
       spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 705
-      endSourceChar: 705
-      line: 24
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 705
-      endSourceChar: 705
-      line: 24
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 705
-      endSourceChar: 717
-      line: 24
-      lineChar: 16
-      spanCodeSection: penManagers[
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 717
-      endSourceChar: 717
-      line: 24
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 717
-      endSourceChar: 722
-      line: 24
-      lineChar: 28
-      spanCodeSection: 'i] = '
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 722
-      endSourceChar: 722
-      line: 24
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 722
-      endSourceChar: 722
-      line: 24
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 722
-      endSourceChar: 722
-      line: 24
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 722
-      endSourceChar: 722
-      line: 24
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 722
-      endSourceChar: 733
-      line: 24
-      lineChar: 33
-      spanCodeSection: pensParent.
-    - startInstruction: 148
-      endInstruction: 147
-      startSourceChar: 733
-      endSourceChar: 742
-      line: 24
-      lineChar: 44
-      spanCodeSection: GetChild(
-    - startInstruction: 148
-      endInstruction: 179
-      startSourceChar: 742
-      endSourceChar: 745
-      line: 24
-      lineChar: 53
-      spanCodeSection: i).
-    - startInstruction: 180
-      endInstruction: 179
-      startSourceChar: 745
-      endSourceChar: 757
-      line: 24
-      lineChar: 56
-      spanCodeSection: GetComponent
-    - startInstruction: 180
-      endInstruction: 179
-      startSourceChar: 757
-      endSourceChar: 758
-      line: 24
-      lineChar: 68
-      spanCodeSection: <
-    - startInstruction: 180
-      endInstruction: 755
-      startSourceChar: 758
-      endSourceChar: 803
-      line: 24
-      lineChar: 69
-      spanCodeSection: "PenManager>();\r\n            }\r\n\r\n            "
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 803
-      endSourceChar: 803
-      line: 27
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 607
+      endSourceChar: 607
+      line: 23
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 803
-      endSourceChar: 803
-      line: 27
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 607
+      endSourceChar: 621
+      line: 23
       lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 803
-      endSourceChar: 820
-      line: 27
-      lineChar: 12
-      spanCodeSection: 'eraserManagers = '
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 820
-      endSourceChar: 824
-      line: 27
-      lineChar: 29
+      spanCodeSection: 'penManagers = '
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 621
+      endSourceChar: 625
+      line: 23
+      lineChar: 26
       spanCodeSection: 'new '
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 824
-      endSourceChar: 824
-      line: 27
-      lineChar: 33
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 625
+      endSourceChar: 625
+      line: 23
+      lineChar: 30
       spanCodeSection: 
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 824
-      endSourceChar: 837
-      line: 27
-      lineChar: 33
-      spanCodeSection: EraserManager
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 837
-      endSourceChar: 838
-      line: 27
-      lineChar: 46
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 625
+      endSourceChar: 635
+      line: 23
+      lineChar: 30
+      spanCodeSection: PenManager
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 635
+      endSourceChar: 636
+      line: 23
+      lineChar: 40
       spanCodeSection: '['
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 838
-      endSourceChar: 838
-      line: 27
-      lineChar: 47
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 636
+      endSourceChar: 636
+      line: 23
+      lineChar: 41
       spanCodeSection: 
-    - startInstruction: 756
-      endInstruction: 755
-      startSourceChar: 838
-      endSourceChar: 852
-      line: 27
-      lineChar: 47
-      spanCodeSection: erasersParent.
-    - startInstruction: 756
-      endInstruction: 803
-      startSourceChar: 852
-      endSourceChar: 878
-      line: 27
-      lineChar: 61
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 636
+      endSourceChar: 647
+      line: 23
+      lineChar: 41
+      spanCodeSection: pensParent.
+    - startInstruction: 24
+      endInstruction: 71
+      startSourceChar: 647
+      endSourceChar: 673
+      line: 23
+      lineChar: 52
       spanCodeSection: "childCount];\r\n            "
-    - startInstruction: 804
-      endInstruction: 803
-      startSourceChar: 878
-      endSourceChar: 883
-      line: 28
+    - startInstruction: 72
+      endInstruction: 71
+      startSourceChar: 673
+      endSourceChar: 678
+      line: 24
       lineChar: 12
       spanCodeSection: for (
-    - startInstruction: 804
-      endInstruction: 803
-      startSourceChar: 883
-      endSourceChar: 883
-      line: 28
+    - startInstruction: 72
+      endInstruction: 71
+      startSourceChar: 678
+      endSourceChar: 678
+      line: 24
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 804
-      endInstruction: 803
-      startSourceChar: 883
-      endSourceChar: 883
-      line: 28
+    - startInstruction: 72
+      endInstruction: 71
+      startSourceChar: 678
+      endSourceChar: 684
+      line: 24
       lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 804
-      endInstruction: 803
-      startSourceChar: 883
-      endSourceChar: 889
-      line: 28
-      lineChar: 17
-      spanCodeSection: 'int i '
-    - startInstruction: 804
-      endInstruction: 803
-      startSourceChar: 889
-      endSourceChar: 891
-      line: 28
+      spanCodeSection: 'var i '
+    - startInstruction: 72
+      endInstruction: 71
+      startSourceChar: 684
+      endSourceChar: 686
+      line: 24
       lineChar: 23
       spanCodeSection: '= '
-    - startInstruction: 804
-      endInstruction: 823
-      startSourceChar: 891
-      endSourceChar: 894
-      line: 28
+    - startInstruction: 72
+      endInstruction: 91
+      startSourceChar: 686
+      endSourceChar: 689
+      line: 24
       lineChar: 25
       spanCodeSection: '0; '
-    - startInstruction: 824
-      endInstruction: 823
-      startSourceChar: 894
-      endSourceChar: 894
-      line: 28
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 689
+      endSourceChar: 689
+      line: 24
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 824
-      endInstruction: 823
-      startSourceChar: 894
-      endSourceChar: 898
-      line: 28
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 689
+      endSourceChar: 693
+      line: 24
       lineChar: 28
       spanCodeSection: 'i < '
-    - startInstruction: 824
-      endInstruction: 823
-      startSourceChar: 898
-      endSourceChar: 898
-      line: 28
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 693
+      endSourceChar: 693
+      line: 24
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 824
-      endInstruction: 823
-      startSourceChar: 898
-      endSourceChar: 912
-      line: 28
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 693
+      endSourceChar: 704
+      line: 24
       lineChar: 32
-      spanCodeSection: erasersParent.
-    - startInstruction: 824
-      endInstruction: 895
-      startSourceChar: 912
-      endSourceChar: 942
-      line: 28
-      lineChar: 46
+      spanCodeSection: pensParent.
+    - startInstruction: 92
+      endInstruction: 163
+      startSourceChar: 704
+      endSourceChar: 734
+      line: 24
+      lineChar: 43
       spanCodeSection: "childCount; i++)\r\n            "
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 942
-      endSourceChar: 961
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 734
+      endSourceChar: 753
+      line: 25
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 753
+      endSourceChar: 753
+      line: 26
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 753
+      endSourceChar: 753
+      line: 26
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 753
+      endSourceChar: 753
+      line: 26
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 753
+      endSourceChar: 765
+      line: 26
+      lineChar: 16
+      spanCodeSection: penManagers[
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 765
+      endSourceChar: 765
+      line: 26
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 765
+      endSourceChar: 770
+      line: 26
+      lineChar: 28
+      spanCodeSection: 'i] = '
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 770
+      endSourceChar: 770
+      line: 26
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 770
+      endSourceChar: 770
+      line: 26
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 770
+      endSourceChar: 770
+      line: 26
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 770
+      endSourceChar: 770
+      line: 26
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 770
+      endSourceChar: 781
+      line: 26
+      lineChar: 33
+      spanCodeSection: pensParent.
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 781
+      endSourceChar: 790
+      line: 26
+      lineChar: 44
+      spanCodeSection: GetChild(
+    - startInstruction: 164
+      endInstruction: 195
+      startSourceChar: 790
+      endSourceChar: 793
+      line: 26
+      lineChar: 53
+      spanCodeSection: i).
+    - startInstruction: 196
+      endInstruction: 195
+      startSourceChar: 793
+      endSourceChar: 805
+      line: 26
+      lineChar: 56
+      spanCodeSection: GetComponent
+    - startInstruction: 196
+      endInstruction: 195
+      startSourceChar: 805
+      endSourceChar: 806
+      line: 26
+      lineChar: 68
+      spanCodeSection: <
+    - startInstruction: 196
+      endInstruction: 771
+      startSourceChar: 806
+      endSourceChar: 851
+      line: 26
+      lineChar: 69
+      spanCodeSection: "PenManager>();\r\n            }\r\n\r\n            "
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 851
+      endSourceChar: 851
       line: 29
       lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 851
+      endSourceChar: 851
+      line: 29
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 851
+      endSourceChar: 868
+      line: 29
+      lineChar: 12
+      spanCodeSection: 'eraserManagers = '
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 868
+      endSourceChar: 872
+      line: 29
+      lineChar: 29
+      spanCodeSection: 'new '
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 872
+      endSourceChar: 872
+      line: 29
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 872
+      endSourceChar: 885
+      line: 29
+      lineChar: 33
+      spanCodeSection: EraserManager
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 885
+      endSourceChar: 886
+      line: 29
+      lineChar: 46
+      spanCodeSection: '['
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 886
+      endSourceChar: 886
+      line: 29
+      lineChar: 47
+      spanCodeSection: 
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 886
+      endSourceChar: 900
+      line: 29
+      lineChar: 47
+      spanCodeSection: erasersParent.
+    - startInstruction: 772
+      endInstruction: 819
+      startSourceChar: 900
+      endSourceChar: 926
+      line: 29
+      lineChar: 61
+      spanCodeSection: "childCount];\r\n            "
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 926
+      endSourceChar: 931
+      line: 30
+      lineChar: 12
+      spanCodeSection: for (
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 931
+      endSourceChar: 931
+      line: 30
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 931
+      endSourceChar: 937
+      line: 30
+      lineChar: 17
+      spanCodeSection: 'var i '
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 937
+      endSourceChar: 939
+      line: 30
+      lineChar: 23
+      spanCodeSection: '= '
+    - startInstruction: 820
+      endInstruction: 839
+      startSourceChar: 939
+      endSourceChar: 942
+      line: 30
+      lineChar: 25
+      spanCodeSection: '0; '
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 942
+      endSourceChar: 942
+      line: 30
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 942
+      endSourceChar: 946
+      line: 30
+      lineChar: 28
+      spanCodeSection: 'i < '
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 946
+      endSourceChar: 946
+      line: 30
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 946
+      endSourceChar: 960
+      line: 30
+      lineChar: 32
+      spanCodeSection: erasersParent.
+    - startInstruction: 840
+      endInstruction: 911
+      startSourceChar: 960
+      endSourceChar: 990
+      line: 30
+      lineChar: 46
+      spanCodeSection: "childCount; i++)\r\n            "
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 990
+      endSourceChar: 1009
+      line: 31
+      lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 961
-      endSourceChar: 961
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1009
+      endSourceChar: 1009
+      line: 32
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 961
-      endSourceChar: 961
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1009
+      endSourceChar: 1009
+      line: 32
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 961
-      endSourceChar: 961
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1009
+      endSourceChar: 1009
+      line: 32
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 961
-      endSourceChar: 976
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1009
+      endSourceChar: 1024
+      line: 32
       lineChar: 16
       spanCodeSection: eraserManagers[
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 976
-      endSourceChar: 976
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1024
+      endSourceChar: 1024
+      line: 32
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 976
-      endSourceChar: 981
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1024
+      endSourceChar: 1029
+      line: 32
       lineChar: 31
       spanCodeSection: 'i] = '
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 981
-      endSourceChar: 981
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1029
+      endSourceChar: 1029
+      line: 32
       lineChar: 36
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 981
-      endSourceChar: 981
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1029
+      endSourceChar: 1029
+      line: 32
       lineChar: 36
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 981
-      endSourceChar: 981
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1029
+      endSourceChar: 1029
+      line: 32
       lineChar: 36
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 981
-      endSourceChar: 981
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1029
+      endSourceChar: 1029
+      line: 32
       lineChar: 36
       spanCodeSection: 
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 981
-      endSourceChar: 995
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1029
+      endSourceChar: 1043
+      line: 32
       lineChar: 36
       spanCodeSection: erasersParent.
-    - startInstruction: 896
-      endInstruction: 895
-      startSourceChar: 995
-      endSourceChar: 1004
-      line: 30
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 1043
+      endSourceChar: 1052
+      line: 32
       lineChar: 50
       spanCodeSection: GetChild(
-    - startInstruction: 896
-      endInstruction: 927
-      startSourceChar: 1004
-      endSourceChar: 1007
-      line: 30
+    - startInstruction: 912
+      endInstruction: 943
+      startSourceChar: 1052
+      endSourceChar: 1055
+      line: 32
       lineChar: 59
       spanCodeSection: i).
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 1007
-      endSourceChar: 1019
-      line: 30
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1055
+      endSourceChar: 1067
+      line: 32
       lineChar: 62
       spanCodeSection: GetComponent
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 1019
-      endSourceChar: 1020
-      line: 30
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1067
+      endSourceChar: 1068
+      line: 32
       lineChar: 74
       spanCodeSection: <
-    - startInstruction: 928
-      endInstruction: 1523
-      startSourceChar: 1020
-      endSourceChar: 1075
-      line: 30
+    - startInstruction: 944
+      endInstruction: 1539
+      startSourceChar: 1068
+      endSourceChar: 1123
+      line: 32
       lineChar: 75
       spanCodeSection: "EraserManager>();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1524
-      endInstruction: 1523
-      startSourceChar: 1075
-      endSourceChar: 1111
-      line: 34
+    - startInstruction: 1540
+      endInstruction: 1539
+      startSourceChar: 1123
+      endSourceChar: 1159
+      line: 36
       lineChar: 8
       spanCodeSection: public override void OnPlayerJoined(
-    - startInstruction: 1524
-      endInstruction: 1551
-      startSourceChar: 1111
-      endSourceChar: 1141
-      line: 34
-      lineChar: 44
-      spanCodeSection: "VRCPlayerApi player)\r\n        "
-    - startInstruction: 1552
-      endInstruction: 1551
-      startSourceChar: 1141
-      endSourceChar: 1156
-      line: 35
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1552
-      endInstruction: 1551
-      startSourceChar: 1156
-      endSourceChar: 1160
-      line: 36
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 1552
-      endInstruction: 1551
-      startSourceChar: 1160
-      endSourceChar: 1160
-      line: 36
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1552
-      endInstruction: 1551
-      startSourceChar: 1160
-      endSourceChar: 1170
-      line: 36
-      lineChar: 16
-      spanCodeSection: 'master == '
-    - startInstruction: 1552
-      endInstruction: 1599
-      startSourceChar: 1170
+    - startInstruction: 1540
+      endInstruction: 1567
+      startSourceChar: 1159
       endSourceChar: 1189
       line: 36
-      lineChar: 26
-      spanCodeSection: "null)\r\n            "
-    - startInstruction: 1600
-      endInstruction: 1599
+      lineChar: 44
+      spanCodeSection: "VRCPlayerApi player)\r\n        "
+    - startInstruction: 1568
+      endInstruction: 1567
       startSourceChar: 1189
-      endSourceChar: 1208
+      endSourceChar: 1204
       line: 37
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 1208
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 1568
+      endInstruction: 1567
+      startSourceChar: 1204
       endSourceChar: 1208
       line: 38
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 1208
-      endSourceChar: 1208
-      line: 38
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 1208
-      endSourceChar: 1217
-      line: 38
-      lineChar: 16
-      spanCodeSection: 'master = '
-    - startInstruction: 1600
-      endInstruction: 1619
-      startSourceChar: 1217
-      endSourceChar: 1253
-      line: 38
-      lineChar: 25
-      spanCodeSection: "player;\r\n            }\r\n            "
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1253
-      endSourceChar: 1257
-      line: 40
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1257
-      endSourceChar: 1257
-      line: 40
+    - startInstruction: 1568
+      endInstruction: 1567
+      startSourceChar: 1208
+      endSourceChar: 1208
+      line: 38
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1257
-      endSourceChar: 1257
-      line: 40
+    - startInstruction: 1568
+      endInstruction: 1567
+      startSourceChar: 1208
+      endSourceChar: 1208
+      line: 38
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1257
-      endSourceChar: 1264
-      line: 40
+    - startInstruction: 1568
+      endInstruction: 1567
+      startSourceChar: 1208
+      endSourceChar: 1215
+      line: 38
       lineChar: 16
       spanCodeSection: player.
-    - startInstruction: 1620
-      endInstruction: 1643
-      startSourceChar: 1264
-      endSourceChar: 1276
-      line: 40
+    - startInstruction: 1568
+      endInstruction: 1591
+      startSourceChar: 1215
+      endSourceChar: 1227
+      line: 38
       lineChar: 23
       spanCodeSection: 'playerId <= '
-    - startInstruction: 1644
-      endInstruction: 1643
+    - startInstruction: 1592
+      endInstruction: 1591
+      startSourceChar: 1227
+      endSourceChar: 1227
+      line: 38
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 1592
+      endInstruction: 1591
+      startSourceChar: 1227
+      endSourceChar: 1234
+      line: 38
+      lineChar: 35
+      spanCodeSection: master.
+    - startInstruction: 1592
+      endInstruction: 1663
+      startSourceChar: 1234
+      endSourceChar: 1257
+      line: 38
+      lineChar: 42
+      spanCodeSection: "playerId)\r\n            "
+    - startInstruction: 1664
+      endInstruction: 1663
+      startSourceChar: 1257
+      endSourceChar: 1276
+      line: 39
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 1664
+      endInstruction: 1663
       startSourceChar: 1276
       endSourceChar: 1276
       line: 40
-      lineChar: 35
+      lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1644
-      endInstruction: 1643
+    - startInstruction: 1664
+      endInstruction: 1663
       startSourceChar: 1276
-      endSourceChar: 1283
+      endSourceChar: 1276
       line: 40
-      lineChar: 35
-      spanCodeSection: master.
-    - startInstruction: 1644
-      endInstruction: 1715
-      startSourceChar: 1283
-      endSourceChar: 1306
-      line: 40
-      lineChar: 42
-      spanCodeSection: "playerId)\r\n            "
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 1306
-      endSourceChar: 1325
-      line: 41
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 1325
-      endSourceChar: 1325
-      line: 42
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 1325
-      endSourceChar: 1325
-      line: 42
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 1325
-      endSourceChar: 1334
-      line: 42
+    - startInstruction: 1664
+      endInstruction: 1663
+      startSourceChar: 1276
+      endSourceChar: 1285
+      line: 40
       lineChar: 16
       spanCodeSection: 'master = '
-    - startInstruction: 1716
-      endInstruction: 1735
-      startSourceChar: 1334
-      endSourceChar: 1359
-      line: 42
+    - startInstruction: 1664
+      endInstruction: 1683
+      startSourceChar: 1285
+      endSourceChar: 1310
+      line: 40
       lineChar: 25
       spanCodeSection: "player;\r\n                "
-    - startInstruction: 1736
-      endInstruction: 1735
-      startSourceChar: 1359
-      endSourceChar: 1359
-      line: 43
+    - startInstruction: 1684
+      endInstruction: 1683
+      startSourceChar: 1310
+      endSourceChar: 1310
+      line: 41
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1736
-      endInstruction: 1735
-      startSourceChar: 1359
-      endSourceChar: 1359
-      line: 43
+    - startInstruction: 1684
+      endInstruction: 1683
+      startSourceChar: 1310
+      endSourceChar: 1310
+      line: 41
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1736
-      endInstruction: 1771
-      startSourceChar: 1359
-      endSourceChar: 1413
-      line: 43
+    - startInstruction: 1684
+      endInstruction: 1719
+      startSourceChar: 1310
+      endSourceChar: 1364
+      line: 41
       lineChar: 16
       spanCodeSection: "UpdateMessage();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1772
-      endInstruction: 1771
-      startSourceChar: 1413
-      endSourceChar: 1447
-      line: 47
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1364
+      endSourceChar: 1398
+      line: 45
       lineChar: 8
       spanCodeSection: public override void OnPlayerLeft(
-    - startInstruction: 1772
-      endInstruction: 1799
-      startSourceChar: 1447
-      endSourceChar: 1477
-      line: 47
+    - startInstruction: 1720
+      endInstruction: 1747
+      startSourceChar: 1398
+      endSourceChar: 1428
+      line: 45
       lineChar: 42
       spanCodeSection: "VRCPlayerApi player)\r\n        "
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1477
-      endSourceChar: 1539
-      line: 48
+    - startInstruction: 1748
+      endInstruction: 1747
+      startSourceChar: 1428
+      endSourceChar: 1443
+      line: 46
       lineChar: 8
-      spanCodeSection: "{\r\n            // Waiting for Udon to improve...\r\n            "
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1539
-      endSourceChar: 1543
-      line: 50
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 1748
+      endInstruction: 1747
+      startSourceChar: 1443
+      endSourceChar: 1447
+      line: 47
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1543
-      endSourceChar: 1543
-      line: 50
+    - startInstruction: 1748
+      endInstruction: 1747
+      startSourceChar: 1447
+      endSourceChar: 1447
+      line: 47
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1543
-      endSourceChar: 1553
-      line: 50
+    - startInstruction: 1748
+      endInstruction: 1747
+      startSourceChar: 1447
+      endSourceChar: 1457
+      line: 47
       lineChar: 16
       spanCodeSection: 'player == '
-    - startInstruction: 1800
-      endInstruction: 1847
-      startSourceChar: 1553
-      endSourceChar: 1574
-      line: 50
+    - startInstruction: 1748
+      endInstruction: 1795
+      startSourceChar: 1457
+      endSourceChar: 1478
+      line: 47
       lineChar: 26
       spanCodeSection: "master)\r\n            "
-    - startInstruction: 1848
-      endInstruction: 1847
-      startSourceChar: 1574
-      endSourceChar: 1593
-      line: 51
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1478
+      endSourceChar: 1497
+      line: 48
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 1848
-      endInstruction: 1847
-      startSourceChar: 1593
-      endSourceChar: 1593
-      line: 52
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1497
+      endSourceChar: 1497
+      line: 49
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1848
-      endInstruction: 1847
-      startSourceChar: 1593
-      endSourceChar: 1593
-      line: 52
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1497
+      endSourceChar: 1497
+      line: 49
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1848
-      endInstruction: 1847
-      startSourceChar: 1593
-      endSourceChar: 1602
-      line: 52
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1497
+      endSourceChar: 1506
+      line: 49
       lineChar: 16
       spanCodeSection: 'master = '
-    - startInstruction: 1848
-      endInstruction: 1867
-      startSourceChar: 1602
-      endSourceChar: 1625
-      line: 52
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1506
+      endSourceChar: 1506
+      line: 49
       lineChar: 25
-      spanCodeSection: "null;\r\n                "
-    - startInstruction: 1868
-      endInstruction: 1867
-      startSourceChar: 1625
-      endSourceChar: 1625
-      line: 53
+      spanCodeSection: 
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1506
+      endSourceChar: 1506
+      line: 49
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1506
+      endSourceChar: 1517
+      line: 49
+      lineChar: 25
+      spanCodeSection: Networking.
+    - startInstruction: 1796
+      endInstruction: 1795
+      startSourceChar: 1517
+      endSourceChar: 1526
+      line: 49
+      lineChar: 36
+      spanCodeSection: GetOwner(
+    - startInstruction: 1796
+      endInstruction: 1819
+      startSourceChar: 1526
+      endSourceChar: 1556
+      line: 49
+      lineChar: 45
+      spanCodeSection: "gameObject);\r\n                "
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1556
+      endSourceChar: 1556
+      line: 50
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1868
-      endInstruction: 1867
-      startSourceChar: 1625
-      endSourceChar: 1625
-      line: 53
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1556
+      endSourceChar: 1556
+      line: 50
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1868
-      endInstruction: 1903
-      startSourceChar: 1625
-      endSourceChar: 1679
-      line: 53
+    - startInstruction: 1820
+      endInstruction: 1855
+      startSourceChar: 1556
+      endSourceChar: 1610
+      line: 50
       lineChar: 16
       spanCodeSection: "UpdateMessage();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1904
-      endInstruction: 1911
-      startSourceChar: 1679
-      endSourceChar: 1717
-      line: 57
+    - startInstruction: 1856
+      endInstruction: 1863
+      startSourceChar: 1610
+      endSourceChar: 1648
+      line: 54
       lineChar: 8
       spanCodeSection: "private void UpdateMessage()\r\n        "
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1717
-      endSourceChar: 1732
-      line: 58
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1648
+      endSourceChar: 1663
+      line: 55
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1732
-      endSourceChar: 1732
-      line: 59
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1663
+      endSourceChar: 1663
+      line: 56
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1732
-      endSourceChar: 1732
-      line: 59
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1663
+      endSourceChar: 1663
+      line: 56
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1732
-      endSourceChar: 1732
-      line: 59
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1663
+      endSourceChar: 1678
+      line: 56
       lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1732
-      endSourceChar: 1750
-      line: 59
-      lineChar: 12
-      spanCodeSection: 'string masterName '
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1750
-      endSourceChar: 1752
-      line: 59
-      lineChar: 30
+      spanCodeSection: 'var masterName '
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1678
+      endSourceChar: 1680
+      line: 56
+      lineChar: 27
       spanCodeSection: '= '
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1752
-      endSourceChar: 1752
-      line: 59
-      lineChar: 32
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1680
+      endSourceChar: 1680
+      line: 56
+      lineChar: 29
       spanCodeSection: 
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1752
-      endSourceChar: 1752
-      line: 59
-      lineChar: 32
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1680
+      endSourceChar: 1680
+      line: 56
+      lineChar: 29
       spanCodeSection: 
-    - startInstruction: 1912
-      endInstruction: 1911
-      startSourceChar: 1752
-      endSourceChar: 1762
-      line: 59
-      lineChar: 32
+    - startInstruction: 1864
+      endInstruction: 1863
+      startSourceChar: 1680
+      endSourceChar: 1690
+      line: 56
+      lineChar: 29
       spanCodeSection: 'master == '
-    - startInstruction: 1912
-      endInstruction: 1959
-      startSourceChar: 1762
-      endSourceChar: 1769
-      line: 59
-      lineChar: 42
+    - startInstruction: 1864
+      endInstruction: 1911
+      startSourceChar: 1690
+      endSourceChar: 1697
+      line: 56
+      lineChar: 39
       spanCodeSection: 'null ? '
-    - startInstruction: 1960
-      endInstruction: 1987
-      startSourceChar: 1769
-      endSourceChar: 1780
-      line: 59
-      lineChar: 49
+    - startInstruction: 1912
+      endInstruction: 1939
+      startSourceChar: 1697
+      endSourceChar: 1708
+      line: 56
+      lineChar: 46
       spanCodeSection: '"master" : '
-    - startInstruction: 1988
-      endInstruction: 1987
-      startSourceChar: 1780
-      endSourceChar: 1780
-      line: 59
-      lineChar: 60
+    - startInstruction: 1940
+      endInstruction: 1939
+      startSourceChar: 1708
+      endSourceChar: 1708
+      line: 56
+      lineChar: 57
       spanCodeSection: 
-    - startInstruction: 1988
-      endInstruction: 1987
-      startSourceChar: 1780
-      endSourceChar: 1787
-      line: 59
-      lineChar: 60
+    - startInstruction: 1940
+      endInstruction: 1939
+      startSourceChar: 1708
+      endSourceChar: 1715
+      line: 56
+      lineChar: 57
       spanCodeSection: master.
-    - startInstruction: 1988
-      endInstruction: 2011
-      startSourceChar: 1787
-      endSourceChar: 1813
-      line: 59
-      lineChar: 67
+    - startInstruction: 1940
+      endInstruction: 1983
+      startSourceChar: 1715
+      endSourceChar: 1741
+      line: 56
+      lineChar: 64
       spanCodeSection: "displayName;\r\n            "
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1813
-      endSourceChar: 1813
-      line: 60
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1741
+      endSourceChar: 1741
+      line: 57
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1813
-      endSourceChar: 1813
-      line: 60
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1741
+      endSourceChar: 1741
+      line: 57
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1813
-      endSourceChar: 1813
-      line: 60
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1741
+      endSourceChar: 1741
+      line: 57
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1813
-      endSourceChar: 1821
-      line: 60
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1741
+      endSourceChar: 1749
+      line: 57
       lineChar: 12
       spanCodeSection: message.
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1821
-      endSourceChar: 1845
-      line: 60
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1749
+      endSourceChar: 1773
+      line: 57
       lineChar: 20
       spanCodeSection: "text =\r\n                "
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1845
-      endSourceChar: 1845
-      line: 61
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1773
+      endSourceChar: 1773
+      line: 58
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1845
-      endSourceChar: 1845
-      line: 61
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1773
+      endSourceChar: 1773
+      line: 58
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2012
-      endInstruction: 2011
-      startSourceChar: 1845
-      endSourceChar: 1847
-      line: 61
+    - startInstruction: 1984
+      endInstruction: 1983
+      startSourceChar: 1773
+      endSourceChar: 1775
+      line: 58
       lineChar: 16
       spanCodeSection: $"
-    - startInstruction: 2012
-      endInstruction: 2031
-      startSourceChar: 1847
-      endSourceChar: 1897
-      line: 61
+    - startInstruction: 1984
+      endInstruction: 2003
+      startSourceChar: 1775
+      endSourceChar: 1825
+      line: 58
       lineChar: 18
       spanCodeSection: "<size=18>Reset All</size>\\n\\n\" +\r\n                "
-    - startInstruction: 2032
-      endInstruction: 2031
-      startSourceChar: 1897
-      endSourceChar: 1899
-      line: 62
+    - startInstruction: 2004
+      endInstruction: 2003
+      startSourceChar: 1825
+      endSourceChar: 1827
+      line: 59
       lineChar: 16
       spanCodeSection: $"
-    - startInstruction: 2032
-      endInstruction: 2051
-      startSourceChar: 1899
-      endSourceChar: 1913
-      line: 62
+    - startInstruction: 2004
+      endInstruction: 2023
+      startSourceChar: 1827
+      endSourceChar: 1841
+      line: 59
       lineChar: 18
       spanCodeSection: '<size=8>[Only '
-    - startInstruction: 2052
-      endInstruction: 2051
-      startSourceChar: 1913
-      endSourceChar: 1914
-      line: 62
+    - startInstruction: 2024
+      endInstruction: 2023
+      startSourceChar: 1841
+      endSourceChar: 1842
+      line: 59
       lineChar: 32
       spanCodeSection: '{'
-    - startInstruction: 2052
-      endInstruction: 2103
-      startSourceChar: 1914
-      endSourceChar: 1925
-      line: 62
+    - startInstruction: 2024
+      endInstruction: 2075
+      startSourceChar: 1842
+      endSourceChar: 1853
+      line: 59
       lineChar: 33
       spanCodeSection: masterName}
-    - startInstruction: 2104
-      endInstruction: 2187
-      startSourceChar: 1925
-      endSourceChar: 1965
-      line: 62
+    - startInstruction: 2076
+      endInstruction: 2159
+      startSourceChar: 1853
+      endSourceChar: 1893
+      line: 59
       lineChar: 44
       spanCodeSection: " can do]</size>\\n\\n\" +\r\n                "
-    - startInstruction: 2188
-      endInstruction: 2187
-      startSourceChar: 1965
-      endSourceChar: 1967
-      line: 63
+    - startInstruction: 2160
+      endInstruction: 2159
+      startSourceChar: 1893
+      endSourceChar: 1895
+      line: 60
       lineChar: 16
       spanCodeSection: $"
-    - startInstruction: 2188
-      endInstruction: 2283
-      startSourceChar: 1967
-      endSourceChar: 2016
-      line: 63
+    - startInstruction: 2160
+      endInstruction: 2255
+      startSourceChar: 1895
+      endSourceChar: 1944
+      line: 60
       lineChar: 18
       spanCodeSection: "<size=14>(Global)</size>\";\r\n        }\r\n\r\n        "
-    - startInstruction: 2284
-      endInstruction: 2291
-      startSourceChar: 2016
-      endSourceChar: 2057
-      line: 66
+    - startInstruction: 2256
+      endInstruction: 2263
+      startSourceChar: 1944
+      endSourceChar: 1985
+      line: 63
       lineChar: 8
       spanCodeSection: "public override void Interact()\r\n        "
-    - startInstruction: 2292
-      endInstruction: 2291
-      startSourceChar: 2057
-      endSourceChar: 2072
-      line: 67
+    - startInstruction: 2264
+      endInstruction: 2263
+      startSourceChar: 1985
+      endSourceChar: 2000
+      line: 64
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2292
-      endInstruction: 2291
-      startSourceChar: 2072
-      endSourceChar: 2076
-      line: 68
+    - startInstruction: 2264
+      endInstruction: 2263
+      startSourceChar: 2000
+      endSourceChar: 2004
+      line: 65
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 2292
-      endInstruction: 2291
-      startSourceChar: 2076
-      endSourceChar: 2077
-      line: 68
+    - startInstruction: 2264
+      endInstruction: 2263
+      startSourceChar: 2004
+      endSourceChar: 2005
+      line: 65
       lineChar: 16
       spanCodeSection: '!'
-    - startInstruction: 2292
-      endInstruction: 2291
-      startSourceChar: 2077
-      endSourceChar: 2077
-      line: 68
+    - startInstruction: 2264
+      endInstruction: 2263
+      startSourceChar: 2005
+      endSourceChar: 2005
+      line: 65
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 2292
-      endInstruction: 2291
-      startSourceChar: 2077
-      endSourceChar: 2088
-      line: 68
+    - startInstruction: 2264
+      endInstruction: 2263
+      startSourceChar: 2005
+      endSourceChar: 2016
+      line: 65
       lineChar: 17
       spanCodeSection: Networking.
-    - startInstruction: 2292
-      endInstruction: 2347
-      startSourceChar: 2088
-      endSourceChar: 2098
-      line: 68
+    - startInstruction: 2264
+      endInstruction: 2319
+      startSourceChar: 2016
+      endSourceChar: 2026
+      line: 65
       lineChar: 28
       spanCodeSection: 'IsMaster) '
-    - startInstruction: 2348
-      endInstruction: 2367
-      startSourceChar: 2098
-      endSourceChar: 2121
-      line: 68
+    - startInstruction: 2320
+      endInstruction: 2339
+      startSourceChar: 2026
+      endSourceChar: 2049
+      line: 65
       lineChar: 38
       spanCodeSection: "return;\r\n\r\n            "
-    - startInstruction: 2368
-      endInstruction: 2367
-      startSourceChar: 2121
-      endSourceChar: 2130
-      line: 70
+    - startInstruction: 2340
+      endInstruction: 2339
+      startSourceChar: 2049
+      endSourceChar: 2058
+      line: 67
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 2368
-      endInstruction: 2367
-      startSourceChar: 2130
-      endSourceChar: 2148
-      line: 70
+    - startInstruction: 2340
+      endInstruction: 2339
+      startSourceChar: 2058
+      endSourceChar: 2076
+      line: 67
       lineChar: 21
       spanCodeSection: 'var penManager in '
-    - startInstruction: 2368
-      endInstruction: 2511
-      startSourceChar: 2148
-      endSourceChar: 2174
-      line: 70
+    - startInstruction: 2340
+      endInstruction: 2483
+      startSourceChar: 2076
+      endSourceChar: 2102
+      line: 67
       lineChar: 39
       spanCodeSection: "penManagers)\r\n            "
-    - startInstruction: 2512
-      endInstruction: 2511
-      startSourceChar: 2174
-      endSourceChar: 2193
-      line: 71
+    - startInstruction: 2484
+      endInstruction: 2483
+      startSourceChar: 2102
+      endSourceChar: 2121
+      line: 68
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 2512
-      endInstruction: 2511
-      startSourceChar: 2193
-      endSourceChar: 2197
-      line: 72
+    - startInstruction: 2484
+      endInstruction: 2483
+      startSourceChar: 2121
+      endSourceChar: 2125
+      line: 69
       lineChar: 16
       spanCodeSection: if (
-    - startInstruction: 2512
-      endInstruction: 2551
-      startSourceChar: 2197
-      endSourceChar: 2209
-      line: 72
+    - startInstruction: 2484
+      endInstruction: 2523
+      startSourceChar: 2125
+      endSourceChar: 2137
+      line: 69
       lineChar: 20
       spanCodeSection: 'penManager) '
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2209
-      endSourceChar: 2209
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2137
+      endSourceChar: 2137
+      line: 69
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2209
-      endSourceChar: 2209
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2137
+      endSourceChar: 2137
+      line: 69
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2209
-      endSourceChar: 2209
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2137
+      endSourceChar: 2137
+      line: 69
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2209
-      endSourceChar: 2220
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2137
+      endSourceChar: 2148
+      line: 69
       lineChar: 32
       spanCodeSection: penManager.
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2220
-      endSourceChar: 2243
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2148
+      endSourceChar: 2171
+      line: 69
       lineChar: 43
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2243
-      endSourceChar: 2243
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2171
+      endSourceChar: 2171
+      line: 69
       lineChar: 66
       spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2243
-      endSourceChar: 2262
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2171
+      endSourceChar: 2190
+      line: 69
       lineChar: 66
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2262
-      endSourceChar: 2267
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2190
+      endSourceChar: 2195
+      line: 69
       lineChar: 85
       spanCodeSection: 'All, '
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2267
-      endSourceChar: 2285
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2523
+      startSourceChar: 2195
+      endSourceChar: 2213
+      line: 69
       lineChar: 90
       spanCodeSection: nameof(PenManager.
-    - startInstruction: 2552
-      endInstruction: 2623
-      startSourceChar: 2285
-      endSourceChar: 2327
-      line: 72
+    - startInstruction: 2524
+      endInstruction: 2595
+      startSourceChar: 2213
+      endSourceChar: 2255
+      line: 69
       lineChar: 108
       spanCodeSection: "ResetAll));\r\n            }\r\n\r\n            "
-    - startInstruction: 2624
-      endInstruction: 2623
-      startSourceChar: 2327
-      endSourceChar: 2336
-      line: 75
+    - startInstruction: 2596
+      endInstruction: 2595
+      startSourceChar: 2255
+      endSourceChar: 2264
+      line: 72
       lineChar: 12
       spanCodeSection: foreach (
-    - startInstruction: 2624
-      endInstruction: 2623
-      startSourceChar: 2336
-      endSourceChar: 2357
-      line: 75
+    - startInstruction: 2596
+      endInstruction: 2595
+      startSourceChar: 2264
+      endSourceChar: 2285
+      line: 72
       lineChar: 21
       spanCodeSection: 'var eraserManager in '
-    - startInstruction: 2624
-      endInstruction: 2767
-      startSourceChar: 2357
-      endSourceChar: 2386
-      line: 75
+    - startInstruction: 2596
+      endInstruction: 2739
+      startSourceChar: 2285
+      endSourceChar: 2314
+      line: 72
       lineChar: 42
       spanCodeSection: "eraserManagers)\r\n            "
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 2386
-      endSourceChar: 2405
-      line: 76
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 2314
+      endSourceChar: 2333
+      line: 73
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 2768
-      endInstruction: 2767
-      startSourceChar: 2405
-      endSourceChar: 2409
-      line: 77
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 2333
+      endSourceChar: 2337
+      line: 74
       lineChar: 16
       spanCodeSection: if (
-    - startInstruction: 2768
-      endInstruction: 2807
-      startSourceChar: 2409
-      endSourceChar: 2424
-      line: 77
+    - startInstruction: 2740
+      endInstruction: 2779
+      startSourceChar: 2337
+      endSourceChar: 2352
+      line: 74
       lineChar: 20
       spanCodeSection: 'eraserManager) '
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2424
-      endSourceChar: 2424
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2352
+      endSourceChar: 2352
+      line: 74
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2424
-      endSourceChar: 2424
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2352
+      endSourceChar: 2352
+      line: 74
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2424
-      endSourceChar: 2424
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2352
+      endSourceChar: 2352
+      line: 74
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2424
-      endSourceChar: 2438
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2352
+      endSourceChar: 2366
+      line: 74
       lineChar: 35
       spanCodeSection: eraserManager.
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2438
-      endSourceChar: 2461
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2366
+      endSourceChar: 2389
+      line: 74
       lineChar: 49
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2461
-      endSourceChar: 2461
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2389
+      endSourceChar: 2389
+      line: 74
       lineChar: 72
       spanCodeSection: 
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2461
-      endSourceChar: 2480
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2389
+      endSourceChar: 2408
+      line: 74
       lineChar: 72
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2480
-      endSourceChar: 2485
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2408
+      endSourceChar: 2413
+      line: 74
       lineChar: 91
       spanCodeSection: 'All, '
-    - startInstruction: 2808
-      endInstruction: 2807
-      startSourceChar: 2485
-      endSourceChar: 2506
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2779
+      startSourceChar: 2413
+      endSourceChar: 2434
+      line: 74
       lineChar: 96
       spanCodeSection: nameof(EraserManager.
-    - startInstruction: 2808
-      endInstruction: 2808
-      startSourceChar: 2506
-      endSourceChar: 2506
-      line: 77
+    - startInstruction: 2780
+      endInstruction: 2780
+      startSourceChar: 2434
+      endSourceChar: 2434
+      line: 74
       lineChar: 117
       spanCodeSection: 
   hasInteractEvent: 1
