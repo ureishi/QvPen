@@ -23,23 +23,26 @@ namespace QvPen.Udon
         // EraserManager
         private EraserManager eraserManager;
 
+        private readonly string inkPrefix = "Ink";
+        private readonly string inkPoolName = "obj_f6feca5f-9729-4367-ba6f-daeb5187a785";
+
         public void Init(EraserManager manager)
         {
             eraserManager = manager;
 
             renderer = GetComponent<Renderer>();
             renderer.enabled = true;
+            if (!eraserManager)
+            {
+                // For stand-alone erasers
+                renderer.sharedMaterial = normal;
+            }
 
             pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             if (pickup)
             {
                 pickup.InteractionText = nameof(Eraser);
                 pickup.UseText = "Erase";
-            }
-            else
-            {
-                // For stand-alone erasers
-                renderer.sharedMaterial = normal;
             }
         }
 
@@ -91,13 +94,18 @@ namespace QvPen.Udon
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log(other);
+            Debug.Log(other.gameObject.layer);
+            Debug.Log(other.name);
+            Debug.Log(other.transform.parent.name);
+            Debug.Log(other.GetComponent<TrailRenderer>());
             if (
                 isErasing &&
                 other &&
                 other.gameObject &&
                 other.gameObject.layer == inkPrefabLayer &&
-                other.name.StartsWith("Ink") &&
-                other.transform.parent.name == "InkPool" &&
+                other.name.StartsWith(inkPrefix) &&
+                other.transform.parent.name == inkPoolName &&
                 other.GetComponent<TrailRenderer>()
                 )
             {
