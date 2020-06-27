@@ -7,6 +7,9 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
+        // Layer 14: PickupNoEnvironment
+        [SerializeField] private int inkPrefabLayer = 14;
+
         [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
 
@@ -38,6 +41,9 @@ namespace QvPen.Udon
         private const int StateEraserUsing = 3;
         private int currentState = StatePenIdle;
 
+        private readonly string inkPrefix = "Ink";
+        private readonly string inkPoolName = "obj_f6feca5f-9729-4367-ba6f-daeb5187a785";
+
         public void Init(PenManager manager)
         {
             penManager = manager;
@@ -48,6 +54,8 @@ namespace QvPen.Udon
             pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
+
+            inkPool.name = inkPoolName;
 
             eraser.Init(null);
         }
@@ -262,7 +270,7 @@ namespace QvPen.Udon
         private void StartDrawing()
         {
             inkInstance = VRCInstantiate(inkPrefab);
-            inkInstance.name = $"Ink ({inkCount++})";
+            inkInstance.name = $"{inkPrefix} ({inkCount++})";
 
             inkInstance.transform.SetParent(spawnTarget);
             inkInstance.transform.localPosition = Vector3.zero;
