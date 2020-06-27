@@ -20,7 +20,7 @@ MonoBehaviour:
     %SystemString, null\r\n    useLegacyLocomotion: %SystemBoolean, null\r\n    gravityStrength:
     %SystemSingle, null\r\n    jumpImpulse: %SystemSingle, null\r\n    runSpeed: %SystemSingle,
     null\r\n    walkSpeed: %SystemSingle, null\r\n    __0_this_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, this\r\n    __0_this_intnl_QvPenUdonPlayerMods: %VRCUdonUdonBehaviour,
+    %UnityEngineGameObject, this\r\n    __0_this_intnl_QvPenUdonWorldPlayerMods: %VRCUdonUdonBehaviour,
     this\r\n    __0_localPlayer_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __0_const_intnl_SystemObject:
     %SystemObject, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
@@ -28,14 +28,14 @@ MonoBehaviour:
     %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
     null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
     \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
-    PlayerMods : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    private float walkSpeed = 2f;\r\n        \r\n         # [SerializeField] private
-    float runSpeed = 4f;\r\n        \r\n         # [SerializeField] private float
-    jumpImpulse = 3f;\r\n        \r\n         # [SerializeField] private float gravityStrength
-    = 1f;\r\n        \r\n         # [SerializeField] private bool useLegacyLocomotion
-    = false;\r\n        \r\n         # private void Start()\r\n    .export _start\r\n
-    \       \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # namespace QvPen.Udon.World\r\n        \r\n         # public
+    class PlayerMods : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
+    [SerializeField] private float walkSpeed = 2f;\r\n        \r\n         # [SerializeField]
+    private float runSpeed = 4f;\r\n        \r\n         # [SerializeField] private
+    float jumpImpulse = 3f;\r\n        \r\n         # [SerializeField] private float
+    gravityStrength = 1f;\r\n        \r\n         # [SerializeField] private bool
+    useLegacyLocomotion = false;\r\n        \r\n         # private void Start()\r\n
+    \   .export _start\r\n        \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # var localPlayer = Networking.LocalPlayer;\r\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_localPlayer_VRCPlayerApi\r\n
@@ -140,553 +140,553 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 60
-      endSourceChar: 89
+      endSourceChar: 95
       line: 4
       lineChar: 0
-      spanCodeSection: "namespace QvPen.Udon\r\n{\r\n    "
+      spanCodeSection: "namespace QvPen.Udon.World\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 89
-      endSourceChar: 113
+      startSourceChar: 95
+      endSourceChar: 119
       line: 6
       lineChar: 4
       spanCodeSection: 'public class PlayerMods '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 113
-      endSourceChar: 115
+      startSourceChar: 119
+      endSourceChar: 121
       line: 6
       lineChar: 28
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 115
-      endSourceChar: 115
+      startSourceChar: 121
+      endSourceChar: 121
       line: 6
       lineChar: 30
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 115
-      endSourceChar: 150
+      startSourceChar: 121
+      endSourceChar: 156
       line: 6
       lineChar: 30
       spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 150
-      endSourceChar: 151
+      startSourceChar: 156
+      endSourceChar: 157
       line: 8
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 151
-      endSourceChar: 151
+      startSourceChar: 157
+      endSourceChar: 157
       line: 8
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 151
-      endSourceChar: 175
+      startSourceChar: 157
+      endSourceChar: 181
       line: 8
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 175
-      endSourceChar: 175
+      startSourceChar: 181
+      endSourceChar: 181
       line: 8
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 175
-      endSourceChar: 206
+      startSourceChar: 181
+      endSourceChar: 212
       line: 8
       lineChar: 33
       spanCodeSection: "float walkSpeed = 2f;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 206
-      endSourceChar: 207
+      startSourceChar: 212
+      endSourceChar: 213
       line: 9
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 207
-      endSourceChar: 207
+      startSourceChar: 213
+      endSourceChar: 213
       line: 9
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 207
-      endSourceChar: 231
+      startSourceChar: 213
+      endSourceChar: 237
       line: 9
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 231
-      endSourceChar: 231
+      startSourceChar: 237
+      endSourceChar: 237
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 231
-      endSourceChar: 261
+      startSourceChar: 237
+      endSourceChar: 267
       line: 9
       lineChar: 33
       spanCodeSection: "float runSpeed = 4f;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 261
-      endSourceChar: 262
+      startSourceChar: 267
+      endSourceChar: 268
       line: 10
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 262
-      endSourceChar: 262
+      startSourceChar: 268
+      endSourceChar: 268
       line: 10
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 262
-      endSourceChar: 286
+      startSourceChar: 268
+      endSourceChar: 292
       line: 10
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 286
-      endSourceChar: 286
+      startSourceChar: 292
+      endSourceChar: 292
       line: 10
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 286
-      endSourceChar: 319
+      startSourceChar: 292
+      endSourceChar: 325
       line: 10
       lineChar: 33
       spanCodeSection: "float jumpImpulse = 3f;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 319
-      endSourceChar: 320
+      startSourceChar: 325
+      endSourceChar: 326
       line: 11
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 320
-      endSourceChar: 320
+      startSourceChar: 326
+      endSourceChar: 326
       line: 11
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 320
-      endSourceChar: 344
+      startSourceChar: 326
+      endSourceChar: 350
       line: 11
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 344
-      endSourceChar: 344
+      startSourceChar: 350
+      endSourceChar: 350
       line: 11
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 344
-      endSourceChar: 381
+      startSourceChar: 350
+      endSourceChar: 387
       line: 11
       lineChar: 33
       spanCodeSection: "float gravityStrength = 1f;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 381
-      endSourceChar: 382
+      startSourceChar: 387
+      endSourceChar: 388
       line: 12
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 382
-      endSourceChar: 382
+      startSourceChar: 388
+      endSourceChar: 388
       line: 12
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 382
-      endSourceChar: 406
+      startSourceChar: 388
+      endSourceChar: 412
       line: 12
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 406
-      endSourceChar: 406
+      startSourceChar: 412
+      endSourceChar: 412
       line: 12
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 406
-      endSourceChar: 451
+      startSourceChar: 412
+      endSourceChar: 457
       line: 12
       lineChar: 33
       spanCodeSection: "bool useLegacyLocomotion = false;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 451
-      endSourceChar: 481
+      startSourceChar: 457
+      endSourceChar: 487
       line: 14
       lineChar: 8
       spanCodeSection: "private void Start()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 481
-      endSourceChar: 496
+      startSourceChar: 487
+      endSourceChar: 502
       line: 15
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 496
-      endSourceChar: 496
+      startSourceChar: 502
+      endSourceChar: 502
       line: 16
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 496
-      endSourceChar: 496
+      startSourceChar: 502
+      endSourceChar: 502
       line: 16
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 496
-      endSourceChar: 512
+      startSourceChar: 502
+      endSourceChar: 518
       line: 16
       lineChar: 12
       spanCodeSection: 'var localPlayer '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 512
-      endSourceChar: 514
+      startSourceChar: 518
+      endSourceChar: 520
       line: 16
       lineChar: 28
       spanCodeSection: '= '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 514
-      endSourceChar: 514
+      startSourceChar: 520
+      endSourceChar: 520
       line: 16
       lineChar: 30
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 514
-      endSourceChar: 525
+      startSourceChar: 520
+      endSourceChar: 531
       line: 16
       lineChar: 30
       spanCodeSection: Networking.
     - startInstruction: 8
       endInstruction: 43
-      startSourceChar: 525
-      endSourceChar: 553
+      startSourceChar: 531
+      endSourceChar: 559
       line: 16
       lineChar: 41
       spanCodeSection: "LocalPlayer;\r\n\r\n            "
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 553
-      endSourceChar: 557
+      startSourceChar: 559
+      endSourceChar: 563
       line: 18
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 557
-      endSourceChar: 557
+      startSourceChar: 563
+      endSourceChar: 563
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 44
       endInstruction: 43
-      startSourceChar: 557
-      endSourceChar: 572
+      startSourceChar: 563
+      endSourceChar: 578
       line: 18
       lineChar: 16
       spanCodeSection: 'localPlayer == '
     - startInstruction: 44
       endInstruction: 91
-      startSourceChar: 572
-      endSourceChar: 578
+      startSourceChar: 578
+      endSourceChar: 584
       line: 18
       lineChar: 31
       spanCodeSection: 'null) '
     - startInstruction: 92
       endInstruction: 111
-      startSourceChar: 578
-      endSourceChar: 601
+      startSourceChar: 584
+      endSourceChar: 607
       line: 18
       lineChar: 37
       spanCodeSection: "return;\r\n\r\n            "
     - startInstruction: 112
       endInstruction: 111
-      startSourceChar: 601
-      endSourceChar: 601
+      startSourceChar: 607
+      endSourceChar: 607
       line: 20
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 112
       endInstruction: 111
-      startSourceChar: 601
-      endSourceChar: 601
+      startSourceChar: 607
+      endSourceChar: 607
       line: 20
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 112
       endInstruction: 111
-      startSourceChar: 601
-      endSourceChar: 601
+      startSourceChar: 607
+      endSourceChar: 607
       line: 20
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 112
       endInstruction: 111
-      startSourceChar: 601
-      endSourceChar: 613
+      startSourceChar: 607
+      endSourceChar: 619
       line: 20
       lineChar: 12
       spanCodeSection: localPlayer.
     - startInstruction: 112
       endInstruction: 111
-      startSourceChar: 613
-      endSourceChar: 625
+      startSourceChar: 619
+      endSourceChar: 631
       line: 20
       lineChar: 24
       spanCodeSection: SetRunSpeed(
     - startInstruction: 112
       endInstruction: 135
-      startSourceChar: 625
-      endSourceChar: 649
+      startSourceChar: 631
+      endSourceChar: 655
       line: 20
       lineChar: 36
       spanCodeSection: "runSpeed);\r\n            "
     - startInstruction: 136
       endInstruction: 135
-      startSourceChar: 649
-      endSourceChar: 649
+      startSourceChar: 655
+      endSourceChar: 655
       line: 21
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 136
       endInstruction: 135
-      startSourceChar: 649
-      endSourceChar: 649
+      startSourceChar: 655
+      endSourceChar: 655
       line: 21
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 136
       endInstruction: 135
-      startSourceChar: 649
-      endSourceChar: 649
+      startSourceChar: 655
+      endSourceChar: 655
       line: 21
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 136
       endInstruction: 135
-      startSourceChar: 649
-      endSourceChar: 661
+      startSourceChar: 655
+      endSourceChar: 667
       line: 21
       lineChar: 12
       spanCodeSection: localPlayer.
     - startInstruction: 136
       endInstruction: 135
-      startSourceChar: 661
-      endSourceChar: 674
+      startSourceChar: 667
+      endSourceChar: 680
       line: 21
       lineChar: 24
       spanCodeSection: SetWalkSpeed(
     - startInstruction: 136
       endInstruction: 159
-      startSourceChar: 674
-      endSourceChar: 699
+      startSourceChar: 680
+      endSourceChar: 705
       line: 21
       lineChar: 37
       spanCodeSection: "walkSpeed);\r\n            "
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 699
-      endSourceChar: 699
+      startSourceChar: 705
+      endSourceChar: 705
       line: 22
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 699
-      endSourceChar: 699
+      startSourceChar: 705
+      endSourceChar: 705
       line: 22
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 699
-      endSourceChar: 699
+      startSourceChar: 705
+      endSourceChar: 705
       line: 22
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 699
-      endSourceChar: 711
+      startSourceChar: 705
+      endSourceChar: 717
       line: 22
       lineChar: 12
       spanCodeSection: localPlayer.
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 711
-      endSourceChar: 726
+      startSourceChar: 717
+      endSourceChar: 732
       line: 22
       lineChar: 24
       spanCodeSection: SetJumpImpulse(
     - startInstruction: 160
       endInstruction: 183
-      startSourceChar: 726
-      endSourceChar: 753
+      startSourceChar: 732
+      endSourceChar: 759
       line: 22
       lineChar: 39
       spanCodeSection: "jumpImpulse);\r\n            "
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 753
-      endSourceChar: 753
+      startSourceChar: 759
+      endSourceChar: 759
       line: 23
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 753
-      endSourceChar: 753
+      startSourceChar: 759
+      endSourceChar: 759
       line: 23
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 753
-      endSourceChar: 753
+      startSourceChar: 759
+      endSourceChar: 759
       line: 23
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 753
-      endSourceChar: 765
+      startSourceChar: 759
+      endSourceChar: 771
       line: 23
       lineChar: 12
       spanCodeSection: localPlayer.
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 765
-      endSourceChar: 784
+      startSourceChar: 771
+      endSourceChar: 790
       line: 23
       lineChar: 24
       spanCodeSection: SetGravityStrength(
     - startInstruction: 184
       endInstruction: 207
-      startSourceChar: 784
-      endSourceChar: 815
+      startSourceChar: 790
+      endSourceChar: 821
       line: 23
       lineChar: 43
       spanCodeSection: "gravityStrength);\r\n            "
     - startInstruction: 208
       endInstruction: 207
-      startSourceChar: 815
-      endSourceChar: 819
+      startSourceChar: 821
+      endSourceChar: 825
       line: 24
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 208
       endInstruction: 223
-      startSourceChar: 819
-      endSourceChar: 857
+      startSourceChar: 825
+      endSourceChar: 863
       line: 24
       lineChar: 16
       spanCodeSection: "useLegacyLocomotion)\r\n                "
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 857
-      endSourceChar: 857
+      startSourceChar: 863
+      endSourceChar: 863
       line: 25
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 857
-      endSourceChar: 857
+      startSourceChar: 863
+      endSourceChar: 863
       line: 25
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 857
-      endSourceChar: 857
+      startSourceChar: 863
+      endSourceChar: 863
       line: 25
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 857
-      endSourceChar: 869
+      startSourceChar: 863
+      endSourceChar: 875
       line: 25
       lineChar: 16
       spanCodeSection: localPlayer.
     - startInstruction: 224
       endInstruction: 239
-      startSourceChar: 869
-      endSourceChar: 907
+      startSourceChar: 875
+      endSourceChar: 913
       line: 25
       lineChar: 28
       spanCodeSection: "UseLegacyLocomotion();\r\n\r\n            "
     - startInstruction: 240
       endInstruction: 239
-      startSourceChar: 907
-      endSourceChar: 907
+      startSourceChar: 913
+      endSourceChar: 913
       line: 27
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 240
       endInstruction: 239
-      startSourceChar: 907
-      endSourceChar: 907
+      startSourceChar: 913
+      endSourceChar: 913
       line: 27
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 240
       endInstruction: 239
-      startSourceChar: 907
-      endSourceChar: 915
+      startSourceChar: 913
+      endSourceChar: 921
       line: 27
       lineChar: 12
       spanCodeSection: Destroy(
     - startInstruction: 240
       endInstruction: 240
-      startSourceChar: 915
-      endSourceChar: 915
+      startSourceChar: 921
+      endSourceChar: 921
       line: 27
       lineChar: 20
       spanCodeSection: 
