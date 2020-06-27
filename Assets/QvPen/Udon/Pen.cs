@@ -140,10 +140,10 @@ namespace QvPen.Udon
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseIdle));
                     break;
                 case StatePenIdle:
-                    Debug.Log($"Change state : {StatePenIdle} to {currentState}");
+                    Debug.Log($"Change state : {StateEraserIdle} to {currentState}");
                     break;
                 case StateEraserIdle:
-                    Debug.Log($"Change state : {StateEraserIdle} to {currentState}");
+                    Debug.Log($"Change state : {StatePenIdle} to {currentState}");
                     break;
                 default:
                     Debug.Log($"Unexpected state : {currentState} at {nameof(OnPickupUseUp)}");
