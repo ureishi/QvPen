@@ -48,14 +48,15 @@ namespace QvPen.Udon
         {
             penManager = manager;
 
+            inkPool.name = inkPoolName;
+            inkPrefab.layer = inkPrefabLayer;
+
             eraser.SetActive(false);
             inkPrefab.SetActive(false);
 
             pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
-
-            inkPool.name = inkPoolName;
 
             eraser.Init(null);
         }

@@ -7,8 +7,10 @@ namespace QvPen.Udon
 {
     public class Eraser : UdonSharpBehaviour
     {
+        // Layer 13: Pickup
         // Layer 14: PickupNoEnvironment
         [SerializeField] private int inkPrefabLayer = 14;
+        [SerializeField] private int eraserLayer = 13;
 
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
@@ -44,6 +46,8 @@ namespace QvPen.Udon
                 pickup.InteractionText = nameof(Eraser);
                 pickup.UseText = "Erase";
             }
+
+            gameObject.layer = eraserLayer;
         }
 
         public override void OnPickup()
