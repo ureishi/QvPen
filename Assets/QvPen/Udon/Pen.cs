@@ -67,7 +67,7 @@ namespace QvPen.Udon
         public override void OnPickup()
         {
             isUser = true;
-            penManager.StartUsing();
+            penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.StartUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
@@ -75,7 +75,7 @@ namespace QvPen.Udon
         public override void OnDrop()
         {
             isUser = false;
-            penManager.EndUsing();
+            penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.EndUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
@@ -229,6 +229,11 @@ namespace QvPen.Udon
         }
 
         #endregion
+
+        public bool IsHeld()
+        {
+            return pickup.IsHeld;
+        }
 
         public void Respawn()
         {
