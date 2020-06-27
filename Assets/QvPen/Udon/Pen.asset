@@ -389,7 +389,7 @@ MonoBehaviour:
     __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n        PUSH, __9_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       JUMP, 0x00000C9C\r\n        PUSH, __16_const_intnl_SystemString\r\n        PUSH,
-    __1_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH, StatePenIdle\r\n
+    __1_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH, StateEraserIdle\r\n
     \       PUSH, __5_intnl_SystemString\r\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n
     \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __5_intnl_SystemString\r\n
     \       PUSH, __6_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
@@ -406,7 +406,7 @@ MonoBehaviour:
     \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        EXTERN,
     \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        JUMP, 0x00000C9C\r\n
     \       PUSH, __16_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, StateEraserIdle\r\n        PUSH, __5_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, StatePenIdle\r\n        PUSH, __5_intnl_SystemString\r\n
     \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
     \       PUSH, __5_intnl_SystemString\r\n        PUSH, __6_intnl_SystemString\r\n
     \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
@@ -3312,26 +3312,27 @@ MonoBehaviour:
     - startInstruction: 2308
       endInstruction: 2363
       startSourceChar: 5054
-      endSourceChar: 5197
+      endSourceChar: 5200
       line: 141
       lineChar: 21
       spanCodeSection: "StatePenIdle:\r\n                    Debug.Log($\"Change state
-        : {StatePenIdle} to {currentState}\");\r\n                    break;\r\n                "
+        : {StateEraserIdle} to {currentState}\");\r\n                    break;\r\n
+        \               "
     - startInstruction: 2364
       endInstruction: 2363
-      startSourceChar: 5197
-      endSourceChar: 5202
+      startSourceChar: 5200
+      endSourceChar: 5205
       line: 144
       lineChar: 16
       spanCodeSection: 'case '
     - startInstruction: 2364
       endInstruction: 2419
-      startSourceChar: 5202
+      startSourceChar: 5205
       endSourceChar: 5351
       line: 144
       lineChar: 21
       spanCodeSection: "StateEraserIdle:\r\n                    Debug.Log($\"Change
-        state : {StateEraserIdle} to {currentState}\");\r\n                    break;\r\n
+        state : {StatePenIdle} to {currentState}\");\r\n                    break;\r\n
         \               "
     - startInstruction: 2420
       endInstruction: 3003

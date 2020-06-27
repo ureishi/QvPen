@@ -2,7 +2,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 
-namespace QvPen.Udon
+namespace QvPen.Udon.World
 {
     public class PlayerMods : UdonSharpBehaviour
     {
