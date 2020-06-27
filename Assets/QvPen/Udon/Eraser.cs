@@ -20,8 +20,13 @@ namespace QvPen.Udon
 
         private bool isErasing;
 
-        private void Start()
+        // EraserManager
+        private EraserManager eraserManager;
+
+        public void Init(EraserManager manager)
         {
+            eraserManager = manager;
+
             renderer = GetComponent<Renderer>();
             renderer.enabled = true;
 
@@ -38,9 +43,18 @@ namespace QvPen.Udon
             }
         }
 
-        public void SetActive(bool value)
+        public override void OnPickup()
         {
-            gameObject.SetActive(value);
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.StartUsing));
+
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
+        }
+
+        public override void OnDrop()
+        {
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.EndUsing));
+
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnDropEvent));
         }
 
         public override void OnPickupUseDown()
@@ -53,14 +67,14 @@ namespace QvPen.Udon
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(FinishErasing));
         }
 
-        public override void OnPickup()
+        public void OnPickupEvent()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
+            renderer.sharedMaterial = normal;
         }
 
-        public override void OnDrop()
+        public void OnDropEvent()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnDropEvent));
+            renderer.sharedMaterial = erasing;
         }
 
         public void StartErasing()
@@ -73,16 +87,6 @@ namespace QvPen.Udon
         {
             isErasing = false;
             renderer.sharedMaterial = normal;
-        }
-
-        public void OnPickupEvent()
-        {
-            renderer.sharedMaterial = normal;
-        }
-
-        public void OnDropEvent()
-        {
-            renderer.sharedMaterial = erasing;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -99,6 +103,16 @@ namespace QvPen.Udon
             {
                 Destroy(other.gameObject);
             }
+        }
+
+        public void SetActive(bool value)
+        {
+            gameObject.SetActive(value);
+        }
+
+        public bool IsHeld()
+        {
+            return pickup.IsHeld;
         }
 
         public void Respawn()

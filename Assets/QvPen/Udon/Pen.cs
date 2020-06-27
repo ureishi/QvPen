@@ -16,11 +16,11 @@ namespace QvPen.Udon
 
         [SerializeField] private float followSpeed;
 
+        private bool isUser;
         private VRC_Pickup pickup;
 
         // PenManager
         private PenManager penManager;
-        private bool isUser;
 
         // Ink
         private GameObject inkInstance;
@@ -41,11 +41,15 @@ namespace QvPen.Udon
         public void Init(PenManager manager)
         {
             penManager = manager;
+
             eraser.SetActive(false);
             inkPrefab.SetActive(false);
+
             pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
+
+            eraser.Init(null);
         }
 
         private void LateUpdate()
