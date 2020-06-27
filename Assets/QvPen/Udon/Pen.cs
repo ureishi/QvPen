@@ -320,9 +320,9 @@ namespace QvPen.Udon
 
         private void CreateInkMeshCollider()
         {
-            var trailRenderer = inkInstance.transform.GetComponent<TrailRenderer>();
-            var meshFilter = inkInstance.transform.GetComponent<MeshFilter>();
-            var meshCollider = inkInstance.transform.GetComponent<MeshCollider>();
+            var trailRenderer = inkInstance.GetComponent<TrailRenderer>();
+            var meshFilter = inkInstance.GetComponent<MeshFilter>();
+            var meshCollider = inkInstance.GetComponent<MeshCollider>();
 
             var positionCount = trailRenderer.positionCount;
             if (positionCount < 2)

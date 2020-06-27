@@ -1,12 +1,7 @@
-using UdonSharp;
-
 namespace QvPen.Udon.World
 {
-    public class ObjectSync : UdonSharpBehaviour
+    public class ObjectSync : UdonSharp.UdonSharpBehaviour
     {
-        void Start()
-        {
-
-        }
+        private void Start() { }
     }
 }
