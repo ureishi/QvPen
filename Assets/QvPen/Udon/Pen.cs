@@ -251,12 +251,14 @@ namespace QvPen.Udon
             {
                 Destroy(inkPool.GetChild(i).gameObject);
             }
+
+            inkCount = 0;
         }
 
         private void StartDrawing()
         {
             inkInstance = VRCInstantiate(inkPrefab);
-            inkInstance.name = $"{inkPrefab.name}{inkCount++:000000}";
+            inkInstance.name = $"Ink ({inkCount++})";
 
             inkInstance.transform.SetParent(spawnTarget);
             inkInstance.transform.localPosition = Vector3.zero;
