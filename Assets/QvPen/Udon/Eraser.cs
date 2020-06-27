@@ -92,7 +92,9 @@ namespace QvPen.Udon
                 other &&
                 other.gameObject &&
                 other.gameObject.layer == inkPrefabLayer &&
-                other.gameObject.name.StartsWith("Ink")
+                other.name.StartsWith("Ink") &&
+                other.transform.parent.name == "InkPool" &&
+                other.GetComponent<TrailRenderer>()
                 )
             {
                 Destroy(other.gameObject);
