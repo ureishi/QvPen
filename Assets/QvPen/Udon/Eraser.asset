@@ -42,7 +42,9 @@ MonoBehaviour:
     \   __14_intnl_SystemBoolean: %SystemBoolean, null\r\n    __15_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __16_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __17_intnl_SystemBoolean: %SystemBoolean, null\r\n    __18_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    %SystemBoolean, null\r\n    __19_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __20_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __21_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
@@ -50,33 +52,30 @@ MonoBehaviour:
     \   __9_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent:
     %UnityEngineComponent, null\r\n    __0_intnl_UnityEngineGameObject: %UnityEngineGameObject,
     null\r\n    __1_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n
-    \   __2_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n    __3_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __1_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_UnityEngineQuaternion:
-    %UnityEngineQuaternion, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n
-    \   __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
-    %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineTransform:
-    %UnityEngineTransform, null\r\n    __1_intnl_UnityEngineTransform: %UnityEngineTransform,
-    null\r\n    __2_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n    __3_intnl_UnityEngineTransform:
-    %UnityEngineTransform, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
-    null\r\n    __0_intnl_UnityEngineVector3: %UnityEngineVector3, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi:
-    %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using
-    UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n        \r\n         #
-    using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
-    \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
-    Eraser : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    private int inkPrefabLayer = 14;\r\n        \r\n         # [SerializeField] private
-    Material normal;\r\n        \r\n         # [SerializeField] private Material erasing;\r\n
-    \       \r\n         # private Renderer renderer;\r\n        \r\n         # private
-    VRC_Pickup pickup;\r\n        \r\n         # private bool isErasing;\r\n        \r\n
-    \        # private EraserManager eraserManager;\r\n        \r\n         # private
-    readonly string inkPrefix = \"Ink\";\r\n        \r\n         # private readonly
-    string inkPoolName = \"obj_f6feca5f-9729-4367-ba6f-daeb5187a785\";\r\n        \r\n
-    \        # public void Init(EraserManager manager)\r\n    .export Init\r\n        \r\n
-    \   Init:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # eraserManager = manager;\r\n        PUSH,
-    __0_manager_EraserManager\r\n        PUSH, eraserManager\r\n        COPY\r\n        \r\n
-    \        # renderer = GetComponent<Renderer>();\r\n        PUSH, __0_this_intnl_QvPenUdonEraser\r\n
+    \   __2_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n    __0_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_UnityEngineQuaternion: %UnityEngineQuaternion,
+    null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform,
+    null\r\n    __1_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n    __2_intnl_UnityEngineTransform:
+    %UnityEngineTransform, null\r\n    __3_intnl_UnityEngineTransform: %UnityEngineTransform,
+    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n    __0_intnl_UnityEngineVector3:
+    %UnityEngineVector3, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
+    \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
+    namespace QvPen.Udon\r\n        \r\n         # public class Eraser : UdonSharpBehaviour\r\n.code_start\r\n
+    \       \r\n         # [SerializeField] private int inkPrefabLayer = 14;\r\n        \r\n
+    \        # [SerializeField] private Material normal;\r\n        \r\n         #
+    [SerializeField] private Material erasing;\r\n        \r\n         # private Renderer
+    renderer;\r\n        \r\n         # private VRC_Pickup pickup;\r\n        \r\n
+    \        # private bool isErasing;\r\n        \r\n         # private EraserManager
+    eraserManager;\r\n        \r\n         # private readonly string inkPrefix = \"Ink\";\r\n
+    \       \r\n         # private readonly string inkPoolName = \"obj_f6feca5f-9729-4367-ba6f-daeb5187a785\";\r\n
+    \       \r\n         # public void Init(EraserManager manager)\r\n    .export
+    Init\r\n        \r\n    Init:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # eraserManager = manager;\r\n
+    \       PUSH, __0_manager_EraserManager\r\n        PUSH, eraserManager\r\n        COPY\r\n
+    \       \r\n         # renderer = GetComponent<Renderer>();\r\n        PUSH, __0_this_intnl_QvPenUdonEraser\r\n
     \       PUSH, __0_const_intnl_SystemType\r\n        PUSH, renderer\r\n        EXTERN,
     \"UnityEngineRenderer.__GetComponent__T\"\r\n        \r\n         # renderer.enabled
     = true;\r\n        PUSH, renderer\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
@@ -171,82 +170,76 @@ MonoBehaviour:
     \        # private void OnTriggerEnter(Collider other)\r\n    .export _onTriggerEnter\r\n
     \       \r\n    _onTriggerEnter:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       PUSH, onTriggerEnterOther\r\n        PUSH, __0_other_Collider\r\n        COPY\r\n
-    \       \r\n         # {\r\n        \r\n         # Debug.Log(other);\r\n        PUSH,
-    __0_other_Collider\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # Debug.Log(other.gameObject.layer);\r\n        PUSH, __0_other_Collider\r\n
+    \       \r\n         # {\r\n        \r\n         # if (\r\n        \r\n         #
+    isErasing &&\r\n        PUSH, isErasing\r\n        PUSH, __8_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x00000400\r\n        \r\n         # other &&\r\n        PUSH, __0_other_Collider\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __7_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x00000488\r\n        \r\n         # other.gameObject &&\r\n        PUSH, __0_other_Collider\r\n
     \       PUSH, __0_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
-    \       PUSH, __0_intnl_UnityEngineGameObject\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_UnityEngineGameObject\r\n        PUSH, __11_intnl_SystemBoolean\r\n
+    \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __11_intnl_SystemBoolean\r\n
+    \       PUSH, __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __12_intnl_SystemBoolean\r\n        PUSH, __7_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x00000530\r\n        \r\n         # other.gameObject.layer == inkPrefabLayer
+    &&\r\n        PUSH, __0_other_Collider\r\n        PUSH, __1_intnl_UnityEngineGameObject\r\n
+    \       EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
+    \       PUSH, __1_intnl_UnityEngineGameObject\r\n        PUSH, __0_intnl_SystemInt32\r\n
     \       EXTERN, \"UnityEngineGameObject.__get_layer__SystemInt32\"\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # Debug.Log(other.name);\r\n        PUSH, __0_other_Collider\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"UnityEngineCollider.__get_name__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # Debug.Log(other.transform.parent.name);\r\n        PUSH,
+    __0_intnl_SystemInt32\r\n        PUSH, inkPrefabLayer\r\n        PUSH, __13_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __13_intnl_SystemBoolean\r\n
+    \       PUSH, __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __14_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x000005C0\r\n        \r\n         # other.name.StartsWith(inkPrefix) &&\r\n        PUSH,
+    __0_other_Collider\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineCollider.__get_name__SystemString\"\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       PUSH, inkPrefix\r\n        PUSH, __15_intnl_SystemBoolean\r\n        EXTERN,
+    \"SystemString.__StartsWith__SystemString__SystemBoolean\"\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       PUSH, __15_intnl_SystemBoolean\r\n        PUSH, __16_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __16_intnl_SystemBoolean\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
+    0x00000660\r\n        \r\n         # other.transform.parent &&\r\n        PUSH,
     __0_other_Collider\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n        EXTERN,
     \"UnityEngineCollider.__get_transform__UnityEngineTransform\"\r\n        PUSH,
     __0_intnl_UnityEngineTransform\r\n        PUSH, __1_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineTransform.__get_parent__UnityEngineTransform\"\r\n
-    \       PUSH, __1_intnl_UnityEngineTransform\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"UnityEngineTransform.__get_name__SystemString\"\r\n        PUSH,
-    __1_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # if (\r\n        \r\n         # isErasing &&\r\n        PUSH,
-    isErasing\r\n        PUSH, __7_intnl_SystemBoolean\r\n        COPY\r\n        PUSH,
-    __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004D0\r\n        \r\n         #
-    other &&\r\n        PUSH, __0_other_Collider\r\n        PUSH, __8_intnl_SystemBoolean\r\n
+    \       PUSH, __1_intnl_UnityEngineTransform\r\n        PUSH, __17_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        PUSH, __7_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000558\r\n        \r\n         # other.gameObject &&\r\n        PUSH, __0_other_Collider\r\n
-    \       PUSH, __1_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
-    \       PUSH, __1_intnl_UnityEngineGameObject\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __5_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000600\r\n        \r\n         # other.gameObject.layer == inkPrefabLayer
-    &&\r\n        PUSH, __0_other_Collider\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n
-    \       EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
-    \       PUSH, __2_intnl_UnityEngineGameObject\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"UnityEngineGameObject.__get_layer__SystemInt32\"\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        PUSH, inkPrefabLayer\r\n        PUSH, __12_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __12_intnl_SystemBoolean\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        PUSH, __5_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000690\r\n        \r\n         # other.name.StartsWith(inkPrefix) &&\r\n        PUSH,
-    __0_other_Collider\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
-    \"UnityEngineCollider.__get_name__SystemString\"\r\n        PUSH, __2_intnl_SystemString\r\n
-    \       PUSH, inkPrefix\r\n        PUSH, __14_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemString.__StartsWith__SystemString__SystemBoolean\"\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        PUSH, __15_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        PUSH, __17_intnl_SystemBoolean\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000750\r\n        \r\n         # other.transform.parent.name == inkPoolName\r\n
+    0x00000720\r\n        \r\n         # other.transform.parent.name == inkPoolName\r\n
     \       PUSH, __0_other_Collider\r\n        PUSH, __2_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineCollider.__get_transform__UnityEngineTransform\"\r\n
     \       PUSH, __2_intnl_UnityEngineTransform\r\n        PUSH, __3_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineTransform.__get_parent__UnityEngineTransform\"\r\n
-    \       PUSH, __3_intnl_UnityEngineTransform\r\n        PUSH, __3_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_UnityEngineTransform\r\n        PUSH, __1_intnl_SystemString\r\n
     \       EXTERN, \"UnityEngineTransform.__get_name__SystemString\"\r\n        PUSH,
-    __3_intnl_SystemString\r\n        PUSH, inkPoolName\r\n        PUSH, __16_intnl_SystemBoolean\r\n
+    __1_intnl_SystemString\r\n        PUSH, inkPoolName\r\n        PUSH, __19_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __16_intnl_SystemBoolean\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n
+    \       PUSH, __20_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __20_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000788\r\n        \r\n         # {\r\n        \r\n         # Destroy(other.gameObject);\r\n
-    \       PUSH, __0_other_Collider\r\n        PUSH, __3_intnl_UnityEngineGameObject\r\n
+    0x00000758\r\n        \r\n         # {\r\n        \r\n         # Destroy(other.gameObject);\r\n
+    \       PUSH, __0_other_Collider\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n
     \       EXTERN, \"UnityEngineCollider.__get_gameObject__UnityEngineGameObject\"\r\n
-    \       PUSH, __3_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineObject.__Destroy__UnityEngineObject__SystemVoid\"\r\n
+    \       PUSH, __2_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineObject.__Destroy__UnityEngineObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public void SetActive(bool value)\r\n    .export SetActive\r\n        \r\n
@@ -270,8 +263,8 @@ MonoBehaviour:
     \       \r\n         # if (Networking.LocalPlayer.IsOwner(gameObject))\r\n        PUSH,
     __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__IsOwner__UnityEngineGameObject__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000008C0\r\n
+    \       PUSH, __21_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__IsOwner__UnityEngineGameObject__SystemBoolean\"\r\n
+    \       PUSH, __21_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000890\r\n
     \       \r\n         # {\r\n        \r\n         # transform.localPosition = Vector3.zero;\r\n
     \       PUSH, __0_intnl_UnityEngineVector3\r\n        EXTERN, \"UnityEngineVector3.__get_zero__UnityEngineVector3\"\r\n
     \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH, __0_intnl_UnityEngineVector3\r\n
@@ -1750,869 +1743,659 @@ MonoBehaviour:
     - startInstruction: 912
       endInstruction: 911
       startSourceChar: 2745
-      endSourceChar: 2745
+      endSourceChar: 2767
       line: 96
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 2745
-      endSourceChar: 2745
-      line: 96
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 2745
-      endSourceChar: 2745
-      line: 96
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 2745
-      endSourceChar: 2751
-      line: 96
-      lineChar: 12
-      spanCodeSection: Debug.
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 2751
-      endSourceChar: 2755
-      line: 96
-      lineChar: 18
-      spanCodeSection: Log(
-    - startInstruction: 912
-      endInstruction: 927
-      startSourceChar: 2755
-      endSourceChar: 2776
-      line: 96
-      lineChar: 22
-      spanCodeSection: "other);\r\n            "
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2776
-      endSourceChar: 2776
-      line: 97
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2776
-      endSourceChar: 2776
-      line: 97
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2776
-      endSourceChar: 2776
-      line: 97
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2776
-      endSourceChar: 2782
-      line: 97
-      lineChar: 12
-      spanCodeSection: Debug.
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2782
-      endSourceChar: 2786
-      line: 97
-      lineChar: 18
-      spanCodeSection: Log(
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2786
-      endSourceChar: 2786
-      line: 97
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2786
-      endSourceChar: 2786
-      line: 97
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2786
-      endSourceChar: 2792
-      line: 97
-      lineChar: 22
-      spanCodeSection: other.
-    - startInstruction: 928
-      endInstruction: 927
-      startSourceChar: 2792
-      endSourceChar: 2803
-      line: 97
-      lineChar: 28
-      spanCodeSection: gameObject.
-    - startInstruction: 928
-      endInstruction: 991
-      startSourceChar: 2803
-      endSourceChar: 2824
-      line: 97
-      lineChar: 39
-      spanCodeSection: "layer);\r\n            "
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2824
-      endSourceChar: 2824
-      line: 98
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2824
-      endSourceChar: 2824
-      line: 98
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2824
-      endSourceChar: 2824
-      line: 98
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2824
-      endSourceChar: 2830
-      line: 98
-      lineChar: 12
-      spanCodeSection: Debug.
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2830
-      endSourceChar: 2834
-      line: 98
-      lineChar: 18
-      spanCodeSection: Log(
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2834
-      endSourceChar: 2834
-      line: 98
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 992
-      endInstruction: 991
-      startSourceChar: 2834
-      endSourceChar: 2840
-      line: 98
-      lineChar: 22
-      spanCodeSection: other.
-    - startInstruction: 992
-      endInstruction: 1031
-      startSourceChar: 2840
-      endSourceChar: 2860
-      line: 98
-      lineChar: 28
-      spanCodeSection: "name);\r\n            "
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2860
-      endSourceChar: 2860
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2860
-      endSourceChar: 2860
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2860
-      endSourceChar: 2860
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2860
-      endSourceChar: 2866
-      line: 99
-      lineChar: 12
-      spanCodeSection: Debug.
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2866
-      endSourceChar: 2870
-      line: 99
-      lineChar: 18
-      spanCodeSection: Log(
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2870
-      endSourceChar: 2870
-      line: 99
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2870
-      endSourceChar: 2870
-      line: 99
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2870
-      endSourceChar: 2870
-      line: 99
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2870
-      endSourceChar: 2876
-      line: 99
-      lineChar: 22
-      spanCodeSection: other.
-    - startInstruction: 1032
-      endInstruction: 1031
-      startSourceChar: 2876
-      endSourceChar: 2886
-      line: 99
-      lineChar: 28
-      spanCodeSection: transform.
-    - startInstruction: 1032
-      endInstruction: 1055
-      startSourceChar: 2886
-      endSourceChar: 2893
-      line: 99
-      lineChar: 38
-      spanCodeSection: parent.
-    - startInstruction: 1056
-      endInstruction: 1119
-      startSourceChar: 2893
-      endSourceChar: 2913
-      line: 99
-      lineChar: 45
-      spanCodeSection: "name);\r\n            "
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2913
-      endSourceChar: 2935
-      line: 100
       lineChar: 12
       spanCodeSection: "if (\r\n                "
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2935
-      endSourceChar: 2935
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2935
-      endSourceChar: 2935
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2935
-      endSourceChar: 2935
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2935
-      endSourceChar: 2935
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1120
-      endInstruction: 1119
-      startSourceChar: 2935
-      endSourceChar: 2935
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1120
-      endInstruction: 1155
-      startSourceChar: 2935
-      endSourceChar: 2965
-      line: 101
+    - startInstruction: 912
+      endInstruction: 911
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 97
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 912
+      endInstruction: 947
+      startSourceChar: 2767
+      endSourceChar: 2797
+      line: 97
       lineChar: 16
       spanCodeSection: "isErasing &&\r\n                "
-    - startInstruction: 1156
-      endInstruction: 1267
-      startSourceChar: 2965
-      endSourceChar: 2991
-      line: 102
+    - startInstruction: 948
+      endInstruction: 1059
+      startSourceChar: 2797
+      endSourceChar: 2823
+      line: 98
       lineChar: 16
       spanCodeSection: "other &&\r\n                "
-    - startInstruction: 1268
-      endInstruction: 1267
-      startSourceChar: 2991
-      endSourceChar: 2991
-      line: 103
+    - startInstruction: 1060
+      endInstruction: 1059
+      startSourceChar: 2823
+      endSourceChar: 2823
+      line: 99
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1268
-      endInstruction: 1267
-      startSourceChar: 2991
-      endSourceChar: 2997
-      line: 103
+    - startInstruction: 1060
+      endInstruction: 1059
+      startSourceChar: 2823
+      endSourceChar: 2829
+      line: 99
       lineChar: 16
       spanCodeSection: other.
-    - startInstruction: 1268
-      endInstruction: 1403
-      startSourceChar: 2997
-      endSourceChar: 3028
-      line: 103
+    - startInstruction: 1060
+      endInstruction: 1195
+      startSourceChar: 2829
+      endSourceChar: 2860
+      line: 99
       lineChar: 22
       spanCodeSection: "gameObject &&\r\n                "
-    - startInstruction: 1404
-      endInstruction: 1403
-      startSourceChar: 3028
-      endSourceChar: 3028
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1195
+      startSourceChar: 2860
+      endSourceChar: 2860
+      line: 100
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1404
-      endInstruction: 1403
-      startSourceChar: 3028
-      endSourceChar: 3028
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1195
+      startSourceChar: 2860
+      endSourceChar: 2860
+      line: 100
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1404
-      endInstruction: 1403
-      startSourceChar: 3028
-      endSourceChar: 3028
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1195
+      startSourceChar: 2860
+      endSourceChar: 2860
+      line: 100
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1404
-      endInstruction: 1403
-      startSourceChar: 3028
-      endSourceChar: 3034
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1195
+      startSourceChar: 2860
+      endSourceChar: 2866
+      line: 100
       lineChar: 16
       spanCodeSection: other.
-    - startInstruction: 1404
-      endInstruction: 1403
-      startSourceChar: 3034
-      endSourceChar: 3045
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1195
+      startSourceChar: 2866
+      endSourceChar: 2877
+      line: 100
       lineChar: 22
       spanCodeSection: gameObject.
-    - startInstruction: 1404
-      endInstruction: 1451
-      startSourceChar: 3045
-      endSourceChar: 3054
-      line: 104
+    - startInstruction: 1196
+      endInstruction: 1243
+      startSourceChar: 2877
+      endSourceChar: 2886
+      line: 100
       lineChar: 33
       spanCodeSection: 'layer == '
-    - startInstruction: 1452
-      endInstruction: 1571
-      startSourceChar: 3054
-      endSourceChar: 3089
-      line: 104
+    - startInstruction: 1244
+      endInstruction: 1363
+      startSourceChar: 2886
+      endSourceChar: 2921
+      line: 100
       lineChar: 42
       spanCodeSection: "inkPrefabLayer &&\r\n                "
-    - startInstruction: 1572
-      endInstruction: 1571
-      startSourceChar: 3089
-      endSourceChar: 3089
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1363
+      startSourceChar: 2921
+      endSourceChar: 2921
+      line: 101
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1572
-      endInstruction: 1571
-      startSourceChar: 3089
-      endSourceChar: 3089
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1363
+      startSourceChar: 2921
+      endSourceChar: 2921
+      line: 101
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1572
-      endInstruction: 1571
-      startSourceChar: 3089
-      endSourceChar: 3089
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1363
+      startSourceChar: 2921
+      endSourceChar: 2921
+      line: 101
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1572
-      endInstruction: 1571
-      startSourceChar: 3089
-      endSourceChar: 3095
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1363
+      startSourceChar: 2921
+      endSourceChar: 2927
+      line: 101
       lineChar: 16
       spanCodeSection: other.
-    - startInstruction: 1572
-      endInstruction: 1571
-      startSourceChar: 3095
-      endSourceChar: 3100
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1363
+      startSourceChar: 2927
+      endSourceChar: 2932
+      line: 101
       lineChar: 22
       spanCodeSection: name.
-    - startInstruction: 1572
-      endInstruction: 1595
-      startSourceChar: 3100
-      endSourceChar: 3111
-      line: 105
+    - startInstruction: 1364
+      endInstruction: 1387
+      startSourceChar: 2932
+      endSourceChar: 2943
+      line: 101
       lineChar: 27
       spanCodeSection: StartsWith(
-    - startInstruction: 1596
-      endInstruction: 1715
-      startSourceChar: 3111
-      endSourceChar: 3142
-      line: 105
+    - startInstruction: 1388
+      endInstruction: 1507
+      startSourceChar: 2943
+      endSourceChar: 2974
+      line: 101
       lineChar: 38
       spanCodeSection: "inkPrefix) &&\r\n                "
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3142
-      endSourceChar: 3142
-      line: 106
+    - startInstruction: 1508
+      endInstruction: 1507
+      startSourceChar: 2974
+      endSourceChar: 2974
+      line: 102
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3142
-      endSourceChar: 3142
-      line: 106
+    - startInstruction: 1508
+      endInstruction: 1507
+      startSourceChar: 2974
+      endSourceChar: 2974
+      line: 102
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3142
-      endSourceChar: 3142
-      line: 106
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3142
-      endSourceChar: 3142
-      line: 106
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3142
-      endSourceChar: 3148
-      line: 106
+    - startInstruction: 1508
+      endInstruction: 1507
+      startSourceChar: 2974
+      endSourceChar: 2980
+      line: 102
       lineChar: 16
       spanCodeSection: other.
-    - startInstruction: 1716
-      endInstruction: 1715
-      startSourceChar: 3148
-      endSourceChar: 3158
-      line: 106
+    - startInstruction: 1508
+      endInstruction: 1507
+      startSourceChar: 2980
+      endSourceChar: 2990
+      line: 102
       lineChar: 22
       spanCodeSection: transform.
-    - startInstruction: 1716
-      endInstruction: 1739
-      startSourceChar: 3158
-      endSourceChar: 3165
-      line: 106
+    - startInstruction: 1508
+      endInstruction: 1667
+      startSourceChar: 2990
+      endSourceChar: 3017
+      line: 102
+      lineChar: 32
+      spanCodeSection: "parent &&\r\n                "
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3017
+      endSourceChar: 3017
+      line: 103
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3017
+      endSourceChar: 3017
+      line: 103
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3017
+      endSourceChar: 3017
+      line: 103
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3017
+      endSourceChar: 3017
+      line: 103
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3017
+      endSourceChar: 3023
+      line: 103
+      lineChar: 16
+      spanCodeSection: other.
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 3023
+      endSourceChar: 3033
+      line: 103
+      lineChar: 22
+      spanCodeSection: transform.
+    - startInstruction: 1668
+      endInstruction: 1691
+      startSourceChar: 3033
+      endSourceChar: 3040
+      line: 103
       lineChar: 32
       spanCodeSection: parent.
-    - startInstruction: 1740
-      endInstruction: 1787
-      startSourceChar: 3165
-      endSourceChar: 3173
-      line: 106
+    - startInstruction: 1692
+      endInstruction: 1739
+      startSourceChar: 3040
+      endSourceChar: 3048
+      line: 103
       lineChar: 39
       spanCodeSection: 'name == '
-    - startInstruction: 1788
-      endInstruction: 1887
-      startSourceChar: 3173
-      endSourceChar: 3217
-      line: 106
+    - startInstruction: 1740
+      endInstruction: 1839
+      startSourceChar: 3048
+      endSourceChar: 3092
+      line: 103
       lineChar: 47
       spanCodeSection: "inkPoolName\r\n                )\r\n            "
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3217
-      endSourceChar: 3236
-      line: 108
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3092
+      endSourceChar: 3111
+      line: 105
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3236
-      endSourceChar: 3236
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3111
+      endSourceChar: 3111
+      line: 106
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3236
-      endSourceChar: 3236
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3111
+      endSourceChar: 3111
+      line: 106
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3236
-      endSourceChar: 3244
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3111
+      endSourceChar: 3119
+      line: 106
       lineChar: 16
       spanCodeSection: Destroy(
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3244
-      endSourceChar: 3244
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3119
+      endSourceChar: 3119
+      line: 106
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 1888
-      endInstruction: 1887
-      startSourceChar: 3244
-      endSourceChar: 3250
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1839
+      startSourceChar: 3119
+      endSourceChar: 3125
+      line: 106
       lineChar: 24
       spanCodeSection: other.
-    - startInstruction: 1888
-      endInstruction: 1947
-      startSourceChar: 3250
-      endSourceChar: 3300
-      line: 109
+    - startInstruction: 1840
+      endInstruction: 1899
+      startSourceChar: 3125
+      endSourceChar: 3175
+      line: 106
       lineChar: 30
       spanCodeSection: "gameObject);\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 3300
-      endSourceChar: 3322
-      line: 113
+    - startInstruction: 1900
+      endInstruction: 1899
+      startSourceChar: 3175
+      endSourceChar: 3197
+      line: 110
       lineChar: 8
       spanCodeSection: public void SetActive(
-    - startInstruction: 1948
-      endInstruction: 1955
-      startSourceChar: 3322
-      endSourceChar: 3343
-      line: 113
+    - startInstruction: 1900
+      endInstruction: 1907
+      startSourceChar: 3197
+      endSourceChar: 3218
+      line: 110
       lineChar: 30
       spanCodeSection: "bool value)\r\n        "
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3343
-      endSourceChar: 3358
-      line: 114
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3218
+      endSourceChar: 3233
+      line: 111
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3358
-      endSourceChar: 3358
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3233
+      endSourceChar: 3233
+      line: 112
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3358
-      endSourceChar: 3358
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3233
+      endSourceChar: 3233
+      line: 112
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3358
-      endSourceChar: 3358
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3233
+      endSourceChar: 3233
+      line: 112
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3358
-      endSourceChar: 3369
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3233
+      endSourceChar: 3244
+      line: 112
       lineChar: 12
       spanCodeSection: gameObject.
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 3369
-      endSourceChar: 3379
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1907
+      startSourceChar: 3244
+      endSourceChar: 3254
+      line: 112
       lineChar: 23
       spanCodeSection: SetActive(
-    - startInstruction: 1956
-      endInstruction: 1999
-      startSourceChar: 3379
-      endSourceChar: 3409
-      line: 115
+    - startInstruction: 1908
+      endInstruction: 1951
+      startSourceChar: 3254
+      endSourceChar: 3284
+      line: 112
       lineChar: 33
       spanCodeSection: "value);\r\n        }\r\n\r\n        "
-    - startInstruction: 2000
-      endInstruction: 2007
-      startSourceChar: 3409
-      endSourceChar: 3439
-      line: 118
+    - startInstruction: 1952
+      endInstruction: 1959
+      startSourceChar: 3284
+      endSourceChar: 3314
+      line: 115
       lineChar: 8
       spanCodeSection: "public bool IsHeld()\r\n        "
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 3439
-      endSourceChar: 3454
-      line: 119
+    - startInstruction: 1960
+      endInstruction: 1959
+      startSourceChar: 3314
+      endSourceChar: 3329
+      line: 116
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 3454
-      endSourceChar: 3461
-      line: 120
+    - startInstruction: 1960
+      endInstruction: 1959
+      startSourceChar: 3329
+      endSourceChar: 3336
+      line: 117
       lineChar: 12
       spanCodeSection: 'return '
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 3461
-      endSourceChar: 3461
-      line: 120
+    - startInstruction: 1960
+      endInstruction: 1959
+      startSourceChar: 3336
+      endSourceChar: 3336
+      line: 117
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 3461
-      endSourceChar: 3468
-      line: 120
+    - startInstruction: 1960
+      endInstruction: 1959
+      startSourceChar: 3336
+      endSourceChar: 3343
+      line: 117
       lineChar: 19
       spanCodeSection: pickup.
-    - startInstruction: 2008
-      endInstruction: 2071
-      startSourceChar: 3468
-      endSourceChar: 3498
-      line: 120
+    - startInstruction: 1960
+      endInstruction: 2023
+      startSourceChar: 3343
+      endSourceChar: 3373
+      line: 117
       lineChar: 26
       spanCodeSection: "IsHeld;\r\n        }\r\n\r\n        "
-    - startInstruction: 2072
-      endInstruction: 2079
-      startSourceChar: 3498
-      endSourceChar: 3529
-      line: 123
+    - startInstruction: 2024
+      endInstruction: 2031
+      startSourceChar: 3373
+      endSourceChar: 3404
+      line: 120
       lineChar: 8
       spanCodeSection: "public void Respawn()\r\n        "
-    - startInstruction: 2080
-      endInstruction: 2079
-      startSourceChar: 3529
-      endSourceChar: 3544
-      line: 124
+    - startInstruction: 2032
+      endInstruction: 2031
+      startSourceChar: 3404
+      endSourceChar: 3419
+      line: 121
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2080
-      endInstruction: 2079
-      startSourceChar: 3544
-      endSourceChar: 3544
-      line: 125
+    - startInstruction: 2032
+      endInstruction: 2031
+      startSourceChar: 3419
+      endSourceChar: 3419
+      line: 122
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2080
-      endInstruction: 2079
-      startSourceChar: 3544
-      endSourceChar: 3544
-      line: 125
+    - startInstruction: 2032
+      endInstruction: 2031
+      startSourceChar: 3419
+      endSourceChar: 3419
+      line: 122
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2080
-      endInstruction: 2079
-      startSourceChar: 3544
-      endSourceChar: 3544
-      line: 125
+    - startInstruction: 2032
+      endInstruction: 2031
+      startSourceChar: 3419
+      endSourceChar: 3419
+      line: 122
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2080
-      endInstruction: 2079
-      startSourceChar: 3544
-      endSourceChar: 3551
-      line: 125
+    - startInstruction: 2032
+      endInstruction: 2031
+      startSourceChar: 3419
+      endSourceChar: 3426
+      line: 122
       lineChar: 12
       spanCodeSection: pickup.
-    - startInstruction: 2080
-      endInstruction: 2095
-      startSourceChar: 3551
-      endSourceChar: 3572
-      line: 125
+    - startInstruction: 2032
+      endInstruction: 2047
+      startSourceChar: 3426
+      endSourceChar: 3447
+      line: 122
       lineChar: 19
       spanCodeSection: "Drop();\r\n            "
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3572
-      endSourceChar: 3576
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3447
+      endSourceChar: 3451
+      line: 123
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3576
-      endSourceChar: 3576
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3451
+      endSourceChar: 3451
+      line: 123
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3576
-      endSourceChar: 3576
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3451
+      endSourceChar: 3451
+      line: 123
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3576
-      endSourceChar: 3576
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3451
+      endSourceChar: 3451
+      line: 123
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3576
-      endSourceChar: 3587
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3451
+      endSourceChar: 3462
+      line: 123
       lineChar: 16
       spanCodeSection: Networking.
-    - startInstruction: 2096
-      endInstruction: 2095
-      startSourceChar: 3587
-      endSourceChar: 3599
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 3462
+      endSourceChar: 3474
+      line: 123
       lineChar: 27
       spanCodeSection: LocalPlayer.
-    - startInstruction: 2096
-      endInstruction: 2111
-      startSourceChar: 3599
-      endSourceChar: 3607
-      line: 126
+    - startInstruction: 2048
+      endInstruction: 2063
+      startSourceChar: 3474
+      endSourceChar: 3482
+      line: 123
       lineChar: 39
       spanCodeSection: IsOwner(
-    - startInstruction: 2112
-      endInstruction: 2159
-      startSourceChar: 3607
-      endSourceChar: 3633
-      line: 126
+    - startInstruction: 2064
+      endInstruction: 2111
+      startSourceChar: 3482
+      endSourceChar: 3508
+      line: 123
       lineChar: 47
       spanCodeSection: "gameObject))\r\n            "
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3633
-      endSourceChar: 3652
-      line: 127
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3508
+      endSourceChar: 3527
+      line: 124
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3652
-      endSourceChar: 3652
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3527
+      endSourceChar: 3527
+      line: 125
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3652
-      endSourceChar: 3652
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3527
+      endSourceChar: 3527
+      line: 125
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3652
-      endSourceChar: 3652
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3527
+      endSourceChar: 3527
+      line: 125
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3652
-      endSourceChar: 3662
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3527
+      endSourceChar: 3537
+      line: 125
       lineChar: 16
       spanCodeSection: transform.
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3662
-      endSourceChar: 3678
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3537
+      endSourceChar: 3553
+      line: 125
       lineChar: 26
       spanCodeSection: 'localPosition = '
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3678
-      endSourceChar: 3678
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3553
+      endSourceChar: 3553
+      line: 125
       lineChar: 42
       spanCodeSection: 
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 3678
-      endSourceChar: 3686
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 3553
+      endSourceChar: 3561
+      line: 125
       lineChar: 42
       spanCodeSection: Vector3.
-    - startInstruction: 2160
-      endInstruction: 2199
-      startSourceChar: 3686
-      endSourceChar: 3709
-      line: 128
+    - startInstruction: 2112
+      endInstruction: 2151
+      startSourceChar: 3561
+      endSourceChar: 3584
+      line: 125
       lineChar: 50
       spanCodeSection: "zero;\r\n                "
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3709
-      endSourceChar: 3709
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3584
+      endSourceChar: 3584
+      line: 126
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3709
-      endSourceChar: 3709
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3584
+      endSourceChar: 3584
+      line: 126
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3709
-      endSourceChar: 3709
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3584
+      endSourceChar: 3584
+      line: 126
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3709
-      endSourceChar: 3719
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3584
+      endSourceChar: 3594
+      line: 126
       lineChar: 16
       spanCodeSection: transform.
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3719
-      endSourceChar: 3735
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3594
+      endSourceChar: 3610
+      line: 126
       lineChar: 26
       spanCodeSection: 'localRotation = '
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3735
-      endSourceChar: 3735
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3610
+      endSourceChar: 3610
+      line: 126
       lineChar: 42
       spanCodeSection: 
-    - startInstruction: 2200
-      endInstruction: 2199
-      startSourceChar: 3735
-      endSourceChar: 3746
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2151
+      startSourceChar: 3610
+      endSourceChar: 3621
+      line: 126
       lineChar: 42
       spanCodeSection: Quaternion.
-    - startInstruction: 2200
-      endInstruction: 2200
-      startSourceChar: 3746
-      endSourceChar: 3746
-      line: 129
+    - startInstruction: 2152
+      endInstruction: 2152
+      startSourceChar: 3621
+      endSourceChar: 3621
+      line: 126
       lineChar: 53
       spanCodeSection: 
   hasInteractEvent: 0
