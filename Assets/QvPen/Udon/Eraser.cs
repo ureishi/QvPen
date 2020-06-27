@@ -100,6 +100,7 @@ namespace QvPen.Udon
                 other.gameObject &&
                 other.gameObject.layer == inkPrefabLayer &&
                 other.name.StartsWith(inkPrefix) &&
+                other.transform.parent &&
                 other.transform.parent.name == inkPoolName
                 )
             {
