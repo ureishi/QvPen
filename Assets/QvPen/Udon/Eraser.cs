@@ -94,19 +94,13 @@ namespace QvPen.Udon
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other);
-            Debug.Log(other.gameObject.layer);
-            Debug.Log(other.name);
-            Debug.Log(other.transform.parent.name);
-            Debug.Log(other.GetComponent<TrailRenderer>());
             if (
                 isErasing &&
                 other &&
                 other.gameObject &&
                 other.gameObject.layer == inkPrefabLayer &&
                 other.name.StartsWith(inkPrefix) &&
-                other.transform.parent.name == inkPoolName &&
-                other.GetComponent<TrailRenderer>()
+                other.transform.parent.name == inkPoolName
                 )
             {
                 Destroy(other.gameObject);
