@@ -65,20 +65,20 @@ MonoBehaviour:
     using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
     \       \r\n         # namespace QvPen.Udon\r\n        \r\n         # public class
     Eraser : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    private int inkLayer = 13;\r\n        \r\n         # [SerializeField] private
-    int eraserLayer = 14;\r\n        \r\n         # [SerializeField] private Material
-    normal;\r\n        \r\n         # [SerializeField] private Material erasing;\r\n
-    \       \r\n         # private Renderer renderer;\r\n        \r\n         # private
-    VRC_Pickup pickup;\r\n        \r\n         # private bool isErasing;\r\n        \r\n
-    \        # private EraserManager eraserManager;\r\n        \r\n         # private
-    readonly string inkPrefix = \"Ink\";\r\n        \r\n         # private readonly
-    string inkPoolName = \"obj_f6feca5f-9729-4367-ba6f-daeb5187a785\";\r\n        \r\n
-    \        # public void Init(EraserManager manager)\r\n    .export Init\r\n        \r\n
-    \   Init:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # eraserManager = manager;\r\n        PUSH,
-    __0_manager_EraserManager\r\n        PUSH, eraserManager\r\n        COPY\r\n        \r\n
-    \        # gameObject.layer = eraserLayer;\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n
-    \       PUSH, eraserLayer\r\n        EXTERN, \"UnityEngineGameObject.__set_layer__SystemInt32__SystemVoid\"\r\n
+    private int inkLayer = 9;\r\n        \r\n         # [SerializeField] private int
+    eraserLayer = 8;\r\n        \r\n         # [SerializeField] private Material normal;\r\n
+    \       \r\n         # [SerializeField] private Material erasing;\r\n        \r\n
+    \        # private Renderer renderer;\r\n        \r\n         # private VRC_Pickup
+    pickup;\r\n        \r\n         # private bool isErasing;\r\n        \r\n         #
+    private EraserManager eraserManager;\r\n        \r\n         # private readonly
+    string inkPrefix = \"Ink\";\r\n        \r\n         # private readonly string
+    inkPoolName = \"obj_f6feca5f-9729-4367-ba6f-daeb5187a785\";\r\n        \r\n         #
+    public void Init(EraserManager manager)\r\n    .export Init\r\n        \r\n    Init:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # eraserManager = manager;\r\n        PUSH, __0_manager_EraserManager\r\n
+    \       PUSH, eraserManager\r\n        COPY\r\n        \r\n         # gameObject.layer
+    = eraserLayer;\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n        PUSH,
+    eraserLayer\r\n        EXTERN, \"UnityEngineGameObject.__set_layer__SystemInt32__SystemVoid\"\r\n
     \       \r\n         # renderer = GetComponent<Renderer>();\r\n        PUSH, __0_this_intnl_QvPenUdonEraser\r\n
     \       PUSH, __0_const_intnl_SystemType\r\n        PUSH, renderer\r\n        EXTERN,
     \"UnityEngineRenderer.__GetComponent__T\"\r\n        \r\n         # renderer.enabled
@@ -435,1977 +435,1977 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 146
-      endSourceChar: 254
+      endSourceChar: 244
       line: 7
       lineChar: 26
-      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        // Layer 13 : Pickup\r\n
-        \       // Layer 14 : PickupNoEnvironment\r\n        "
+      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        // Layer 8 : Interactive\r\n
+        \       // Layer 9 : Player\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 254
-      endSourceChar: 255
+      startSourceChar: 244
+      endSourceChar: 245
       line: 11
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 255
-      endSourceChar: 255
+      startSourceChar: 245
+      endSourceChar: 245
       line: 11
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 255
-      endSourceChar: 279
+      startSourceChar: 245
+      endSourceChar: 269
       line: 11
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 279
-      endSourceChar: 279
+      startSourceChar: 269
+      endSourceChar: 269
       line: 11
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 279
-      endSourceChar: 307
+      startSourceChar: 269
+      endSourceChar: 296
       line: 11
       lineChar: 33
-      spanCodeSection: "int inkLayer = 13;\r\n        "
+      spanCodeSection: "int inkLayer = 9;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 307
-      endSourceChar: 308
+      startSourceChar: 296
+      endSourceChar: 297
       line: 12
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 308
-      endSourceChar: 308
+      startSourceChar: 297
+      endSourceChar: 297
       line: 12
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 308
-      endSourceChar: 332
+      startSourceChar: 297
+      endSourceChar: 321
       line: 12
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 332
-      endSourceChar: 332
+      startSourceChar: 321
+      endSourceChar: 321
       line: 12
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 332
-      endSourceChar: 365
+      startSourceChar: 321
+      endSourceChar: 353
       line: 12
       lineChar: 33
-      spanCodeSection: "int eraserLayer = 14;\r\n\r\n        "
+      spanCodeSection: "int eraserLayer = 8;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 365
-      endSourceChar: 366
+      startSourceChar: 353
+      endSourceChar: 354
       line: 14
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 366
-      endSourceChar: 366
+      startSourceChar: 354
+      endSourceChar: 354
       line: 14
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 366
-      endSourceChar: 390
+      startSourceChar: 354
+      endSourceChar: 378
       line: 14
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 390
-      endSourceChar: 390
+      startSourceChar: 378
+      endSourceChar: 378
       line: 14
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 390
-      endSourceChar: 416
+      startSourceChar: 378
+      endSourceChar: 404
       line: 14
       lineChar: 33
       spanCodeSection: "Material normal;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 416
-      endSourceChar: 417
+      startSourceChar: 404
+      endSourceChar: 405
       line: 15
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 417
-      endSourceChar: 417
+      startSourceChar: 405
+      endSourceChar: 405
       line: 15
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 417
-      endSourceChar: 441
+      startSourceChar: 405
+      endSourceChar: 429
       line: 15
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 441
-      endSourceChar: 441
+      startSourceChar: 429
+      endSourceChar: 429
       line: 15
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 441
-      endSourceChar: 502
+      startSourceChar: 429
+      endSourceChar: 490
       line: 15
       lineChar: 33
       spanCodeSection: "Material erasing;\r\n\r\n#pragma warning disable CS0108\r\n
         \       "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 502
-      endSourceChar: 510
+      startSourceChar: 490
+      endSourceChar: 498
       line: 18
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 510
-      endSourceChar: 510
+      startSourceChar: 498
+      endSourceChar: 498
       line: 18
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 510
-      endSourceChar: 570
+      startSourceChar: 498
+      endSourceChar: 558
       line: 18
       lineChar: 16
       spanCodeSection: "Renderer renderer;\r\n#pragma warning restore CS0108\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 570
-      endSourceChar: 578
+      startSourceChar: 558
+      endSourceChar: 566
       line: 20
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 578
-      endSourceChar: 578
+      startSourceChar: 566
+      endSourceChar: 566
       line: 20
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 578
-      endSourceChar: 608
+      startSourceChar: 566
+      endSourceChar: 596
       line: 20
       lineChar: 16
       spanCodeSection: "VRC_Pickup pickup;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 608
-      endSourceChar: 616
+      startSourceChar: 596
+      endSourceChar: 604
       line: 22
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 604
+      endSourceChar: 604
       line: 22
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 616
-      endSourceChar: 669
+      startSourceChar: 604
+      endSourceChar: 657
       line: 22
       lineChar: 16
       spanCodeSection: "bool isErasing;\r\n\r\n        // EraserManager\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 669
-      endSourceChar: 677
+      startSourceChar: 657
+      endSourceChar: 665
       line: 25
       lineChar: 8
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 677
-      endSourceChar: 677
+      startSourceChar: 665
+      endSourceChar: 665
       line: 25
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 677
-      endSourceChar: 717
+      startSourceChar: 665
+      endSourceChar: 705
       line: 25
       lineChar: 16
       spanCodeSection: "EraserManager eraserManager;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 717
-      endSourceChar: 734
+      startSourceChar: 705
+      endSourceChar: 722
       line: 27
       lineChar: 8
       spanCodeSection: 'private readonly '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 734
-      endSourceChar: 734
+      startSourceChar: 722
+      endSourceChar: 722
       line: 27
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 734
-      endSourceChar: 769
+      startSourceChar: 722
+      endSourceChar: 757
       line: 27
       lineChar: 25
       spanCodeSection: "string inkPrefix = \"Ink\";\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 769
-      endSourceChar: 786
+      startSourceChar: 757
+      endSourceChar: 774
       line: 28
       lineChar: 8
       spanCodeSection: 'private readonly '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 786
-      endSourceChar: 786
+      startSourceChar: 774
+      endSourceChar: 774
       line: 28
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 786
-      endSourceChar: 862
+      startSourceChar: 774
+      endSourceChar: 850
       line: 28
       lineChar: 25
       spanCodeSection: "string inkPoolName = \"obj_f6feca5f-9729-4367-ba6f-daeb5187a785\";\r\n\r\n
         \       "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 862
-      endSourceChar: 879
+      startSourceChar: 850
+      endSourceChar: 867
       line: 30
       lineChar: 8
       spanCodeSection: public void Init(
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 879
-      endSourceChar: 911
+      startSourceChar: 867
+      endSourceChar: 899
       line: 30
       lineChar: 25
       spanCodeSection: "EraserManager manager)\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 911
-      endSourceChar: 926
+      startSourceChar: 899
+      endSourceChar: 914
       line: 31
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 926
-      endSourceChar: 926
+      startSourceChar: 914
+      endSourceChar: 914
       line: 32
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 926
-      endSourceChar: 926
+      startSourceChar: 914
+      endSourceChar: 914
       line: 32
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 926
-      endSourceChar: 942
+      startSourceChar: 914
+      endSourceChar: 930
       line: 32
       lineChar: 12
       spanCodeSection: 'eraserManager = '
     - startInstruction: 8
       endInstruction: 27
-      startSourceChar: 942
-      endSourceChar: 966
+      startSourceChar: 930
+      endSourceChar: 954
       line: 32
       lineChar: 28
       spanCodeSection: "manager;\r\n\r\n            "
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 966
-      endSourceChar: 966
+      startSourceChar: 954
+      endSourceChar: 954
       line: 34
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 966
-      endSourceChar: 966
+      startSourceChar: 954
+      endSourceChar: 954
       line: 34
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 966
-      endSourceChar: 966
+      startSourceChar: 954
+      endSourceChar: 954
       line: 34
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 966
-      endSourceChar: 977
+      startSourceChar: 954
+      endSourceChar: 965
       line: 34
       lineChar: 12
       spanCodeSection: gameObject.
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 977
-      endSourceChar: 985
+      startSourceChar: 965
+      endSourceChar: 973
       line: 34
       lineChar: 23
       spanCodeSection: 'layer = '
     - startInstruction: 28
       endInstruction: 51
-      startSourceChar: 985
-      endSourceChar: 1013
+      startSourceChar: 973
+      endSourceChar: 1001
       line: 34
       lineChar: 31
       spanCodeSection: "eraserLayer;\r\n\r\n            "
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1013
-      endSourceChar: 1013
+      startSourceChar: 1001
+      endSourceChar: 1001
       line: 36
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1013
-      endSourceChar: 1013
+      startSourceChar: 1001
+      endSourceChar: 1001
       line: 36
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1013
-      endSourceChar: 1024
+      startSourceChar: 1001
+      endSourceChar: 1012
       line: 36
       lineChar: 12
       spanCodeSection: 'renderer = '
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1024
-      endSourceChar: 1024
+      startSourceChar: 1012
+      endSourceChar: 1012
       line: 36
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1024
-      endSourceChar: 1036
+      startSourceChar: 1012
+      endSourceChar: 1024
       line: 36
       lineChar: 23
       spanCodeSection: GetComponent
     - startInstruction: 52
       endInstruction: 51
-      startSourceChar: 1036
-      endSourceChar: 1037
+      startSourceChar: 1024
+      endSourceChar: 1025
       line: 36
       lineChar: 35
       spanCodeSection: <
     - startInstruction: 52
       endInstruction: 83
-      startSourceChar: 1037
-      endSourceChar: 1063
+      startSourceChar: 1025
+      endSourceChar: 1051
       line: 36
       lineChar: 36
       spanCodeSection: "Renderer>();\r\n            "
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 1063
-      endSourceChar: 1063
+      startSourceChar: 1051
+      endSourceChar: 1051
       line: 37
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 1063
-      endSourceChar: 1063
+      startSourceChar: 1051
+      endSourceChar: 1051
       line: 37
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 1063
-      endSourceChar: 1063
+      startSourceChar: 1051
+      endSourceChar: 1051
       line: 37
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 1063
-      endSourceChar: 1072
+      startSourceChar: 1051
+      endSourceChar: 1060
       line: 37
       lineChar: 12
       spanCodeSection: renderer.
     - startInstruction: 84
       endInstruction: 83
-      startSourceChar: 1072
-      endSourceChar: 1082
+      startSourceChar: 1060
+      endSourceChar: 1070
       line: 37
       lineChar: 21
       spanCodeSection: 'enabled = '
     - startInstruction: 84
       endInstruction: 107
-      startSourceChar: 1082
-      endSourceChar: 1101
+      startSourceChar: 1070
+      endSourceChar: 1089
       line: 37
       lineChar: 31
       spanCodeSection: "true;\r\n            "
     - startInstruction: 108
       endInstruction: 107
-      startSourceChar: 1101
-      endSourceChar: 1105
+      startSourceChar: 1089
+      endSourceChar: 1093
       line: 38
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 108
       endInstruction: 107
-      startSourceChar: 1105
-      endSourceChar: 1106
+      startSourceChar: 1093
+      endSourceChar: 1094
       line: 38
       lineChar: 16
       spanCodeSection: '!'
     - startInstruction: 108
       endInstruction: 171
-      startSourceChar: 1106
-      endSourceChar: 1134
+      startSourceChar: 1094
+      endSourceChar: 1122
       line: 38
       lineChar: 17
       spanCodeSection: "eraserManager)\r\n            "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1134
-      endSourceChar: 1197
+      startSourceChar: 1122
+      endSourceChar: 1185
       line: 39
       lineChar: 12
       spanCodeSection: "{\r\n                // For stand-alone erasers\r\n                "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1197
-      endSourceChar: 1197
+      startSourceChar: 1185
+      endSourceChar: 1185
       line: 41
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1197
-      endSourceChar: 1197
+      startSourceChar: 1185
+      endSourceChar: 1185
       line: 41
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1197
-      endSourceChar: 1197
+      startSourceChar: 1185
+      endSourceChar: 1185
       line: 41
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1197
-      endSourceChar: 1206
+      startSourceChar: 1185
+      endSourceChar: 1194
       line: 41
       lineChar: 16
       spanCodeSection: renderer.
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 1206
-      endSourceChar: 1223
+      startSourceChar: 1194
+      endSourceChar: 1211
       line: 41
       lineChar: 25
       spanCodeSection: 'sharedMaterial = '
     - startInstruction: 172
       endInstruction: 195
-      startSourceChar: 1223
-      endSourceChar: 1261
+      startSourceChar: 1211
+      endSourceChar: 1249
       line: 41
       lineChar: 42
       spanCodeSection: "normal;\r\n            }\r\n\r\n            "
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1261
-      endSourceChar: 1261
+      startSourceChar: 1249
+      endSourceChar: 1249
       line: 44
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1261
-      endSourceChar: 1261
+      startSourceChar: 1249
+      endSourceChar: 1249
       line: 44
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1261
-      endSourceChar: 1270
+      startSourceChar: 1249
+      endSourceChar: 1258
       line: 44
       lineChar: 12
       spanCodeSection: 'pickup = '
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1270
-      endSourceChar: 1282
+      startSourceChar: 1258
+      endSourceChar: 1270
       line: 44
       lineChar: 21
       spanCodeSection: (VRC_Pickup)
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1282
-      endSourceChar: 1282
+      startSourceChar: 1270
+      endSourceChar: 1270
       line: 44
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1282
-      endSourceChar: 1295
+      startSourceChar: 1270
+      endSourceChar: 1283
       line: 44
       lineChar: 33
       spanCodeSection: GetComponent(
     - startInstruction: 196
       endInstruction: 195
-      startSourceChar: 1295
-      endSourceChar: 1302
+      startSourceChar: 1283
+      endSourceChar: 1290
       line: 44
       lineChar: 46
       spanCodeSection: typeof(
     - startInstruction: 196
       endInstruction: 247
-      startSourceChar: 1302
-      endSourceChar: 1329
+      startSourceChar: 1290
+      endSourceChar: 1317
       line: 44
       lineChar: 53
       spanCodeSection: "VRC_Pickup));\r\n            "
     - startInstruction: 248
       endInstruction: 247
-      startSourceChar: 1329
-      endSourceChar: 1333
+      startSourceChar: 1317
+      endSourceChar: 1321
       line: 45
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 248
       endInstruction: 287
-      startSourceChar: 1333
-      endSourceChar: 1354
+      startSourceChar: 1321
+      endSourceChar: 1342
       line: 45
       lineChar: 16
       spanCodeSection: "pickup)\r\n            "
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1354
-      endSourceChar: 1373
+      startSourceChar: 1342
+      endSourceChar: 1361
       line: 46
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1373
-      endSourceChar: 1373
+      startSourceChar: 1361
+      endSourceChar: 1361
       line: 47
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1373
-      endSourceChar: 1373
+      startSourceChar: 1361
+      endSourceChar: 1361
       line: 47
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1373
-      endSourceChar: 1373
+      startSourceChar: 1361
+      endSourceChar: 1361
       line: 47
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1373
-      endSourceChar: 1380
+      startSourceChar: 1361
+      endSourceChar: 1368
       line: 47
       lineChar: 16
       spanCodeSection: pickup.
     - startInstruction: 288
       endInstruction: 287
-      startSourceChar: 1380
-      endSourceChar: 1398
+      startSourceChar: 1368
+      endSourceChar: 1386
       line: 47
       lineChar: 23
       spanCodeSection: 'InteractionText = '
     - startInstruction: 288
       endInstruction: 311
-      startSourceChar: 1398
-      endSourceChar: 1431
+      startSourceChar: 1386
+      endSourceChar: 1419
       line: 47
       lineChar: 41
       spanCodeSection: "nameof(Eraser);\r\n                "
     - startInstruction: 312
       endInstruction: 311
-      startSourceChar: 1431
-      endSourceChar: 1431
+      startSourceChar: 1419
+      endSourceChar: 1419
       line: 48
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 312
       endInstruction: 311
-      startSourceChar: 1431
-      endSourceChar: 1431
+      startSourceChar: 1419
+      endSourceChar: 1419
       line: 48
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 312
       endInstruction: 311
-      startSourceChar: 1431
-      endSourceChar: 1431
+      startSourceChar: 1419
+      endSourceChar: 1419
       line: 48
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 312
       endInstruction: 311
-      startSourceChar: 1431
-      endSourceChar: 1438
+      startSourceChar: 1419
+      endSourceChar: 1426
       line: 48
       lineChar: 16
       spanCodeSection: pickup.
     - startInstruction: 312
       endInstruction: 311
-      startSourceChar: 1438
-      endSourceChar: 1448
+      startSourceChar: 1426
+      endSourceChar: 1436
       line: 48
       lineChar: 23
       spanCodeSection: 'UseText = '
     - startInstruction: 312
       endInstruction: 355
-      startSourceChar: 1448
-      endSourceChar: 1494
+      startSourceChar: 1436
+      endSourceChar: 1482
       line: 48
       lineChar: 33
       spanCodeSection: "\"Erase\";\r\n            }\r\n        }\r\n\r\n        "
     - startInstruction: 356
       endInstruction: 363
-      startSourceChar: 1494
-      endSourceChar: 1535
+      startSourceChar: 1482
+      endSourceChar: 1523
       line: 52
       lineChar: 8
       spanCodeSection: "public override void OnPickup()\r\n        "
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1535
-      endSourceChar: 1550
+      startSourceChar: 1523
+      endSourceChar: 1538
       line: 53
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1550
-      endSourceChar: 1550
+      startSourceChar: 1538
+      endSourceChar: 1538
       line: 54
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1550
-      endSourceChar: 1550
+      startSourceChar: 1538
+      endSourceChar: 1538
       line: 54
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1550
-      endSourceChar: 1550
+      startSourceChar: 1538
+      endSourceChar: 1538
       line: 54
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1550
-      endSourceChar: 1564
+      startSourceChar: 1538
+      endSourceChar: 1552
       line: 54
       lineChar: 12
       spanCodeSection: eraserManager.
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1564
-      endSourceChar: 1587
+      startSourceChar: 1552
+      endSourceChar: 1575
       line: 54
       lineChar: 26
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1587
-      endSourceChar: 1587
+      startSourceChar: 1575
+      endSourceChar: 1575
       line: 54
       lineChar: 49
       spanCodeSection: 
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1587
-      endSourceChar: 1606
+      startSourceChar: 1575
+      endSourceChar: 1594
       line: 54
       lineChar: 49
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1606
-      endSourceChar: 1611
+      startSourceChar: 1594
+      endSourceChar: 1599
       line: 54
       lineChar: 68
       spanCodeSection: 'All, '
     - startInstruction: 364
       endInstruction: 363
-      startSourceChar: 1611
-      endSourceChar: 1632
+      startSourceChar: 1599
+      endSourceChar: 1620
       line: 54
       lineChar: 73
       spanCodeSection: nameof(EraserManager.
     - startInstruction: 364
       endInstruction: 395
-      startSourceChar: 1632
-      endSourceChar: 1661
+      startSourceChar: 1620
+      endSourceChar: 1649
       line: 54
       lineChar: 94
       spanCodeSection: "StartUsing));\r\n\r\n            "
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1661
-      endSourceChar: 1661
+      startSourceChar: 1649
+      endSourceChar: 1649
       line: 56
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1661
-      endSourceChar: 1661
+      startSourceChar: 1649
+      endSourceChar: 1649
       line: 56
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1661
-      endSourceChar: 1684
+      startSourceChar: 1649
+      endSourceChar: 1672
       line: 56
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1684
-      endSourceChar: 1684
+      startSourceChar: 1672
+      endSourceChar: 1672
       line: 56
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1684
-      endSourceChar: 1703
+      startSourceChar: 1672
+      endSourceChar: 1691
       line: 56
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 396
       endInstruction: 395
-      startSourceChar: 1703
-      endSourceChar: 1708
+      startSourceChar: 1691
+      endSourceChar: 1696
       line: 56
       lineChar: 54
       spanCodeSection: 'All, '
     - startInstruction: 396
       endInstruction: 447
-      startSourceChar: 1708
-      endSourceChar: 1754
+      startSourceChar: 1696
+      endSourceChar: 1742
       line: 56
       lineChar: 59
       spanCodeSection: "nameof(OnPickupEvent));\r\n        }\r\n\r\n        "
     - startInstruction: 448
       endInstruction: 455
-      startSourceChar: 1754
-      endSourceChar: 1793
+      startSourceChar: 1742
+      endSourceChar: 1781
       line: 59
       lineChar: 8
       spanCodeSection: "public override void OnDrop()\r\n        "
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1793
-      endSourceChar: 1808
+      startSourceChar: 1781
+      endSourceChar: 1796
       line: 60
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1808
-      endSourceChar: 1808
+      startSourceChar: 1796
+      endSourceChar: 1796
       line: 61
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1808
-      endSourceChar: 1808
+      startSourceChar: 1796
+      endSourceChar: 1796
       line: 61
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1808
-      endSourceChar: 1808
+      startSourceChar: 1796
+      endSourceChar: 1796
       line: 61
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1808
-      endSourceChar: 1822
+      startSourceChar: 1796
+      endSourceChar: 1810
       line: 61
       lineChar: 12
       spanCodeSection: eraserManager.
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1822
-      endSourceChar: 1845
+      startSourceChar: 1810
+      endSourceChar: 1833
       line: 61
       lineChar: 26
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1845
-      endSourceChar: 1845
+      startSourceChar: 1833
+      endSourceChar: 1833
       line: 61
       lineChar: 49
       spanCodeSection: 
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1845
-      endSourceChar: 1864
+      startSourceChar: 1833
+      endSourceChar: 1852
       line: 61
       lineChar: 49
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1864
-      endSourceChar: 1869
+      startSourceChar: 1852
+      endSourceChar: 1857
       line: 61
       lineChar: 68
       spanCodeSection: 'All, '
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 1869
-      endSourceChar: 1890
+      startSourceChar: 1857
+      endSourceChar: 1878
       line: 61
       lineChar: 73
       spanCodeSection: nameof(EraserManager.
     - startInstruction: 456
       endInstruction: 487
-      startSourceChar: 1890
-      endSourceChar: 1917
+      startSourceChar: 1878
+      endSourceChar: 1905
       line: 61
       lineChar: 94
       spanCodeSection: "EndUsing));\r\n\r\n            "
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1917
-      endSourceChar: 1917
+      startSourceChar: 1905
+      endSourceChar: 1905
       line: 63
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1917
-      endSourceChar: 1917
+      startSourceChar: 1905
+      endSourceChar: 1905
       line: 63
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1917
-      endSourceChar: 1940
+      startSourceChar: 1905
+      endSourceChar: 1928
       line: 63
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1940
-      endSourceChar: 1940
+      startSourceChar: 1928
+      endSourceChar: 1928
       line: 63
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1940
-      endSourceChar: 1959
+      startSourceChar: 1928
+      endSourceChar: 1947
       line: 63
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 488
       endInstruction: 487
-      startSourceChar: 1959
-      endSourceChar: 1964
+      startSourceChar: 1947
+      endSourceChar: 1952
       line: 63
       lineChar: 54
       spanCodeSection: 'All, '
     - startInstruction: 488
       endInstruction: 539
-      startSourceChar: 1964
-      endSourceChar: 2008
+      startSourceChar: 1952
+      endSourceChar: 1996
       line: 63
       lineChar: 59
       spanCodeSection: "nameof(OnDropEvent));\r\n        }\r\n\r\n        "
     - startInstruction: 540
       endInstruction: 547
-      startSourceChar: 2008
-      endSourceChar: 2056
+      startSourceChar: 1996
+      endSourceChar: 2044
       line: 66
       lineChar: 8
       spanCodeSection: "public override void OnPickupUseDown()\r\n        "
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2056
-      endSourceChar: 2071
+      startSourceChar: 2044
+      endSourceChar: 2059
       line: 67
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2071
-      endSourceChar: 2071
+      startSourceChar: 2059
+      endSourceChar: 2059
       line: 68
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2071
-      endSourceChar: 2071
+      startSourceChar: 2059
+      endSourceChar: 2059
       line: 68
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2071
-      endSourceChar: 2094
+      startSourceChar: 2059
+      endSourceChar: 2082
       line: 68
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2094
-      endSourceChar: 2094
+      startSourceChar: 2082
+      endSourceChar: 2082
       line: 68
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2094
-      endSourceChar: 2113
+      startSourceChar: 2082
+      endSourceChar: 2101
       line: 68
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 548
       endInstruction: 547
-      startSourceChar: 2113
-      endSourceChar: 2118
+      startSourceChar: 2101
+      endSourceChar: 2106
       line: 68
       lineChar: 54
       spanCodeSection: 'All, '
     - startInstruction: 548
       endInstruction: 599
-      startSourceChar: 2118
-      endSourceChar: 2163
+      startSourceChar: 2106
+      endSourceChar: 2151
       line: 68
       lineChar: 59
       spanCodeSection: "nameof(StartErasing));\r\n        }\r\n\r\n        "
     - startInstruction: 600
       endInstruction: 607
-      startSourceChar: 2163
-      endSourceChar: 2209
+      startSourceChar: 2151
+      endSourceChar: 2197
       line: 71
       lineChar: 8
       spanCodeSection: "public override void OnPickupUseUp()\r\n        "
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2209
-      endSourceChar: 2224
+      startSourceChar: 2197
+      endSourceChar: 2212
       line: 72
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2224
-      endSourceChar: 2224
+      startSourceChar: 2212
+      endSourceChar: 2212
       line: 73
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2224
-      endSourceChar: 2224
+      startSourceChar: 2212
+      endSourceChar: 2212
       line: 73
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2224
-      endSourceChar: 2247
+      startSourceChar: 2212
+      endSourceChar: 2235
       line: 73
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2247
-      endSourceChar: 2247
+      startSourceChar: 2235
+      endSourceChar: 2235
       line: 73
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2247
-      endSourceChar: 2266
+      startSourceChar: 2235
+      endSourceChar: 2254
       line: 73
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 2266
-      endSourceChar: 2271
+      startSourceChar: 2254
+      endSourceChar: 2259
       line: 73
       lineChar: 54
       spanCodeSection: 'All, '
     - startInstruction: 608
       endInstruction: 659
-      startSourceChar: 2271
-      endSourceChar: 2317
+      startSourceChar: 2259
+      endSourceChar: 2305
       line: 73
       lineChar: 59
       spanCodeSection: "nameof(FinishErasing));\r\n        }\r\n\r\n        "
     - startInstruction: 660
       endInstruction: 667
-      startSourceChar: 2317
-      endSourceChar: 2354
+      startSourceChar: 2305
+      endSourceChar: 2342
       line: 76
       lineChar: 8
       spanCodeSection: "public void OnPickupEvent()\r\n        "
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2354
-      endSourceChar: 2369
+      startSourceChar: 2342
+      endSourceChar: 2357
       line: 77
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2369
-      endSourceChar: 2369
+      startSourceChar: 2357
+      endSourceChar: 2357
       line: 78
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2369
-      endSourceChar: 2369
+      startSourceChar: 2357
+      endSourceChar: 2357
       line: 78
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2369
-      endSourceChar: 2369
+      startSourceChar: 2357
+      endSourceChar: 2357
       line: 78
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2369
-      endSourceChar: 2378
+      startSourceChar: 2357
+      endSourceChar: 2366
       line: 78
       lineChar: 12
       spanCodeSection: renderer.
     - startInstruction: 668
       endInstruction: 667
-      startSourceChar: 2378
-      endSourceChar: 2395
+      startSourceChar: 2366
+      endSourceChar: 2383
       line: 78
       lineChar: 21
       spanCodeSection: 'sharedMaterial = '
     - startInstruction: 668
       endInstruction: 711
-      startSourceChar: 2395
-      endSourceChar: 2425
+      startSourceChar: 2383
+      endSourceChar: 2413
       line: 78
       lineChar: 38
       spanCodeSection: "normal;\r\n        }\r\n\r\n        "
     - startInstruction: 712
       endInstruction: 719
-      startSourceChar: 2425
-      endSourceChar: 2460
+      startSourceChar: 2413
+      endSourceChar: 2448
       line: 81
       lineChar: 8
       spanCodeSection: "public void OnDropEvent()\r\n        "
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2460
-      endSourceChar: 2475
+      startSourceChar: 2448
+      endSourceChar: 2463
       line: 82
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2475
-      endSourceChar: 2475
+      startSourceChar: 2463
+      endSourceChar: 2463
       line: 83
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2475
-      endSourceChar: 2475
+      startSourceChar: 2463
+      endSourceChar: 2463
       line: 83
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2475
-      endSourceChar: 2475
+      startSourceChar: 2463
+      endSourceChar: 2463
       line: 83
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2475
-      endSourceChar: 2484
+      startSourceChar: 2463
+      endSourceChar: 2472
       line: 83
       lineChar: 12
       spanCodeSection: renderer.
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 2484
-      endSourceChar: 2501
+      startSourceChar: 2472
+      endSourceChar: 2489
       line: 83
       lineChar: 21
       spanCodeSection: 'sharedMaterial = '
     - startInstruction: 720
       endInstruction: 763
-      startSourceChar: 2501
-      endSourceChar: 2532
+      startSourceChar: 2489
+      endSourceChar: 2520
       line: 83
       lineChar: 38
       spanCodeSection: "erasing;\r\n        }\r\n\r\n        "
     - startInstruction: 764
       endInstruction: 771
-      startSourceChar: 2532
-      endSourceChar: 2568
+      startSourceChar: 2520
+      endSourceChar: 2556
       line: 86
       lineChar: 8
       spanCodeSection: "public void StartErasing()\r\n        "
     - startInstruction: 772
       endInstruction: 771
-      startSourceChar: 2568
-      endSourceChar: 2583
+      startSourceChar: 2556
+      endSourceChar: 2571
       line: 87
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 772
       endInstruction: 771
-      startSourceChar: 2583
-      endSourceChar: 2583
+      startSourceChar: 2571
+      endSourceChar: 2571
       line: 88
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 772
       endInstruction: 771
-      startSourceChar: 2583
-      endSourceChar: 2583
+      startSourceChar: 2571
+      endSourceChar: 2571
       line: 88
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 772
       endInstruction: 771
-      startSourceChar: 2583
-      endSourceChar: 2595
+      startSourceChar: 2571
+      endSourceChar: 2583
       line: 88
       lineChar: 12
       spanCodeSection: 'isErasing = '
     - startInstruction: 772
       endInstruction: 791
-      startSourceChar: 2595
-      endSourceChar: 2614
+      startSourceChar: 2583
+      endSourceChar: 2602
       line: 88
       lineChar: 24
       spanCodeSection: "true;\r\n            "
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 2614
-      endSourceChar: 2614
+      startSourceChar: 2602
+      endSourceChar: 2602
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 2614
-      endSourceChar: 2614
+      startSourceChar: 2602
+      endSourceChar: 2602
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 2614
-      endSourceChar: 2614
+      startSourceChar: 2602
+      endSourceChar: 2602
       line: 89
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 2614
-      endSourceChar: 2623
+      startSourceChar: 2602
+      endSourceChar: 2611
       line: 89
       lineChar: 12
       spanCodeSection: renderer.
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 2623
-      endSourceChar: 2640
+      startSourceChar: 2611
+      endSourceChar: 2628
       line: 89
       lineChar: 21
       spanCodeSection: 'sharedMaterial = '
     - startInstruction: 792
       endInstruction: 835
-      startSourceChar: 2640
-      endSourceChar: 2671
+      startSourceChar: 2628
+      endSourceChar: 2659
       line: 89
       lineChar: 38
       spanCodeSection: "erasing;\r\n        }\r\n\r\n        "
     - startInstruction: 836
       endInstruction: 843
-      startSourceChar: 2671
-      endSourceChar: 2708
+      startSourceChar: 2659
+      endSourceChar: 2696
       line: 92
       lineChar: 8
       spanCodeSection: "public void FinishErasing()\r\n        "
     - startInstruction: 844
       endInstruction: 843
-      startSourceChar: 2708
-      endSourceChar: 2723
+      startSourceChar: 2696
+      endSourceChar: 2711
       line: 93
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 844
       endInstruction: 843
-      startSourceChar: 2723
-      endSourceChar: 2723
+      startSourceChar: 2711
+      endSourceChar: 2711
       line: 94
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 844
       endInstruction: 843
-      startSourceChar: 2723
-      endSourceChar: 2723
+      startSourceChar: 2711
+      endSourceChar: 2711
       line: 94
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 844
       endInstruction: 843
-      startSourceChar: 2723
-      endSourceChar: 2735
+      startSourceChar: 2711
+      endSourceChar: 2723
       line: 94
       lineChar: 12
       spanCodeSection: 'isErasing = '
     - startInstruction: 844
       endInstruction: 863
-      startSourceChar: 2735
-      endSourceChar: 2755
+      startSourceChar: 2723
+      endSourceChar: 2743
       line: 94
       lineChar: 24
       spanCodeSection: "false;\r\n            "
     - startInstruction: 864
       endInstruction: 863
-      startSourceChar: 2755
-      endSourceChar: 2755
+      startSourceChar: 2743
+      endSourceChar: 2743
       line: 95
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 864
       endInstruction: 863
-      startSourceChar: 2755
-      endSourceChar: 2755
+      startSourceChar: 2743
+      endSourceChar: 2743
       line: 95
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 864
       endInstruction: 863
-      startSourceChar: 2755
-      endSourceChar: 2755
+      startSourceChar: 2743
+      endSourceChar: 2743
       line: 95
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 864
       endInstruction: 863
-      startSourceChar: 2755
-      endSourceChar: 2764
+      startSourceChar: 2743
+      endSourceChar: 2752
       line: 95
       lineChar: 12
       spanCodeSection: renderer.
     - startInstruction: 864
       endInstruction: 863
-      startSourceChar: 2764
-      endSourceChar: 2781
+      startSourceChar: 2752
+      endSourceChar: 2769
       line: 95
       lineChar: 21
       spanCodeSection: 'sharedMaterial = '
     - startInstruction: 864
       endInstruction: 907
-      startSourceChar: 2781
-      endSourceChar: 2811
+      startSourceChar: 2769
+      endSourceChar: 2799
       line: 95
       lineChar: 38
       spanCodeSection: "normal;\r\n        }\r\n\r\n        "
     - startInstruction: 908
       endInstruction: 907
-      startSourceChar: 2811
-      endSourceChar: 2839
+      startSourceChar: 2799
+      endSourceChar: 2827
       line: 98
       lineChar: 8
       spanCodeSection: private void OnTriggerEnter(
     - startInstruction: 908
       endInstruction: 935
-      startSourceChar: 2839
-      endSourceChar: 2864
+      startSourceChar: 2827
+      endSourceChar: 2852
       line: 98
       lineChar: 36
       spanCodeSection: "Collider other)\r\n        "
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2864
-      endSourceChar: 2879
+      startSourceChar: 2852
+      endSourceChar: 2867
       line: 99
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2879
-      endSourceChar: 2901
+      startSourceChar: 2867
+      endSourceChar: 2889
       line: 100
       lineChar: 12
       spanCodeSection: "if (\r\n                "
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 935
-      startSourceChar: 2901
-      endSourceChar: 2901
+      startSourceChar: 2889
+      endSourceChar: 2889
       line: 101
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 936
       endInstruction: 971
-      startSourceChar: 2901
-      endSourceChar: 2931
+      startSourceChar: 2889
+      endSourceChar: 2919
       line: 101
       lineChar: 16
       spanCodeSection: "isErasing &&\r\n                "
     - startInstruction: 972
       endInstruction: 1083
-      startSourceChar: 2931
-      endSourceChar: 2957
+      startSourceChar: 2919
+      endSourceChar: 2945
       line: 102
       lineChar: 16
       spanCodeSection: "other &&\r\n                "
     - startInstruction: 1084
       endInstruction: 1083
-      startSourceChar: 2957
-      endSourceChar: 2957
+      startSourceChar: 2945
+      endSourceChar: 2945
       line: 103
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1084
       endInstruction: 1083
-      startSourceChar: 2957
-      endSourceChar: 2963
+      startSourceChar: 2945
+      endSourceChar: 2951
       line: 103
       lineChar: 16
       spanCodeSection: other.
     - startInstruction: 1084
       endInstruction: 1219
-      startSourceChar: 2963
-      endSourceChar: 2994
+      startSourceChar: 2951
+      endSourceChar: 2982
       line: 103
       lineChar: 22
       spanCodeSection: "gameObject &&\r\n                "
     - startInstruction: 1220
       endInstruction: 1219
-      startSourceChar: 2994
-      endSourceChar: 2994
+      startSourceChar: 2982
+      endSourceChar: 2982
       line: 104
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1220
       endInstruction: 1219
-      startSourceChar: 2994
-      endSourceChar: 2994
+      startSourceChar: 2982
+      endSourceChar: 2982
       line: 104
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1220
       endInstruction: 1219
-      startSourceChar: 2994
-      endSourceChar: 2994
+      startSourceChar: 2982
+      endSourceChar: 2982
       line: 104
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1220
       endInstruction: 1219
-      startSourceChar: 2994
-      endSourceChar: 3000
+      startSourceChar: 2982
+      endSourceChar: 2988
       line: 104
       lineChar: 16
       spanCodeSection: other.
     - startInstruction: 1220
       endInstruction: 1219
-      startSourceChar: 3000
-      endSourceChar: 3011
+      startSourceChar: 2988
+      endSourceChar: 2999
       line: 104
       lineChar: 22
       spanCodeSection: gameObject.
     - startInstruction: 1220
       endInstruction: 1267
-      startSourceChar: 3011
-      endSourceChar: 3020
+      startSourceChar: 2999
+      endSourceChar: 3008
       line: 104
       lineChar: 33
       spanCodeSection: 'layer == '
     - startInstruction: 1268
       endInstruction: 1387
-      startSourceChar: 3020
-      endSourceChar: 3049
+      startSourceChar: 3008
+      endSourceChar: 3037
       line: 104
       lineChar: 42
       spanCodeSection: "inkLayer &&\r\n                "
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 3049
-      endSourceChar: 3049
+      startSourceChar: 3037
+      endSourceChar: 3037
       line: 105
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 3049
-      endSourceChar: 3049
+      startSourceChar: 3037
+      endSourceChar: 3037
       line: 105
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 3049
-      endSourceChar: 3049
+      startSourceChar: 3037
+      endSourceChar: 3037
       line: 105
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 3049
-      endSourceChar: 3055
+      startSourceChar: 3037
+      endSourceChar: 3043
       line: 105
       lineChar: 16
       spanCodeSection: other.
     - startInstruction: 1388
       endInstruction: 1387
-      startSourceChar: 3055
-      endSourceChar: 3060
+      startSourceChar: 3043
+      endSourceChar: 3048
       line: 105
       lineChar: 22
       spanCodeSection: name.
     - startInstruction: 1388
       endInstruction: 1411
-      startSourceChar: 3060
-      endSourceChar: 3071
+      startSourceChar: 3048
+      endSourceChar: 3059
       line: 105
       lineChar: 27
       spanCodeSection: StartsWith(
     - startInstruction: 1412
       endInstruction: 1531
-      startSourceChar: 3071
-      endSourceChar: 3102
+      startSourceChar: 3059
+      endSourceChar: 3090
       line: 105
       lineChar: 38
       spanCodeSection: "inkPrefix) &&\r\n                "
     - startInstruction: 1532
       endInstruction: 1531
-      startSourceChar: 3102
-      endSourceChar: 3102
+      startSourceChar: 3090
+      endSourceChar: 3090
       line: 106
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1532
       endInstruction: 1531
-      startSourceChar: 3102
-      endSourceChar: 3102
+      startSourceChar: 3090
+      endSourceChar: 3090
       line: 106
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1532
       endInstruction: 1531
-      startSourceChar: 3102
-      endSourceChar: 3108
+      startSourceChar: 3090
+      endSourceChar: 3096
       line: 106
       lineChar: 16
       spanCodeSection: other.
     - startInstruction: 1532
       endInstruction: 1531
-      startSourceChar: 3108
-      endSourceChar: 3118
+      startSourceChar: 3096
+      endSourceChar: 3106
       line: 106
       lineChar: 22
       spanCodeSection: transform.
     - startInstruction: 1532
       endInstruction: 1691
-      startSourceChar: 3118
-      endSourceChar: 3145
+      startSourceChar: 3106
+      endSourceChar: 3133
       line: 106
       lineChar: 32
       spanCodeSection: "parent &&\r\n                "
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3145
-      endSourceChar: 3145
+      startSourceChar: 3133
+      endSourceChar: 3133
       line: 107
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3145
-      endSourceChar: 3145
+      startSourceChar: 3133
+      endSourceChar: 3133
       line: 107
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3145
-      endSourceChar: 3145
+      startSourceChar: 3133
+      endSourceChar: 3133
       line: 107
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3145
-      endSourceChar: 3145
+      startSourceChar: 3133
+      endSourceChar: 3133
       line: 107
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3145
-      endSourceChar: 3151
+      startSourceChar: 3133
+      endSourceChar: 3139
       line: 107
       lineChar: 16
       spanCodeSection: other.
     - startInstruction: 1692
       endInstruction: 1691
-      startSourceChar: 3151
-      endSourceChar: 3161
+      startSourceChar: 3139
+      endSourceChar: 3149
       line: 107
       lineChar: 22
       spanCodeSection: transform.
     - startInstruction: 1692
       endInstruction: 1715
-      startSourceChar: 3161
-      endSourceChar: 3168
+      startSourceChar: 3149
+      endSourceChar: 3156
       line: 107
       lineChar: 32
       spanCodeSection: parent.
     - startInstruction: 1716
       endInstruction: 1763
-      startSourceChar: 3168
-      endSourceChar: 3176
+      startSourceChar: 3156
+      endSourceChar: 3164
       line: 107
       lineChar: 39
       spanCodeSection: 'name == '
     - startInstruction: 1764
       endInstruction: 1863
-      startSourceChar: 3176
-      endSourceChar: 3220
+      startSourceChar: 3164
+      endSourceChar: 3208
       line: 107
       lineChar: 47
       spanCodeSection: "inkPoolName\r\n                )\r\n            "
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3220
-      endSourceChar: 3239
+      startSourceChar: 3208
+      endSourceChar: 3227
       line: 109
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3239
-      endSourceChar: 3239
+      startSourceChar: 3227
+      endSourceChar: 3227
       line: 110
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3239
-      endSourceChar: 3239
+      startSourceChar: 3227
+      endSourceChar: 3227
       line: 110
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3239
-      endSourceChar: 3247
+      startSourceChar: 3227
+      endSourceChar: 3235
       line: 110
       lineChar: 16
       spanCodeSection: Destroy(
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3247
-      endSourceChar: 3247
+      startSourceChar: 3235
+      endSourceChar: 3235
       line: 110
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1864
       endInstruction: 1863
-      startSourceChar: 3247
-      endSourceChar: 3253
+      startSourceChar: 3235
+      endSourceChar: 3241
       line: 110
       lineChar: 24
       spanCodeSection: other.
     - startInstruction: 1864
       endInstruction: 1923
-      startSourceChar: 3253
-      endSourceChar: 3303
+      startSourceChar: 3241
+      endSourceChar: 3291
       line: 110
       lineChar: 30
       spanCodeSection: "gameObject);\r\n            }\r\n        }\r\n\r\n        "
     - startInstruction: 1924
       endInstruction: 1931
-      startSourceChar: 3303
-      endSourceChar: 3333
+      startSourceChar: 3291
+      endSourceChar: 3321
       line: 114
       lineChar: 8
       spanCodeSection: "public bool IsHeld()\r\n        "
     - startInstruction: 1932
       endInstruction: 1931
-      startSourceChar: 3333
-      endSourceChar: 3348
+      startSourceChar: 3321
+      endSourceChar: 3336
       line: 115
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 1932
       endInstruction: 1931
-      startSourceChar: 3348
-      endSourceChar: 3355
+      startSourceChar: 3336
+      endSourceChar: 3343
       line: 116
       lineChar: 12
       spanCodeSection: 'return '
     - startInstruction: 1932
       endInstruction: 1931
-      startSourceChar: 3355
-      endSourceChar: 3355
+      startSourceChar: 3343
+      endSourceChar: 3343
       line: 116
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 1932
       endInstruction: 1931
-      startSourceChar: 3355
-      endSourceChar: 3362
+      startSourceChar: 3343
+      endSourceChar: 3350
       line: 116
       lineChar: 19
       spanCodeSection: pickup.
     - startInstruction: 1932
       endInstruction: 1995
-      startSourceChar: 3362
-      endSourceChar: 3392
+      startSourceChar: 3350
+      endSourceChar: 3380
       line: 116
       lineChar: 26
       spanCodeSection: "IsHeld;\r\n        }\r\n\r\n        "
     - startInstruction: 1996
       endInstruction: 2003
-      startSourceChar: 3392
-      endSourceChar: 3423
+      startSourceChar: 3380
+      endSourceChar: 3411
       line: 119
       lineChar: 8
       spanCodeSection: "public void Respawn()\r\n        "
     - startInstruction: 2004
       endInstruction: 2003
-      startSourceChar: 3423
-      endSourceChar: 3438
+      startSourceChar: 3411
+      endSourceChar: 3426
       line: 120
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 2004
       endInstruction: 2003
-      startSourceChar: 3438
-      endSourceChar: 3438
+      startSourceChar: 3426
+      endSourceChar: 3426
       line: 121
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2004
       endInstruction: 2003
-      startSourceChar: 3438
-      endSourceChar: 3438
+      startSourceChar: 3426
+      endSourceChar: 3426
       line: 121
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2004
       endInstruction: 2003
-      startSourceChar: 3438
-      endSourceChar: 3438
+      startSourceChar: 3426
+      endSourceChar: 3426
       line: 121
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2004
       endInstruction: 2003
-      startSourceChar: 3438
-      endSourceChar: 3445
+      startSourceChar: 3426
+      endSourceChar: 3433
       line: 121
       lineChar: 12
       spanCodeSection: pickup.
     - startInstruction: 2004
       endInstruction: 2019
-      startSourceChar: 3445
-      endSourceChar: 3466
+      startSourceChar: 3433
+      endSourceChar: 3454
       line: 121
       lineChar: 19
       spanCodeSection: "Drop();\r\n            "
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3466
-      endSourceChar: 3470
+      startSourceChar: 3454
+      endSourceChar: 3458
       line: 122
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3470
-      endSourceChar: 3470
+      startSourceChar: 3458
+      endSourceChar: 3458
       line: 122
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3470
-      endSourceChar: 3470
+      startSourceChar: 3458
+      endSourceChar: 3458
       line: 122
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3470
-      endSourceChar: 3470
+      startSourceChar: 3458
+      endSourceChar: 3458
       line: 122
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3470
-      endSourceChar: 3481
+      startSourceChar: 3458
+      endSourceChar: 3469
       line: 122
       lineChar: 16
       spanCodeSection: Networking.
     - startInstruction: 2020
       endInstruction: 2019
-      startSourceChar: 3481
-      endSourceChar: 3493
+      startSourceChar: 3469
+      endSourceChar: 3481
       line: 122
       lineChar: 27
       spanCodeSection: LocalPlayer.
     - startInstruction: 2020
       endInstruction: 2035
-      startSourceChar: 3493
-      endSourceChar: 3501
+      startSourceChar: 3481
+      endSourceChar: 3489
       line: 122
       lineChar: 39
       spanCodeSection: IsOwner(
     - startInstruction: 2036
       endInstruction: 2083
-      startSourceChar: 3501
-      endSourceChar: 3527
+      startSourceChar: 3489
+      endSourceChar: 3515
       line: 122
       lineChar: 47
       spanCodeSection: "gameObject))\r\n            "
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3527
-      endSourceChar: 3546
+      startSourceChar: 3515
+      endSourceChar: 3534
       line: 123
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3546
-      endSourceChar: 3546
+      startSourceChar: 3534
+      endSourceChar: 3534
       line: 124
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3546
-      endSourceChar: 3546
+      startSourceChar: 3534
+      endSourceChar: 3534
       line: 124
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3546
-      endSourceChar: 3546
+      startSourceChar: 3534
+      endSourceChar: 3534
       line: 124
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3546
-      endSourceChar: 3556
+      startSourceChar: 3534
+      endSourceChar: 3544
       line: 124
       lineChar: 16
       spanCodeSection: transform.
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3556
-      endSourceChar: 3572
+      startSourceChar: 3544
+      endSourceChar: 3560
       line: 124
       lineChar: 26
       spanCodeSection: 'localPosition = '
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3572
-      endSourceChar: 3572
+      startSourceChar: 3560
+      endSourceChar: 3560
       line: 124
       lineChar: 42
       spanCodeSection: 
     - startInstruction: 2084
       endInstruction: 2083
-      startSourceChar: 3572
-      endSourceChar: 3580
+      startSourceChar: 3560
+      endSourceChar: 3568
       line: 124
       lineChar: 42
       spanCodeSection: Vector3.
     - startInstruction: 2084
       endInstruction: 2123
-      startSourceChar: 3580
-      endSourceChar: 3603
+      startSourceChar: 3568
+      endSourceChar: 3591
       line: 124
       lineChar: 50
       spanCodeSection: "zero;\r\n                "
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3603
-      endSourceChar: 3603
+      startSourceChar: 3591
+      endSourceChar: 3591
       line: 125
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3603
-      endSourceChar: 3603
+      startSourceChar: 3591
+      endSourceChar: 3591
       line: 125
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3603
-      endSourceChar: 3603
+      startSourceChar: 3591
+      endSourceChar: 3591
       line: 125
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3603
-      endSourceChar: 3613
+      startSourceChar: 3591
+      endSourceChar: 3601
       line: 125
       lineChar: 16
       spanCodeSection: transform.
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3613
-      endSourceChar: 3629
+      startSourceChar: 3601
+      endSourceChar: 3617
       line: 125
       lineChar: 26
       spanCodeSection: 'localRotation = '
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3629
-      endSourceChar: 3629
+      startSourceChar: 3617
+      endSourceChar: 3617
       line: 125
       lineChar: 42
       spanCodeSection: 
     - startInstruction: 2124
       endInstruction: 2123
-      startSourceChar: 3629
-      endSourceChar: 3640
+      startSourceChar: 3617
+      endSourceChar: 3628
       line: 125
       lineChar: 42
       spanCodeSection: Quaternion.
     - startInstruction: 2124
       endInstruction: 2124
-      startSourceChar: 3640
-      endSourceChar: 3640
+      startSourceChar: 3628
+      endSourceChar: 3628
       line: 125
       lineChar: 53
       spanCodeSection: 
