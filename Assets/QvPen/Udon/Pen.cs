@@ -7,8 +7,8 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
-        // Layer 14: PickupNoEnvironment
-        [SerializeField] private int inkPrefabLayer = 14;
+        // Layer 13 : Pickup
+        [SerializeField] private int inkLayer = 13;
 
         [SerializeField] private GameObject inkPrefab;
         [SerializeField] private Eraser eraser;
@@ -32,7 +32,7 @@ namespace QvPen.Udon
         // Double click
         private bool useDoubleClick = true;
         private float prevClickTime;
-        private const float ClickInterval = 0.18f;
+        private const float ClickInterval = 0.184f;
 
         // State
         private const int StatePenIdle = 0;
@@ -49,10 +49,10 @@ namespace QvPen.Udon
             penManager = manager;
 
             inkPool.name = inkPoolName;
-            inkPrefab.layer = inkPrefabLayer;
+            inkPrefab.layer = inkLayer;
 
-            eraser.SetActive(false);
             inkPrefab.SetActive(false);
+            eraser.gameObject.SetActive(false);
 
             pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup));
             pickup.InteractionText = nameof(Pen);
@@ -292,6 +292,7 @@ namespace QvPen.Udon
             {
                 inkInstance.transform.SetParent(inkPool);
                 CreateInkMeshCollider();
+                Destroy(inkInstance.GetComponent<MeshFilter>());
             }
 
             inkInstance = null;
@@ -310,12 +311,12 @@ namespace QvPen.Udon
         private void ChangeToPen()
         {
             eraser.FinishErasing();
-            eraser.SetActive(false);
+            eraser.gameObject.SetActive(false);
         }
 
         private void ChangeToEraser()
         {
-            eraser.SetActive(true);
+            eraser.gameObject.SetActive(true);
         }
 
         private void CreateInkMeshCollider()
@@ -337,13 +338,14 @@ namespace QvPen.Udon
             var triangles = new int[(positionCount - 1) * trianglesParPoint];
 
             const float colliderWidth = 0.005f;
-            var offsetX = Vector3.right * colliderWidth;
+            var offsetX = Vector3.right * colliderWidth / 2f;
 
             trailRenderer.GetPositions(positions);
             if (positionCount == 2)
             {
-                positions[0] = inkInstance.transform.position;
-                positions[1] = inkInstance.transform.position + Vector3.down * colliderWidth;
+                var offsetZ = Vector3.forward * colliderWidth / 2f;
+                positions[0] = inkInstance.transform.position - offsetZ;
+                positions[1] = inkInstance.transform.position + offsetZ;
             }
 
             // Create vertices
@@ -367,6 +369,7 @@ namespace QvPen.Udon
 
             // Instantiate a mesh
             var mesh = meshFilter.mesh;
+            // mesh.Clear();
 
             mesh.vertices = vertices;
             mesh.triangles = triangles;

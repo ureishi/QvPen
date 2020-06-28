@@ -19,28 +19,29 @@ namespace QvPen.Udon
 
         private void Start()
         {
-            if (Networking.LocalPlayer != null)
-            {
-                localPlayer = Networking.LocalPlayer;
-            }
+            localPlayer = Networking.LocalPlayer;
 
             pen.Init(this);
         }
 
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            if (!Networking.IsOwner(localPlayer, pen.gameObject)) return;
-            if (!pen.IsHeld()) return;
+            if (!localPlayer.IsOwner(pen.gameObject)) return;
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+            if (pen.IsHeld())
+            {
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+            }
         }
 
         public override void OnPlayerLeft(VRCPlayerApi player)
         {
-            if (!Networking.IsOwner(localPlayer, pen.gameObject)) return;
-            if (pen.IsHeld()) return;
+            if (!localPlayer.IsOwner(pen.gameObject)) return;
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EndUsing));
+            if (!pen.IsHeld())
+            {
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EndUsing));
+            }
         }
 
         public void StartUsing()

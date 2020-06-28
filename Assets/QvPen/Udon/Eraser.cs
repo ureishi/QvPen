@@ -7,10 +7,10 @@ namespace QvPen.Udon
 {
     public class Eraser : UdonSharpBehaviour
     {
-        // Layer 13: Pickup
-        // Layer 14: PickupNoEnvironment
-        [SerializeField] private int inkPrefabLayer = 14;
-        [SerializeField] private int eraserLayer = 13;
+        // Layer 13 : Pickup
+        // Layer 14 : PickupNoEnvironment
+        [SerializeField] private int inkLayer = 13;
+        [SerializeField] private int eraserLayer = 14;
 
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
@@ -32,6 +32,8 @@ namespace QvPen.Udon
         {
             eraserManager = manager;
 
+            gameObject.layer = eraserLayer;
+
             renderer = GetComponent<Renderer>();
             renderer.enabled = true;
             if (!eraserManager)
@@ -46,20 +48,18 @@ namespace QvPen.Udon
                 pickup.InteractionText = nameof(Eraser);
                 pickup.UseText = "Erase";
             }
-
-            gameObject.layer = eraserLayer;
         }
 
         public override void OnPickup()
         {
-            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.StartUsing));
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EraserManager.StartUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
         }
 
         public override void OnDrop()
         {
-            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.EndUsing));
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EraserManager.EndUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnDropEvent));
         }
@@ -102,7 +102,7 @@ namespace QvPen.Udon
                 isErasing &&
                 other &&
                 other.gameObject &&
-                other.gameObject.layer == inkPrefabLayer &&
+                other.gameObject.layer == inkLayer &&
                 other.name.StartsWith(inkPrefix) &&
                 other.transform.parent &&
                 other.transform.parent.name == inkPoolName
@@ -110,11 +110,6 @@ namespace QvPen.Udon
             {
                 Destroy(other.gameObject);
             }
-        }
-
-        public void SetActive(bool value)
-        {
-            gameObject.SetActive(value);
         }
 
         public bool IsHeld()

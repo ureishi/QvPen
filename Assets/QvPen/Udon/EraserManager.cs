@@ -18,28 +18,29 @@ namespace QvPen.Udon
 
         private void Start()
         {
-            if (Networking.LocalPlayer != null)
-            {
-                localPlayer = Networking.LocalPlayer;
-            }
+            localPlayer = Networking.LocalPlayer;
 
             eraser.Init(this);
         }
 
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            if (!Networking.IsOwner(localPlayer, eraser.gameObject)) return;
-            if (!eraser.IsHeld()) return;
+            if (!localPlayer.IsOwner(eraser.gameObject)) return;
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+            if (eraser.IsHeld())
+            {
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+            }
         }
 
         public override void OnPlayerLeft(VRCPlayerApi player)
         {
-            if (!Networking.IsOwner(localPlayer, eraser.gameObject)) return;
-            if (eraser.IsHeld()) return;
+            if (!localPlayer.IsOwner(eraser.gameObject)) return;
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EndUsing));
+            if (!eraser.IsHeld())
+            {
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EndUsing));
+            }
         }
 
         public void StartUsing()
