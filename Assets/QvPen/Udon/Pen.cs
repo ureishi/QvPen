@@ -7,17 +7,18 @@ namespace QvPen.Udon
 {
     public class Pen : UdonSharpBehaviour
     {
-        // Layer 13 : Pickup
-        [SerializeField] private int inkLayer = 13;
+        // Layer 9 : Player
+        [SerializeField] private int inkLayer = 9;
 
         [SerializeField] private GameObject inkPrefab;
+        [SerializeField] private GameObject colliderHolder;
         [SerializeField] private Eraser eraser;
 
         [SerializeField] private Transform inkPosition;
         [SerializeField] private Transform spawnTarget;
         [SerializeField] private Transform inkPool;
 
-        [SerializeField] private float followSpeed;
+        [SerializeField] private float followSpeed; //= 32;
 
         private bool isUser;
         private VRC_Pickup pickup;
@@ -49,7 +50,7 @@ namespace QvPen.Udon
             penManager = manager;
 
             inkPool.name = inkPoolName;
-            inkPrefab.layer = inkLayer;
+            colliderHolder.layer = inkLayer;
 
             inkPrefab.SetActive(false);
             eraser.gameObject.SetActive(false);
@@ -58,6 +59,7 @@ namespace QvPen.Udon
             pickup.InteractionText = nameof(Pen);
             pickup.UseText = "Draw";
 
+            // PenManager : Manager, EraserManager : Manager, Init(Manager manager)
             eraser.Init(null);
         }
 
@@ -270,14 +272,11 @@ namespace QvPen.Udon
             {
                 Destroy(inkPool.GetChild(i).gameObject);
             }
-
-            inkCount = 0;
         }
 
         private void StartDrawing()
         {
             inkInstance = VRCInstantiate(inkPrefab);
-            inkInstance.name = $"{inkPrefix} ({inkCount++})";
 
             inkInstance.transform.SetParent(spawnTarget);
             inkInstance.transform.localPosition = Vector3.zero;
@@ -290,9 +289,18 @@ namespace QvPen.Udon
         {
             if (inkInstance != null)
             {
-                inkInstance.transform.SetParent(inkPool);
-                CreateInkMeshCollider();
-                Destroy(inkInstance.GetComponent<MeshFilter>());
+                var colliderHolderInstance = VRCInstantiate(colliderHolder);
+                colliderHolderInstance.name = $"{inkPrefix} ({inkCount++})";
+
+                colliderHolderInstance.transform.position = inkInstance.transform.position;
+                colliderHolderInstance.transform.rotation = inkInstance.transform.rotation;
+
+                inkInstance.transform.SetParent(colliderHolderInstance.transform);
+                colliderHolderInstance.transform.SetParent(inkPool);
+
+                CreateInkMeshCollider(colliderHolderInstance);
+
+                Destroy(colliderHolderInstance.GetComponent<MeshFilter>());
             }
 
             inkInstance = null;
@@ -319,11 +327,12 @@ namespace QvPen.Udon
             eraser.gameObject.SetActive(true);
         }
 
-        private void CreateInkMeshCollider()
+        private void CreateInkMeshCollider(GameObject colliderHolder)
         {
+            var meshFilter = colliderHolder.GetComponent<MeshFilter>();
+            var meshCollider = colliderHolder.GetComponent<MeshCollider>();
+
             var trailRenderer = inkInstance.GetComponent<TrailRenderer>();
-            var meshFilter = inkInstance.GetComponent<MeshFilter>();
-            var meshCollider = inkInstance.GetComponent<MeshCollider>();
 
             var positionCount = trailRenderer.positionCount;
             if (positionCount < 2)

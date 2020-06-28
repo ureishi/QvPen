@@ -7,10 +7,10 @@ namespace QvPen.Udon
 {
     public class Eraser : UdonSharpBehaviour
     {
-        // Layer 13 : Pickup
-        // Layer 14 : PickupNoEnvironment
-        [SerializeField] private int inkLayer = 13;
-        [SerializeField] private int eraserLayer = 14;
+        // Layer 8 : Interactive
+        // Layer 9 : Player
+        [SerializeField] private int inkLayer = 9;
+        [SerializeField] private int eraserLayer = 8;
 
         [SerializeField] private Material normal;
         [SerializeField] private Material erasing;
