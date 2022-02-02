@@ -12,1999 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: ResetAllButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: d64031666e2915a4c84a19c6f0db55d9,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 55db05ffccdf5ec4983b379714b47b8a,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export message\r\n    .export pensParent\r\n
-    \   .export erasersParent\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
-    null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    message:
-    %UnityEngineUIText, null\r\n    erasersParent: %UnityEngineTransform, null\r\n
-    \   pensParent: %UnityEngineTransform, null\r\n    eraserManagers: %UnityEngineComponentArray,
-    null\r\n    penManagers: %UnityEngineComponentArray, null\r\n    master: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    onPlayerJoinedPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    onPlayerLeftPlayer:
-    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_this_intnl_UnityEngineGameObject: %UnityEngineGameObject,
-    this\r\n    __0_i_Int32: %SystemInt32, null\r\n    __0_masterName_String: %SystemString,
-    null\r\n    __0_eraserManager_EraserManager: %VRCUdonUdonBehaviour, null\r\n    __0_penManager_PenManager:
-    %VRCUdonUdonBehaviour, null\r\n    __0_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __1_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __0_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __0_const_intnl_SystemInt64: %SystemInt64, null\r\n    __1_const_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __2_const_intnl_SystemInt64: %SystemInt64, null\r\n
-    \   __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
-    null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_SystemString:
-    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
-    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
-    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
-    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_QvPenUdonEraserManager:
-    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
-    null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32:
-    %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
-    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __10_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __6_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __7_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __8_intnl_SystemBoolean: %SystemBoolean, null\r\n    __9_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
-    null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __7_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __8_intnl_SystemInt32: %SystemInt32, null\r\n    __9_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_SystemInt64: %SystemInt64, null\r\n    __1_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
-    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineTransform:
-    %UnityEngineTransform, null\r\n    __0_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour,
-    null\r\n    __0_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __1_intnl_QvPenUdonEraserManager:
-    %VRCUdonUdonBehaviour, null\r\n    __1_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour,
-    null\r\n    __2_intnl_QvPenUdonEraserManager: %VRCUdonUdonBehaviour, null\r\n
-    \   __2_intnl_QvPenUdonPenManager: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
-    \       \r\n         # namespace QvPen.Udon.UI\r\n        \r\n         # public
-    class ResetAllButton : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
-    [SerializeField] private Text message;\r\n        \r\n         # [SerializeField]
-    private Transform pensParent;\r\n        \r\n         # [SerializeField] private
-    Transform erasersParent;\r\n        \r\n         # private PenManager[] penManagers;\r\n
-    \       \r\n         # private EraserManager[] eraserManagers;\r\n        \r\n
-    \        # private VRCPlayerApi master;\r\n        \r\n         # private void
-    Start()\r\n    .export _start\r\n        \r\n    _start:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    master = Networking.LocalPlayer;\r\n        PUSH, master\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       \r\n         # penManagers = new PenManager[pensParent.childCount];\r\n
-    \       PUSH, pensParent\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
-    \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, penManagers\r\n        EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (var i = 0; i < pensParent.childCount; i++)\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
-    pensParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000304\r\n
-    \       \r\n         # {\r\n        \r\n         # penManagers[i] = pensParent.GetChild(i).GetComponent<PenManager>();\r\n
-    \       PUSH, pensParent\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
-    \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
-    \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_const_intnl_SystemType\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        EXTERN, \"UnityEngineComponent.__GetComponents__SystemType__UnityEngineComponentArray\"\r\n
-    \       PUSH, __0_const_intnl_QvPenUdonPenManager\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n
-    \       COPY\r\n        PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH,
-    __2_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002A8\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_QvPenUdonPenManager\r\n
-    \       COPY\r\n        PUSH, __1_intnl_QvPenUdonPenManager\r\n        PUSH, __0_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000020C\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
-    \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
-    __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x00000220\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
-    __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
-    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000026C\r\n
-    \       PUSH, __1_intnl_QvPenUdonPenManager\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n
-    \       COPY\r\n        JUMP, 0x000002A8\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000124\r\n        PUSH, penManagers\r\n        PUSH,
-    __0_i_Int32\r\n        PUSH, __0_intnl_QvPenUdonPenManager\r\n        EXTERN,
-    \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x0000005C\r\n        \r\n         # eraserManagers = new EraserManager[erasersParent.childCount];\r\n
-    \       PUSH, erasersParent\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN,
-    \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, eraserManagers\r\n        EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       \r\n         # for (var i = 0; i < erasersParent.childCount; i++)\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n
-    \       PUSH, erasersParent\r\n        PUSH, __2_intnl_SystemInt32\r\n        EXTERN,
-    \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH, __0_i_Int32\r\n
-    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005F0\r\n
-    \       \r\n         # {\r\n        \r\n         # eraserManagers[i] = erasersParent.GetChild(i).GetComponent<EraserManager>();\r\n
-    \       PUSH, erasersParent\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
-    \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
-    \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_const_intnl_SystemType\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        EXTERN, \"UnityEngineComponent.__GetComponents__SystemType__UnityEngineComponentArray\"\r\n
-    \       PUSH, __0_const_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_intnl_QvPenUdonEraserManager\r\n
-    \       COPY\r\n        PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH,
-    __3_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000594\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_QvPenUdonEraserManager\r\n
-    \       COPY\r\n        PUSH, __1_intnl_QvPenUdonEraserManager\r\n        PUSH,
-    __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemObject\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004F8\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
-    \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
-    __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x0000050C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
-    __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
-    \       PUSH, __2_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000558\r\n
-    \       PUSH, __1_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_intnl_QvPenUdonEraserManager\r\n
-    \       COPY\r\n        JUMP, 0x00000594\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000410\r\n        PUSH, eraserManagers\r\n        PUSH,
-    __0_i_Int32\r\n        PUSH, __0_intnl_QvPenUdonEraserManager\r\n        EXTERN,
-    \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __3_intnl_SystemInt32\r\n        COPY\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000348\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public override void OnPlayerJoined(VRCPlayerApi
-    player)\r\n    .export _onPlayerJoined\r\n        \r\n    _onPlayerJoined:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerJoinedPlayer\r\n
-    \       PUSH, __0_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
-    {\r\n        \r\n         # if (player.playerId <= master.playerId)\r\n        PUSH,
-    __0_player_VRCPlayerApi\r\n        PUSH, __6_intnl_SystemInt32\r\n        EXTERN,
-    \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n        PUSH, master\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n
-    \       PUSH, __6_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemInt32\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006A4\r\n
-    \       \r\n         # {\r\n        \r\n         # master = player;\r\n        PUSH,
-    __0_player_VRCPlayerApi\r\n        PUSH, master\r\n        COPY\r\n        \r\n
-    \        # UpdateMessage();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000748\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public override void OnPlayerLeft(VRCPlayerApi
-    player)\r\n    .export _onPlayerLeft\r\n        \r\n    _onPlayerLeft:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerLeftPlayer\r\n
-    \       PUSH, __1_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
-    {\r\n        \r\n         # if (player == master)\r\n        PUSH, __1_player_VRCPlayerApi\r\n
-    \       PUSH, master\r\n        PUSH, __5_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n        PUSH,
-    __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000072C\r\n        \r\n         #
-    {\r\n        \r\n         # master = Networking.GetOwner(gameObject);\r\n        PUSH,
-    __0_this_intnl_UnityEngineGameObject\r\n        PUSH, master\r\n        EXTERN,
-    \"VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       \r\n         # UpdateMessage();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000748\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # private void UpdateMessage()\r\n    UpdateMessage:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # var masterName = master == null ? \"master\" : master.displayName;\r\n
-    \       PUSH, master\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000794\r\n
-    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       COPY\r\n        JUMP, 0x000007AC\r\n        PUSH, master\r\n        PUSH,
-    __0_intnl_SystemString\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_masterName_String\r\n
-    \       COPY\r\n        \r\n         # message.text =\r\n        \r\n         #
-    $\"<size=18>Reset All</size>\\n\\n\" +\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        \r\n
-    \        # $\"<size=8>[Only {masterName} can do]</size>\\n\\n\" +\r\n        PUSH,
-    __3_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __0_masterName_String\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __1_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __4_const_intnl_SystemString\r\n
-    \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __1_intnl_interpolatedStr_String\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        \r\n
-    \        # $\"<size=14>(Global)</size>\";\r\n        PUSH, __5_const_intnl_SystemString\r\n
-    \       PUSH, __2_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __3_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH,
-    __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, message\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
-    \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public override void Interact()\r\n    .export
-    _interact\r\n        \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (!Networking.IsMaster) return;\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000924\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    foreach (var penManager in penManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        COPY\r\n        PUSH, penManagers\r\n
-    \       PUSH, __9_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __9_intnl_SystemInt32\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A24\r\n
-    \       PUSH, penManagers\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH,
-    __2_intnl_QvPenUdonPenManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __2_intnl_QvPenUdonPenManager\r\n        PUSH, __0_penManager_PenManager\r\n
-    \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (penManager)
-    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(PenManager.ResetAll));\r\n
-    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000009FC\r\n
-    \       PUSH, __0_penManager_PenManager\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __6_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000950\r\n        \r\n         # foreach (var eraserManager
-    in eraserManagers)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __8_intnl_SystemInt32\r\n        COPY\r\n        PUSH, eraserManagers\r\n        PUSH,
-    __9_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __9_intnl_SystemInt32\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B24\r\n
-    \       PUSH, eraserManagers\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH,
-    __2_intnl_QvPenUdonEraserManager\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __2_intnl_QvPenUdonEraserManager\r\n        PUSH, __0_eraserManager_EraserManager\r\n
-    \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (eraserManager)
-    eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(EraserManager.ResetAll));\r\n
-    \       PUSH, __0_eraserManager_EraserManager\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       EXTERN, \"UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000AFC\r\n
-    \       PUSH, __0_eraserManager_EraserManager\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __6_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000A50\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+  udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 0b16a7c96f276454ea6444654c3071be, type: 3}
-  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  behaviourSyncMode: 0
   compileErrors: []
-  debugInfo:
-    serializedDebugSpans:
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 0
-      endSourceChar: 0
-      line: 0
-      lineChar: 0
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 0
-      endSourceChar: 0
-      line: 0
-      lineChar: 0
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 0
-      endSourceChar: 6
-      line: 0
-      lineChar: 0
-      spanCodeSection: 'using '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 6
-      endSourceChar: 18
-      line: 0
-      lineChar: 6
-      spanCodeSection: "UdonSharp;\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 18
-      endSourceChar: 24
-      line: 1
-      lineChar: 0
-      spanCodeSection: 'using '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 24
-      endSourceChar: 38
-      line: 1
-      lineChar: 6
-      spanCodeSection: "UnityEngine;\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 38
-      endSourceChar: 44
-      line: 2
-      lineChar: 0
-      spanCodeSection: 'using '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 44
-      line: 2
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 44
-      endSourceChar: 56
-      line: 2
-      lineChar: 6
-      spanCodeSection: UnityEngine.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 56
-      endSourceChar: 61
-      line: 2
-      lineChar: 18
-      spanCodeSection: "UI;\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 67
-      line: 3
-      lineChar: 0
-      spanCodeSection: 'using '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 67
-      endSourceChar: 67
-      line: 3
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 67
-      endSourceChar: 71
-      line: 3
-      lineChar: 6
-      spanCodeSection: VRC.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 71
-      endSourceChar: 81
-      line: 3
-      lineChar: 10
-      spanCodeSection: "SDKBase;\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 81
-      endSourceChar: 87
-      line: 4
-      lineChar: 0
-      spanCodeSection: 'using '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 87
-      endSourceChar: 87
-      line: 4
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 87
-      endSourceChar: 87
-      line: 4
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 87
-      endSourceChar: 87
-      line: 4
-      lineChar: 6
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 87
-      endSourceChar: 91
-      line: 4
-      lineChar: 6
-      spanCodeSection: VRC.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 91
-      endSourceChar: 96
-      line: 4
-      lineChar: 10
-      spanCodeSection: Udon.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 96
-      endSourceChar: 103
-      line: 4
-      lineChar: 15
-      spanCodeSection: Common.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 103
-      endSourceChar: 118
-      line: 4
-      lineChar: 22
-      spanCodeSection: "Interfaces;\r\n\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 118
-      endSourceChar: 150
-      line: 6
-      lineChar: 0
-      spanCodeSection: "namespace QvPen.Udon.UI\r\n{\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 150
-      endSourceChar: 178
-      line: 8
-      lineChar: 4
-      spanCodeSection: 'public class ResetAllButton '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 178
-      endSourceChar: 180
-      line: 8
-      lineChar: 32
-      spanCodeSection: ': '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 180
-      endSourceChar: 180
-      line: 8
-      lineChar: 34
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 180
-      endSourceChar: 215
-      line: 8
-      lineChar: 34
-      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 215
-      endSourceChar: 216
-      line: 10
-      lineChar: 8
-      spanCodeSection: '['
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 216
-      endSourceChar: 216
-      line: 10
-      lineChar: 9
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 216
-      endSourceChar: 240
-      line: 10
-      lineChar: 9
-      spanCodeSection: 'SerializeField] private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 240
-      endSourceChar: 240
-      line: 10
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 240
-      endSourceChar: 263
-      line: 10
-      lineChar: 33
-      spanCodeSection: "Text message;\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 263
-      endSourceChar: 264
-      line: 11
-      lineChar: 8
-      spanCodeSection: '['
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 264
-      endSourceChar: 264
-      line: 11
-      lineChar: 9
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 264
-      endSourceChar: 288
-      line: 11
-      lineChar: 9
-      spanCodeSection: 'SerializeField] private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 288
-      endSourceChar: 288
-      line: 11
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 288
-      endSourceChar: 319
-      line: 11
-      lineChar: 33
-      spanCodeSection: "Transform pensParent;\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 319
-      endSourceChar: 320
-      line: 12
-      lineChar: 8
-      spanCodeSection: '['
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 320
-      endSourceChar: 320
-      line: 12
-      lineChar: 9
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 320
-      endSourceChar: 344
-      line: 12
-      lineChar: 9
-      spanCodeSection: 'SerializeField] private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 344
-      endSourceChar: 344
-      line: 12
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 344
-      endSourceChar: 380
-      line: 12
-      lineChar: 33
-      spanCodeSection: "Transform erasersParent;\r\n\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 380
-      endSourceChar: 388
-      line: 14
-      lineChar: 8
-      spanCodeSection: 'private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 388
-      endSourceChar: 388
-      line: 14
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 388
-      endSourceChar: 388
-      line: 14
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 388
-      endSourceChar: 423
-      line: 14
-      lineChar: 16
-      spanCodeSection: "PenManager[] penManagers;\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 423
-      endSourceChar: 431
-      line: 15
-      lineChar: 8
-      spanCodeSection: 'private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 431
-      endSourceChar: 431
-      line: 15
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 431
-      endSourceChar: 431
-      line: 15
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 431
-      endSourceChar: 474
-      line: 15
-      lineChar: 16
-      spanCodeSection: "EraserManager[] eraserManagers;\r\n\r\n        "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 474
-      endSourceChar: 482
-      line: 17
-      lineChar: 8
-      spanCodeSection: 'private '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 482
-      endSourceChar: 482
-      line: 17
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 482
-      endSourceChar: 514
-      line: 17
-      lineChar: 16
-      spanCodeSection: "VRCPlayerApi master;\r\n\r\n        "
-    - startInstruction: 0
-      endInstruction: 7
-      startSourceChar: 514
-      endSourceChar: 544
-      line: 19
-      lineChar: 8
-      spanCodeSection: "private void Start()\r\n        "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 544
-      endSourceChar: 559
-      line: 20
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 559
-      endSourceChar: 559
-      line: 21
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 559
-      endSourceChar: 559
-      line: 21
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 559
-      endSourceChar: 568
-      line: 21
-      lineChar: 12
-      spanCodeSection: 'master = '
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 568
-      endSourceChar: 568
-      line: 21
-      lineChar: 21
-      spanCodeSection: 
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 568
-      endSourceChar: 579
-      line: 21
-      lineChar: 21
-      spanCodeSection: Networking.
-    - startInstruction: 8
-      endInstruction: 23
-      startSourceChar: 579
-      endSourceChar: 607
-      line: 21
-      lineChar: 32
-      spanCodeSection: "LocalPlayer;\r\n\r\n            "
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 607
-      endSourceChar: 607
-      line: 23
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 607
-      endSourceChar: 607
-      line: 23
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 607
-      endSourceChar: 621
-      line: 23
-      lineChar: 12
-      spanCodeSection: 'penManagers = '
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 621
-      endSourceChar: 625
-      line: 23
-      lineChar: 26
-      spanCodeSection: 'new '
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 625
-      endSourceChar: 625
-      line: 23
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 625
-      endSourceChar: 635
-      line: 23
-      lineChar: 30
-      spanCodeSection: PenManager
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 635
-      endSourceChar: 636
-      line: 23
-      lineChar: 40
-      spanCodeSection: '['
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 636
-      endSourceChar: 636
-      line: 23
-      lineChar: 41
-      spanCodeSection: 
-    - startInstruction: 24
-      endInstruction: 23
-      startSourceChar: 636
-      endSourceChar: 647
-      line: 23
-      lineChar: 41
-      spanCodeSection: pensParent.
-    - startInstruction: 24
-      endInstruction: 71
-      startSourceChar: 647
-      endSourceChar: 673
-      line: 23
-      lineChar: 52
-      spanCodeSection: "childCount];\r\n            "
-    - startInstruction: 72
-      endInstruction: 71
-      startSourceChar: 673
-      endSourceChar: 678
-      line: 24
-      lineChar: 12
-      spanCodeSection: for (
-    - startInstruction: 72
-      endInstruction: 71
-      startSourceChar: 678
-      endSourceChar: 678
-      line: 24
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 72
-      endInstruction: 71
-      startSourceChar: 678
-      endSourceChar: 684
-      line: 24
-      lineChar: 17
-      spanCodeSection: 'var i '
-    - startInstruction: 72
-      endInstruction: 71
-      startSourceChar: 684
-      endSourceChar: 686
-      line: 24
-      lineChar: 23
-      spanCodeSection: '= '
-    - startInstruction: 72
-      endInstruction: 91
-      startSourceChar: 686
-      endSourceChar: 689
-      line: 24
-      lineChar: 25
-      spanCodeSection: '0; '
-    - startInstruction: 92
-      endInstruction: 91
-      startSourceChar: 689
-      endSourceChar: 689
-      line: 24
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 92
-      endInstruction: 91
-      startSourceChar: 689
-      endSourceChar: 693
-      line: 24
-      lineChar: 28
-      spanCodeSection: 'i < '
-    - startInstruction: 92
-      endInstruction: 91
-      startSourceChar: 693
-      endSourceChar: 693
-      line: 24
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 92
-      endInstruction: 91
-      startSourceChar: 693
-      endSourceChar: 704
-      line: 24
-      lineChar: 32
-      spanCodeSection: pensParent.
-    - startInstruction: 92
-      endInstruction: 163
-      startSourceChar: 704
-      endSourceChar: 734
-      line: 24
-      lineChar: 43
-      spanCodeSection: "childCount; i++)\r\n            "
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 734
-      endSourceChar: 753
-      line: 25
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 753
-      endSourceChar: 753
-      line: 26
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 753
-      endSourceChar: 753
-      line: 26
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 753
-      endSourceChar: 753
-      line: 26
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 753
-      endSourceChar: 765
-      line: 26
-      lineChar: 16
-      spanCodeSection: penManagers[
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 765
-      endSourceChar: 765
-      line: 26
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 765
-      endSourceChar: 770
-      line: 26
-      lineChar: 28
-      spanCodeSection: 'i] = '
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 770
-      endSourceChar: 770
-      line: 26
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 770
-      endSourceChar: 770
-      line: 26
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 770
-      endSourceChar: 770
-      line: 26
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 770
-      endSourceChar: 770
-      line: 26
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 770
-      endSourceChar: 781
-      line: 26
-      lineChar: 33
-      spanCodeSection: pensParent.
-    - startInstruction: 164
-      endInstruction: 163
-      startSourceChar: 781
-      endSourceChar: 790
-      line: 26
-      lineChar: 44
-      spanCodeSection: GetChild(
-    - startInstruction: 164
-      endInstruction: 195
-      startSourceChar: 790
-      endSourceChar: 793
-      line: 26
-      lineChar: 53
-      spanCodeSection: i).
-    - startInstruction: 196
-      endInstruction: 195
-      startSourceChar: 793
-      endSourceChar: 805
-      line: 26
-      lineChar: 56
-      spanCodeSection: GetComponent
-    - startInstruction: 196
-      endInstruction: 195
-      startSourceChar: 805
-      endSourceChar: 806
-      line: 26
-      lineChar: 68
-      spanCodeSection: <
-    - startInstruction: 196
-      endInstruction: 771
-      startSourceChar: 806
-      endSourceChar: 851
-      line: 26
-      lineChar: 69
-      spanCodeSection: "PenManager>();\r\n            }\r\n\r\n            "
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 851
-      endSourceChar: 851
-      line: 29
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 851
-      endSourceChar: 851
-      line: 29
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 851
-      endSourceChar: 868
-      line: 29
-      lineChar: 12
-      spanCodeSection: 'eraserManagers = '
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 868
-      endSourceChar: 872
-      line: 29
-      lineChar: 29
-      spanCodeSection: 'new '
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 872
-      endSourceChar: 872
-      line: 29
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 872
-      endSourceChar: 885
-      line: 29
-      lineChar: 33
-      spanCodeSection: EraserManager
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 885
-      endSourceChar: 886
-      line: 29
-      lineChar: 46
-      spanCodeSection: '['
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 886
-      endSourceChar: 886
-      line: 29
-      lineChar: 47
-      spanCodeSection: 
-    - startInstruction: 772
-      endInstruction: 771
-      startSourceChar: 886
-      endSourceChar: 900
-      line: 29
-      lineChar: 47
-      spanCodeSection: erasersParent.
-    - startInstruction: 772
-      endInstruction: 819
-      startSourceChar: 900
-      endSourceChar: 926
-      line: 29
-      lineChar: 61
-      spanCodeSection: "childCount];\r\n            "
-    - startInstruction: 820
-      endInstruction: 819
-      startSourceChar: 926
-      endSourceChar: 931
-      line: 30
-      lineChar: 12
-      spanCodeSection: for (
-    - startInstruction: 820
-      endInstruction: 819
-      startSourceChar: 931
-      endSourceChar: 931
-      line: 30
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 820
-      endInstruction: 819
-      startSourceChar: 931
-      endSourceChar: 937
-      line: 30
-      lineChar: 17
-      spanCodeSection: 'var i '
-    - startInstruction: 820
-      endInstruction: 819
-      startSourceChar: 937
-      endSourceChar: 939
-      line: 30
-      lineChar: 23
-      spanCodeSection: '= '
-    - startInstruction: 820
-      endInstruction: 839
-      startSourceChar: 939
-      endSourceChar: 942
-      line: 30
-      lineChar: 25
-      spanCodeSection: '0; '
-    - startInstruction: 840
-      endInstruction: 839
-      startSourceChar: 942
-      endSourceChar: 942
-      line: 30
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 840
-      endInstruction: 839
-      startSourceChar: 942
-      endSourceChar: 946
-      line: 30
-      lineChar: 28
-      spanCodeSection: 'i < '
-    - startInstruction: 840
-      endInstruction: 839
-      startSourceChar: 946
-      endSourceChar: 946
-      line: 30
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 840
-      endInstruction: 839
-      startSourceChar: 946
-      endSourceChar: 960
-      line: 30
-      lineChar: 32
-      spanCodeSection: erasersParent.
-    - startInstruction: 840
-      endInstruction: 911
-      startSourceChar: 960
-      endSourceChar: 990
-      line: 30
-      lineChar: 46
-      spanCodeSection: "childCount; i++)\r\n            "
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 990
-      endSourceChar: 1009
-      line: 31
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1009
-      endSourceChar: 1009
-      line: 32
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1009
-      endSourceChar: 1009
-      line: 32
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1009
-      endSourceChar: 1009
-      line: 32
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1009
-      endSourceChar: 1024
-      line: 32
-      lineChar: 16
-      spanCodeSection: eraserManagers[
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1024
-      endSourceChar: 1024
-      line: 32
-      lineChar: 31
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1024
-      endSourceChar: 1029
-      line: 32
-      lineChar: 31
-      spanCodeSection: 'i] = '
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1029
-      endSourceChar: 1029
-      line: 32
-      lineChar: 36
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1029
-      endSourceChar: 1029
-      line: 32
-      lineChar: 36
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1029
-      endSourceChar: 1029
-      line: 32
-      lineChar: 36
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1029
-      endSourceChar: 1029
-      line: 32
-      lineChar: 36
-      spanCodeSection: 
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1029
-      endSourceChar: 1043
-      line: 32
-      lineChar: 36
-      spanCodeSection: erasersParent.
-    - startInstruction: 912
-      endInstruction: 911
-      startSourceChar: 1043
-      endSourceChar: 1052
-      line: 32
-      lineChar: 50
-      spanCodeSection: GetChild(
-    - startInstruction: 912
-      endInstruction: 943
-      startSourceChar: 1052
-      endSourceChar: 1055
-      line: 32
-      lineChar: 59
-      spanCodeSection: i).
-    - startInstruction: 944
-      endInstruction: 943
-      startSourceChar: 1055
-      endSourceChar: 1067
-      line: 32
-      lineChar: 62
-      spanCodeSection: GetComponent
-    - startInstruction: 944
-      endInstruction: 943
-      startSourceChar: 1067
-      endSourceChar: 1068
-      line: 32
-      lineChar: 74
-      spanCodeSection: <
-    - startInstruction: 944
-      endInstruction: 1539
-      startSourceChar: 1068
-      endSourceChar: 1123
-      line: 32
-      lineChar: 75
-      spanCodeSection: "EraserManager>();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1540
-      endInstruction: 1539
-      startSourceChar: 1123
-      endSourceChar: 1159
-      line: 36
-      lineChar: 8
-      spanCodeSection: public override void OnPlayerJoined(
-    - startInstruction: 1540
-      endInstruction: 1567
-      startSourceChar: 1159
-      endSourceChar: 1189
-      line: 36
-      lineChar: 44
-      spanCodeSection: "VRCPlayerApi player)\r\n        "
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 1189
-      endSourceChar: 1204
-      line: 37
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 1204
-      endSourceChar: 1208
-      line: 38
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 1208
-      endSourceChar: 1208
-      line: 38
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 1208
-      endSourceChar: 1208
-      line: 38
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 1208
-      endSourceChar: 1215
-      line: 38
-      lineChar: 16
-      spanCodeSection: player.
-    - startInstruction: 1568
-      endInstruction: 1591
-      startSourceChar: 1215
-      endSourceChar: 1227
-      line: 38
-      lineChar: 23
-      spanCodeSection: 'playerId <= '
-    - startInstruction: 1592
-      endInstruction: 1591
-      startSourceChar: 1227
-      endSourceChar: 1227
-      line: 38
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 1592
-      endInstruction: 1591
-      startSourceChar: 1227
-      endSourceChar: 1234
-      line: 38
-      lineChar: 35
-      spanCodeSection: master.
-    - startInstruction: 1592
-      endInstruction: 1663
-      startSourceChar: 1234
-      endSourceChar: 1257
-      line: 38
-      lineChar: 42
-      spanCodeSection: "playerId)\r\n            "
-    - startInstruction: 1664
-      endInstruction: 1663
-      startSourceChar: 1257
-      endSourceChar: 1276
-      line: 39
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 1664
-      endInstruction: 1663
-      startSourceChar: 1276
-      endSourceChar: 1276
-      line: 40
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1664
-      endInstruction: 1663
-      startSourceChar: 1276
-      endSourceChar: 1276
-      line: 40
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1664
-      endInstruction: 1663
-      startSourceChar: 1276
-      endSourceChar: 1285
-      line: 40
-      lineChar: 16
-      spanCodeSection: 'master = '
-    - startInstruction: 1664
-      endInstruction: 1683
-      startSourceChar: 1285
-      endSourceChar: 1310
-      line: 40
-      lineChar: 25
-      spanCodeSection: "player;\r\n                "
-    - startInstruction: 1684
-      endInstruction: 1683
-      startSourceChar: 1310
-      endSourceChar: 1310
-      line: 41
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1684
-      endInstruction: 1683
-      startSourceChar: 1310
-      endSourceChar: 1310
-      line: 41
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1684
-      endInstruction: 1719
-      startSourceChar: 1310
-      endSourceChar: 1364
-      line: 41
-      lineChar: 16
-      spanCodeSection: "UpdateMessage();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1720
-      endInstruction: 1719
-      startSourceChar: 1364
-      endSourceChar: 1398
-      line: 45
-      lineChar: 8
-      spanCodeSection: public override void OnPlayerLeft(
-    - startInstruction: 1720
-      endInstruction: 1747
-      startSourceChar: 1398
-      endSourceChar: 1428
-      line: 45
-      lineChar: 42
-      spanCodeSection: "VRCPlayerApi player)\r\n        "
-    - startInstruction: 1748
-      endInstruction: 1747
-      startSourceChar: 1428
-      endSourceChar: 1443
-      line: 46
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1748
-      endInstruction: 1747
-      startSourceChar: 1443
-      endSourceChar: 1447
-      line: 47
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 1748
-      endInstruction: 1747
-      startSourceChar: 1447
-      endSourceChar: 1447
-      line: 47
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1748
-      endInstruction: 1747
-      startSourceChar: 1447
-      endSourceChar: 1457
-      line: 47
-      lineChar: 16
-      spanCodeSection: 'player == '
-    - startInstruction: 1748
-      endInstruction: 1795
-      startSourceChar: 1457
-      endSourceChar: 1478
-      line: 47
-      lineChar: 26
-      spanCodeSection: "master)\r\n            "
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1478
-      endSourceChar: 1497
-      line: 48
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1497
-      endSourceChar: 1497
-      line: 49
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1497
-      endSourceChar: 1497
-      line: 49
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1497
-      endSourceChar: 1506
-      line: 49
-      lineChar: 16
-      spanCodeSection: 'master = '
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1506
-      endSourceChar: 1506
-      line: 49
-      lineChar: 25
-      spanCodeSection: 
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1506
-      endSourceChar: 1506
-      line: 49
-      lineChar: 25
-      spanCodeSection: 
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1506
-      endSourceChar: 1517
-      line: 49
-      lineChar: 25
-      spanCodeSection: Networking.
-    - startInstruction: 1796
-      endInstruction: 1795
-      startSourceChar: 1517
-      endSourceChar: 1526
-      line: 49
-      lineChar: 36
-      spanCodeSection: GetOwner(
-    - startInstruction: 1796
-      endInstruction: 1819
-      startSourceChar: 1526
-      endSourceChar: 1556
-      line: 49
-      lineChar: 45
-      spanCodeSection: "gameObject);\r\n                "
-    - startInstruction: 1820
-      endInstruction: 1819
-      startSourceChar: 1556
-      endSourceChar: 1556
-      line: 50
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1820
-      endInstruction: 1819
-      startSourceChar: 1556
-      endSourceChar: 1556
-      line: 50
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1820
-      endInstruction: 1855
-      startSourceChar: 1556
-      endSourceChar: 1610
-      line: 50
-      lineChar: 16
-      spanCodeSection: "UpdateMessage();\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 1856
-      endInstruction: 1863
-      startSourceChar: 1610
-      endSourceChar: 1648
-      line: 54
-      lineChar: 8
-      spanCodeSection: "private void UpdateMessage()\r\n        "
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1648
-      endSourceChar: 1663
-      line: 55
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1663
-      endSourceChar: 1663
-      line: 56
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1663
-      endSourceChar: 1663
-      line: 56
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1663
-      endSourceChar: 1678
-      line: 56
-      lineChar: 12
-      spanCodeSection: 'var masterName '
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1678
-      endSourceChar: 1680
-      line: 56
-      lineChar: 27
-      spanCodeSection: '= '
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 56
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 56
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1680
-      endSourceChar: 1690
-      line: 56
-      lineChar: 29
-      spanCodeSection: 'master == '
-    - startInstruction: 1864
-      endInstruction: 1911
-      startSourceChar: 1690
-      endSourceChar: 1697
-      line: 56
-      lineChar: 39
-      spanCodeSection: 'null ? '
-    - startInstruction: 1912
-      endInstruction: 1939
-      startSourceChar: 1697
-      endSourceChar: 1708
-      line: 56
-      lineChar: 46
-      spanCodeSection: '"master" : '
-    - startInstruction: 1940
-      endInstruction: 1939
-      startSourceChar: 1708
-      endSourceChar: 1708
-      line: 56
-      lineChar: 57
-      spanCodeSection: 
-    - startInstruction: 1940
-      endInstruction: 1939
-      startSourceChar: 1708
-      endSourceChar: 1715
-      line: 56
-      lineChar: 57
-      spanCodeSection: master.
-    - startInstruction: 1940
-      endInstruction: 1983
-      startSourceChar: 1715
-      endSourceChar: 1741
-      line: 56
-      lineChar: 64
-      spanCodeSection: "displayName;\r\n            "
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1741
-      endSourceChar: 1741
-      line: 57
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1741
-      endSourceChar: 1741
-      line: 57
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1741
-      endSourceChar: 1741
-      line: 57
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1741
-      endSourceChar: 1749
-      line: 57
-      lineChar: 12
-      spanCodeSection: message.
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1749
-      endSourceChar: 1773
-      line: 57
-      lineChar: 20
-      spanCodeSection: "text =\r\n                "
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1773
-      endSourceChar: 1773
-      line: 58
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1773
-      endSourceChar: 1773
-      line: 58
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 1984
-      endInstruction: 1983
-      startSourceChar: 1773
-      endSourceChar: 1775
-      line: 58
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 1984
-      endInstruction: 2003
-      startSourceChar: 1775
-      endSourceChar: 1825
-      line: 58
-      lineChar: 18
-      spanCodeSection: "<size=18>Reset All</size>\\n\\n\" +\r\n                "
-    - startInstruction: 2004
-      endInstruction: 2003
-      startSourceChar: 1825
-      endSourceChar: 1827
-      line: 59
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 2004
-      endInstruction: 2023
-      startSourceChar: 1827
-      endSourceChar: 1841
-      line: 59
-      lineChar: 18
-      spanCodeSection: '<size=8>[Only '
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 1841
-      endSourceChar: 1842
-      line: 59
-      lineChar: 32
-      spanCodeSection: '{'
-    - startInstruction: 2024
-      endInstruction: 2075
-      startSourceChar: 1842
-      endSourceChar: 1853
-      line: 59
-      lineChar: 33
-      spanCodeSection: masterName}
-    - startInstruction: 2076
-      endInstruction: 2159
-      startSourceChar: 1853
-      endSourceChar: 1893
-      line: 59
-      lineChar: 44
-      spanCodeSection: " can do]</size>\\n\\n\" +\r\n                "
-    - startInstruction: 2160
-      endInstruction: 2159
-      startSourceChar: 1893
-      endSourceChar: 1895
-      line: 60
-      lineChar: 16
-      spanCodeSection: $"
-    - startInstruction: 2160
-      endInstruction: 2255
-      startSourceChar: 1895
-      endSourceChar: 1944
-      line: 60
-      lineChar: 18
-      spanCodeSection: "<size=14>(Global)</size>\";\r\n        }\r\n\r\n        "
-    - startInstruction: 2256
-      endInstruction: 2263
-      startSourceChar: 1944
-      endSourceChar: 1985
-      line: 63
-      lineChar: 8
-      spanCodeSection: "public override void Interact()\r\n        "
-    - startInstruction: 2264
-      endInstruction: 2263
-      startSourceChar: 1985
-      endSourceChar: 2000
-      line: 64
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 2264
-      endInstruction: 2263
-      startSourceChar: 2000
-      endSourceChar: 2004
-      line: 65
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 2264
-      endInstruction: 2263
-      startSourceChar: 2004
-      endSourceChar: 2005
-      line: 65
-      lineChar: 16
-      spanCodeSection: '!'
-    - startInstruction: 2264
-      endInstruction: 2263
-      startSourceChar: 2005
-      endSourceChar: 2005
-      line: 65
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 2264
-      endInstruction: 2263
-      startSourceChar: 2005
-      endSourceChar: 2016
-      line: 65
-      lineChar: 17
-      spanCodeSection: Networking.
-    - startInstruction: 2264
-      endInstruction: 2319
-      startSourceChar: 2016
-      endSourceChar: 2026
-      line: 65
-      lineChar: 28
-      spanCodeSection: 'IsMaster) '
-    - startInstruction: 2320
-      endInstruction: 2339
-      startSourceChar: 2026
-      endSourceChar: 2049
-      line: 65
-      lineChar: 38
-      spanCodeSection: "return;\r\n\r\n            "
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2049
-      endSourceChar: 2058
-      line: 67
-      lineChar: 12
-      spanCodeSection: foreach (
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2058
-      endSourceChar: 2076
-      line: 67
-      lineChar: 21
-      spanCodeSection: 'var penManager in '
-    - startInstruction: 2340
-      endInstruction: 2483
-      startSourceChar: 2076
-      endSourceChar: 2102
-      line: 67
-      lineChar: 39
-      spanCodeSection: "penManagers)\r\n            "
-    - startInstruction: 2484
-      endInstruction: 2483
-      startSourceChar: 2102
-      endSourceChar: 2121
-      line: 68
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 2484
-      endInstruction: 2483
-      startSourceChar: 2121
-      endSourceChar: 2125
-      line: 69
-      lineChar: 16
-      spanCodeSection: if (
-    - startInstruction: 2484
-      endInstruction: 2523
-      startSourceChar: 2125
-      endSourceChar: 2137
-      line: 69
-      lineChar: 20
-      spanCodeSection: 'penManager) '
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2137
-      endSourceChar: 2137
-      line: 69
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2137
-      endSourceChar: 2137
-      line: 69
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2137
-      endSourceChar: 2137
-      line: 69
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2137
-      endSourceChar: 2148
-      line: 69
-      lineChar: 32
-      spanCodeSection: penManager.
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2148
-      endSourceChar: 2171
-      line: 69
-      lineChar: 43
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2171
-      endSourceChar: 2171
-      line: 69
-      lineChar: 66
-      spanCodeSection: 
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2171
-      endSourceChar: 2190
-      line: 69
-      lineChar: 66
-      spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2190
-      endSourceChar: 2195
-      line: 69
-      lineChar: 85
-      spanCodeSection: 'All, '
-    - startInstruction: 2524
-      endInstruction: 2523
-      startSourceChar: 2195
-      endSourceChar: 2213
-      line: 69
-      lineChar: 90
-      spanCodeSection: nameof(PenManager.
-    - startInstruction: 2524
-      endInstruction: 2595
-      startSourceChar: 2213
-      endSourceChar: 2255
-      line: 69
-      lineChar: 108
-      spanCodeSection: "ResetAll));\r\n            }\r\n\r\n            "
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 2255
-      endSourceChar: 2264
-      line: 72
-      lineChar: 12
-      spanCodeSection: foreach (
-    - startInstruction: 2596
-      endInstruction: 2595
-      startSourceChar: 2264
-      endSourceChar: 2285
-      line: 72
-      lineChar: 21
-      spanCodeSection: 'var eraserManager in '
-    - startInstruction: 2596
-      endInstruction: 2739
-      startSourceChar: 2285
-      endSourceChar: 2314
-      line: 72
-      lineChar: 42
-      spanCodeSection: "eraserManagers)\r\n            "
-    - startInstruction: 2740
-      endInstruction: 2739
-      startSourceChar: 2314
-      endSourceChar: 2333
-      line: 73
-      lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 2740
-      endInstruction: 2739
-      startSourceChar: 2333
-      endSourceChar: 2337
-      line: 74
-      lineChar: 16
-      spanCodeSection: if (
-    - startInstruction: 2740
-      endInstruction: 2779
-      startSourceChar: 2337
-      endSourceChar: 2352
-      line: 74
-      lineChar: 20
-      spanCodeSection: 'eraserManager) '
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2352
-      endSourceChar: 2352
-      line: 74
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2352
-      endSourceChar: 2352
-      line: 74
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2352
-      endSourceChar: 2352
-      line: 74
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2352
-      endSourceChar: 2366
-      line: 74
-      lineChar: 35
-      spanCodeSection: eraserManager.
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2366
-      endSourceChar: 2389
-      line: 74
-      lineChar: 49
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2389
-      endSourceChar: 2389
-      line: 74
-      lineChar: 72
-      spanCodeSection: 
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2389
-      endSourceChar: 2408
-      line: 74
-      lineChar: 72
-      spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2408
-      endSourceChar: 2413
-      line: 74
-      lineChar: 91
-      spanCodeSection: 'All, '
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 2413
-      endSourceChar: 2434
-      line: 74
-      lineChar: 96
-      spanCodeSection: nameof(EraserManager.
-    - startInstruction: 2780
-      endInstruction: 2780
-      startSourceChar: 2434
-      endSourceChar: 2434
-      line: 74
-      lineChar: 117
-      spanCodeSection: 
   hasInteractEvent: 1
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11500000, guid: bb53ca2cbd3b0024380e604a00f05e07, type: 3}
-    - {fileID: 11500000, guid: f7b1598b6e36958498183f3f6ea42716, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2012,7 +31,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: fieldDefinitions
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.Compiler.FieldDefinition,
         UdonSharp.Editor]], mscorlib
     - Name: comparer
       Entry: 7
@@ -2032,49 +51,43 @@ MonoBehaviour:
       Data: message
     - Name: $v
       Entry: 7
-      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
+      Data: 2|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: message
+    - Name: <UserType>k__BackingField
       Entry: 7
-      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 4|System.RuntimeType, mscorlib
+      Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.UI.Text, UnityEngine.UI
     - Name: 
       Entry: 8
       Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: UnityEngineUIText
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: message
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: message
-    - Name: symbolDefaultValue
+    - Name: <SystemType>k__BackingField
+      Entry: 9
+      Data: 3
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: true
     - Name: fieldAttributes
       Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 4|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 5|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -2101,49 +114,43 @@ MonoBehaviour:
       Data: pensParent
     - Name: $v
       Entry: 7
-      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
+      Data: 6|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: pensParent
+    - Name: <UserType>k__BackingField
       Entry: 7
-      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 9|System.RuntimeType, mscorlib
+      Data: 7|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.Transform, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: UnityEngineTransform
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: pensParent
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: pensParent
-    - Name: symbolDefaultValue
+    - Name: <SystemType>k__BackingField
+      Entry: 9
+      Data: 7
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: true
     - Name: fieldAttributes
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 8|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 11|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 9|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -2170,43 +177,37 @@ MonoBehaviour:
       Data: erasersParent
     - Name: $v
       Entry: 7
-      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
+      Data: 10|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: erasersParent
+    - Name: <UserType>k__BackingField
       Entry: 9
-      Data: 9
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: UnityEngineTransform
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: erasersParent
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: erasersParent
-    - Name: symbolDefaultValue
+      Data: 7
+    - Name: <SystemType>k__BackingField
+      Entry: 9
+      Data: 7
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: true
     - Name: fieldAttributes
       Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 11|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 15|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 12|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -2233,40 +234,97 @@ MonoBehaviour:
       Data: penManagers
     - Name: $v
       Entry: 7
-      Data: 16|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
+      Data: 13|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: penManagers
+    - Name: <UserType>k__BackingField
       Entry: 7
-      Data: 17|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 18|System.RuntimeType, mscorlib
+      Data: 14|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: QvPen.Udon.PenManager[], Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 2
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
+    - Name: <SystemType>k__BackingField
+      Entry: 7
+      Data: 15|System.RuntimeType, mscorlib
+    - Name: 
       Entry: 1
-      Data: UnityEngineComponentArray
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: penManagers
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: penManagers
-    - Name: symbolDefaultValue
+      Data: UnityEngine.Component[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: false
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: eraserManagers
+    - Name: $v
+      Entry: 7
+      Data: 17|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: eraserManagers
+    - Name: <UserType>k__BackingField
+      Entry: 7
+      Data: 18|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: QvPen.Udon.EraserManager[], Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <SystemType>k__BackingField
+      Entry: 9
+      Data: 15
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: false
     - Name: fieldAttributes
       Entry: 7
       Data: 19|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
@@ -2280,71 +338,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: userBehaviourSource
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: eraserManagers
-    - Name: $v
-      Entry: 7
-      Data: 20|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 21|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 22|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: QvPen.Udon.EraserManager[], Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 2
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: UnityEngineComponentArray
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: eraserManagers
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: eraserManagers
-    - Name: symbolDefaultValue
       Entry: 6
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 23|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 10
-      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -2359,43 +354,37 @@ MonoBehaviour:
       Data: master
     - Name: $v
       Entry: 7
-      Data: 24|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
+      Data: 20|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: master
+    - Name: <UserType>k__BackingField
       Entry: 7
-      Data: 25|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 26|System.RuntimeType, mscorlib
+      Data: 21|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: VRC.SDKBase.VRCPlayerApi, VRCSDKBase
     - Name: 
       Entry: 8
       Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 2
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: VRCSDKBaseVRCPlayerApi
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: master
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: master
-    - Name: symbolDefaultValue
+    - Name: <SystemType>k__BackingField
+      Entry: 9
+      Data: 21
+    - Name: <SyncMode>k__BackingField
+      Entry: 7
+      Data: System.Nullable`1[[UdonSharp.UdonSyncMode, UdonSharp.Runtime]], mscorlib
+    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: <IsSerialized>k__BackingField
+      Entry: 5
+      Data: false
     - Name: fieldAttributes
       Entry: 7
-      Data: 27|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 22|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0

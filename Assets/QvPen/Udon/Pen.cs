@@ -276,7 +276,7 @@ namespace QvPen.Udon
 
         private void StartDrawing()
         {
-            inkInstance = VRCInstantiate(inkPrefab);
+            inkInstance = Instantiate(inkPrefab);
 
             inkInstance.transform.SetParent(spawnTarget);
             inkInstance.transform.localPosition = Vector3.zero;
@@ -289,7 +289,7 @@ namespace QvPen.Udon
         {
             if (inkInstance != null)
             {
-                var colliderHolderInstance = VRCInstantiate(colliderHolder);
+                var colliderHolderInstance = Instantiate(colliderHolder);
                 colliderHolderInstance.name = $"{inkPrefix} ({inkCount++})";
 
                 colliderHolderInstance.transform.position = inkInstance.transform.position;

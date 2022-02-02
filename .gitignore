@@ -58,7 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-#
+.vsconfig
+.idea/*
+
+/[Pp]ackages/
+
+# QvPen stuff
 /[Aa]ssets/*
 !/[Aa]ssets/QvPen/
-#!/[Aa]ssets/SerializedUdonPrograms/
