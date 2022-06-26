@@ -1,0 +1,18 @@
+{
+  "name": "com.github.ureishi.qvpen",
+  "displayName": "QvPen",
+  "version": "0.0.0",
+  "author": {
+    "name": "ureishi",
+    "url": "https://github.com/ureishi"
+  },
+  "gitDependencies" : {
+    "com.vrchat.base" : "https://github.com/vrchat/packages.git?path=/packages/com.vrchat.base#3.0.4",
+    "com.vrchat.worlds" : "https://github.com/vrchat/packages.git?path=/packages/com.vrchat.worlds#3.0.4"
+  },
+  "url" : "https://github.com/ureishi/QvPen.git?path=/Assets/QvPen",
+  "samples" : [],
+  "legacyFolders" : {
+    "Assets/QvPen" : ""
+  }
+}
