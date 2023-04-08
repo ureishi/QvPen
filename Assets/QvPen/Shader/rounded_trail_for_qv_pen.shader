@@ -10,11 +10,13 @@
 // 2019-09-26 customized for QvPen v2.
 // 2019-09-09 customized for QvPen.
 
-Shader "Unlit/rounded_trail_for_qv_pen"
+Shader "QvPen/rounded_trail_for_qv_pen"
 {
 	Properties
 	{
-		_Width ("Width", Float) = 0.03
+		_Width ("Width", Float) = 0.005
+		_NearClipDistance ("Near Clip Distance", Float) = 0.1
+		_FarClipDistance ("Far Clip Distance", Float) = 100.0
 	}
 	SubShader
 	{
@@ -53,6 +55,8 @@ Shader "Unlit/rounded_trail_for_qv_pen"
 			};
 
 			float _Width;
+			float _NearClipDistance;
+			float _FarClipDistance;
 			
 			v2g vert (appdata v)
 			{
@@ -65,7 +69,13 @@ Shader "Unlit/rounded_trail_for_qv_pen"
 
 			[maxvertexcount(10)]
 			void geom(triangle v2g IN[3], inout TriangleStream<g2f> stream) {
-				if(IN[0].uv.x + IN[2].uv.x > IN[1].uv.x * 2) return;
+				float dist = length(_WorldSpaceCameraPos - mul(unity_ObjectToWorld, IN[0].vertex));
+				if(dist < _NearClipDistance || dist > _FarClipDistance)
+					return;
+
+				if(IN[0].uv.x + IN[2].uv.x > IN[1].uv.x * 2)
+					return;
+
 				g2f o;
 				o.uv = 0;
                 o.color = IN[0].color;
