@@ -4,7 +4,7 @@
   "version": "3.2.6",
   "unity": "2019.4",
   "description": "VRChat World Pen.",
-  "url": "https://github.com/ureishi/QvPen/releases/download/3.2.6/net.ureishi.qvpen-3.2.6.zip",
+  "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.6/net.ureishi.qvpen-3.2.6.zip",
   "dependencies": {
     "com.unity.textmeshpro": "2.1.4"
   },
