@@ -18,7 +18,16 @@ namespace QvPen.UdonScript.UI
         [SerializeField]
         private GameObject displayObjectOff;
 
-        private void Start() => UpdateActivity();
+        private void Start()
+        {
+            if (!isShown)
+                // if isShown is false, flip it to true and run UpdateActivity in 5 frames
+                // doing this on the next frame, appears to make the pens no longer draw.
+            {
+                isShown = true;
+                SendCustomEventDelayedFrames(nameof(OffOnStart),5);
+            }
+        }
 
         public override void Interact()
         {
@@ -36,6 +45,13 @@ namespace QvPen.UdonScript.UI
             foreach (var go in gameObjects)
                 if (go)
                     go.SetActive(isShown);
+        }
+        
+        public void OffOnStart()
+        // proxy to flip isShown on start and to run UpdateActivity without havingto make it public
+        {
+            isShown = false;
+            UpdateActivity();
         }
     }
 }
