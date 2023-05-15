@@ -7,14 +7,18 @@ namespace QvPen.UdonScript.UI
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_ShowOrHideButton : UdonSharpBehaviour
     {
+        [Tooltip("The list of objects this turns On/Off.")]
         [SerializeField]
         private GameObject[] gameObjects = { };
 
+        [Tooltip("The default state of the pens when the world starts.\nThe pens will start on when this is true, and they will start off when this is false.\n\nThis should be used to toggle the pens off instead of turning them off in the Hierarchy!!")]
         [SerializeField]
         private bool isShown = true;
 
+        [Tooltip("The object that is used to indicate that the pens are On.")]
         [SerializeField]
         private GameObject displayObjectOn;
+        [Tooltip("The object that is used to indicate that the pens are Off.")]
         [SerializeField]
         private GameObject displayObjectOff;
 
