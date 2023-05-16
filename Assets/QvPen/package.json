@@ -6,10 +6,10 @@
   "description": "VRChat World Pen.",
   "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.6/net.ureishi.qvpen-3.2.6.zip",
   "dependencies": {
-    "com.unity.textmeshpro": "2.1.4"
+    "com.unity.textmeshpro": "^2.1.4"
   },
   "vpmDependencies": {
-    "com.vrchat.udonsharp": "1.1.7"
+    "com.vrchat.udonsharp": "^1.1.8"
   },
   "legacyFolders": {
     "Assets\\QvPen": "0eeec8527d6948040915b97bddf0ba10"
