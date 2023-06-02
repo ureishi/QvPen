@@ -137,7 +137,11 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			{
 				const float l = length(i.uv);
 				clip(0.5 - min(i.d, l));
+				#if UNITY_COLORSPACE_GAMMA
+				return float4(i.color.rgb, 1);
+				#else
 				return float4(GammaToLinearSpace(i.color.rgb), 1);
+				#endif
 			}
 			ENDCG
 		}
