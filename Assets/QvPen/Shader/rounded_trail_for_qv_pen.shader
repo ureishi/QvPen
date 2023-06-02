@@ -69,7 +69,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 
 			[maxvertexcount(10)]
 			void geom(triangle v2g IN[3], inout TriangleStream<g2f> stream) {
-				float dist = length(_WorldSpaceCameraPos - mul(unity_ObjectToWorld, IN[0].vertex));
+				const float dist = length(_WorldSpaceCameraPos - mul(unity_ObjectToWorld, IN[0].vertex));
 				if(dist < _NearClipDistance || dist > _FarClipDistance)
 					return;
 
@@ -135,7 +135,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			
 			fixed4 frag (g2f i) : SV_Target
 			{
-				float l = length(i.uv);
+				const float l = length(i.uv);
 				clip(0.5 - min(i.d, l));
 				return float4(GammaToLinearSpace(i.color.rgb), 1);
 			}
