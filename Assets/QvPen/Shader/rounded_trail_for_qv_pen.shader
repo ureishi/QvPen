@@ -86,7 +86,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 				float aspectRatio = -_ScreenParams.y / _ScreenParams.x;
 				d.x /= aspectRatio;
 				o.d = length(d);
-				if(length(d) < 0.000001) d = float2(1, 0);
+				if(o.d < 0.000001) d = float2(1, 0);
 				else d = normalize(d);
 				
 				float2 w = _Width;
