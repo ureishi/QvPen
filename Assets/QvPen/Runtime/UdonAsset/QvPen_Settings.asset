@@ -476,7 +476,7 @@ MonoBehaviour:
       Data: 30|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: QvPen.UdonScript.QvPen_PenManager[], Assembly-CSharp
+      Data: QvPen.UdonScript.QvPen_PenManager[], QvPen
     - Name: 
       Entry: 8
       Data: 
@@ -542,7 +542,7 @@ MonoBehaviour:
       Data: 35|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: QvPen.UdonScript.QvPen_EraserManager[], Assembly-CSharp
+      Data: QvPen.UdonScript.QvPen_EraserManager[], QvPen
     - Name: 
       Entry: 8
       Data: 
