@@ -23,8 +23,8 @@ namespace QvPen.UdonScript
             if (master == null || player.playerId < master.playerId)
                 master = player;
 
-            if (VRCPlayerApi.GetPlayerCount() > 1 && !Networking.IsOwner(gameObject))
-                SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(StartSync));
+            if (VRCPlayerApi.GetPlayerCount() > 1 && Networking.IsOwner(gameObject))
+                StartSync();
         }
 
         public override void OnOwnershipTransferred(VRCPlayerApi player)
