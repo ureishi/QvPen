@@ -1,10 +1,10 @@
 {
   "name": "net.ureishi.qvpen",
   "displayName": "QvPen",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "unity": "2019.4",
   "description": "VRChat World Pen.",
-  "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.7/net.ureishi.qvpen-3.2.7.zip",
+  "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.7/net.ureishi.qvpen-3.2.8.zip",
   "dependencies": {
     "com.unity.textmeshpro": "^2.1.4"
   },
