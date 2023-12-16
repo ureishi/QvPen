@@ -6,7 +6,7 @@
   "description": "VRChat World Pen.",
   "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.9/net.ureishi.qvpen-3.2.9.zip",
   "dependencies": {
-    "com.unity.textmeshpro": "^2.1.4"
+    "com.unity.textmeshpro": "^2.1.4 || ^3.0.6"
   },
   "vpmDependencies": {
     "com.vrchat.udonsharp": "^1.1.8"
