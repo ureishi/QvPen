@@ -214,15 +214,6 @@
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       }
     },
-    "com.vrchat.clientsim": {
-      "version": "file:com.vrchat.clientsim",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.xr.oculus.standalone": "2.38.4",
-        "com.unity.inputsystem": "1.2.0"
-      }
-    },
     "com.vrchat.core.vpm-resolver": {
       "version": "file:com.vrchat.core.vpm-resolver",
       "depth": 0,
@@ -230,12 +221,6 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       }
-    },
-    "com.vrchat.udonsharp": {
-      "version": "file:com.vrchat.udonsharp",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
     },
     "com.vrchat.worlds": {
       "version": "file:com.vrchat.worlds",
