@@ -4,10 +4,7 @@
       "version": "0.1.18"
     },
     "com.vrchat.worlds": {
-      "version": "3.1.13"
-    },
-    "com.vrchat.udonsharp": {
-      "version": "1.1.7"
+      "version": "3.4.2"
     }
   },
   "locked": {
@@ -23,12 +20,6 @@
       "version": "3.4.2",
       "dependencies": {
         "com.vrchat.base": "3.4.2"
-      }
-    },
-    "com.vrchat.udonsharp": {
-      "version": "1.1.9",
-      "dependencies": {
-        "com.vrchat.worlds": "^3.1.x"
       }
     }
   }
