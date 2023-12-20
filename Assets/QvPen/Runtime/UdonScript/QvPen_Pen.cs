@@ -13,7 +13,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string _version = "v3.2.9";
+        public const string _version = "v3.2.10";
 
         #region Field
 
