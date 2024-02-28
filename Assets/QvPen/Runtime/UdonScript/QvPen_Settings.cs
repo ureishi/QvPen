@@ -2,7 +2,6 @@
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
-using VRC.SDK3.Data;
 
 #pragma warning disable IDE0044
 #pragma warning disable IDE0090, IDE1006
@@ -38,8 +37,8 @@ namespace QvPen.UdonScript
 
         private void Start()
         {
-            if (TryGetVersionFromPackageInfo(versionText, out var versionStr))
-                version = versionStr;
+            if (versionText)
+                version = versionText.text.Trim();
 
 #if !UNITY_EDITOR
             const string ureishi = nameof(ureishi);
@@ -61,32 +60,6 @@ namespace QvPen.UdonScript
                 penManagers = pensParent.GetComponentsInChildren<QvPen_PenManager>();
             if (erasersParent)
                 eraserManagers = erasersParent.GetComponentsInChildren<QvPen_EraserManager>();
-        }
-
-        private bool TryGetVersionFromPackageInfo(TextAsset packageInfoTextAsset, out string version)
-        {
-            if (packageInfoTextAsset == null)
-            {
-                version = default;
-                return false;
-            }
-
-            if (!VRCJson.TryDeserializeFromJson(packageInfoTextAsset.text, out var jsonToken))
-            {
-                version = default;
-                return false;
-            }
-
-            var json = jsonToken.DataDictionary;
-
-            if (!json.TryGetValue("version", TokenType.String, out var versionToken))
-            {
-                version = default;
-                return false;
-            }
-
-            version = versionToken.String;
-            return true;
         }
 
         #region Log

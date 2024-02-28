@@ -2105,7 +2105,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 760937169421624500}
-  versionText: {fileID: 4900000, guid: 0f9a53c260d6d6b42895f0b6d59a19f8, type: 3}
+  versionText: {fileID: 4900000, guid: 5b3d8961b3eb9c748b9157f0f6b0d435, type: 3}
   information: {fileID: 5692874088167419924}
   informationTMP: {fileID: 0}
   informationTMPU: {fileID: 0}
