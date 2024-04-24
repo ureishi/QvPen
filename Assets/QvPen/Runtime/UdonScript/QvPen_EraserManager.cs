@@ -75,7 +75,14 @@ namespace QvPen.UdonScript
             respawnButton.SetActive(true);
             inUseUI.SetActive(false);
 
-            textInUse.text = string.Empty;
+            if (textInUse)
+                textInUse.text = string.Empty;
+
+            if (textInUseTMP)
+                textInUseTMP.text = string.Empty;
+
+            if (textInUseTMPU)
+                textInUseTMPU.text = string.Empty;
         }
 
         public void ResetEraser() => eraser._Respawn();
