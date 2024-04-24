@@ -115,7 +115,14 @@ namespace QvPen.UdonScript
             if (inUseUI)
                 inUseUI.SetActive(false);
 
-            textInUse.text = string.Empty;
+            if (textInUse)
+                textInUse.text = string.Empty;
+
+            if (textInUseTMP)
+                textInUseTMP.text = string.Empty;
+
+            if (textInUseTMPU)
+                textInUseTMPU.text = string.Empty;
         }
 
         private PositionConstraint clearButtonPositionConstraint;
