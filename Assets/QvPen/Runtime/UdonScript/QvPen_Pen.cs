@@ -1,4 +1,4 @@
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
 using VRC.SDKBase;
@@ -789,8 +789,14 @@ namespace QvPen.UdonScript
 
         public void _Clear()
         {
+            foreach (var item in inkPoolSynced.GetComponentsInChildren<MeshCollider>())
+                Destroy(item.sharedMesh);
+
             foreach (Transform ink in inkPoolSynced)
                 Destroy(ink.gameObject);
+
+            foreach (var item in inkPoolNotSynced.GetComponentsInChildren<MeshCollider>())
+                Destroy(item.sharedMesh);
 
             foreach (Transform ink in inkPoolNotSynced)
                 Destroy(ink.gameObject);
@@ -853,12 +859,12 @@ namespace QvPen.UdonScript
 
             lineRenderer.GetPositions(data);
 
-            var inkMeshLayer = (float)lineRenderer.gameObject.layer;
-            var inkColliderLayer = (float)lineRenderer.GetComponentInChildren<MeshCollider>(true).gameObject.layer;
+            var inkMeshLayer = lineRenderer.gameObject.layer;
+            var inkColliderLayer = lineRenderer.GetComponentInChildren<MeshCollider>(true).gameObject.layer;
 
-            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3(localPlayerId, mode, GetFooterSize(mode)));
+            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3Int(localPlayerId, mode, GetFooterSize(mode)));
             SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
-            SetData(data, FOOTER_ELEMENT_DRAW_INK_INFO, new Vector3(inkMeshLayer, inkColliderLayer, enabledLateSync ? 1f : 0f));
+            SetData(data, FOOTER_ELEMENT_DRAW_INK_INFO, new Vector3Int(inkMeshLayer, inkColliderLayer, enabledLateSync ? 1 : 0));
 
             return data;
         }
