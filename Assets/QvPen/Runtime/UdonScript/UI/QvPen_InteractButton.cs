@@ -27,9 +27,22 @@ namespace QvPen.Udon.UI
         private UdonSharpBehaviour[] udonSharpBehaviours = { };
         [SerializeField]
         private string customEventName = "Unnamed";
+        
+        [SerializeField]
+        private bool requireDoubleClick = false;
+        [SerializeField]
+        private float doubleClickDuration = 0.5f;
+        private bool _doubleClickAcceptable = false;
 
         public override void Interact()
         {
+            if (requireDoubleClick && !_doubleClickAcceptable)
+            {
+                _doubleClickAcceptable = true;
+                SendCustomEventDelayedSeconds(nameof(_DoubleClickTimeout), doubleClickDuration);
+                return;
+            }
+            
             if (!canUseEveryone)
             {
                 if (canUseInstanceOwner && !Networking.IsInstanceOwner)
@@ -54,6 +67,11 @@ namespace QvPen.Udon.UI
                 else
                     foreach (var udonSharpBehaviour in udonSharpBehaviours)
                         udonSharpBehaviour.SendCustomNetworkEvent(onlySendToOwner ? NetworkEventTarget.Owner : NetworkEventTarget.All, customEventName);
+        }
+
+        public void _DoubleClickTimeout()
+        {
+            _doubleClickAcceptable = false;
         }
     }
 }
