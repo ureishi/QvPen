@@ -13,7 +13,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string _version = "v3.2.13";
+        public const string _version = "v3.2.14";
 
         #region Field
 
@@ -240,7 +240,20 @@ namespace QvPen.UdonScript
             trailRenderer.widthMultiplier = inkWidth;
 #else
             var material = manager.pcInkMaterial;
-            if (material && material.shader == manager.roundedTrailShader)
+
+            var isRoundedTrailShader = false;
+
+            if (material)
+            {
+                var shader = material.shader;
+                if (shader)
+                {
+                    isRoundedTrailShader = shader == manager.roundedTrailShader;
+                    isRoundedTrailShader |= shader.name.Contains("rounded_trail");
+                }
+            }
+
+            if (isRoundedTrailShader)
             {
                 inkPrefab.widthMultiplier = 0f;
                 trailRenderer.widthMultiplier = 0f;
