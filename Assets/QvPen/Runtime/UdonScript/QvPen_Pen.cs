@@ -328,7 +328,7 @@ namespace QvPen.UdonScript
             => data.Length > 0 ? (int)GetData(data, FOOTER_ELEMENT_DATA_INFO).y : MODE_UNKNOWN;
 
         private int GetFooterLength(Vector3[] data)
-            => data.Length > 0 ? (int)GetData(data, FOOTER_ELEMENT_DATA_INFO).z : 0;
+            => data.Length > 0 ? Mathf.Clamp((int)GetData(data, FOOTER_ELEMENT_DATA_INFO).z, 0, data.Length) : 0;
 
         #endregion
 
