@@ -2,5 +2,7 @@
     "samplesImported": false,
     "allowVRCPackageChanges": false,
     "samplesHintCreated": true,
-    "debugVCCConnection": false
+    "debugVCCConnection": false,
+    "dpidMipmaps": true,
+    "dpidConservative": true
 }
