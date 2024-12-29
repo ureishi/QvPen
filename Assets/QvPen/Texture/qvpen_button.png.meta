@@ -45,7 +45,7 @@ TextureImporter:
       213: 6587035777585820497
     second: ColliderModeDisabled
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,9 +62,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -96,10 +99,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -111,6 +119,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +132,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -135,6 +145,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -240,7 +251,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5eda86f5e0311f400800000000000000
-      internalID: 356086797990145509
+      internalID: -7641745078497418420
       vertices: []
       indices: 
       edges: []
@@ -261,7 +272,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3f261dbd67d41bdd0800000000000000
-      internalID: -2472109547560279309
+      internalID: -3972000854452096654
       vertices: []
       indices: 
       edges: []
@@ -444,9 +455,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Active: 665639615317825361
+      Clear: -3972000854452096654
+      ClearAll: -7641745078497418420
+      ColliderModeDisabled: 6587035777585820497
+      ColliderModeEnabled: -784978932194148972
+      DoubleClickDisabled: 8860646019804582946
+      DoubleClickEnabled: 783526455499739026
+      Inactive: -7478488901743387424
+      LateSyncDisabled: 6917883707197983831
+      LateSyncEnabled: -1807364145659714869
+      QvPen: 4410996226643044083
+      Respawn: 8726532517953813763
+      User: -1195415078869709531
+      qvpen_button_2: -7383016683771084110
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
