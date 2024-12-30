@@ -1,10 +1,24 @@
 using UdonSharp;
 using UnityEngine;
+using Utilities = VRC.SDKBase.Utilities;
 
 #pragma warning disable IDE0044
 
 namespace QvPen.UdonScript.UI
 {
+    enum QvPen_ToggleModeButton_Mode
+    {
+        [InspectorName("Nop")]
+        Nop,
+        [InspectorName("Use Double Click")]
+        UseDoubleClick,
+        [InspectorName("Enabled Late Sync")]
+        EnabledSync,
+        [InspectorName("Use Surftrace Mode")]
+        UseSurftraceMode
+    }
+
+    [AddComponentMenu("")]
     [DefaultExecutionOrder(30)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_ToggleModeButton : UdonSharpBehaviour
@@ -12,9 +26,8 @@ namespace QvPen.UdonScript.UI
         [SerializeField]
         private QvPen_Settings settings;
 
-        [Header("0:Noop, 1:DoubleClick, 2:LateSync, 3:Surftrace")]
         [SerializeField]
-        private int mode = MODE_Noop;
+        private QvPen_ToggleModeButton_Mode mode = QvPen_ToggleModeButton_Mode.Nop;
 
         [SerializeField]
         private bool isOn = false;
@@ -23,12 +36,6 @@ namespace QvPen.UdonScript.UI
         private GameObject displayObjectOn;
         [SerializeField]
         private GameObject displayObjectOff;
-
-        // Mode
-        public const int MODE_Noop = 0;
-        public const int MODE_UseDoubleClick = 1;
-        public const int MODE_EnabledSync = 2;
-        public const int MODE_UseSurftraceMode = 3;
 
         private void Start() => UpdateEnabled();
 
@@ -40,25 +47,35 @@ namespace QvPen.UdonScript.UI
 
         private void UpdateEnabled()
         {
-            if (displayObjectOn)
+            if (Utilities.IsValid(displayObjectOn))
                 displayObjectOn.SetActive(isOn);
-            if (displayObjectOff)
+            if (Utilities.IsValid(displayObjectOff))
                 displayObjectOff.SetActive(!isOn);
 
-            foreach (var penManager in settings.penManagers)
-                if (penManager)
-                    switch (mode)
+            switch (mode)
+            {
+                case QvPen_ToggleModeButton_Mode.UseDoubleClick:
+                    foreach (var penManager in settings.penManagers)
                     {
-                        case MODE_UseDoubleClick:
+                        if (Utilities.IsValid(penManager))
                             penManager._SetUsingDoubleClick(isOn);
-                            break;
-                        case MODE_EnabledSync:
-                            penManager._SetEnabledLateSync(isOn);
-                            break;
-                        case MODE_UseSurftraceMode:
-                            penManager._SetUsingSurftraceMode(isOn);
-                            break;
                     }
+                    break;
+                case QvPen_ToggleModeButton_Mode.EnabledSync:
+                    foreach (var penManager in settings.penManagers)
+                    {
+                        if (Utilities.IsValid(penManager))
+                            penManager._SetEnabledLateSync(isOn);
+                    }
+                    break;
+                case QvPen_ToggleModeButton_Mode.UseSurftraceMode:
+                    foreach (var penManager in settings.penManagers)
+                    {
+                        if (Utilities.IsValid(penManager))
+                            penManager._SetUsingSurftraceMode(isOn);
+                    }
+                    break;
+            }
         }
     }
 }

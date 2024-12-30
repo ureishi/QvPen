@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace QvPen.UdonScript.UI
 {
+    [AddComponentMenu("")]
     [DefaultExecutionOrder(30)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_ClearAllButton : UdonSharpBehaviour

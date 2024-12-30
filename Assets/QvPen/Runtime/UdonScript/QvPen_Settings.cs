@@ -2,12 +2,14 @@
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities = VRC.SDKBase.Utilities;
 
 #pragma warning disable IDE0044
 #pragma warning disable IDE0090, IDE1006
 
 namespace QvPen.UdonScript
 {
+    [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_Settings : UdonSharpBehaviour
     {
@@ -37,7 +39,7 @@ namespace QvPen.UdonScript
 
         private void Start()
         {
-            if (versionText)
+            if (Utilities.IsValid(versionText))
                 version = versionText.text.Trim();
 
 #if !UNITY_EDITOR
@@ -45,24 +47,26 @@ namespace QvPen.UdonScript
             Log($"{nameof(QvPen)} {version} - {ureishi}");
 #endif
 
-            var infomationText =
+            var informationText =
                     $"<size=20></size>\n" +
                     $"<size=14>{version}</size>";
 
-            if (information)
-                information.text = infomationText;
-            if (informationTMP)
-                informationTMP.text = infomationText;
-            if (informationTMPU)
-                informationTMPU.text = infomationText;
+            if (Utilities.IsValid(information))
+                information.text = informationText;
+            if (Utilities.IsValid(informationTMP))
+                informationTMP.text = informationText;
+            if (Utilities.IsValid(informationTMPU))
+                informationTMPU.text = informationText;
 
-            if (pensParent)
+            if (Utilities.IsValid(pensParent))
                 penManagers = pensParent.GetComponentsInChildren<QvPen_PenManager>();
-            if (erasersParent)
+            if (Utilities.IsValid(erasersParent))
                 eraserManagers = erasersParent.GetComponentsInChildren<QvPen_EraserManager>();
         }
 
         #region Log
+
+        private const string appName = nameof(QvPen_Settings);
 
         private void Log(object o) => Debug.Log($"{logPrefix}{o}", this);
         private void Warning(object o) => Debug.LogWarning($"{logPrefix}{o}", this);
@@ -74,11 +78,10 @@ namespace QvPen.UdonScript
 
         private string _logPrefix;
         private string logPrefix
-            => string.IsNullOrEmpty(_logPrefix)
-                ? (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{nameof(QvPen_Settings)}{ColorEndTag}] ")
-                : _logPrefix;
+            => !string.IsNullOrEmpty(_logPrefix)
+                ? _logPrefix : (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{appName}{ColorEndTag}] ");
 
-        private string ToHtmlStringRGB(Color c)
+        private static string ToHtmlStringRGB(Color c)
         {
             c *= 0xff;
             return $"{Mathf.RoundToInt(c.r):x2}{Mathf.RoundToInt(c.g):x2}{Mathf.RoundToInt(c.b):x2}";

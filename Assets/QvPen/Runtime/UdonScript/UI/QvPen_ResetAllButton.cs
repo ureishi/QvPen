@@ -7,6 +7,7 @@ using VRC.Udon.Common.Interfaces;
 
 namespace QvPen.UdonScript.UI
 {
+    [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_ResetAllButton : UdonSharpBehaviour
     {

@@ -1,19 +1,24 @@
-﻿using UdonSharp;
+﻿
+using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
+using VRC.SDK3.Data;
 using VRC.SDKBase;
+using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
+using Utilities = VRC.SDKBase.Utilities;
 
 #pragma warning disable IDE0044
 #pragma warning disable IDE0090, IDE1006
 
 namespace QvPen.UdonScript
 {
+    [AddComponentMenu("")]
     [DefaultExecutionOrder(10)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string _version = "v3.2.15";
+        public const string version = "v3.3.0";
 
         #region Field
 
@@ -25,34 +30,41 @@ namespace QvPen.UdonScript
 
         [SerializeField]
         private Transform inkPosition;
+        [SerializeField]
         private Transform inkPositionChild;
+
         [SerializeField]
         private Transform inkPoolRoot;
-        [System.NonSerialized]
-        public Transform inkPool;
-        [System.NonSerialized]
-        public Transform inkPoolSynced;// { get; private set; }
+        private Transform inkPool;
+        private Transform inkPoolSynced;
         private Transform inkPoolNotSynced;
 
+        private QvPen_Manager manager;
+
+        [SerializeField]
         private QvPen_LateSync syncer;
 
         [Header("Pointer")]
         [SerializeField]
         private Transform pointer;
 
+        private bool _isCheckedPointerRadius = false;
         private float _pointerRadius = 0f;
         private float pointerRadius
         {
             get
             {
-                if (_pointerRadius > 0f)
+                if (_isCheckedPointerRadius)
+                {
                     return _pointerRadius;
+                }
                 else
                 {
                     var sphereCollider = pointer.GetComponent<SphereCollider>();
                     sphereCollider.enabled = false;
                     var s = pointer.lossyScale;
-                    _pointerRadius = Mathf.Min(s.x, s.y, s.z) * sphereCollider.radius;
+                    _pointerRadius = Mathf.Max(0.01f, Mathf.Min(s.x, s.y, s.z)) * sphereCollider.radius;
+                    _isCheckedPointerRadius = true;
                     return _pointerRadius;
                 }
             }
@@ -79,28 +91,31 @@ namespace QvPen.UdonScript
 
         private MeshCollider _inkPrefabCollider;
         private MeshCollider inkPrefabCollider
-            => _inkPrefabCollider ? _inkPrefabCollider : (_inkPrefabCollider = inkPrefab.GetComponentInChildren<MeshCollider>(true));
-        private GameObject lineInstance;
+            => Utilities.IsValid(_inkPrefabCollider)
+                ? _inkPrefabCollider : (_inkPrefabCollider = inkPrefab.GetComponentInChildren<MeshCollider>(true));
+        //private GameObject lineInstance;
 
         private bool isUser;
         public bool IsUser => isUser;
 
         // Components
-        private VRC_Pickup _pickup;
-        private VRC_Pickup pickup => _pickup ? _pickup : (_pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup)));
+        private VRCPickup _pickup;
+        private VRCPickup pickup
+            => Utilities.IsValid(_pickup)
+                ? _pickup : (_pickup = (VRCPickup)GetComponent(typeof(VRCPickup)));
 
         private VRCObjectSync _objectSync;
         private VRCObjectSync objectSync
-            => _objectSync ? _objectSync : (_objectSync = (VRCObjectSync)GetComponent(typeof(VRCObjectSync)));
+            => Utilities.IsValid(_objectSync)
+                ? _objectSync : (_objectSync = (VRCObjectSync)GetComponent(typeof(VRCObjectSync)));
 
         // PenManager
-        private QvPen_PenManager manager;
+        private QvPen_PenManager penManager;
 
         // Ink
         private int inkMeshLayer;
         private int inkColliderLayer;
-        private const float followSpeed = 30f;
-        private int inkNo;
+        private const float followSpeed = 32f;
 
         // Pointer
         private bool isPointerEnabled;
@@ -114,32 +129,11 @@ namespace QvPen.UdonScript
         private Vector3 prevClickPos;
 
         // State
-        private const int StatePenIdle = 0;
-        private const int StatePenUsing = 1;
-        private const int StateEraserIdle = 2;
-        private const int StateEraserUsing = 3;
-        private int currentState = StatePenIdle;
-        private string nameofCurrentState
-        {
-            get
-            {
-                switch (currentState)
-                {
-                    case StatePenIdle: return nameof(StatePenIdle);
-                    case StatePenUsing: return nameof(StatePenUsing);
-                    case StateEraserIdle: return nameof(StateEraserIdle);
-                    case StateEraserUsing: return nameof(StateEraserUsing);
-                    default: return string.Empty;
-                }
-            }
-        }
+        private QvPen_Pen_State currentState = QvPen_Pen_State.PenIdle;
 
         // Sync state
         [System.NonSerialized]
-        public int currentSyncState = SYNC_STATE_Idle;
-        public const int SYNC_STATE_Idle = 0;
-        public const int SYNC_STATE_Started = 1;
-        public const int SYNC_STATE_Finished = 2;
+        public QvPen_Pen_SyncState currentSyncState = QvPen_Pen_SyncState.Idle;
 
         // Ink pool
         public const string inkPoolRootName = "QvPen_Objects";
@@ -154,58 +148,84 @@ namespace QvPen.UdonScript
         private VRCPlayerApi _localPlayer;
         private VRCPlayerApi localPlayer => _localPlayer ?? (_localPlayer = Networking.LocalPlayer);
 
-        private int localPlayerId => VRC.SDKBase.Utilities.IsValid(localPlayer) ? localPlayer.playerId : -1;
+        private bool _isCheckedLocalPlayerId = false;
+        private int _localPlayerId;
+        private int localPlayerId
+            => _isCheckedLocalPlayerId
+                ? _localPlayerId
+                : (_isCheckedLocalPlayerId = Utilities.IsValid(localPlayer))
+                    ? _localPlayerId = localPlayer.playerId
+                    : 0;
 
-        private bool isCheckedIsUserInVR = false;
-        private bool/*?*/ _isUserInVR;
-        private bool/*?*/ isUserInVR => isCheckedIsUserInVR ? _isUserInVR
-            : (isCheckedIsUserInVR = VRC.SDKBase.Utilities.IsValid(localPlayer)) && (_isUserInVR = localPlayer.IsUserInVR());
+        private bool _isCheckedLocalPlayerIdVector = false;
+        private Vector3 _localPlayerIdVector;
+        private Vector3 localPlayerIdVector
+        {
+            get
+            {
+                if (_isCheckedLocalPlayerIdVector)
+                    return _localPlayerIdVector;
+
+                _localPlayerIdVector = QvPenUtilities.GetPlayerIdVector(localPlayerId);
+                _isCheckedLocalPlayerIdVector = true;
+                return _localPlayerIdVector;
+            }
+        }
+
+        private bool _isCheckedIsUserInVR = false;
+        private bool _isUserInVR;
+        private bool isUserInVR => _isCheckedIsUserInVR
+            ? _isUserInVR
+            : (_isCheckedIsUserInVR = Utilities.IsValid(localPlayer)) && (_isUserInVR = localPlayer.IsUserInVR());
+
+        //private long TimeStamp => ((System.DateTimeOffset)Networking.GetNetworkDateTime()).ToUnixTimeSeconds();
+
+        private readonly DataList localInkHistory = new DataList();
 
         #endregion Field
 
-        public void _Init(QvPen_PenManager manager)
+        public void _Init(QvPen_PenManager penManager)
         {
-            this.manager = manager;
+            this.penManager = penManager;
             _UpdateInkData();
 
-            inkPool = inkPoolRoot.Find(inkPoolName);
-
             var inkPoolRootGO = GameObject.Find($"/{inkPoolRootName}");
-            if (inkPoolRootGO)
+            if (Utilities.IsValid(inkPoolRootGO))
             {
+                inkPoolRoot.gameObject.SetActive(false);
                 inkPoolRoot = inkPoolRootGO.transform;
             }
             else
             {
                 inkPoolRoot.name = inkPoolRootName;
-                SetParentAndResetLocalTransform(inkPoolRoot, null);
+                QvPenUtilities.SetParentAndResetLocalTransform(inkPoolRoot, null);
                 inkPoolRoot.SetAsFirstSibling();
+                inkPoolRoot.gameObject.SetActive(true);
 #if !UNITY_EDITOR
-                const string ureishi = nameof(ureishi);
-                Log($"{nameof(QvPen)} {_version}");
+                Log($"{nameof(QvPen)} {version}");
 #endif
             }
 
-            SetParentAndResetLocalTransform(inkPool, inkPoolRoot);
+            inkPool = syncer.transform;
+            QvPenUtilities.SetParentAndResetLocalTransform(inkPool, inkPoolRoot);
 
-            penId = string.IsNullOrEmpty(Networking.GetUniqueName(gameObject))
-                ? 0 : Networking.GetUniqueName(gameObject).GetHashCode();
-            penIdVector = new Vector3((penId >> 24) & 0x00ff, (penId >> 12) & 0x0fff, penId & 0x0fff);
+            var unique = Networking.GetUniqueName(gameObject);
+            penId = string.IsNullOrEmpty(unique) ? 0 : unique.GetHashCode();
+            penIdVector = QvPenUtilities.Int32ToVector3(penId);
             penIdString = $"0x{(int)penIdVector.x:x2}{(int)penIdVector.y:x3}{(int)penIdVector.z:x3}";
             inkPool.name = $"{inkPoolName} ({penIdString})";
 
-            syncer = inkPool.GetComponent<QvPen_LateSync>();
-            if (syncer)
-                syncer.pen = this;
+            manager = inkPoolRoot.GetComponent<QvPen_Manager>();
+            manager.Register(penId, this);
 
-            inkPoolSynced = inkPool.Find("Synced");
-            inkPoolNotSynced = inkPool.Find("NotSynced");
+            syncer.pen = this;
+
+            inkPoolSynced = syncer.InkPoolSynced;
+            inkPoolNotSynced = syncer.InkPoolNotSynced;
 
 #if !UNITY_EDITOR
             Log($"QvPen ID: {penIdString}");
 #endif
-
-            inkPositionChild = inkPosition.Find("InkPositionChild");
 
             pickup.InteractionText = nameof(QvPen);
             pickup.UseText = "Draw";
@@ -226,29 +246,29 @@ namespace QvPen.UdonScript
 
         public void _UpdateInkData()
         {
-            inkWidth = manager.inkWidth;
-            inkMeshLayer = manager.inkMeshLayer;
-            inkColliderLayer = manager.inkColliderLayer;
+            inkWidth = penManager.inkWidth;
+            inkMeshLayer = penManager.inkMeshLayer;
+            inkColliderLayer = penManager.inkColliderLayer;
 
             inkPrefab.gameObject.layer = inkMeshLayer;
             trailRenderer.gameObject.layer = inkMeshLayer;
             inkPrefabCollider.gameObject.layer = inkColliderLayer;
 
 #if UNITY_ANDROID
-            var material = manager.questInkMaterial;
+            var material = penManager.questInkMaterial;
             inkPrefab.widthMultiplier = inkWidth;
             trailRenderer.widthMultiplier = inkWidth;
 #else
-            var material = manager.pcInkMaterial;
+            var material = penManager.pcInkMaterial;
 
             var isRoundedTrailShader = false;
 
-            if (material)
+            if (Utilities.IsValid(material))
             {
                 var shader = material.shader;
-                if (shader)
+                if (Utilities.IsValid(shader))
                 {
-                    isRoundedTrailShader = shader == manager.roundedTrailShader;
+                    isRoundedTrailShader = shader == penManager.roundedTrailShader;
                     isRoundedTrailShader |= shader.name.Contains("rounded_trail");
                 }
             }
@@ -268,10 +288,10 @@ namespace QvPen.UdonScript
 
             inkPrefab.material = material;
             trailRenderer.material = material;
-            inkPrefab.colorGradient = manager.colorGradient;
-            trailRenderer.colorGradient = CreateReverseGradient(manager.colorGradient);
+            inkPrefab.colorGradient = penManager.colorGradient;
+            trailRenderer.colorGradient = penManager.colorGradient;
 
-            surftraceMask = manager.surftraceMask;
+            surftraceMask = penManager.surftraceMask;
         }
 
         public bool _CheckId(Vector3 idVector)
@@ -281,54 +301,49 @@ namespace QvPen.UdonScript
 
         #region Base
 
-        // Mode
-        public const int MODE_UNKNOWN = -1;
-        public const int MODE_DRAW = 1;
-        public const int MODE_ERASE = 2;
-        public const int MODE_DRAW_PLANE = 3;
-
         // Footer element
         public const int FOOTER_ELEMENT_DATA_INFO = 0;
         public const int FOOTER_ELEMENT_PEN_ID = 1;
+        public const int FOOTER_ELEMENT_INK_ID = 2;
+        public const int FOOTER_ELEMENT_OWNER_ID = 3;
 
-        public const int FOOTER_ELEMENT_DRAW_INK_INFO = 2;
-        //public const int FOOTER_ELEMENT_DRAW_INK_WIDTH = ;
-        //public const int FOOTER_ELEMENT_DRAW_INK_COLOR = ;
-        public const int FOOTER_ELEMENT_DRAW_LENGTH = 3;
+        public const int FOOTER_ELEMENT_ANY_LENGTH = 4;
 
-        public const int FOOTER_ELEMENT_ERASE_POINTER_POSITION = 2;
-        public const int FOOTER_ELEMENT_ERASE_POINTER_RADIUS = 3;
+        public const int FOOTER_ELEMENT_DRAW_INK_INFO = 4;
+        public const int FOOTER_ELEMENT_DRAW_LENGTH = 5;
+
         public const int FOOTER_ELEMENT_ERASE_LENGTH = 4;
+        public const int FOOTER_ELEMENT_ERASE_USER_INK_LENGTH = 4;
 
-        private int GetFooterSize(int mode)
+        private static int GetFooterSize(QvPen_Pen_Mode mode)
         {
             switch (mode)
             {
-                case MODE_DRAW: return FOOTER_ELEMENT_DRAW_LENGTH;
-                case MODE_ERASE: return FOOTER_ELEMENT_ERASE_LENGTH;
-                case MODE_UNKNOWN: return 0;
+                case QvPen_Pen_Mode.Draw: return FOOTER_ELEMENT_DRAW_LENGTH;
+                case QvPen_Pen_Mode.Erase: return FOOTER_ELEMENT_ERASE_LENGTH;
+                case QvPen_Pen_Mode.EraseUserInk: return FOOTER_ELEMENT_ERASE_USER_INK_LENGTH;
+                case QvPen_Pen_Mode.Any: return FOOTER_ELEMENT_ANY_LENGTH;
+                case QvPen_Pen_Mode.None: return 0;
                 default: return 0;
             }
         }
 
-        private int currentDrawMode = MODE_DRAW;
-
         #endregion
 
-        private Vector3 GetData(Vector3[] data, int index)
-            => data.Length > index ? data[data.Length - 1 - index] : Vector3.negativeInfinity;
+        private static Vector3 GetData(Vector3[] data, int index)
+            => data != null && data.Length > index ? data[data.Length - 1 - index] : default;
 
-        private void SetData(Vector3[] data, int index, Vector3 element)
+        private static void SetData(Vector3[] data, int index, Vector3 element)
         {
-            if (data.Length > index)
+            if (data != null && data.Length > index)
                 data[data.Length - 1 - index] = element;
         }
 
-        private int GetMode(Vector3[] data)
-            => data.Length > 0 ? (int)GetData(data, FOOTER_ELEMENT_DATA_INFO).y : MODE_UNKNOWN;
+        private static QvPen_Pen_Mode GetMode(Vector3[] data)
+            => data != null && data.Length > 0 ? (QvPen_Pen_Mode)(int)GetData(data, FOOTER_ELEMENT_DATA_INFO).y : QvPen_Pen_Mode.None;
 
-        private int GetFooterLength(Vector3[] data)
-            => data.Length > 0 ? Mathf.Clamp((int)GetData(data, FOOTER_ELEMENT_DATA_INFO).z, 0, data.Length) : 0;
+        private static int GetFooterLength(Vector3[] data)
+            => data != null && data.Length > 0 ? Mathf.Clamp((int)GetData(data, FOOTER_ELEMENT_DATA_INFO).z, 0, data.Length) : 0;
 
         #endregion
 
@@ -351,28 +366,40 @@ namespace QvPen.UdonScript
             if (isUserInVR || !isUser)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                EnterScreenMode();
-            }
-            else if (Input.GetKeyUp(KeyCode.Tab))
+            if (Input.GetKeyUp(KeyCode.Tab))
             {
                 ExitScreenMode();
+            }
+
+            if (!Input.anyKey)
+                return;
+
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                _UndoDraw();
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                EnterScreenMode();
             }
             else if (Input.GetKey(KeyCode.Tab))
             {
                 if (Input.GetKeyDown(KeyCode.Delete))
                 {
-                    manager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(manager.Clear));
+                    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.Clear));
+                }
+                else if (Input.GetKey(KeyCode.Home))
+                {
+                    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.Respawn));
                 }
                 else if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    sensitivity = Mathf.Min(sensitivity + 0.001f, 1.5f);
+                    sensitivity = Mathf.Min(sensitivity + 0.001f, 5.0f);
                     Log($"Sensitivity -> {sensitivity:f3}");
                 }
                 else if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    sensitivity = Mathf.Max(sensitivity - 0.001f, 0.5f);
+                    sensitivity = Mathf.Max(sensitivity - 0.001f, 0.01f);
                     Log($"Sensitivity -> {sensitivity:f3}");
                 }
             }
@@ -401,8 +428,7 @@ namespace QvPen.UdonScript
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
-            inkPositionChild.localPosition = Vector3.zero;
-            inkPositionChild.localRotation = Quaternion.identity;
+            inkPositionChild.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
         }
 #endif
@@ -471,7 +497,7 @@ namespace QvPen.UdonScript
             }
         }
 
-        private readonly Collider[] results = new Collider[4];
+        private readonly Collider[] results4 = new Collider[4];
         public override void PostLateUpdate()
         {
             if (!isUser)
@@ -479,40 +505,31 @@ namespace QvPen.UdonScript
 
             if (isPointerEnabled)
             {
-                var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results, 1 << inkColliderLayer, QueryTriggerInteraction.Ignore);
+                var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results4, 1 << inkColliderLayer, QueryTriggerInteraction.Ignore);
                 for (var i = 0; i < count; i++)
                 {
-                    var other = results[i];
+                    var other = results4[i];
 
-                    if (other && other.transform.parent && other.transform.parent.parent)
+                    Transform t1, t2, t3;
+
+                    if (Utilities.IsValid(other)
+                        && Utilities.IsValid(t1 = other.transform.parent)
+                        && Utilities.IsValid(t2 = t1.parent))
                     {
                         if (canBeErasedWithOtherPointers
-                          ? other.transform.parent.parent.parent && other.transform.parent.parent.parent.parent == inkPoolRoot
-                          : other.transform.parent.parent.parent == inkPool
+                          ? Utilities.IsValid(t3 = t2.parent) && t3.parent == inkPoolRoot
+                          : t2.parent == inkPool
                         )
                         {
                             var lineRenderer = other.GetComponentInParent<LineRenderer>();
-                            if (lineRenderer && lineRenderer.positionCount > 0)
+                            if (Utilities.IsValid(lineRenderer) && lineRenderer.positionCount > 0)
                             {
-                                var data = new Vector3[GetFooterSize(MODE_ERASE)];
-
-                                SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3(localPlayerId, MODE_ERASE, GetFooterSize(MODE_ERASE)));
-                                SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
-                                SetData(data, FOOTER_ELEMENT_ERASE_POINTER_POSITION, pointer.position);
-                                SetData(data, FOOTER_ELEMENT_ERASE_POINTER_RADIUS, Vector3.right * pointerRadius);
-
-                                _SendData(data);
+                                SendEraseInk(lineRenderer.gameObject);
                             }
                         }
-                        //else if (
-                        //    false
-                        //)
-                        //{
-                        //
-                        //}
                     }
 
-                    results[i] = null;
+                    results4[i] = null;
                 }
             }
         }
@@ -530,13 +547,12 @@ namespace QvPen.UdonScript
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isUser && useSurftraceMode && VRC.SDKBase.Utilities.IsValid(other) && !other.isTrigger)
+            if (isUser && useSurftraceMode && Utilities.IsValid(other) && !other.isTrigger)
             {
                 if ((1 << other.gameObject.layer & surftraceMask) == 0)
                     return;
 
-                // other.GetType().IsSubclassOf(typeof(MeshCollider))
-                if (other.GetType() == typeof(MeshCollider) && !((MeshCollider)other).convex)
+                if (other.GetType().IsSubclassOf(typeof(MeshCollider)) && !((MeshCollider)other).convex)
                     return;
 
                 var distance = Vector3.Distance(other.ClosestPoint(inkPosition.position), inkPosition.position);
@@ -562,8 +578,7 @@ namespace QvPen.UdonScript
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
-            inkPositionChild.localPosition = Vector3.zero;
-            inkPositionChild.localRotation = Quaternion.identity;
+            inkPositionChild.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
         }
 
@@ -575,8 +590,8 @@ namespace QvPen.UdonScript
         {
             isUser = true;
 
-            manager._TakeOwnership();
-            manager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.StartUsing));
+            penManager._TakeOwnership();
+            penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.StartUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
@@ -585,11 +600,11 @@ namespace QvPen.UdonScript
         {
             isUser = false;
 
-            manager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.EndUsing));
+            penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.EndUsing));
 
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
-            manager._ClearSyncBuffer();
+            penManager._ClearSyncBuffer();
 
 #if !UNITY_ANDROID
             ExitScreenMode();
@@ -607,15 +622,17 @@ namespace QvPen.UdonScript
                 prevClickTime = 0f;
                 switch (currentState)
                 {
-                    case StatePenIdle:
-                        SendCustomNetworkEvent(NetworkEventTarget.All, nameof(DestroyJustBeforeInk));
+                    case QvPen_Pen_State.PenIdle:
+                        if (Vector3.Distance(inkPosition.position, prevClickPos) > 0f)
+                            _UndoDraw();
+
                         SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseIdle));
                         break;
-                    case StateEraserIdle:
+                    case QvPen_Pen_State.EraserIdle:
                         SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
                         break;
                     default:
-                        Error($"Unexpected state : {nameofCurrentState} at {nameof(OnPickupUseDown)} Double Clicked");
+                        Error($"Unexpected state : {currentState.ToStr()} at {nameof(OnPickupUseDown)} Double Clicked");
                         break;
                 }
             }
@@ -625,14 +642,15 @@ namespace QvPen.UdonScript
                 prevClickPos = inkPosition.position;
                 switch (currentState)
                 {
-                    case StatePenIdle:
+                    case QvPen_Pen_State.PenIdle:
                         SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
                         break;
-                    case StateEraserIdle:
+                    case QvPen_Pen_State.EraserIdle:
                         SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseUsing));
+                        InteractOtherUdon();
                         break;
                     default:
-                        Error($"Unexpected state : {nameofCurrentState} at {nameof(OnPickupUseDown)}");
+                        Error($"Unexpected state : {currentState.ToStr()} at {nameof(OnPickupUseDown)}");
                         break;
                 }
             }
@@ -642,20 +660,20 @@ namespace QvPen.UdonScript
         {
             switch (currentState)
             {
-                case StatePenUsing:
+                case QvPen_Pen_State.PenUsing:
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
                     break;
-                case StateEraserUsing:
+                case QvPen_Pen_State.EraserUsing:
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToEraseIdle));
                     break;
-                case StatePenIdle:
-                    Log($"Change state : {nameof(StateEraserIdle)} to {nameofCurrentState}");
+                case QvPen_Pen_State.PenIdle:
+                    Log($"Change state : {nameof(QvPen_Pen_State.EraserIdle)} to {currentState.ToStr()}");
                     break;
-                case StateEraserIdle:
-                    Log($"Change state : {nameof(StatePenIdle)} to {nameofCurrentState}");
+                case QvPen_Pen_State.EraserIdle:
+                    Log($"Change state : {nameof(QvPen_Pen_State.PenIdle)} to {currentState.ToStr()}");
                     break;
                 default:
-                    Error($"Unexpected state : {nameofCurrentState} at {nameof(OnPickupUseUp)}");
+                    Error($"Unexpected state : {currentState.ToStr()} at {nameof(OnPickupUseUp)}");
                     break;
             }
         }
@@ -681,30 +699,25 @@ namespace QvPen.UdonScript
                 SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
         }
 
-        private GameObject justBeforeInk;
-        public void DestroyJustBeforeInk()
-        {
-            if (justBeforeInk)
-            {
-                Destroy(justBeforeInk);
-                justBeforeInk = null;
-                inkNo--;
-            }
-        }
-
         private void OnEnable()
         {
-            if (inkPool)
+            if (Utilities.IsValid(inkPool))
                 inkPool.gameObject.SetActive(true);
         }
 
         private void OnDisable()
         {
-            if (inkPool)
+            if (Utilities.IsValid(inkPool))
                 inkPool.gameObject.SetActive(false);
         }
 
-        private void OnDestroy() => Destroy(inkPool);
+        private void OnDestroy()
+        {
+            _Clear();
+
+            if (Utilities.IsValid(inkPool))
+                Destroy(inkPool.gameObject);
+        }
 
         #endregion
 
@@ -714,83 +727,96 @@ namespace QvPen.UdonScript
         {
             switch (currentState)
             {
-                case StatePenUsing:
+                case QvPen_Pen_State.PenUsing:
                     FinishDrawing();
                     break;
-                case StateEraserIdle:
+                case QvPen_Pen_State.EraserIdle:
                     ChangeToPen();
                     break;
-                case StateEraserUsing:
+                case QvPen_Pen_State.EraserUsing:
                     DisablePointer();
                     ChangeToPen();
                     break;
             }
-            currentState = StatePenIdle;
+            currentState = QvPen_Pen_State.PenIdle;
         }
 
         public void ChangeStateToPenUsing()
         {
             switch (currentState)
             {
-                case StatePenIdle:
+                case QvPen_Pen_State.PenIdle:
                     StartDrawing();
                     break;
-                case StateEraserIdle:
+                case QvPen_Pen_State.EraserIdle:
                     ChangeToPen();
                     StartDrawing();
                     break;
-                case StateEraserUsing:
+                case QvPen_Pen_State.EraserUsing:
                     DisablePointer();
                     ChangeToPen();
                     StartDrawing();
                     break;
             }
-            currentState = StatePenUsing;
+            currentState = QvPen_Pen_State.PenUsing;
         }
 
         public void ChangeStateToEraseIdle()
         {
             switch (currentState)
             {
-                case StatePenIdle:
+                case QvPen_Pen_State.PenIdle:
                     ChangeToEraser();
                     break;
-                case StatePenUsing:
+                case QvPen_Pen_State.PenUsing:
                     FinishDrawing();
                     ChangeToEraser();
                     break;
-                case StateEraserUsing:
+                case QvPen_Pen_State.EraserUsing:
                     DisablePointer();
                     break;
             }
-            currentState = StateEraserIdle;
+            currentState = QvPen_Pen_State.EraserIdle;
         }
 
         public void ChangeStateToEraseUsing()
         {
             switch (currentState)
             {
-                case StatePenIdle:
+                case QvPen_Pen_State.PenIdle:
                     ChangeToEraser();
                     EnablePointer();
                     break;
-                case StatePenUsing:
+                case QvPen_Pen_State.PenUsing:
                     FinishDrawing();
                     ChangeToEraser();
                     EnablePointer();
                     break;
-                case StateEraserIdle:
+                case QvPen_Pen_State.EraserIdle:
                     EnablePointer();
                     break;
             }
-            currentState = StateEraserUsing;
+            currentState = QvPen_Pen_State.EraserUsing;
         }
 
         #endregion
 
+        public bool _TakeOwnership()
+        {
+            if (Networking.IsOwner(gameObject))
+            {
+                return true;
+            }
+            else
+            {
+                Networking.SetOwner(Networking.LocalPlayer, gameObject);
+                return Networking.IsOwner(gameObject);
+            }
+        }
+
         [System.NonSerialized]
-        public bool pickuped = false; // protected
-        public bool isHeld => pickuped;
+        public bool isPickedUp = false; // protected
+        public bool isHeld => isPickedUp;
 
         public void _Respawn()
         {
@@ -802,19 +828,19 @@ namespace QvPen.UdonScript
 
         public void _Clear()
         {
-            foreach (var item in inkPoolSynced.GetComponentsInChildren<MeshCollider>())
-                Destroy(item.sharedMesh);
+            manager.Clear(penId);
+        }
 
-            foreach (Transform ink in inkPoolSynced)
-                Destroy(ink.gameObject);
+        public void _EraseOwnInk()
+        {
+            _TakeOwnership();
+            SendEraseOwnInk();
+        }
 
-            foreach (var item in inkPoolNotSynced.GetComponentsInChildren<MeshCollider>())
-                Destroy(item.sharedMesh);
-
-            foreach (Transform ink in inkPoolNotSynced)
-                Destroy(ink.gameObject);
-
-            inkNo = 0;
+        public void _UndoDraw()
+        {
+            _TakeOwnership();
+            SendUndoDraw();
         }
 
         private void StartDrawing()
@@ -826,7 +852,14 @@ namespace QvPen.UdonScript
         {
             if (isUser)
             {
-                var data = PackData(trailRenderer, currentDrawMode);
+                var inkId = penManager.InkId;
+
+                var inkIdVector = QvPenUtilities.Int32ToVector3(inkId);
+                var data = PackData(trailRenderer, QvPen_Pen_Mode.Draw, inkIdVector, localPlayerIdVector);
+
+                AddLocalInkHistory(inkId);
+
+                penManager._IncrementInkId();
 
                 _SendData(data);
             }
@@ -835,32 +868,40 @@ namespace QvPen.UdonScript
             trailRenderer.Clear();
         }
 
-        private Vector3[] PackData(TrailRenderer trailRenderer, int mode)
+        private Vector3[] PackData(TrailRenderer trailRenderer, QvPen_Pen_Mode mode, Vector3 inkIdVector, Vector3 ownerIdVector)
         {
-            if (!trailRenderer)
+            if (!Utilities.IsValid(trailRenderer))
                 return null;
-
-            justBeforeInk = null;
 
             var positionCount = trailRenderer.positionCount;
 
             if (positionCount == 0)
                 return null;
 
+            var positions = new Vector3[positionCount];
+
+            trailRenderer.GetPositions(positions);
+
+            System.Array.Reverse(positions);
+
             var data = new Vector3[positionCount + GetFooterSize(mode)];
 
-            trailRenderer.GetPositions(data);
+            System.Array.Copy(positions, data, positionCount);
 
-            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3(localPlayerId, mode, GetFooterSize(mode)));
+            var modeAsInt = (int)mode; // Compiler bug
+
+            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3(localPlayerId, modeAsInt, GetFooterSize(mode)));
             SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
+            SetData(data, FOOTER_ELEMENT_INK_ID, inkIdVector);
+            SetData(data, FOOTER_ELEMENT_OWNER_ID, ownerIdVector);
             SetData(data, FOOTER_ELEMENT_DRAW_INK_INFO, new Vector3(inkMeshLayer, inkColliderLayer, enabledLateSync ? 1f : 0f));
 
             return data;
         }
 
-        public Vector3[] _PackData(LineRenderer lineRenderer, int mode)
+        public Vector3[] _PackData(LineRenderer lineRenderer, QvPen_Pen_Mode mode, Vector3 inkIdVector, Vector3 ownerIdVector)
         {
-            if (!lineRenderer)
+            if (!Utilities.IsValid(lineRenderer))
                 return null;
 
             var positionCount = lineRenderer.positionCount;
@@ -868,32 +909,46 @@ namespace QvPen.UdonScript
             if (positionCount == 0)
                 return null;
 
+            var positions = new Vector3[positionCount];
+
+            lineRenderer.GetPositions(positions);
+
+            System.Array.Reverse(positions);
+
             var data = new Vector3[positionCount + GetFooterSize(mode)];
 
-            lineRenderer.GetPositions(data);
+            System.Array.Copy(positions, data, positionCount);
 
             var inkMeshLayer = lineRenderer.gameObject.layer;
             var inkColliderLayer = lineRenderer.GetComponentInChildren<MeshCollider>(true).gameObject.layer;
 
-            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3Int(localPlayerId, mode, GetFooterSize(mode)));
+            var modeAsInt = (int)mode; // Compiler bug
+
+            SetData(data, FOOTER_ELEMENT_DATA_INFO, new Vector3Int(localPlayerId, modeAsInt, GetFooterSize(mode)));
             SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
+            SetData(data, FOOTER_ELEMENT_INK_ID, inkIdVector);
+            SetData(data, FOOTER_ELEMENT_OWNER_ID, ownerIdVector);
             SetData(data, FOOTER_ELEMENT_DRAW_INK_INFO, new Vector3Int(inkMeshLayer, inkColliderLayer, enabledLateSync ? 1 : 0));
 
             return data;
         }
 
-        public void _SendData(Vector3[] data) => manager._SendData(data);
+        public void _SendData(Vector3[] data) => penManager._SendData(data);
 
         private void EnablePointer()
         {
             isPointerEnabled = true;
-            pointerRenderer.sharedMaterial = pointerMaterialActive;
+
+            if (Utilities.IsValid(pointerRenderer))
+                pointerRenderer.sharedMaterial = pointerMaterialActive;
         }
 
         private void DisablePointer()
         {
             isPointerEnabled = false;
-            pointerRenderer.sharedMaterial = pointerMaterialNormal;
+
+            if (Utilities.IsValid(pointerRenderer))
+                pointerRenderer.sharedMaterial = pointerMaterialNormal;
         }
 
         private void ChangeToPen()
@@ -907,54 +962,116 @@ namespace QvPen.UdonScript
             pointer.gameObject.SetActive(true);
         }
 
-        public void _UnpackData(Vector3[] data)
+        public void _UnpackData(Vector3[] data, QvPen_Pen_Mode targetMode)
         {
-            if (data.Length == 0)
+            var mode = GetMode(data);
+
+            if (targetMode != QvPen_Pen_Mode.Any && mode != targetMode)
                 return;
 
-            switch (GetMode(data))
+            switch (mode)
             {
-                case MODE_DRAW:
+                case QvPen_Pen_Mode.Draw:
                     CreateInkInstance(data);
                     break;
-                case MODE_ERASE:
-                    if (isUser && VRCPlayerApi.GetPlayerCount() > 1)
-                        tmpErasedData = data;
-                    else
-                        EraseInk(data);
-
+                case QvPen_Pen_Mode.Erase:
+                    EraseInk(data);
+                    break;
+                case QvPen_Pen_Mode.EraseUserInk:
+                    EraseUserInk(data);
                     break;
             }
+        }
+
+        public void _EraseAbandonedInk(Vector3[] data)
+        {
+            var mode = GetMode(data);
+
+            if (mode != QvPen_Pen_Mode.Draw)
+                return;
+
+            EraseInk(data);
+        }
+
+        private void AddLocalInkHistory(int inkId)
+        {
+            if (localInkHistory.Count > 1024)
+                localInkHistory.RemoveAt(0);
+
+            localInkHistory.Add(inkId);
+        }
+
+        private bool TryGetLastLocalInk(out int inkId)
+        {
+            for (int i = localInkHistory.Count - 1; i >= 0; i--)
+            {
+                if (!localInkHistory.TryGetValue(i, TokenType.Int, out var inkIdToken))
+                    continue;
+
+                inkId = inkIdToken.Int;
+
+                if (!manager.HasInk(penId, inkId))
+                {
+                    localInkHistory.RemoveAt(i);
+                    continue;
+                }
+
+                return true;
+            }
+
+            inkId = default;
+            return false;
         }
 
         #region Draw Line
 
         private void CreateInkInstance(Vector3[] data)
         {
-            lineInstance = Instantiate(inkPrefab.gameObject);
-            lineInstance.name = $"{inkPrefix} ({inkNo++})";
+            var penIdVector = GetData(data, FOOTER_ELEMENT_PEN_ID);
+            var inkIdVector = GetData(data, FOOTER_ELEMENT_INK_ID);
+
+            var penId = QvPenUtilities.Vector3ToInt32(penIdVector);
+            var inkId = QvPenUtilities.Vector3ToInt32(inkIdVector);
+
+            if (manager.HasInk(penId, inkId))
+                return;
+
+            var playerIdVector = GetData(data, FOOTER_ELEMENT_OWNER_ID);
+
+            var lineInstance = Instantiate(inkPrefab.gameObject);
+            lineInstance.name = $"{inkPrefix} ({inkId})";
+
+            if (!QvPenUtilities.TrySetIdFromInk(lineInstance, penIdVector, inkIdVector, playerIdVector))
+            {
+                Warning($"Failed TrySetIdFromInk pen: {penId}, ink: {inkId}");
+                Destroy(lineInstance);
+                return;
+            }
+
+            manager.SetInk(penId, inkId, lineInstance);
 
             var inkInfo = GetData(data, FOOTER_ELEMENT_DRAW_INK_INFO);
             lineInstance.layer = (int)inkInfo.x;
             lineInstance.GetComponentInChildren<MeshCollider>(true).gameObject.layer = (int)inkInfo.y;
-            SetParentAndResetLocalTransform(lineInstance.transform, (int)inkInfo.z == 1 ? inkPoolSynced : inkPoolNotSynced);
+            QvPenUtilities.SetParentAndResetLocalTransform(
+                lineInstance.transform, (int)inkInfo.z == 1 ? inkPoolSynced : inkPoolNotSynced);
+
+            var positionCount = data.Length - GetFooterLength(data);
 
             var line = lineInstance.GetComponent<LineRenderer>();
-            line.positionCount = data.Length - GetFooterLength(data);
+
+            line.positionCount = positionCount;
             line.SetPositions(data);
 
             CreateInkCollider(line);
 
             lineInstance.SetActive(true);
-
-            justBeforeInk = lineInstance;
         }
 
         private void CreateInkCollider(LineRenderer lineRenderer)
         {
             var inkCollider = lineRenderer.GetComponentInChildren<MeshCollider>(true);
             inkCollider.name = "InkCollider";
-            SetParentAndResetLocalTransform(inkCollider.transform, lineInstance.transform);
 
             var mesh = new Mesh();
 
@@ -974,84 +1091,117 @@ namespace QvPen.UdonScript
 
         #region Erase Line
 
-        private Vector3[] tmpErasedData;
-        public void ExecuteEraseInk()
+        private void SendEraseInk(Vector3 penIdVector, Vector3 inkIdVector)
         {
-            if (tmpErasedData != null)
-                EraseInk(tmpErasedData);
+            var data = new Vector3[GetFooterSize(QvPen_Pen_Mode.Erase)];
 
-            tmpErasedData = null;
+            SetData(data, FOOTER_ELEMENT_DATA_INFO,
+                new Vector3(localPlayerId, (int)QvPen_Pen_Mode.Erase, GetFooterSize(QvPen_Pen_Mode.Erase)));
+            SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
+            SetData(data, FOOTER_ELEMENT_INK_ID, inkIdVector);
+
+            _SendData(data);
+        }
+
+        private void SendEraseInk(int penId, int inkId)
+        {
+            SendEraseInk(QvPenUtilities.Int32ToVector3(penId), QvPenUtilities.Int32ToVector3(inkId));
+        }
+
+        private void SendEraseInk(GameObject ink)
+        {
+            if (Utilities.IsValid(ink)
+             && QvPenUtilities.TryGetIdFromInk(ink, out var penIdVector, out var inkIdVector, out var _discard))
+            {
+                SendEraseInk(penIdVector, inkIdVector);
+            }
+        }
+
+        private void SendEraseOwnInk()
+        {
+            var data = new Vector3[GetFooterSize(QvPen_Pen_Mode.EraseUserInk)];
+
+            SetData(data, FOOTER_ELEMENT_DATA_INFO,
+                new Vector3(localPlayerId, (int)QvPen_Pen_Mode.EraseUserInk, GetFooterSize(QvPen_Pen_Mode.EraseUserInk)));
+            SetData(data, FOOTER_ELEMENT_PEN_ID, penIdVector);
+            SetData(data, FOOTER_ELEMENT_OWNER_ID, localPlayerIdVector);
+
+            _SendData(data);
+        }
+
+        private void SendUndoDraw()
+        {
+            if (!TryGetLastLocalInk(out var inkId))
+                return;
+
+            SendEraseInk(penId, inkId);
         }
 
         private void EraseInk(Vector3[] data)
         {
-            if (data.Length < GetFooterSize(MODE_ERASE))
+            if (data.Length < GetFooterSize(QvPen_Pen_Mode.Erase))
                 return;
 
-            var pointerPosition = GetData(data, FOOTER_ELEMENT_ERASE_POINTER_POSITION);
-            var radius = GetData(data, FOOTER_ELEMENT_ERASE_POINTER_RADIUS).x;
-            var count = Physics.OverlapSphereNonAlloc(pointerPosition, radius, results, 1 << inkColliderLayer, QueryTriggerInteraction.Ignore);
-            for (var i = 0; i < count; i++)
-            {
-                var other = results[i];
-                Transform t;
-                if (other && (t = other.transform.parent) && (t = t.parent) && (t = t.parent) && t.parent == inkPoolRoot)
-                {
-                    Destroy(other.GetComponent<MeshCollider>().sharedMesh);
-                    Destroy(other.transform.parent.gameObject);
-                }
+            var penIdVector = GetData(data, FOOTER_ELEMENT_PEN_ID);
+            var inkIdVector = GetData(data, FOOTER_ELEMENT_INK_ID);
 
-                results[i] = null;
-            }
+            var penId = QvPenUtilities.Vector3ToInt32(penIdVector);
+            var inkId = QvPenUtilities.Vector3ToInt32(inkIdVector);
+
+            manager.RemoveInk(penId, inkId);
+        }
+
+        private void EraseUserInk(Vector3[] data)
+        {
+            if (data.Length < GetFooterSize(QvPen_Pen_Mode.EraseUserInk))
+                return;
+
+            var ownerIdVector = GetData(data, FOOTER_ELEMENT_OWNER_ID);
+
+            var penId = QvPenUtilities.Vector3ToInt32(penIdVector);
+
+            manager.RemoveUserInk(penId, ownerIdVector);
         }
 
         #endregion
 
-        #region Utility
+        #region Tool
 
-        private Gradient CreateReverseGradient(Gradient sourceGradient)
+        private const string UDON_EVENT_INTERACT = "_interact";
+
+        private readonly Collider[] results32 = new Collider[32];
+        private void InteractOtherUdon()
         {
-            var newGradient = new Gradient();
-            var newColorKeys = new GradientColorKey[sourceGradient.colorKeys.Length];
-            var newAlphaKeys = new GradientAlphaKey[sourceGradient.alphaKeys.Length];
-
+            var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results32, Physics.AllLayers, QueryTriggerInteraction.Collide);
+            for (var i = 0; i < count; i++)
             {
-                var length = newColorKeys.Length;
-                for (var i = 0; i < length; i++)
+                var other = results32[i];
+
+                if (Utilities.IsValid(other))
                 {
-                    var colorKey = sourceGradient.colorKeys[length - 1 - i];
-                    newColorKeys[i] = new GradientColorKey(colorKey.color, 1f - colorKey.time);
+                    var udonComponents = other.GetComponents(typeof(VRC.Udon.UdonBehaviour));
+
+                    foreach (var udonComponent in udonComponents)
+                    {
+                        if (!Utilities.IsValid(udonComponent))
+                            continue;
+
+                        var udon = (VRC.Udon.UdonBehaviour)udonComponent;
+                        udon.SendCustomEvent(UDON_EVENT_INTERACT);
+                    }
                 }
+
+                results32[i] = null;
             }
 
-            {
-                var length = newAlphaKeys.Length;
-                for (var i = 0; i < length; i++)
-                {
-                    var alphaKey = sourceGradient.alphaKeys[length - 1 - i];
-                    newAlphaKeys[i] = new GradientAlphaKey(alphaKey.alpha, 1f - alphaKey.time);
-                }
-            }
-
-            newGradient.SetKeys(newColorKeys, newAlphaKeys);
-
-            return newGradient;
-        }
-
-        private void SetParentAndResetLocalTransform(Transform child, Transform parent)
-        {
-            if (child)
-            {
-                child.SetParent(parent);
-                child.localPosition = Vector3.zero;
-                child.localRotation = Quaternion.identity;
-                child.localScale = Vector3.one;
-            }
+            System.Array.Clear(results32, 0, results32.Length);
         }
 
         #endregion
 
         #region Log
+
+        private const string appName = nameof(QvPen_Pen);
 
         private void Log(object o) => Debug.Log($"{logPrefix}{o}", this);
         private void Warning(object o) => Debug.LogWarning($"{logPrefix}{o}", this);
@@ -1063,10 +1213,10 @@ namespace QvPen.UdonScript
 
         private string _logPrefix;
         private string logPrefix
-            => string.IsNullOrEmpty(_logPrefix)
-                ? (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{nameof(QvPen_Pen)}{ColorEndTag}] ") : _logPrefix;
+            => !string.IsNullOrEmpty(_logPrefix)
+                ? _logPrefix : (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{appName}{ColorEndTag}] ");
 
-        private string ToHtmlStringRGB(Color c)
+        private static string ToHtmlStringRGB(Color c)
         {
             c *= 0xff;
             return $"{Mathf.RoundToInt(c.r):x2}{Mathf.RoundToInt(c.g):x2}{Mathf.RoundToInt(c.b):x2}";
@@ -1074,4 +1224,131 @@ namespace QvPen.UdonScript
 
         #endregion
     }
+
+    #region QvPenUtilities
+
+    public static class QvPenUtilities
+    {
+        public static void SetParentAndResetLocalTransform(Transform child, Transform parent)
+        {
+            if (!Utilities.IsValid(child))
+                return;
+
+            child.SetParent(parent);
+            child.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            child.localScale = Vector3.one;
+        }
+
+        public static Vector3 Int32ToVector3(int v)
+            => new Vector3((v >> 24) & 0x00ff, (v >> 12) & 0x0fff, v & 0x0fff);
+
+        public static int Vector3ToInt32(Vector3 v)
+            => ((int)v.x & 0x00ff) << 24 | ((int)v.y & 0x0fff) << 12 | ((int)v.z & 0x0fff);
+
+        public static Vector3 GetPlayerIdVector(int playerId)
+        {
+            var x = playerId;
+            var y = x / 360;
+            var z = y / 360;
+            return new Vector3(x % 360, y % 360, z % 360);
+        }
+
+        public static bool TryGetIdFromInk(GameObject ink,
+            out Vector3 penIdVector, out Vector3 inkIdVector, out Vector3 ownerIdVector)
+        {
+            if (!Utilities.IsValid(ink))
+            {
+                penIdVector = default;
+                inkIdVector = default;
+                ownerIdVector = default;
+                return false;
+            }
+
+            if (ink.transform.childCount < 2)
+            {
+                penIdVector = default;
+                inkIdVector = default;
+                ownerIdVector = default;
+                return false;
+            }
+
+            var idHolder = ink.transform.GetChild(1);
+            if (!Utilities.IsValid(idHolder))
+            {
+                penIdVector = default;
+                inkIdVector = default;
+                ownerIdVector = default;
+                return false;
+            }
+
+            penIdVector = idHolder.localPosition;
+            inkIdVector = idHolder.localScale;
+            ownerIdVector = idHolder.localEulerAngles;
+            return true;
+        }
+
+        public static bool TrySetIdFromInk(GameObject ink,
+             Vector3 penIdVector, Vector3 inkIdVector, Vector3 ownerIdVector)
+        {
+            if (!Utilities.IsValid(ink))
+                return false;
+
+            if (ink.transform.childCount < 2)
+                return false;
+
+            var idHolder = ink.transform.GetChild(1);
+            if (!Utilities.IsValid(idHolder))
+                return false;
+
+            idHolder.localPosition = penIdVector;
+            idHolder.localScale = inkIdVector;
+            idHolder.localEulerAngles = ownerIdVector;
+            return true;
+        }
+    }
+
+    #endregion
+
+    #region Enum
+
+    public enum QvPen_Pen_SyncState
+    {
+        Idle,
+        Started,
+        Finished
+    }
+
+    enum QvPen_Pen_State
+    {
+        PenIdle,
+        PenUsing,
+        EraserIdle,
+        EraserUsing
+    }
+
+    public enum QvPen_Pen_Mode
+    {
+        None,
+        Any,
+        Draw,
+        Erase,
+        EraseUserInk
+    }
+
+    static class QvPen_Pen_Extension
+    {
+        internal static string ToStr(this QvPen_Pen_State state)
+        {
+            switch (state)
+            {
+                case QvPen_Pen_State.PenIdle: return nameof(QvPen_Pen_State.PenIdle);
+                case QvPen_Pen_State.PenUsing: return nameof(QvPen_Pen_State.PenUsing);
+                case QvPen_Pen_State.EraserIdle: return nameof(QvPen_Pen_State.EraserIdle);
+                case QvPen_Pen_State.EraserUsing: return nameof(QvPen_Pen_State.EraserUsing);
+                default: return "(QvPen_Pen_State.???)";
+            }
+        }
+    }
+
+    #endregion
 }
