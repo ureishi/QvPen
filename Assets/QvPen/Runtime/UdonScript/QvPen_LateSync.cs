@@ -1,67 +1,48 @@
 ﻿using UdonSharp;
 using UnityEngine;
+using VRC.SDK3.Data;
 using VRC.SDKBase;
 using VRC.Udon.Common;
-using VRC.Udon.Common.Interfaces;
+using Utilities = VRC.SDKBase.Utilities;
 
 #pragma warning disable IDE0090, IDE1006
 
 namespace QvPen.UdonScript
 {
+    [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class QvPen_LateSync : UdonSharpBehaviour
     {
         public QvPen_Pen pen { get; set; }
 
+        [SerializeField]
+        private Transform inkPoolSynced;
+        public Transform InkPoolSynced => inkPoolSynced;
+
+        [SerializeField]
+        private Transform inkPoolNotSynced;
+        public Transform InkPoolNotSynced => inkPoolNotSynced;
+
         private LineRenderer[] linesBuffer = { };
         private int inkIndex = -1;
 
-        private VRCPlayerApi master = null;
-
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
-            if (master == null || player.playerId < master.playerId)
-                master = player;
-
             if (VRCPlayerApi.GetPlayerCount() > 1 && Networking.IsOwner(gameObject))
                 StartSync();
         }
 
         public override void OnOwnershipTransferred(VRCPlayerApi player)
         {
-            master = player;
-
             if (VRCPlayerApi.GetPlayerCount() > 1 && Networking.IsOwner(gameObject))
                 SendCustomEventDelayedSeconds(nameof(StartSync), 1.84f * (1f + Random.value));
-
         }
 
-        #region Data protocol
-
-        #region Base
-
-        // Pen mode
-        private const int MODE_UNKNOWN = QvPen_Pen.MODE_UNKNOWN;
-        private const int MODE_DRAW = QvPen_Pen.MODE_DRAW;
-        private const int MODE_ERASE = QvPen_Pen.MODE_ERASE;
-        private const int MODE_DRAW_PLANE = QvPen_Pen.MODE_DRAW_PLANE;
+        #region Footer
 
         // Footer element
         private const int FOOTER_ELEMENT_DATA_INFO = QvPen_Pen.FOOTER_ELEMENT_DATA_INFO;
         private const int FOOTER_ELEMENT_PEN_ID = QvPen_Pen.FOOTER_ELEMENT_PEN_ID;
-
-        //private const int FOOTER_ELEMENT_DRAW_INK_INFO = QvPen_Pen.FOOTER_ELEMENT_DRAW_INK_INFO;
-        //private const int FOOTER_ELEMENT_DRAW_LENGTH = QvPen_Pen.FOOTER_ELEMENT_DRAW_LENGTH;
-
-        //private const int FOOTER_ELEMENT_ERASE_POINTER_POSITION = QvPen_Pen.FOOTER_ELEMENT_ERASE_POINTER_POSITION;
-        //private const int FOOTER_ELEMENT_ERASE_LENGTH = QvPen_Pen.FOOTER_ELEMENT_ERASE_LENGTH;
-
-        #endregion
-
-        // Pen sync mode
-        private const int SYNC_STATE_Idle = QvPen_Pen.SYNC_STATE_Idle;
-        private const int SYNC_STATE_Started = QvPen_Pen.SYNC_STATE_Started;
-        private const int SYNC_STATE_Finished = QvPen_Pen.SYNC_STATE_Finished;
 
         #endregion
 
@@ -72,7 +53,7 @@ namespace QvPen.UdonScript
             forceStart = true;
             retryCount = 0;
 
-            SendBiginSignal();
+            SendBeginSignal();
         }
 
         [UdonSynced]
@@ -95,7 +76,7 @@ namespace QvPen.UdonScript
 
                     if (Networking.IsOwner(gameObject))
                         _RequestSendPackage();
-                    else if (_syncedData != null && _syncedData.Length > 0)
+                    else
                         UnpackData(_syncedData);
                 }
             }
@@ -135,6 +116,7 @@ namespace QvPen.UdonScript
 
         private const int maxRetryCount = 3;
         private int retryCount = 0;
+        private LineRenderer nextInk;
         public override void OnPostSerialization(SerializationResult result)
         {
             isInUseSyncBuffer = false;
@@ -150,14 +132,17 @@ namespace QvPen.UdonScript
 
                 var signal = GetCalibrationSignal(syncedData);
                 if (signal == errorSignal)
+                {
                     return;
+                }
                 else if (signal == beginSignal)
                 {
                     forceStart = false;
 
-                    linesBuffer = pen.inkPoolSynced.GetComponentsInChildren<LineRenderer>();
+                    linesBuffer = inkPoolSynced.GetComponentsInChildren<LineRenderer>();
 
                     inkIndex = -1;
+                    nextInk = null;
                 }
                 else if (signal == endSignal)
                 {
@@ -169,11 +154,87 @@ namespace QvPen.UdonScript
                     return;
                 }
 
-                var ink = GetNextInk();
-                if (ink)
-                    SendData(pen._PackData(ink, MODE_DRAW));
+                var ink = nextInk;
+
+                if (!Utilities.IsValid(ink))
+                    ink = GetNextInk();
+
+                if (Utilities.IsValid(ink))
+                {
+                    var totalLength = 0;
+                    var dataList = new DataList();
+                    var lengthList = new DataList();
+
+                    while (Utilities.IsValid(ink))
+                    {
+                        if (!QvPenUtilities.TryGetIdFromInk(ink.gameObject, out var _discard, out var inkIdVector, out var ownerIdVector))
+                        {
+                            ink = GetNextInk();
+                            continue;
+                        }
+
+                        var data = pen._PackData(ink, QvPen_Pen_Mode.Draw, inkIdVector, ownerIdVector);
+                        var length = data.Length;
+
+                        dataList.Add(new DataToken(data));
+                        lengthList.Add(length);
+                        totalLength += length;
+
+                        ink = GetNextInk();
+
+                        if (!Utilities.IsValid(ink))
+                        {
+                            nextInk = null;
+                            break;
+                        }
+
+                        if (totalLength + ink.positionCount > 80)
+                        {
+                            nextInk = ink;
+                            break;
+                        }
+                    }
+
+                    var lengthVectors = new Vector3[(lengthList.Count + 2) / 3];
+                    for (int i = 0, n = lengthList.Count; i < n; i++)
+                    {
+                        if (!lengthList.TryGetValue(i, TokenType.Int, out var lengthToken))
+                            continue;
+
+                        lengthVectors[i / 3][i % 3] = lengthToken.Int;
+                    }
+
+                    var joinedData = new Vector3[2 + lengthVectors.Length + totalLength];
+                    var index = 0;
+
+                    joinedData[0] = pen.penIdVector;
+                    index += 1;
+
+                    joinedData[1] = new Vector3(lengthList.Count, joinedData.Length, 0f);
+                    index += 1;
+
+                    System.Array.Copy(lengthVectors, 0, joinedData, index, lengthVectors.Length);
+                    index += lengthVectors.Length;
+
+                    for (int i = 0, n = dataList.Count; i < n; i++)
+                    {
+                        if (!dataList.TryGetValue(i, TokenType.Reference, out var dataToken))
+                            continue;
+
+                        var data = (Vector3[])dataToken.Reference;
+                        System.Array.Copy(data, 0, joinedData, index, data.Length);
+                        index += data.Length;
+                    }
+
+                    dataList.Clear();
+                    lengthList.Clear();
+
+                    SendData(joinedData);
+                }
                 else
+                {
                     SendEndSignal();
+                }
             }
         }
 
@@ -183,43 +244,73 @@ namespace QvPen.UdonScript
 
         private void UnpackData(Vector3[] data)
         {
+            if (_syncedData == null || _syncedData.Length < 2)
+                return;
+
             var penIdVector = GetPenIdVector(data);
 
-            if (pen && pen._CheckId(penIdVector))
+            if (Utilities.IsValid(pen) && pen._CheckId(penIdVector))
             {
-                if (pen.currentSyncState == SYNC_STATE_Finished)
+                var currentSyncState = pen.currentSyncState;
+
+                if (currentSyncState == QvPen_Pen_SyncState.Finished)
                     return;
 
                 var signal = GetCalibrationSignal(data);
                 if (signal == beginSignal)
                 {
-                    if (pen.currentSyncState == SYNC_STATE_Idle)
-                        pen.currentSyncState = SYNC_STATE_Started;
+                    if (currentSyncState == QvPen_Pen_SyncState.Idle)
+                        pen.currentSyncState = QvPen_Pen_SyncState.Started;
                 }
                 else if (signal == endSignal)
                 {
-                    if (pen.currentSyncState == SYNC_STATE_Started)
-                        pen.currentSyncState = SYNC_STATE_Finished;
+                    if (currentSyncState == QvPen_Pen_SyncState.Started)
+                        pen.currentSyncState = QvPen_Pen_SyncState.Finished;
                 }
-                else
-                    pen._UnpackData(data);
+                else if (data.Length > 2)
+                {
+                    var index = 1;
+
+                    var length = (int)data[index].x;
+                    var check = (int)data[index].y;
+                    index += 1;
+
+                    if (check != data.Length)
+                        return;
+
+                    var lengthVectors = new Vector3[(length + 2) / 3];
+
+                    System.Array.Copy(data, index, lengthVectors, 0, lengthVectors.Length);
+                    index += lengthVectors.Length;
+
+                    for (var i = 0; i < length; i++)
+                    {
+                        var dataLength = (int)lengthVectors[i / 3][i % 3];
+                        var stroke = new Vector3[dataLength];
+
+                        System.Array.Copy(data, index, stroke, 0, dataLength);
+                        index += dataLength;
+
+                        pen._UnpackData(stroke, QvPen_Pen_Mode.Any);
+                    }
+                }
             }
         }
 
-        private void SendBiginSignal()
+        private void SendBeginSignal()
             => SendData(new Vector3[] { pen.penIdVector, beginSignal });
 
         private void SendEndSignal()
             => SendData(new Vector3[] { pen.penIdVector, endSignal });
 
         private Vector3 GetCalibrationSignal(Vector3[] data)
-            => data.Length > 1 ? data[1] : errorSignal;
+            => data != null && data.Length > 1 ? data[1] : errorSignal;
 
         private Vector3 GetData(Vector3[] data, int index)
-            => data.Length > index ? data[data.Length - 1 - index] : errorSignal;
+            => data != null && data.Length > index ? data[data.Length - 1 - index] : errorSignal;
 
         private Vector3 GetPenIdVector(Vector3[] data)
-            => data.Length > FOOTER_ELEMENT_PEN_ID ? GetData(data, FOOTER_ELEMENT_PEN_ID) : errorSignal;
+            => data != null && data.Length > FOOTER_ELEMENT_PEN_ID ? GetData(data, FOOTER_ELEMENT_PEN_ID) : errorSignal;
 
         private LineRenderer GetNextInk()
         {
@@ -228,7 +319,7 @@ namespace QvPen.UdonScript
             while (++inkIndex < linesBuffer.Length)
             {
                 var ink = linesBuffer[inkIndex];
-                if (ink)
+                if (Utilities.IsValid(ink))
                     return ink;
             }
 
@@ -236,6 +327,8 @@ namespace QvPen.UdonScript
         }
 
         #region Log
+
+        private const string appName = nameof(QvPen_LateSync);
 
         private void Log(object o) => Debug.Log($"{logPrefix}{o}", this);
         private void Warning(object o) => Debug.LogWarning($"{logPrefix}{o}", this);
@@ -247,10 +340,10 @@ namespace QvPen.UdonScript
 
         private string _logPrefix;
         private string logPrefix
-            => string.IsNullOrEmpty(_logPrefix)
-                ? (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{nameof(QvPen_LateSync)}{ColorEndTag}] ") : _logPrefix;
+            => !string.IsNullOrEmpty(_logPrefix)
+                ? _logPrefix : (_logPrefix = $"[{ColorBeginTag(logColor)}{nameof(QvPen)}.{nameof(QvPen.Udon)}.{appName}{ColorEndTag}] ");
 
-        private string ToHtmlStringRGB(Color c)
+        private static string ToHtmlStringRGB(Color c)
         {
             c *= 0xff;
             return $"{Mathf.RoundToInt(c.r):x2}{Mathf.RoundToInt(c.g):x2}{Mathf.RoundToInt(c.b):x2}";

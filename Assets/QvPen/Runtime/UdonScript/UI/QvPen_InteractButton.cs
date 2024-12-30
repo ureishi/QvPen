@@ -2,9 +2,11 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon.Common.Interfaces;
+using Utilities = VRC.SDKBase.Utilities;
 
 namespace QvPen.Udon.UI
 {
+    [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_InteractButton : UdonSharpBehaviour
     {
@@ -42,18 +44,33 @@ namespace QvPen.Udon.UI
                     return;
             }
 
-            if (udonSharpBehaviour)
+            if (Utilities.IsValid(udonSharpBehaviour))
+            {
                 if (!isGlobalEvent)
                     udonSharpBehaviour.SendCustomEvent(customEventName);
                 else
                     udonSharpBehaviour.SendCustomNetworkEvent(onlySendToOwner ? NetworkEventTarget.Owner : NetworkEventTarget.All, customEventName);
-            else if (udonSharpBehaviours.Length > 0)
+            }
+
+            if (udonSharpBehaviours.Length > 0)
+            {
                 if (!isGlobalEvent)
+                {
                     foreach (var udonSharpBehaviour in udonSharpBehaviours)
-                        udonSharpBehaviour.SendCustomEvent(customEventName);
+                    {
+                        if (Utilities.IsValid(udonSharpBehaviour))
+                            udonSharpBehaviour.SendCustomEvent(customEventName);
+                    }
+                }
                 else
+                {
                     foreach (var udonSharpBehaviour in udonSharpBehaviours)
-                        udonSharpBehaviour.SendCustomNetworkEvent(onlySendToOwner ? NetworkEventTarget.Owner : NetworkEventTarget.All, customEventName);
+                    {
+                        if (Utilities.IsValid(udonSharpBehaviour))
+                            udonSharpBehaviour.SendCustomNetworkEvent(onlySendToOwner ? NetworkEventTarget.Owner : NetworkEventTarget.All, customEventName);
+                    }
+                }
+            }
         }
     }
 }

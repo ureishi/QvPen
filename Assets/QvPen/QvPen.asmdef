@@ -1,8 +1,10 @@
 {
     "name": "QvPen",
+    "rootNamespace": "",
     "references": [
         "Unity.TextMeshPro",
-        "UdonSharp.Runtime"
+        "UdonSharp.Runtime",
+        "VRC.Udon"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

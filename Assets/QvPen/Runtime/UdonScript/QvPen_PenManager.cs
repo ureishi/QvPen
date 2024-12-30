@@ -6,12 +6,14 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
+using Utilities = VRC.SDKBase.Utilities;
 
 #pragma warning disable IDE0044
 #pragma warning disable IDE0090, IDE1006
 
 namespace QvPen.UdonScript
 {
+    [AddComponentMenu("")]
     [DefaultExecutionOrder(20)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class QvPen_PenManager : UdonSharpBehaviour
@@ -63,7 +65,7 @@ namespace QvPen.UdonScript
 
             if (player.isLocal)
             {
-                if (clearButton)
+                if (Utilities.IsValid(clearButton))
                 {
                     clearButtonPositionConstraint = clearButton.GetComponent<PositionConstraint>();
                     clearButtonRotationConstraint = clearButton.GetComponent<RotationConstraint>();
@@ -81,47 +83,47 @@ namespace QvPen.UdonScript
 
         public void StartUsing()
         {
-            pen.pickuped = true;
+            pen.isPickedUp = true;
 
-            if (respawnButton)
+            if (Utilities.IsValid(respawnButton))
                 respawnButton.SetActive(false);
-            if (clearButton)
+            if (Utilities.IsValid(clearButton))
                 SetClearButtonActive(false);
-            if (inUseUI)
+            if (Utilities.IsValid(inUseUI))
                 inUseUI.SetActive(true);
 
             var owner = Networking.GetOwner(pen.gameObject);
 
             var text = owner != null ? owner.displayName : "Occupied";
 
-            if (textInUse)
+            if (Utilities.IsValid(textInUse))
                 textInUse.text = text;
 
-            if (textInUseTMP)
+            if (Utilities.IsValid(textInUseTMP))
                 textInUseTMP.text = text;
 
-            if (textInUseTMPU)
+            if (Utilities.IsValid(textInUseTMPU))
                 textInUseTMPU.text = text;
         }
 
         public void EndUsing()
         {
-            pen.pickuped = false;
+            pen.isPickedUp = false;
 
-            if (respawnButton)
+            if (Utilities.IsValid(respawnButton))
                 respawnButton.SetActive(true);
-            if (clearButton)
+            if (Utilities.IsValid(clearButton))
                 SetClearButtonActive(true);
-            if (inUseUI)
+            if (Utilities.IsValid(inUseUI))
                 inUseUI.SetActive(false);
 
-            if (textInUse)
+            if (Utilities.IsValid(textInUse))
                 textInUse.text = string.Empty;
 
-            if (textInUseTMP)
+            if (Utilities.IsValid(textInUseTMP))
                 textInUseTMP.text = string.Empty;
 
-            if (textInUseTMPU)
+            if (Utilities.IsValid(textInUseTMPU))
                 textInUseTMPU.text = string.Empty;
         }
 
@@ -130,7 +132,7 @@ namespace QvPen.UdonScript
 
         private void SetClearButtonActive(bool isActive)
         {
-            if (clearButton)
+            if (Utilities.IsValid(clearButton))
                 clearButton.SetActive(isActive);
             else
                 return;
@@ -143,9 +145,9 @@ namespace QvPen.UdonScript
 
         private void EnableClearButtonConstraints()
         {
-            if (clearButtonPositionConstraint)
+            if (Utilities.IsValid(clearButtonPositionConstraint))
                 clearButtonPositionConstraint.enabled = true;
-            if (clearButtonRotationConstraint)
+            if (Utilities.IsValid(clearButtonRotationConstraint))
                 clearButtonRotationConstraint.enabled = true;
 
             SendCustomEventDelayedSeconds(nameof(_DisableClearButtonConstraints), 2f);
@@ -153,9 +155,9 @@ namespace QvPen.UdonScript
 
         public void _DisableClearButtonConstraints()
         {
-            if (clearButtonPositionConstraint)
+            if (Utilities.IsValid(clearButtonPositionConstraint))
                 clearButtonPositionConstraint.enabled = false;
-            if (clearButtonRotationConstraint)
+            if (Utilities.IsValid(clearButtonRotationConstraint))
                 clearButtonRotationConstraint.enabled = false;
         }
 
@@ -203,6 +205,26 @@ namespace QvPen.UdonScript
             pen._Clear();
         }
 
+        public void UndoDraw()
+        {
+            if (pen.isPickedUp)
+                return;
+
+            _TakeOwnership();
+
+            pen._UndoDraw();
+        }
+
+        public void EraseOwnInk()
+        {
+            if (pen.isPickedUp)
+                return;
+
+            _TakeOwnership();
+
+            pen._EraseOwnInk();
+        }
+
         #endregion
 
         #region Network
@@ -239,10 +261,15 @@ namespace QvPen.UdonScript
 
                 RequestSendPackage();
 
-                if (_syncedData != null)
-                    pen._UnpackData(_syncedData);
+                pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
             }
         }
+
+        [UdonSynced]
+        private int inkId;
+        public int InkId => inkId;
+
+        public void _IncrementInkId() => inkId++;
 
         private bool isInUseSyncBuffer = false;
         private void RequestSendPackage()
@@ -264,16 +291,21 @@ namespace QvPen.UdonScript
             => _syncedData = syncedData;
 
         public override void OnDeserialization()
-            => syncedData = _syncedData;
+        {
+            if (Networking.IsOwner(gameObject))
+                return;
+
+            syncedData = _syncedData;
+        }
 
         public override void OnPostSerialization(SerializationResult result)
         {
             isInUseSyncBuffer = false;
 
             if (result.success)
-                pen.ExecuteEraseInk();
+                pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
             else
-                pen.DestroyJustBeforeInk();
+                pen._EraseAbandonedInk(_syncedData);
         }
 
         public void _ClearSyncBuffer()

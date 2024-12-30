@@ -11,6 +11,7 @@ using VRC.Udon.Common.Interfaces;
 
 namespace QvPen.UdonScript
 {
+    [AddComponentMenu("")]
     [DefaultExecutionOrder(20)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class QvPen_EraserManager : UdonSharpBehaviour
@@ -49,7 +50,7 @@ namespace QvPen.UdonScript
 
         public void StartUsing()
         {
-            eraser.pickuped = true;
+            eraser.isPickedUp = true;
 
             respawnButton.SetActive(false);
             inUseUI.SetActive(true);
@@ -58,30 +59,30 @@ namespace QvPen.UdonScript
 
             var text = owner != null ? owner.displayName : "Occupied";
 
-            if (textInUse)
+            if (Utilities.IsValid(textInUse))
                 textInUse.text = text;
 
-            if (textInUseTMP)
+            if (Utilities.IsValid(textInUseTMP))
                 textInUseTMP.text = text;
 
-            if (textInUseTMPU)
+            if (Utilities.IsValid(textInUseTMPU))
                 textInUseTMPU.text = text;
         }
 
         public void EndUsing()
         {
-            eraser.pickuped = false;
+            eraser.isPickedUp = false;
 
             respawnButton.SetActive(true);
             inUseUI.SetActive(false);
 
-            if (textInUse)
+            if (Utilities.IsValid(textInUse))
                 textInUse.text = string.Empty;
 
-            if (textInUseTMP)
+            if (Utilities.IsValid(textInUseTMP))
                 textInUseTMP.text = string.Empty;
 
-            if (textInUseTMPU)
+            if (Utilities.IsValid(textInUseTMPU))
                 textInUseTMPU.text = string.Empty;
         }
 
@@ -123,8 +124,7 @@ namespace QvPen.UdonScript
 
                 RequestSendPackage();
 
-                if (_syncedData != null)
-                    eraser._UnpackData(_syncedData);
+                eraser._UnpackData(_syncedData);
             }
         }
 
