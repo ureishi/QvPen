@@ -28,23 +28,6 @@ namespace QvPen.UdonScript
             inkDictMap[penId] = new DataDictionary();
         }
 
-        public override void Interact()
-        {
-            var keys = penDict.GetKeys();
-
-            for (int i = 0, n = keys.Count; i < n; i++)
-            {
-                var key = keys[i];
-
-                if (!penDict.TryGetValue(key, TokenType.Reference, out var penToken))
-                    continue;
-
-                var pen = (QvPen_Pen)penToken.Reference;
-
-                Debug.Log($"{i}: {key} {pen}", pen);
-            }
-        }
-
         #region Call Pen
 
         private void Update()
@@ -57,6 +40,11 @@ namespace QvPen.UdonScript
         }
 
         private QvPen_Pen lastUsedPen;
+
+        public void SetLastUsedPen(QvPen_Pen pen)
+        {
+            lastUsedPen = pen;
+        }
 
         private void CallPen()
         {
