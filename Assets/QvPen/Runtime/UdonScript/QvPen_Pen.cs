@@ -4,7 +4,6 @@ using UnityEngine;
 using VRC.SDK3.Components;
 using VRC.SDK3.Data;
 using VRC.SDKBase;
-using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
 using Utilities = VRC.SDKBase.Utilities;
 
@@ -18,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.3";
+        public const string version = "v3.3.4";
 
         #region Field
 
@@ -590,6 +589,10 @@ namespace QvPen.UdonScript
         {
             isUser = true;
 
+            manager.SetLastUsedPen(this);
+
+            penManager.OnPenPickup();
+
             penManager._TakeOwnership();
             penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.StartUsing));
 
@@ -599,6 +602,8 @@ namespace QvPen.UdonScript
         public override void OnDrop()
         {
             isUser = false;
+
+            penManager.OnPenDrop();
 
             penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.EndUsing));
 

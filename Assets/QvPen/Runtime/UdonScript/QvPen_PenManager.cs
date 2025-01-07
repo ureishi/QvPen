@@ -3,6 +3,7 @@ using UdonSharp;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+using VRC.SDK3.Data;
 using VRC.SDKBase;
 using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
@@ -223,6 +224,52 @@ namespace QvPen.UdonScript
             _TakeOwnership();
 
             pen._EraseOwnInk();
+        }
+
+        #endregion
+
+        #region Callback
+
+        private readonly DataList listenerList = new DataList();
+
+        public void Register(QvPen_PenCallbackListener listener)
+        {
+            if (!Utilities.IsValid(listener) || listenerList.Contains(listener))
+                return;
+
+            listenerList.Add(listener);
+        }
+
+        public void OnPenPickup()
+        {
+            for (int i = 0, n = listenerList.Count; i < n; i++)
+            {
+                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listerToken))
+                    continue;
+
+                var listener = (QvPen_PenCallbackListener)listerToken.Reference;
+
+                if (!Utilities.IsValid(listener))
+                    continue;
+
+                listener.OnPenPickup();
+            }
+        }
+
+        public void OnPenDrop()
+        {
+            for (int i = 0, n = listenerList.Count; i < n; i++)
+            {
+                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listerToken))
+                    continue;
+
+                var listener = (QvPen_PenCallbackListener)listerToken.Reference;
+
+                if (!Utilities.IsValid(listener))
+                    continue;
+
+                listener.OnPenDrop();
+            }
         }
 
         #endregion
