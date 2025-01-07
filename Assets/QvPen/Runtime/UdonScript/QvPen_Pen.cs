@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.4";
+        public const string version = "v3.3.5";
 
         #region Field
 
@@ -551,7 +551,8 @@ namespace QvPen.UdonScript
                 if ((1 << other.gameObject.layer & surftraceMask) == 0)
                     return;
 
-                if (other.GetType().IsSubclassOf(typeof(MeshCollider)) && !((MeshCollider)other).convex)
+                //if (other.GetType().IsSubclassOf(typeof(MeshCollider)) && !((MeshCollider)other).convex)
+                if (other.GetType() == typeof(MeshCollider) && !((MeshCollider)other).convex)
                     return;
 
                 var distance = Vector3.Distance(other.ClosestPoint(inkPosition.position), inkPosition.position);
