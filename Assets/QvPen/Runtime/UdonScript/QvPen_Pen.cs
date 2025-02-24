@@ -143,6 +143,8 @@ namespace QvPen.UdonScript
 
         private const string inkPrefix = "Ink";
         private float inkWidth;
+        bool isRoundedTrailShader = false;
+        MaterialPropertyBlock propertyBlock;
 
         private VRCPlayerApi _localPlayer;
         private VRCPlayerApi localPlayer => _localPlayer ?? (_localPlayer = Networking.LocalPlayer);
@@ -255,12 +257,15 @@ namespace QvPen.UdonScript
 
 #if UNITY_ANDROID
             var material = penManager.questInkMaterial;
+            inkPrefab.material = material;
+            trailRenderer.material = material;
             inkPrefab.widthMultiplier = inkWidth;
             trailRenderer.widthMultiplier = inkWidth;
 #else
             var material = penManager.pcInkMaterial;
 
-            var isRoundedTrailShader = false;
+            inkPrefab.material = material;
+            trailRenderer.material = material;
 
             if (Utilities.IsValid(material))
             {
@@ -275,8 +280,16 @@ namespace QvPen.UdonScript
             if (isRoundedTrailShader)
             {
                 inkPrefab.widthMultiplier = 0f;
+                propertyBlock = new MaterialPropertyBlock();
+                inkPrefab.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat("_Width", inkWidth);
+                inkPrefab.SetPropertyBlock(propertyBlock);
+
                 trailRenderer.widthMultiplier = 0f;
-                material.SetFloat("_Width", inkWidth);
+                propertyBlock.Clear();
+                trailRenderer.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat("_Width", inkWidth);
+                trailRenderer.SetPropertyBlock(propertyBlock);
             }
             else
             {
@@ -285,8 +298,6 @@ namespace QvPen.UdonScript
             }
 #endif
 
-            inkPrefab.material = material;
-            trailRenderer.material = material;
             inkPrefab.colorGradient = penManager.colorGradient;
             trailRenderer.colorGradient = penManager.colorGradient;
 
@@ -1068,6 +1079,24 @@ namespace QvPen.UdonScript
 
             line.positionCount = positionCount;
             line.SetPositions(data);
+
+#if !UNITY_ANDROID
+            if (isRoundedTrailShader)
+            {
+                if (!Utilities.IsValid(propertyBlock))
+                    propertyBlock = new MaterialPropertyBlock();
+                else
+                    propertyBlock.Clear();
+
+                line.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetFloat("_Width", inkWidth);
+                line.SetPropertyBlock(propertyBlock);
+            }
+            else
+            {
+                line.widthMultiplier = inkWidth;
+            }
+#endif
 
             CreateInkCollider(line);
 
