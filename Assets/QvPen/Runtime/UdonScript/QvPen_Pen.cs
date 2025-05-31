@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.5";
+        public const string version = "v3.3.7";
 
         #region Field
 
@@ -237,7 +237,7 @@ namespace QvPen.UdonScript
 
             marker.transform.localScale = Vector3.one * inkWidth;
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
             if (isUserInVR)
                 clickPosInterval = 0.005f;
             else
@@ -255,13 +255,7 @@ namespace QvPen.UdonScript
             trailRenderer.gameObject.layer = inkMeshLayer;
             inkPrefabCollider.gameObject.layer = inkColliderLayer;
 
-#if UNITY_ANDROID
-            var material = penManager.questInkMaterial;
-            inkPrefab.material = material;
-            trailRenderer.material = material;
-            inkPrefab.widthMultiplier = inkWidth;
-            trailRenderer.widthMultiplier = inkWidth;
-#else
+#if UNITY_STANDALONE
             var material = penManager.pcInkMaterial;
 
             inkPrefab.material = material;
@@ -296,6 +290,12 @@ namespace QvPen.UdonScript
                 inkPrefab.widthMultiplier = inkWidth;
                 trailRenderer.widthMultiplier = inkWidth;
             }
+#else
+            var material = penManager.questInkMaterial;
+            inkPrefab.material = material;
+            trailRenderer.material = material;
+            inkPrefab.widthMultiplier = inkWidth;
+            trailRenderer.widthMultiplier = inkWidth;
 #endif
 
             inkPrefab.colorGradient = penManager.colorGradient;
@@ -360,7 +360,7 @@ namespace QvPen.UdonScript
         #region Unity events
 
         #region Screen mode
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
         private VRCPlayerApi.TrackingData headTracking;
         private Vector3 headPos, center;
         private Quaternion headRot;
@@ -449,7 +449,7 @@ namespace QvPen.UdonScript
             if (!isHeld)
                 return;
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
             if (!isUserInVR && isUser && Input.GetKey(KeyCode.Tab))
             {
                 headTracking = localPlayer.GetTrackingData(VRCPlayerApi.TrackingDataType.Head);
@@ -476,7 +476,7 @@ namespace QvPen.UdonScript
             if (isSurftraceMode)
             {
                 Vector3 inkPositionPosition;
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
                 if (isScreenMode)
                     inkPositionPosition = inkPositionChild.position;
                 else
@@ -486,7 +486,7 @@ namespace QvPen.UdonScript
                 var closestPoint = surftraceTarget.ClosestPoint(inkPositionPosition);
                 var distance = Vector3.Distance(closestPoint, inkPositionPosition);
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
                 inkPositionChild.position = Vector3.MoveTowards(closestPoint, inkPositionPosition, inkWidth / 1.999f);
 #else
                 inkPositionChild.position = Vector3.MoveTowards(closestPoint, inkPositionPosition, inkWidth / 1.9f);
@@ -582,7 +582,7 @@ namespace QvPen.UdonScript
         {
             surftraceTarget = null;
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
             if (!isScreenMode)
 #endif
                 marker.enabled = false;
@@ -623,7 +623,7 @@ namespace QvPen.UdonScript
 
             penManager._ClearSyncBuffer();
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
             ExitScreenMode();
 #endif
             ExitSurftraceMode();
@@ -1080,7 +1080,7 @@ namespace QvPen.UdonScript
             line.positionCount = positionCount;
             line.SetPositions(data);
 
-#if !UNITY_ANDROID
+#if UNITY_STANDALONE
             if (isRoundedTrailShader)
             {
                 if (!Utilities.IsValid(propertyBlock))

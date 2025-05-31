@@ -28,7 +28,7 @@ namespace QvPen.Udon.UI
         [SerializeField]
         private Image allIndicator;
 
-        private const float keepSeconds1 = 0.51f;
+        private const float keepSeconds1 = 0.31f;
         private const float keepSeconds2 = 2f;
 
         private float targetTime1;
