@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.7";
+        public const string version = "v3.3.8";
 
         #region Field
 
@@ -1222,6 +1222,10 @@ namespace QvPen.UdonScript
                             continue;
 
                         var udon = (VRC.Udon.UdonBehaviour)udonComponent;
+
+                        if (udon.DisableInteractive)
+                            continue;
+
                         udon.SendCustomEvent(UDON_EVENT_INTERACT);
                     }
                 }
