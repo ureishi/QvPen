@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.8";
+        public const string version = "v3.3.9";
 
         #region Field
 
@@ -114,6 +114,7 @@ namespace QvPen.UdonScript
         // Ink
         private int inkMeshLayer;
         private int inkColliderLayer;
+        private int inkColliderLayerMask;
         private const float followSpeed = 32f;
 
         // Pointer
@@ -250,6 +251,7 @@ namespace QvPen.UdonScript
             inkWidth = penManager.inkWidth;
             inkMeshLayer = penManager.inkMeshLayer;
             inkColliderLayer = penManager.inkColliderLayer;
+            inkColliderLayerMask = 1 << inkColliderLayer;
 
             inkPrefab.gameObject.layer = inkMeshLayer;
             trailRenderer.gameObject.layer = inkMeshLayer;
@@ -499,11 +501,16 @@ namespace QvPen.UdonScript
             if (!isPointerEnabled)
             {
                 if (isUser)
+                {
+                    var deltaDistance = Time.deltaTime * followSpeed;
                     trailRenderer.transform.SetPositionAndRotation(
-                        Vector3.Lerp(trailRenderer.transform.position, inkPositionChild.position, Time.deltaTime * followSpeed),
-                        Quaternion.Lerp(trailRenderer.transform.rotation, inkPositionChild.rotation, Time.deltaTime * followSpeed));
+                        Vector3.Lerp(trailRenderer.transform.position, inkPositionChild.position, deltaDistance),
+                        Quaternion.Lerp(trailRenderer.transform.rotation, inkPositionChild.rotation, deltaDistance));
+                }
                 else
+                {
                     trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
+                }
             }
         }
 
@@ -515,7 +522,7 @@ namespace QvPen.UdonScript
 
             if (isPointerEnabled)
             {
-                var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results4, 1 << inkColliderLayer, QueryTriggerInteraction.Ignore);
+                var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results4, inkColliderLayerMask, QueryTriggerInteraction.Ignore);
                 for (var i = 0; i < count; i++)
                 {
                     var other = results4[i];
@@ -929,8 +936,6 @@ namespace QvPen.UdonScript
             var positions = new Vector3[positionCount];
 
             lineRenderer.GetPositions(positions);
-
-            System.Array.Reverse(positions);
 
             var data = new Vector3[positionCount + GetFooterSize(mode)];
 
