@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.9";
+        public const string version = "v3.3.10";
 
         #region Field
 
@@ -107,6 +107,12 @@ namespace QvPen.UdonScript
         private VRCObjectSync objectSync
             => Utilities.IsValid(_objectSync)
                 ? _objectSync : (_objectSync = (VRCObjectSync)GetComponent(typeof(VRCObjectSync)));
+
+        [Header("ObjectSync")]
+        [SerializeField]
+        private UdonSharpBehaviour _alternativeObjectSync;
+        [SerializeField]
+        private string _respawnEventName = "Respawn";
 
         // PenManager
         private QvPen_PenManager penManager;
@@ -847,7 +853,12 @@ namespace QvPen.UdonScript
             pickup.Drop();
 
             if (Networking.IsOwner(gameObject))
-                objectSync.Respawn();
+            {
+                if (Utilities.IsValid(objectSync))
+                    objectSync.Respawn();
+                else if (Utilities.IsValid(_alternativeObjectSync))
+                    _alternativeObjectSync.SendCustomEvent(_respawnEventName);
+            }
         }
 
         public void _Clear()
