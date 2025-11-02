@@ -160,8 +160,6 @@ namespace QvPen.UdonScript
 
             var inkIdList = inkDict.GetKeys();
 
-            var removed = new DataList();
-
             var ownerId = QvPenUtilities.EulerAnglesToPlayerId(ownerIdVector);
 
             for (int i = 0, n = inkIdList.Count; i < n; i++)
@@ -169,7 +167,10 @@ namespace QvPen.UdonScript
                 if (!inkIdList.TryGetValue(i, TokenType.Int, out var inkIdToken))
                     continue;
 
-                if (!inkDict.TryGetValue(inkIdToken, TokenType.Reference, out var inkToken))
+                if (!inkDict.Remove(inkIdToken, out var inkToken))
+                    continue;
+
+                if (inkToken.TokenType != TokenType.Reference)
                     continue;
 
                 var ink = (GameObject)inkToken.Reference;
@@ -190,16 +191,6 @@ namespace QvPen.UdonScript
 
                 Destroy(ink.GetComponentInChildren<MeshCollider>(true).sharedMesh);
                 Destroy(ink);
-
-                removed.Add(inkIdToken);
-            }
-
-            for (int i = 0, n = removed.Count; i < n; i++)
-            {
-                if (!removed.TryGetValue(i, TokenType.Int, out var inkIdToken))
-                    continue;
-
-                inkDict.Remove(inkIdToken);
             }
 
             return true;
