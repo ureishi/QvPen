@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.10";
+        public const string version = "v3.3.11";
 
         #region Field
 
@@ -1300,12 +1300,23 @@ namespace QvPen.UdonScript
         public static int Vector3ToInt32(Vector3 v)
             => ((int)v.x & 0x00ff) << 24 | ((int)v.y & 0x0fff) << 12 | ((int)v.z & 0x0fff);
 
+        const int PIDB = 360;
+        const float PIDD = PIDB / 90f;
+
         public static Vector3 GetPlayerIdVector(int playerId)
         {
             var x = playerId;
-            var y = x / 360;
-            var z = y / 360;
-            return new Vector3(x % 360, y % 360, z % 360);
+            var y = x / PIDB;
+            var z = y / PIDB;
+            return new Vector3(x % PIDB, y % PIDB, z % PIDB) / PIDD;
+        }
+
+        public static int EulerAnglesToPlayerId(Vector3 v)
+        {
+            v *= PIDD;
+            return Mathf.RoundToInt(v.x)
+                + Mathf.RoundToInt(v.y) * PIDB
+                + Mathf.RoundToInt(v.z) * (PIDB * PIDB);
         }
 
         public static bool TryGetIdFromInk(GameObject ink,
