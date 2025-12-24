@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.3.13";
+        public const string version = "v3.3.14";
 
         #region Field
 
@@ -37,6 +37,9 @@ namespace QvPen.UdonScript
         private Transform inkPool;
         private Transform inkPoolSynced;
         private Transform inkPoolNotSynced;
+
+        private bool allowCallPen;
+        public bool AllowCallPen => allowCallPen;
 
         private QvPen_Manager manager;
 
@@ -223,10 +226,12 @@ namespace QvPen.UdonScript
             penIdString = $"0x{(int)penIdVector.x:x2}{(int)penIdVector.y:x3}{(int)penIdVector.z:x3}";
             inkPool.name = $"{inkPoolName} ({penIdString})";
 
+            allowCallPen = penManager.AllowCallPen;
+
             manager = inkPoolRoot.GetComponent<QvPen_Manager>();
             manager.Register(penId, this);
 
-            syncer.pen = this;
+            syncer._RegisterPen(this);
 
             inkPoolSynced = syncer.InkPoolSynced;
             inkPoolNotSynced = syncer.InkPoolNotSynced;

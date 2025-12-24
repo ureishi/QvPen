@@ -13,11 +13,9 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class QvPen_Manager : UdonSharpBehaviour
     {
-        [SerializeField]
-        private bool allowCallPen = true;
-
         private readonly DataDictionary penDict = new DataDictionary();
         private readonly DataDictionary inkDictMap = new DataDictionary();
+        private readonly DataList callablePenList = new DataList();
 
         public void Register(int penId, QvPen_Pen pen)
         {
@@ -26,13 +24,16 @@ namespace QvPen.UdonScript
 
             penDict[penId] = pen;
             inkDictMap[penId] = new DataDictionary();
+
+            if (pen.AllowCallPen)
+                callablePenList.Add(pen);
         }
 
         #region Call Pen
 
         private void Update()
         {
-            if (!allowCallPen || !Input.anyKeyDown)
+            if (!Input.anyKeyDown)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Q) && Input.GetKey(KeyCode.Tab))
@@ -50,13 +51,13 @@ namespace QvPen.UdonScript
         {
             var pen = GetPen();
 
-            if (Utilities.IsValid(pen))
-            {
-                var x = Networking.LocalPlayer.GetTrackingData(VRCPlayerApi.TrackingDataType.Head);
-                var forward = x.rotation * Vector3.forward;
-                pen.transform.position = x.position + 0.5f * forward;
-                pen.transform.LookAt(x.position + forward);
-            }
+            if (!Utilities.IsValid(pen))
+                return;
+
+            var x = Networking.LocalPlayer.GetTrackingData(VRCPlayerApi.TrackingDataType.Head);
+            var forward = x.rotation * Vector3.forward;
+            pen.transform.position = x.position + 0.5f * forward;
+            pen.transform.LookAt(x.position + forward);
         }
 
         private QvPen_Pen GetPen()
@@ -71,18 +72,19 @@ namespace QvPen.UdonScript
             if (Utilities.IsValid(pickupL))
                 return null;
 
-            if (Utilities.IsValid(lastUsedPen) && !lastUsedPen.isHeld)
+            if (Utilities.IsValid(lastUsedPen) && lastUsedPen.AllowCallPen && !lastUsedPen.isHeld)
             {
                 lastUsedPen._TakeOwnership();
 
                 return lastUsedPen;
             }
 
-            var penList = penDict.GetValues();
+            if (callablePenList.Count == 0)
+                return null;
 
-            var indexList = new int[penList.Count];
+            var indexList = new int[callablePenList.Count];
 
-            for (int i = 0, n = penList.Count; i < n; i++)
+            for (int i = 0, n = callablePenList.Count; i < n; i++)
                 indexList[i] = i;
 
             Utilities.ShuffleArray(indexList);
@@ -91,7 +93,7 @@ namespace QvPen.UdonScript
             {
                 var index = indexList[i];
 
-                if (!penList.TryGetValue(index, TokenType.Reference, out var penToken))
+                if (!callablePenList.TryGetValue(index, TokenType.Reference, out var penToken))
                     continue;
 
                 var pen = (QvPen_Pen)penToken.Reference;
