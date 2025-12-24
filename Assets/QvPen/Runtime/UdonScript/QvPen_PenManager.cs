@@ -54,6 +54,10 @@ namespace QvPen.UdonScript
         private Shader _roundedTrailShader;
         public Shader roundedTrailShader => _roundedTrailShader;
 
+        [SerializeField]
+        private bool allowCallPen = true;
+        public bool AllowCallPen => allowCallPen;
+
         private void Start()
         {
             pen._Init(this);
