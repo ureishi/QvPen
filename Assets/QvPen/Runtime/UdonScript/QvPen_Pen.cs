@@ -3,6 +3,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
 using VRC.SDK3.Data;
+using VRC.SDK3.Platform;
 using VRC.SDKBase;
 using VRC.Udon.Common.Interfaces;
 using Utilities = VRC.SDKBase.Utilities;
@@ -126,6 +127,11 @@ namespace QvPen.UdonScript
         private int inkColliderLayerMask;
         private const float followSpeed = 32f;
 
+        private Vector3 _inkChildLocalPosFromHand;
+        private Quaternion _inkChildLocalRotFromHand;
+        private VRCPlayerApi.TrackingDataType _pickupHandTrackingType;
+        private bool _hasPickupHandTrackingType;
+
         // Pointer
         private bool isPointerEnabled;
         private Renderer pointerRenderer;
@@ -153,7 +159,9 @@ namespace QvPen.UdonScript
 
         private const string inkPrefix = "Ink";
         private float inkWidth;
+#if UNITY_STANDALONE
         bool isRoundedTrailShader = false;
+#endif
         MaterialPropertyBlock propertyBlock;
 
         private VRCPlayerApi _localPlayer;
@@ -373,6 +381,16 @@ namespace QvPen.UdonScript
         #region Unity events
 
         #region Screen mode
+
+        private bool isScreenMode = false;
+        private bool isPickupManupilationMode = false;
+        private bool wasPickupManupilationMode = false;
+        private const int pickupManipulationReleaseDelayFrames = 10;
+        private int pickupManipulationReleaseFrame = -1;
+
+        private float screenWidth = 1920;
+        private float screenHeight = 1080;
+
 #if UNITY_STANDALONE
         private VRCPlayerApi.TrackingData headTracking;
         private Vector3 headPos, center;
@@ -382,12 +400,26 @@ namespace QvPen.UdonScript
         private /*readonly*/ Vector2 mouseDelta = new Vector2();
         private float ratio, scalar;
 
-        private float sensitivity = 0.75f;
-        private bool isScreenMode = false;
+        private float sensitivity = 0.006f;
+
         private void Update()
         {
-            if (isUserInVR || !isUser)
+            if (!isUser)
                 return;
+
+            if (isUserInVR)
+                return;
+
+            wasPickupManupilationMode = isPickupManupilationMode;
+            isPickupManupilationMode = Input.anyKey &&
+               (Input.GetKey(KeyCode.U) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.O) ||
+                Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L) ||
+                Input.GetMouseButton(2) || Input.GetAxis("Mouse ScrollWheel") != 0f);
+
+            if (wasPickupManupilationMode && !isPickupManupilationMode)
+            {
+                pickupManipulationReleaseFrame = Time.frameCount + pickupManipulationReleaseDelayFrames;
+            }
 
             if (Input.GetKeyUp(KeyCode.Tab))
             {
@@ -409,7 +441,7 @@ namespace QvPen.UdonScript
             {
                 if (Input.GetKeyDown(KeyCode.Delete))
                 {
-                    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.Clear));
+                    _EraseOwnInk();
                 }
                 else if (Input.GetKey(KeyCode.Home))
                 {
@@ -417,13 +449,13 @@ namespace QvPen.UdonScript
                 }
                 else if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    sensitivity = Mathf.Min(sensitivity + 0.001f, 5.0f);
-                    Log($"Sensitivity -> {sensitivity:f3}");
+                    sensitivity = Mathf.Min(sensitivity + 0.0001f, 0.01f);
+                    Log($"Sensitivity -> {sensitivity:f4}");
                 }
                 else if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    sensitivity = Mathf.Max(sensitivity - 0.001f, 0.01f);
-                    Log($"Sensitivity -> {sensitivity:f3}");
+                    sensitivity = Mathf.Max(sensitivity - 0.0001f, 0.001f);
+                    Log($"Sensitivity -> {sensitivity:f4}");
                 }
             }
         }
@@ -438,8 +470,9 @@ namespace QvPen.UdonScript
             screenOverlay.gameObject.SetActive(true);
             wh = screenOverlay.GetComponent<RectTransform>().rect.size;
             screenOverlay.gameObject.SetActive(false);
-            clampWH = wh / (2f * 1920f * 0.98f);
-            ratio = 2f * 1080f / wh.y;
+
+            clampWH = wh / (2f * screenWidth * 0.98f);
+            ratio = 2f * screenHeight / wh.y;
         }
 
         private void ExitScreenMode()
@@ -452,7 +485,8 @@ namespace QvPen.UdonScript
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
             inkPositionChild.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
+            inkPositionChild.GetPositionAndRotation(out var inkPosition, out var inkRotation);
+            trailRenderer.transform.SetPositionAndRotation(inkPosition, inkRotation);
         }
 #endif
         #endregion Screen mode
@@ -479,7 +513,7 @@ namespace QvPen.UdonScript
                     mouseDelta.x = Input.GetAxis("Mouse X");
                     mouseDelta.y = Input.GetAxis("Mouse Y");
                 }
-                _wh += sensitivity * Time.deltaTime * mouseDelta;
+                _wh += sensitivity * mouseDelta;
                 _wh = Vector2.Min(Vector2.Max(_wh, -clampWH), clampWH);
 
                 inkPositionChild.SetPositionAndRotation(center + headRot * _wh * scalar, headRot);
@@ -513,14 +547,69 @@ namespace QvPen.UdonScript
             {
                 if (isUser)
                 {
-                    var deltaDistance = Time.deltaTime * followSpeed;
-                    trailRenderer.transform.SetPositionAndRotation(
-                        Vector3.Lerp(trailRenderer.transform.position, inkPositionChild.position, deltaDistance),
-                        Quaternion.Lerp(trailRenderer.transform.rotation, inkPositionChild.rotation, deltaDistance));
+                    if (isUserInVR)
+                    {
+                        var deltaDistance = Time.deltaTime * followSpeed;
+
+                        trailRenderer.transform.GetPositionAndRotation(out var trailPos, out var trailRot);
+                        inkPositionChild.GetPositionAndRotation(out var inkPos, out var inkRot);
+
+                        trailRenderer.transform.SetPositionAndRotation(
+                            Vector3.Lerp(trailPos, inkPos, deltaDistance),
+                            Quaternion.Lerp(trailRot, inkRot, deltaDistance));
+                    }
+                    else
+                    {
+                        float dt = Time.deltaTime;
+                        const float baseDt = 1f / 30f;
+
+                        float t;
+
+                        if (dt <= baseDt)
+                        {
+                            t = dt * followSpeed;
+                        }
+                        else
+                        {
+                            float fpsFactor = baseDt / dt;
+                            const float lowFpsSlowdownPower = 1.5f;
+                            t = baseDt * followSpeed * Mathf.Pow(fpsFactor, lowFpsSlowdownPower);
+                        }
+
+                        trailRenderer.transform.GetPositionAndRotation(out var trailPos, out var trailRot);
+
+                        Vector3 targetPos;
+                        Quaternion targetRot;
+
+                        var isPickupManipulationReleaseDelay = Time.frameCount < pickupManipulationReleaseFrame;
+
+                        if (_hasPickupHandTrackingType && !isPickupManupilationMode && !isPickupManipulationReleaseDelay && !isScreenMode && !isSurftraceMode)
+                        {
+                            var handTracking = localPlayer.GetTrackingData(_pickupHandTrackingType);
+                            targetPos = handTracking.position + handTracking.rotation * _inkChildLocalPosFromHand;
+                            targetRot = handTracking.rotation * _inkChildLocalRotFromHand;
+                        }
+                        else
+                        {
+                            inkPositionChild.GetPositionAndRotation(out targetPos, out targetRot);
+
+                            if (_hasPickupHandTrackingType)
+                            {
+                                var handTracking = localPlayer.GetTrackingData(_pickupHandTrackingType);
+                                var invHandRot = Quaternion.Inverse(handTracking.rotation);
+                                _inkChildLocalPosFromHand = invHandRot * (targetPos - handTracking.position);
+                                _inkChildLocalRotFromHand = invHandRot * targetRot;
+                            }
+                        }
+
+                        trailRenderer.transform.SetPositionAndRotation(
+                            Vector3.Lerp(trailPos, targetPos, t), Quaternion.Lerp(trailRot, targetRot, t));
+                    }
                 }
                 else
                 {
-                    trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
+                    inkPositionChild.GetPositionAndRotation(out var inkPosition, out var inkRotation);
+                    trailRenderer.transform.SetPositionAndRotation(inkPosition, inkRotation);
                 }
             }
         }
@@ -608,7 +697,8 @@ namespace QvPen.UdonScript
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
             inkPositionChild.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            trailRenderer.transform.SetPositionAndRotation(inkPositionChild.position, inkPositionChild.rotation);
+            inkPositionChild.GetPositionAndRotation(out var inkPosition, out var inkRotation);
+            trailRenderer.transform.SetPositionAndRotation(inkPosition, inkRotation);
         }
 
         #endregion Unity events
@@ -618,6 +708,14 @@ namespace QvPen.UdonScript
         public override void OnPickup()
         {
             isUser = true;
+
+            if (!isUserInVR && pickup.currentHand != VRC_Pickup.PickupHand.None)
+            {
+                _pickupHandTrackingType = pickup.currentHand == VRC_Pickup.PickupHand.Right
+                    ? VRCPlayerApi.TrackingDataType.RightHand
+                    : VRCPlayerApi.TrackingDataType.LeftHand;
+                _hasPickupHandTrackingType = true;
+            }
 
             manager.SetLastUsedPen(this);
 
@@ -632,6 +730,7 @@ namespace QvPen.UdonScript
         public override void OnDrop()
         {
             isUser = false;
+            _hasPickupHandTrackingType = false;
 
             penManager.OnPenDrop();
 
@@ -711,6 +810,12 @@ namespace QvPen.UdonScript
                     Error($"Unexpected state : {currentState.ToStr()} at {nameof(OnPickupUseUp)}");
                     break;
             }
+        }
+
+        public override void OnScreenUpdate(ScreenUpdateData data)
+        {
+            screenWidth = Mathf.Max(1f, data.resolution.x);
+            screenHeight = Mathf.Max(1f, data.resolution.y);
         }
 
         public void _SetUseDoubleClick(bool value)
@@ -885,7 +990,17 @@ namespace QvPen.UdonScript
 
         private void StartDrawing()
         {
+            inkPositionChild.transform.GetPositionAndRotation(out var inkPosition, out var inkRotation);
+            trailRenderer.transform.SetPositionAndRotation(inkPosition, inkRotation);
             trailRenderer.gameObject.SetActive(true);
+
+            if (isUser && !isUserInVR && _hasPickupHandTrackingType)
+            {
+                var handTracking = localPlayer.GetTrackingData(_pickupHandTrackingType);
+                var invHandRot = Quaternion.Inverse(handTracking.rotation);
+                _inkChildLocalPosFromHand = invHandRot * (inkPosition - handTracking.position);
+                _inkChildLocalRotFromHand = invHandRot * inkRotation;
+            }
         }
 
         private void FinishDrawing()
