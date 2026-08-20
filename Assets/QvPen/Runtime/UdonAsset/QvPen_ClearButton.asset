@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: QvPen_ClearButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 59445b52a0d558b42821cfca92810d22,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 59445b52a0d558b42821cfca92810d22, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: ad955f15d6ef9b642a8de9b75dc57f14, type: 3}
@@ -338,13 +337,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: targetTime1
+      Data: undoDeadline
     - Name: $v
       Entry: 7
       Data: 20|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: targetTime1
+      Data: undoDeadline
     - Name: <UserType>k__BackingField
       Entry: 7
       Data: 21|System.RuntimeType, mscorlib
@@ -392,13 +391,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: targetTime2
+      Data: clearDeadline
     - Name: $v
       Entry: 7
       Data: 23|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: targetTime2
+      Data: clearDeadline
     - Name: <UserType>k__BackingField
       Entry: 9
       Data: 21
@@ -440,13 +439,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: isInInteract
+      Data: isInteracting
     - Name: $v
       Entry: 7
       Data: 25|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: isInInteract
+      Data: isInteracting
     - Name: <UserType>k__BackingField
       Entry: 7
       Data: 26|System.RuntimeType, mscorlib
@@ -542,13 +541,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: targetTime_TextImage
+      Data: textVisibilityDeadline
     - Name: $v
       Entry: 7
       Data: 30|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: targetTime_TextImage
+      Data: textVisibilityDeadline
     - Name: <UserType>k__BackingField
       Entry: 9
       Data: 21
@@ -590,13 +589,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: isIn_LoopTextImageActive
+      Data: isTextVisibilityLoopActive
     - Name: $v
       Entry: 7
       Data: 32|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: isIn_LoopTextImageActive
+      Data: isTextVisibilityLoopActive
     - Name: <UserType>k__BackingField
       Entry: 9
       Data: 26

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: QvPen_Settings
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 293dd59985c1d6d489fba7861df8e327,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 293dd59985c1d6d489fba7861df8e327, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: bf4ddef26ce0bdb4faff86536b3c6b95, type: 3}

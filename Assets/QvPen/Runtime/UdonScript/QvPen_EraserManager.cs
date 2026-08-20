@@ -2,6 +2,7 @@ using TMPro;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using VRC.SDK3.Data;
 using VRC.SDKBase;
 using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
@@ -39,7 +40,7 @@ namespace QvPen.UdonScript
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
             if (Networking.LocalPlayer.IsOwner(eraser.gameObject) && eraser.IsUser)
-                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(MarkAsInUse));
         }
 
         public override void OnPlayerLeft(VRCPlayerApi player)
@@ -48,7 +49,7 @@ namespace QvPen.UdonScript
                 eraser.OnDrop();
         }
 
-        public void StartUsing()
+        public void MarkAsInUse()
         {
             eraser.isPickedUp = true;
 
@@ -69,7 +70,7 @@ namespace QvPen.UdonScript
                 textInUseTMPU.text = text;
         }
 
-        public void EndUsing()
+        public void MarkAsAvailable()
         {
             eraser.isPickedUp = false;
 
@@ -106,62 +107,134 @@ namespace QvPen.UdonScript
             }
         }
 
-        private bool _isNetworkSettled = false;
-        private bool isNetworkSettled
-            => _isNetworkSettled || (_isNetworkSettled = Networking.IsNetworkSettled);
+        private bool hasObservedSettledNetwork = false;
 
-        [UdonSynced]
-        private Vector3[] _syncedData;
-        private Vector3[] syncedData
+        private bool HasNetworkSettled()
         {
-            get => _syncedData;
-            set
-            {
-                if (!isNetworkSettled)
-                    return;
+            if (!hasObservedSettledNetwork)
+                hasObservedSettledNetwork = Networking.IsNetworkSettled;
 
-                _syncedData = value;
-
-                RequestSendPackage();
-
-                eraser._UnpackData(_syncedData);
-            }
+            return hasObservedSettledNetwork;
         }
 
-        private bool isInUseSyncBuffer = false;
-        private void RequestSendPackage()
+        [UdonSynced]
+        private Vector3[] _syncedData = { };
+
+        private readonly DataList pendingSyncData = new DataList();
+        private bool isSerializationInProgress = false;
+        private bool isSendRetryScheduled = false;
+        private int serializationRetryCount = 0;
+        private const int MaxSerializationRetryCount = 3;
+        private const float SendRetryDelaySeconds = 0.25f;
+
+        public int LastSerializedByteCount { get; private set; }
+        public int PendingSyncCount => pendingSyncData.Count;
+
+        private void RequestPacketSend()
         {
-            if (VRCPlayerApi.GetPlayerCount() > 1 && Networking.IsOwner(gameObject) && !isInUseSyncBuffer)
+            if (isSerializationInProgress || pendingSyncData.Count == 0 || !Networking.IsOwner(gameObject))
+                return;
+
+            if (!HasNetworkSettled() || Networking.IsClogged)
             {
-                isInUseSyncBuffer = true;
-                RequestSerialization();
+                ScheduleSendRetry();
+                return;
             }
+
+            if (!pendingSyncData.TryGetValue(0, TokenType.Reference, out var dataToken))
+            {
+                pendingSyncData.RemoveAt(0);
+                RequestPacketSend();
+                return;
+            }
+
+            _syncedData = (Vector3[])dataToken.Reference;
+            isSerializationInProgress = true;
+            RequestSerialization();
+        }
+
+        private void ScheduleSendRetry()
+        {
+            if (isSendRetryScheduled)
+                return;
+
+            isSendRetryScheduled = true;
+            SendCustomEventDelayedSeconds(nameof(_RetryPacketSend), SendRetryDelaySeconds);
+        }
+
+        public void _RetryPacketSend()
+        {
+            isSendRetryScheduled = false;
+            RequestPacketSend();
         }
 
         public void _SendData(Vector3[] data)
         {
-            if (!isInUseSyncBuffer)
-                syncedData = data;
+            if (data == null || data.Length == 0)
+                return;
+
+            if (VRCPlayerApi.GetPlayerCount() <= 1)
+            {
+                eraser._UnpackData(data);
+                return;
+            }
+
+            if (!Networking.IsOwner(gameObject) || HasPendingEraseOperation(data))
+                return;
+
+            pendingSyncData.Add(new DataToken(data));
+            RequestPacketSend();
         }
 
-        public override void OnPreSerialization()
-            => _syncedData = syncedData;
+        private bool HasPendingEraseOperation(Vector3[] data)
+        {
+            for (int i = 0, n = pendingSyncData.Count; i < n; i++)
+            {
+                if (!pendingSyncData.TryGetValue(i, TokenType.Reference, out var dataToken))
+                    continue;
+
+                if (eraser._IsSameEraseOperation(data, (Vector3[])dataToken.Reference))
+                    return true;
+            }
+
+            return false;
+        }
 
         public override void OnDeserialization()
-            => syncedData = _syncedData;
+        {
+            if (!Networking.IsOwner(gameObject) && _syncedData != null && _syncedData.Length > 0)
+                eraser._UnpackData(_syncedData);
+        }
 
         public override void OnPostSerialization(SerializationResult result)
         {
-            isInUseSyncBuffer = false;
+            isSerializationInProgress = false;
+            LastSerializedByteCount = result.byteCount;
 
             if (result.success)
-                eraser.ExecuteEraseInk();
+            {
+                serializationRetryCount = 0;
+                if (pendingSyncData.Count > 0)
+                    pendingSyncData.RemoveAt(0);
+                eraser._UnpackData(_syncedData);
+                eraser._ApplyPendingErase();
+            }
+            else if (++serializationRetryCount > MaxSerializationRetryCount)
+            {
+                serializationRetryCount = 0;
+                if (pendingSyncData.Count > 0)
+                    pendingSyncData.RemoveAt(0);
+            }
+
+            RequestPacketSend();
         }
 
         public void _ClearSyncBuffer()
         {
-            syncedData = new Vector3[] { };
-            isInUseSyncBuffer = false;
+            _syncedData = new Vector3[] { };
+            pendingSyncData.Clear();
+            isSerializationInProgress = false;
+            serializationRetryCount = 0;
         }
 
         #endregion

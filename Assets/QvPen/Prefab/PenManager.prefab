@@ -1483,6 +1483,7 @@ MonoBehaviour:
   textInUseTMP: {fileID: 0}
   textInUseTMPU: {fileID: 0}
   _roundedTrailShader: {fileID: 4800000, guid: 62d10ee450fd6014e996fd22f73c5baa, type: 3}
+  allowCallPen: 1
 --- !u!114 &7727577548508353628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1627,8 @@ MonoBehaviour:
   screenOverlay: {fileID: 1748760958401312493}
   marker: {fileID: 1215216886343430990}
   canBeErasedWithOtherPointers: 1
+  _alternativeObjectSync: {fileID: 0}
+  _respawnEventName: _Respawn
 --- !u!114 &4104359581830787428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,6 +1746,7 @@ MonoBehaviour:
   currentlyHeldBy: {fileID: 0}
   pickupable: 1
   proximity: 0.1
+  version: 0
 --- !u!114 &4575133834399831444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,6 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowCollisionOwnershipTransfer: 0
+  ForceKinematicOnRemote: 0
 --- !u!1 &4719194422751109440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1817,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 473752475613174061}
-  allowCallPen: 1
 --- !u!114 &473752475613174061
 MonoBehaviour:
   m_ObjectHideFlags: 0

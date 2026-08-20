@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: QvPen_Pen
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 649aba759d65a2c409203d5f2c6af42f,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 649aba759d65a2c409203d5f2c6af42f, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 5a5189ec6a6893c4da68727369360ce6, type: 3}
@@ -3159,13 +3158,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: isPickupManupilationMode
+      Data: isPickupManipulationMode
     - Name: $v
       Entry: 7
       Data: 165|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: isPickupManupilationMode
+      Data: isPickupManipulationMode
     - Name: <UserType>k__BackingField
       Entry: 9
       Data: 28
@@ -3208,13 +3207,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: wasPickupManupilationMode
+      Data: wasPickupManipulationMode
     - Name: $v
       Entry: 7
       Data: 167|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
     - Name: <Name>k__BackingField
       Entry: 1
-      Data: wasPickupManupilationMode
+      Data: wasPickupManipulationMode
     - Name: <UserType>k__BackingField
       Entry: 9
       Data: 28

@@ -6,7 +6,8 @@ namespace QvPen.UdonScript
     [DefaultExecutionOrder(30)]
     public abstract class QvPen_PenCallbackListener : UdonSharpBehaviour
     {
-        public virtual void OnPenPickup() { }
-        public virtual void OnPenDrop() { }
+        public virtual void _OnPenPickup() { }
+        public virtual void _OnPenDrop() { }
+        public virtual void _OnPenColorChanged() { }
     }
 }

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: QvPen_ToggleModeButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 5f7568995cc281e4cb0f69da05416f2f,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 5f7568995cc281e4cb0f69da05416f2f, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: e08ac441c502956468abf6c42303c09d, type: 3}

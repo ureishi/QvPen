@@ -17,7 +17,7 @@ namespace QvPen.UdonScript
         private readonly DataDictionary inkDictMap = new DataDictionary();
         private readonly DataList callablePenList = new DataList();
 
-        public void Register(int penId, QvPen_Pen pen)
+        public void RegisterPen(int penId, QvPen_Pen pen)
         {
             if (penDict.ContainsKey(penId))
                 return;
@@ -79,19 +79,16 @@ namespace QvPen.UdonScript
                 return lastUsedPen;
             }
 
-            if (callablePenList.Count == 0)
+            var callablePenCount = callablePenList.Count;
+
+            if (callablePenCount == 0)
                 return null;
 
-            var indexList = new int[callablePenList.Count];
+            var startIndex = Random.Range(0, callablePenCount);
 
-            for (int i = 0, n = callablePenList.Count; i < n; i++)
-                indexList[i] = i;
-
-            Utilities.ShuffleArray(indexList);
-
-            for (int i = 0, n = indexList.Length; i < n; i++)
+            for (var offset = 0; offset < callablePenCount; offset++)
             {
-                var index = indexList[i];
+                var index = (startIndex + offset) % callablePenCount;
 
                 if (!callablePenList.TryGetValue(index, TokenType.Reference, out var penToken))
                     continue;
@@ -156,7 +153,7 @@ namespace QvPen.UdonScript
             return true;
         }
 
-        public bool RemoveUserInk(int penId, Vector3 ownerIdVector)
+        public bool RemoveUserStrokes(int penId, Vector3 ownerIdVector)
         {
             var inkDict = inkDictMap[penId].DataDictionary;
 

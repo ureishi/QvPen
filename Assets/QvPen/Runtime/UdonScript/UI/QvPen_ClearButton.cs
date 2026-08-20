@@ -28,24 +28,24 @@ namespace QvPen.Udon.UI
         [SerializeField]
         private Image allIndicator;
 
-        private const float keepSeconds1 = 0.31f;
-        private const float keepSeconds2 = 2f;
+        private const float UndoHoldDurationSeconds = 0.31f;
+        private const float ClearHoldDurationSeconds = 2f;
 
-        private float targetTime1;
-        private float targetTime2;
+        private float undoDeadline;
+        private float clearDeadline;
 
-        private bool isInInteract;
+        private bool isInteracting;
 
         private bool isPickedUp;
-        private const float keepSeconds_TextImage = 5f;
-        private float targetTime_TextImage;
+        private const float TextVisibilityDurationSeconds = 5f;
+        private float textVisibilityDeadline;
 
         private void Start()
         {
-            SetActiveIndicator(false);
-            SetActiveTextImage(false);
+            SetIndicatorsActive(false);
+            SetTextImagesActive(false);
 
-            penManager.Register(this);
+            penManager.RegisterListener(this);
         }
 
         public override void InputUse(bool value, UdonInputEventArgs args)
@@ -53,41 +53,41 @@ namespace QvPen.Udon.UI
             if (value)
                 return;
 
-            if (isInInteract && Time.time < targetTime1)
-                UndoDraw();
+            if (isInteracting && Time.time < undoDeadline)
+                UndoLastStroke();
 
-            isInInteract = false;
-            SetActiveIndicator(false);
+            isInteracting = false;
+            SetIndicatorsActive(false);
         }
 
         public override void Interact()
         {
-            isInInteract = true;
-            SetActiveIndicator(true);
+            isInteracting = true;
+            SetIndicatorsActive(true);
 
-            targetTime1 = Time.time + keepSeconds1;
-            targetTime2 = Time.time + keepSeconds2;
-            targetTime_TextImage = Time.time + keepSeconds_TextImage;
+            undoDeadline = Time.time + UndoHoldDurationSeconds;
+            clearDeadline = Time.time + ClearHoldDurationSeconds;
+            textVisibilityDeadline = Time.time + TextVisibilityDurationSeconds;
 
             SendCustomEventDelayedSeconds(nameof(_LoopIndicator1), 0f);
-            Enter_LoopTextImageActive();
+            StartTextVisibilityLoop();
         }
 
-        public override void OnPenPickup()
+        public override void _OnPenPickup()
         {
             isPickedUp = true;
-            Enter_LoopTextImageActive();
+            StartTextVisibilityLoop();
         }
 
-        public override void OnPenDrop()
+        public override void _OnPenDrop()
         {
             isPickedUp = false;
 
-            targetTime_TextImage = Time.time + keepSeconds_TextImage;
-            Enter_LoopTextImageActive();
+            textVisibilityDeadline = Time.time + TextVisibilityDurationSeconds;
+            StartTextVisibilityLoop();
         }
 
-        private void SetActiveIndicator(bool isActive)
+        private void SetIndicatorsActive(bool isActive)
         {
             if (Utilities.IsValid(ownIndicator))
             {
@@ -102,7 +102,7 @@ namespace QvPen.Udon.UI
             }
         }
 
-        private void SetActiveTextImage(bool isActive)
+        private void SetTextImagesActive(bool isActive)
         {
             if (Utilities.IsValid(ownTextImage))
                 ownTextImage.gameObject.SetActive(isActive);
@@ -111,7 +111,7 @@ namespace QvPen.Udon.UI
                 allTextImage.gameObject.SetActive(isActive);
         }
 
-        private void SeValueIndicator(float ownIndicatorValue, float allIndicatorValue)
+        private void SetIndicatorValues(float ownIndicatorValue, float allIndicatorValue)
         {
             if (Utilities.IsValid(ownIndicator))
                 ownIndicator.fillAmount = Mathf.Clamp01(ownIndicatorValue);
@@ -122,112 +122,113 @@ namespace QvPen.Udon.UI
 
         public void _LoopIndicator1()
         {
-            if (!isInInteract)
+            if (!isInteracting)
                 return;
 
             var time = Time.time;
 
-            var leaveTime1 = targetTime1 - time;
-            var leaveTime2 = targetTime2 - time;
-            if (leaveTime1 <= 0f)
+            var undoTimeRemaining = undoDeadline - time;
+            var clearTimeRemaining = clearDeadline - time;
+            if (undoTimeRemaining <= 0f)
             {
-                EraseOwnInk();
+                EraseOwnStrokes();
 
-                SeValueIndicator(1f, 1f - leaveTime2 / keepSeconds2);
+                SetIndicatorValues(1f, 1f - clearTimeRemaining / ClearHoldDurationSeconds);
 
                 SendCustomEventDelayedFrames(nameof(_LoopIndicator2), 0);
 
                 return;
             }
 
-            SeValueIndicator(1f - leaveTime1 / keepSeconds1, 1f - leaveTime2 / keepSeconds2);
+            SetIndicatorValues(1f - undoTimeRemaining / UndoHoldDurationSeconds,
+                1f - clearTimeRemaining / ClearHoldDurationSeconds);
 
             SendCustomEventDelayedFrames(nameof(_LoopIndicator1), 0);
         }
 
         public void _LoopIndicator2()
         {
-            if (!isInInteract)
+            if (!isInteracting)
                 return;
 
-            var leaveTime2 = targetTime2 - Time.time;
-            if (leaveTime2 <= 0f)
+            var clearTimeRemaining = clearDeadline - Time.time;
+            if (clearTimeRemaining <= 0f)
             {
                 Clear();
 
-                SeValueIndicator(0f, 0f);
+                SetIndicatorValues(0f, 0f);
 
                 return;
             }
 
-            SeValueIndicator(0f, 1f - leaveTime2 / keepSeconds2);
+            SetIndicatorValues(0f, 1f - clearTimeRemaining / ClearHoldDurationSeconds);
 
             SendCustomEventDelayedFrames(nameof(_LoopIndicator2), 0);
         }
 
-        private bool isIn_LoopTextImageActive;
+        private bool isTextVisibilityLoopActive;
 
-        private void Enter_LoopTextImageActive()
+        private void StartTextVisibilityLoop()
         {
-            if (isIn_LoopTextImageActive)
+            if (isTextVisibilityLoopActive)
                 return;
 
-            isIn_LoopTextImageActive = true;
+            isTextVisibilityLoopActive = true;
 
             if (isPickedUp)
             {
-                Exit_LoopTextImageActive();
+                StopTextVisibilityLoop();
                 return;
             }
 
-            SetActiveTextImage(true);
+            SetTextImagesActive(true);
 
             _LoopTextImageActive();
         }
 
-        private void Exit_LoopTextImageActive()
+        private void StopTextVisibilityLoop()
         {
-            if (!isIn_LoopTextImageActive)
+            if (!isTextVisibilityLoopActive)
                 return;
 
-            isIn_LoopTextImageActive = false;
+            isTextVisibilityLoopActive = false;
 
-            SetActiveTextImage(false);
+            SetTextImagesActive(false);
         }
 
         public void _LoopTextImageActive()
         {
-            if (!isIn_LoopTextImageActive)
+            if (!isTextVisibilityLoopActive)
                 return;
 
             if (isPickedUp)
             {
-                Exit_LoopTextImageActive();
+                StopTextVisibilityLoop();
                 return;
             }
 
             var time = Time.time;
 
-            var leaveTime_TextImage = targetTime_TextImage - time;
-            if (leaveTime_TextImage <= 0f)
+            var visibilityTimeRemaining = textVisibilityDeadline - time;
+            if (visibilityTimeRemaining <= 0f)
             {
-                Exit_LoopTextImageActive();
+                StopTextVisibilityLoop();
                 return;
             }
 
-            SendCustomEventDelayedSeconds(nameof(_LoopTextImageActive), leaveTime_TextImage / 2f);
+            SendCustomEventDelayedSeconds(nameof(_LoopTextImageActive), visibilityTimeRemaining / 2f);
         }
 
-        private void EraseOwnInk()
+        private void EraseOwnStrokes()
         {
             if (Utilities.IsValid(penManager))
-                penManager.EraseOwnInk();
+                penManager._EraseOwnStrokes();
         }
 
-        private void UndoDraw()
+        private void UndoLastStroke()
         {
             if (Utilities.IsValid(penManager))
-                penManager.UndoDraw();
+                penManager._UndoLastStroke();
         }
 
         private void Clear()

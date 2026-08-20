@@ -58,21 +58,21 @@ namespace QvPen.UdonScript.UI
                     foreach (var penManager in settings.penManagers)
                     {
                         if (Utilities.IsValid(penManager))
-                            penManager._SetUsingDoubleClick(isOn);
+                            penManager._SetDoubleClickEnabled(isOn);
                     }
                     break;
                 case QvPen_ToggleModeButton_Mode.EnabledSync:
                     foreach (var penManager in settings.penManagers)
                     {
                         if (Utilities.IsValid(penManager))
-                            penManager._SetEnabledLateSync(isOn);
+                            penManager._SetLateSyncEnabled(isOn);
                     }
                     break;
                 case QvPen_ToggleModeButton_Mode.UseSurftraceMode:
                     foreach (var penManager in settings.penManagers)
                     {
                         if (Utilities.IsValid(penManager))
-                            penManager._SetUsingSurftraceMode(isOn);
+                            penManager._SetSurftraceEnabled(isOn);
                     }
                     break;
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 using VRC.SDK3.Data;
+using VRC.SDK3.UdonNetworkCalling;
 using VRC.SDKBase;
 using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
@@ -66,7 +67,7 @@ namespace QvPen.UdonScript
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
             if (Networking.IsOwner(pen.gameObject) && pen.IsUser)
-                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartUsing));
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_MarkAsInUse));
 
             if (player.isLocal)
             {
@@ -86,7 +87,8 @@ namespace QvPen.UdonScript
                 pen.OnDrop();
         }
 
-        public void StartUsing()
+        [NetworkCallable]
+        public void _MarkAsInUse()
         {
             pen.isPickedUp = true;
 
@@ -111,7 +113,8 @@ namespace QvPen.UdonScript
                 textInUseTMPU.text = text;
         }
 
-        public void EndUsing()
+        [NetworkCallable]
+        public void _MarkAsAvailable()
         {
             pen.isPickedUp = false;
 
@@ -186,13 +189,42 @@ namespace QvPen.UdonScript
             pen._UpdateInkData();
         }
 
-        public void _SetUsingDoubleClick(bool value) => pen._SetUseDoubleClick(value);
+        public void _SetColor(Color color)
+        {
+            var gradient = new Gradient();
+            gradient.SetKeys(
+                new[]
+                {
+                    new GradientColorKey(color, 0f),
+                    new GradientColorKey(color, 1f),
+                },
+                new[]
+                {
+                    new GradientAlphaKey(color.a, 0f),
+                    new GradientAlphaKey(color.a, 1f),
+                });
 
-        public void _SetEnabledLateSync(bool value) => pen._SetEnabledLateSync(value);
+            _SetColorGradient(gradient);
+        }
 
-        public void _SetUsingSurftraceMode(bool value) => pen._SetUseSurftraceMode(value);
+        public void _SetColorGradient(Gradient gradient)
+        {
+            if (gradient == null)
+                return;
 
-        public void ResetPen()
+            colorGradient = gradient;
+            pen._UpdateInkData();
+            NotifyPenColorChanged();
+        }
+
+        public void _SetDoubleClickEnabled(bool value) => pen._SetDoubleClickEnabled(value);
+
+        public void _SetLateSyncEnabled(bool value) => pen._SetLateSyncEnabled(value);
+
+        public void _SetSurftraceEnabled(bool value) => pen._SetSurftraceEnabled(value);
+
+        [NetworkCallable]
+        public void _ResetPen()
         {
             Clear();
             Respawn();
@@ -210,24 +242,24 @@ namespace QvPen.UdonScript
             pen._Clear();
         }
 
-        public void UndoDraw()
+        public void _UndoLastStroke()
         {
             if (pen.isPickedUp)
                 return;
 
             _TakeOwnership();
 
-            pen._UndoDraw();
+            pen._UndoLastStroke();
         }
 
-        public void EraseOwnInk()
+        public void _EraseOwnStrokes()
         {
             if (pen.isPickedUp)
                 return;
 
             _TakeOwnership();
 
-            pen._EraseOwnInk();
+            pen._EraseOwnStrokes();
         }
 
         #endregion
@@ -236,7 +268,7 @@ namespace QvPen.UdonScript
 
         private readonly DataList listenerList = new DataList();
 
-        public void Register(QvPen_PenCallbackListener listener)
+        public void RegisterListener(QvPen_PenCallbackListener listener)
         {
             if (!Utilities.IsValid(listener) || listenerList.Contains(listener))
                 return;
@@ -244,35 +276,51 @@ namespace QvPen.UdonScript
             listenerList.Add(listener);
         }
 
-        public void OnPenPickup()
+        public void _OnPenPickup()
         {
             for (int i = 0, n = listenerList.Count; i < n; i++)
             {
-                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listerToken))
+                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listenerToken))
                     continue;
 
-                var listener = (QvPen_PenCallbackListener)listerToken.Reference;
+                var listener = (QvPen_PenCallbackListener)listenerToken.Reference;
 
                 if (!Utilities.IsValid(listener))
                     continue;
 
-                listener.OnPenPickup();
+                listener._OnPenPickup();
             }
         }
 
-        public void OnPenDrop()
+        public void _OnPenDrop()
         {
             for (int i = 0, n = listenerList.Count; i < n; i++)
             {
-                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listerToken))
+                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listenerToken))
                     continue;
 
-                var listener = (QvPen_PenCallbackListener)listerToken.Reference;
+                var listener = (QvPen_PenCallbackListener)listenerToken.Reference;
 
                 if (!Utilities.IsValid(listener))
                     continue;
 
-                listener.OnPenDrop();
+                listener._OnPenDrop();
+            }
+        }
+
+        private void NotifyPenColorChanged()
+        {
+            for (int i = 0, n = listenerList.Count; i < n; i++)
+            {
+                if (!listenerList.TryGetValue(i, TokenType.Reference, out var listenerToken))
+                    continue;
+
+                var listener = (QvPen_PenCallbackListener)listenerToken.Reference;
+
+                if (!Utilities.IsValid(listener))
+                    continue;
+
+                listener._OnPenColorChanged();
             }
         }
 
@@ -294,27 +342,18 @@ namespace QvPen.UdonScript
             }
         }
 
-        private bool _isNetworkSettled = false;
-        private bool isNetworkSettled
-            => _isNetworkSettled || (_isNetworkSettled = Networking.IsNetworkSettled);
+        private bool hasObservedSettledNetwork = false;
+
+        private bool HasNetworkSettled()
+        {
+            if (!hasObservedSettledNetwork)
+                hasObservedSettledNetwork = Networking.IsNetworkSettled;
+
+            return hasObservedSettledNetwork;
+        }
 
         [UdonSynced]
-        private Vector3[] _syncedData;
-        private Vector3[] syncedData
-        {
-            get => _syncedData;
-            set
-            {
-                if (!isNetworkSettled)
-                    return;
-
-                _syncedData = value;
-
-                RequestSendPackage();
-
-                pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
-            }
-        }
+        private Vector3[] _syncedData = { };
 
         [UdonSynced]
         private int inkId;
@@ -322,47 +361,133 @@ namespace QvPen.UdonScript
 
         public void _IncrementInkId() => inkId++;
 
-        private bool isInUseSyncBuffer = false;
-        private void RequestSendPackage()
+        private readonly DataList pendingSyncData = new DataList();
+        private bool isSerializationInProgress = false;
+        private bool isSendRetryScheduled = false;
+        private int serializationRetryCount = 0;
+        private const int MaxSerializationRetryCount = 3;
+        private const float SendRetryDelaySeconds = 0.25f;
+
+        public int LastSerializedByteCount { get; private set; }
+        public int PendingSyncCount => pendingSyncData.Count;
+
+        private void RequestPacketSend()
         {
-            if (VRCPlayerApi.GetPlayerCount() > 1 && Networking.IsOwner(gameObject) && !isInUseSyncBuffer)
+            if (isSerializationInProgress || pendingSyncData.Count == 0 || !Networking.IsOwner(gameObject))
+                return;
+
+            if (!HasNetworkSettled() || Networking.IsClogged)
             {
-                isInUseSyncBuffer = true;
-                RequestSerialization();
+                ScheduleSendRetry();
+                return;
             }
+
+            if (!pendingSyncData.TryGetValue(0, TokenType.Reference, out var dataToken))
+            {
+                pendingSyncData.RemoveAt(0);
+                RequestPacketSend();
+                return;
+            }
+
+            _syncedData = (Vector3[])dataToken.Reference;
+            isSerializationInProgress = true;
+            RequestSerialization();
+        }
+
+        private void ScheduleSendRetry()
+        {
+            if (isSendRetryScheduled)
+                return;
+
+            isSendRetryScheduled = true;
+            SendCustomEventDelayedSeconds(nameof(_RetryPacketSend), SendRetryDelaySeconds);
+        }
+
+        public void _RetryPacketSend()
+        {
+            isSendRetryScheduled = false;
+            RequestPacketSend();
         }
 
         public void _SendData(Vector3[] data)
         {
-            if (!isInUseSyncBuffer)
-                syncedData = data;
+            if (data == null || data.Length == 0)
+                return;
+
+            if (VRCPlayerApi.GetPlayerCount() <= 1)
+            {
+                pen._UnpackData(data, QvPen_Pen_Mode.Any);
+                return;
+            }
+
+            if (!Networking.IsOwner(gameObject))
+                return;
+
+            // Draw immediately so the local stroke remains visible while waiting for
+            // serialization. Erase only after successful serialization.
+            if (pen._IsDrawData(data))
+                pen._UnpackData(data, QvPen_Pen_Mode.Draw);
+            else if (HasPendingEraseOperation(data))
+                return;
+
+            pendingSyncData.Add(new DataToken(data));
+            RequestPacketSend();
         }
 
-        public override void OnPreSerialization()
-            => _syncedData = syncedData;
+        private bool HasPendingEraseOperation(Vector3[] data)
+        {
+            for (int i = 0, n = pendingSyncData.Count; i < n; i++)
+            {
+                if (!pendingSyncData.TryGetValue(i, TokenType.Reference, out var dataToken))
+                    continue;
+
+                if (pen._IsSameEraseOperation(data, (Vector3[])dataToken.Reference))
+                    return true;
+            }
+
+            return false;
+        }
 
         public override void OnDeserialization()
         {
             if (Networking.IsOwner(gameObject))
                 return;
 
-            syncedData = _syncedData;
+            if (_syncedData != null && _syncedData.Length > 0)
+                pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
         }
 
         public override void OnPostSerialization(SerializationResult result)
         {
-            isInUseSyncBuffer = false;
+            isSerializationInProgress = false;
+            LastSerializedByteCount = result.byteCount;
 
             if (result.success)
-                pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
-            else
+            {
+                serializationRetryCount = 0;
+                if (!pen._IsDrawData(_syncedData))
+                    pen._UnpackData(_syncedData, QvPen_Pen_Mode.Any);
+
+                if (pendingSyncData.Count > 0)
+                    pendingSyncData.RemoveAt(0);
+            }
+            else if (++serializationRetryCount > MaxSerializationRetryCount)
+            {
+                serializationRetryCount = 0;
                 pen._EraseAbandonedInk(_syncedData);
+                if (pendingSyncData.Count > 0)
+                    pendingSyncData.RemoveAt(0);
+            }
+
+            RequestPacketSend();
         }
 
         public void _ClearSyncBuffer()
         {
-            syncedData = new Vector3[] { };
-            isInUseSyncBuffer = false;
+            _syncedData = new Vector3[] { };
+            pendingSyncData.Clear();
+            isSerializationInProgress = false;
+            serializationRetryCount = 0;
         }
 
         #endregion

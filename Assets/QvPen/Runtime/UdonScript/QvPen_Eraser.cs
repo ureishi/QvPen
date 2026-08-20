@@ -1,6 +1,7 @@
 using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
+using VRC.SDK3.UdonNetworkCalling;
 using VRC.SDKBase;
 using VRC.Udon.Common.Interfaces;
 using Utilities = VRC.SDKBase.Utilities;
@@ -113,7 +114,7 @@ namespace QvPen.UdonScript
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
             if (isUser && isErasing)
-                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
+                SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_ApplyPickedUpVisual));
         }
 
         public override void OnPickup()
@@ -123,9 +124,9 @@ namespace QvPen.UdonScript
             sphereCollider.enabled = false;
 
             eraserManager._TakeOwnership();
-            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_EraserManager.StartUsing));
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_EraserManager.MarkAsInUse));
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnPickupEvent));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_ApplyPickedUpVisual));
         }
 
         public override void OnDrop()
@@ -135,32 +136,36 @@ namespace QvPen.UdonScript
             sphereCollider.enabled = true;
 
             eraserManager._ClearSyncBuffer();
-            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_EraserManager.EndUsing));
+            eraserManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_EraserManager.MarkAsAvailable));
 
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(OnDropEvent));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_ApplyDroppedVisual));
         }
 
         public override void OnPickupUseDown()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(StartErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_StartErasing));
         }
 
         public override void OnPickupUseUp()
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(FinishErasing));
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_StopErasing));
         }
 
-        public void OnPickupEvent() => renderer.sharedMaterial = normal;
+        [NetworkCallable]
+        public void _ApplyPickedUpVisual() => renderer.sharedMaterial = normal;
 
-        public void OnDropEvent() => renderer.sharedMaterial = erasing;
+        [NetworkCallable]
+        public void _ApplyDroppedVisual() => renderer.sharedMaterial = erasing;
 
-        public void StartErasing()
+        [NetworkCallable]
+        public void _StartErasing()
         {
             isErasing = true;
             renderer.sharedMaterial = erasing;
         }
 
-        public void FinishErasing()
+        [NetworkCallable]
+        public void _StopErasing()
         {
             isErasing = false;
             renderer.sharedMaterial = normal;
@@ -194,7 +199,7 @@ namespace QvPen.UdonScript
         }
 
         private static Vector3 GetData(Vector3[] data, int index)
-            => data != null && data.Length > index ? data[data.Length - 1 - index] : default;
+            => data[data.Length - 1 - index];
 
         private static void SetData(Vector3[] data, int index, Vector3 element)
         {
@@ -254,6 +259,10 @@ namespace QvPen.UdonScript
             switch (mode)
             {
                 case QvPen_Pen_Mode.Erase:
+                    if (data == null || data.Length != FOOTER_ELEMENT_ERASE_LENGTH ||
+                        (int)GetData(data, FOOTER_ELEMENT_DATA_INFO).z != FOOTER_ELEMENT_ERASE_LENGTH)
+                        return;
+
                     if (isUser && VRCPlayerApi.GetPlayerCount() > 1)
                         tmpErasedData = data;
                     else
@@ -263,8 +272,19 @@ namespace QvPen.UdonScript
             }
         }
 
+        public bool _IsSameEraseOperation(Vector3[] first, Vector3[] second)
+        {
+            if (first == null || second == null ||
+                first.Length != FOOTER_ELEMENT_ERASE_LENGTH || second.Length != FOOTER_ELEMENT_ERASE_LENGTH ||
+                GetMode(first) != QvPen_Pen_Mode.Erase || GetMode(second) != QvPen_Pen_Mode.Erase)
+                return false;
+
+            return GetData(first, FOOTER_ELEMENT_PEN_ID) == GetData(second, FOOTER_ELEMENT_PEN_ID) &&
+                GetData(first, FOOTER_ELEMENT_INK_ID) == GetData(second, FOOTER_ELEMENT_INK_ID);
+        }
+
         private Vector3[] tmpErasedData;
-        public void ExecuteEraseInk()
+        public void _ApplyPendingErase()
         {
             if (tmpErasedData != null)
                 EraseInk(tmpErasedData);

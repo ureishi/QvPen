@@ -85,7 +85,7 @@ namespace QvPen.UdonScript.UI
 
             foreach (var penManager in settings.penManagers)
                 if (penManager)
-                    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager.ResetPen));
+                    penManager.SendCustomNetworkEvent(NetworkEventTarget.All, nameof(QvPen_PenManager._ResetPen));
 
             foreach (var eraserManager in settings.eraserManagers)
                 if (eraserManager)
