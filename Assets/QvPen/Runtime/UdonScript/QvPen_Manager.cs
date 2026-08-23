@@ -127,6 +127,25 @@ namespace QvPen.UdonScript
             inkDictMap[penId].DataDictionary[inkId] = inkInstance;
         }
 
+        public DataList GetSortedInkIds(int penId)
+        {
+            if (!inkDictMap.TryGetValue(penId, TokenType.DataDictionary, out var inkDictToken))
+                return new DataList();
+
+            var inkIds = inkDictToken.DataDictionary.GetKeys();
+            inkIds.Sort();
+            return inkIds;
+        }
+
+        public GameObject GetInk(int penId, int inkId)
+        {
+            if (!inkDictMap.TryGetValue(penId, TokenType.DataDictionary, out var inkDictToken) ||
+                !inkDictToken.DataDictionary.TryGetValue(inkId, TokenType.Reference, out var inkToken))
+                return null;
+
+            return (GameObject)inkToken.Reference;
+        }
+
         public bool RemoveInk(int penId, int inkId)
         {
             if (!HasInk(penId, inkId))

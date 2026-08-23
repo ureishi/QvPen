@@ -19,7 +19,7 @@ namespace QvPen.UdonScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class QvPen_Pen : UdonSharpBehaviour
     {
-        public const string version = "v3.4.0-beta.1";
+        public const string version = "v3.4.0-beta.2";
 
         #region Field
 
@@ -198,7 +198,8 @@ namespace QvPen.UdonScript
             ? _isUserInVR
             : (_isCheckedIsUserInVR = Utilities.IsValid(localPlayer)) && (_isUserInVR = localPlayer.IsUserInVR());
 
-        //private long TimeStamp => ((System.DateTimeOffset)Networking.GetNetworkDateTime()).ToUnixTimeSeconds();
+        private bool _isInitialized = false;
+        public bool IsInitialized => _isInitialized;
 
         private readonly DataList localInkHistory = new DataList();
 
@@ -206,6 +207,9 @@ namespace QvPen.UdonScript
 
         public void _Init(QvPen_PenManager penManager)
         {
+            if (_isInitialized) return;
+            _isInitialized = true;
+
             this.penManager = penManager;
             _UpdateInkData();
 
@@ -268,6 +272,9 @@ namespace QvPen.UdonScript
 
         public void _UpdateInkData()
         {
+            if (!_isInitialized)
+                return;
+
             inkWidth = penManager.inkWidth;
             inkMeshLayer = penManager.inkMeshLayer;
             inkColliderLayer = penManager.inkColliderLayer;
@@ -1234,6 +1241,10 @@ namespace QvPen.UdonScript
         }
 
         public void _SendData(Vector3[] data) => penManager._SendData(data);
+
+        public DataList _GetSortedInkIds() => manager.GetSortedInkIds(penId);
+
+        public GameObject _GetInk(int inkId) => manager.GetInk(penId, inkId);
 
         private void EnablePointer()
         {

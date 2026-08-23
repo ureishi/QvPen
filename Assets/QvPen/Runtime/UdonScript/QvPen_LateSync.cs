@@ -24,7 +24,7 @@ namespace QvPen.UdonScript
         private Transform inkPoolNotSynced;
         public Transform InkPoolNotSynced => inkPoolNotSynced;
 
-        private LineRenderer[] linesBuffer = { };
+        private DataList inkIdBuffer = new DataList();
         private int inkIndex = -1;
 
         public void _RegisterPen(QvPen_Pen pen)
@@ -49,8 +49,12 @@ namespace QvPen.UdonScript
             RemoveTargetPlayer(currentRoundTargetIds, player.playerId);
             RemoveTargetPlayer(nextRoundTargetIds, player.playerId);
 
-            if (isCurrentRoundTargeted && currentRoundTargetIds.Count == 0)
-                abortCurrentRound = true;
+            // The packets are broadcast, so players waiting for the next
+            // round can keep consuming the current round after its original
+            // targets have left. Stop only when nobody still needs it.
+            abortCurrentRound = isCurrentRoundTargeted &&
+                currentRoundTargetIds.Count == 0 && nextRoundTargetIds.Count == 0;
+
         }
 
         public override void OnOwnershipTransferred(VRCPlayerApi player)
@@ -123,7 +127,7 @@ namespace QvPen.UdonScript
             nextPacketEarliestTime = 0f;
             currentStrokePacketVectorTarget = InitialStrokePacketVectorTarget;
             consecutiveHealthyStrokePackets = 0;
-            linesBuffer = new LineRenderer[] { };
+            inkIdBuffer = new DataList();
             inkIndex = -1;
             nextInk = null;
             currentRoundTargetIds.Clear();
@@ -151,6 +155,12 @@ namespace QvPen.UdonScript
         private void RequestSyncRound(int playerId)
         {
             AddTargetPlayer(nextRoundTargetIds, playerId);
+
+            // A join may arrive after the last current target left but before
+            // the deferred abort is processed. Keep the cursor moving so the
+            // new player can consume the remainder of this round immediately.
+            if (isSyncRoundActive)
+                abortCurrentRound = false;
 
             if (isSyncRoundActive)
                 return;
@@ -203,7 +213,9 @@ namespace QvPen.UdonScript
             isRoundStartScheduled = false;
 
             if (VRCPlayerApi.GetPlayerCount() <= 1 || !Networking.IsOwner(gameObject))
+            {
                 return;
+            }
 
             var joinGraceTimeRemaining = joinGraceDeadline - Time.time;
             if (joinGraceTimeRemaining > 0f)
@@ -222,7 +234,9 @@ namespace QvPen.UdonScript
             }
 
             if (isTargetedStart && nextRoundTargetIds.Count == 0)
+            {
                 return;
+            }
 
             MoveWaitingPlayersToCurrentRound();
             isCurrentRoundTargeted = isTargetedStart;
@@ -230,7 +244,6 @@ namespace QvPen.UdonScript
             abortCurrentRound = false;
             isSyncRoundActive = true;
             serializationRetryCount = 0;
-
             SendBeginPacket();
         }
 
@@ -274,7 +287,7 @@ namespace QvPen.UdonScript
             abortCurrentRound = false;
             isSendRetryScheduled = false;
             isNextPacketScheduled = false;
-            linesBuffer = new LineRenderer[] { };
+            inkIdBuffer = new DataList();
             inkIndex = -1;
             nextInk = null;
             currentRoundTargetIds.Clear();
@@ -446,7 +459,9 @@ namespace QvPen.UdonScript
 
                 if ((QvPen_LateSyncPacketKind)_syncedPacketKind == QvPen_LateSyncPacketKind.Begin)
                 {
-                    linesBuffer = inkPoolSynced.GetComponentsInChildren<LineRenderer>();
+                    // Keep one sorted key snapshot for the entire round so
+                    // later additions cannot move the active send cursor.
+                    inkIdBuffer = pen._GetSortedInkIds();
 
                     inkIndex = -1;
                     nextInk = null;
@@ -505,7 +520,9 @@ namespace QvPen.UdonScript
                 return;
 
             isNextPacketScheduled = true;
-            LastInterPacketDelay = Mathf.Max(GetInterPacketDelay(), joinGraceDeadline - Time.time);
+            // A join only queues that player for the next round. It must not
+            // pause or rewind the round that is already being transmitted.
+            LastInterPacketDelay = GetInterPacketDelay();
             nextPacketEarliestTime = Time.time + LastInterPacketDelay;
             SendCustomEventDelayedSeconds(nameof(_SendNextRoundPacket), LastInterPacketDelay);
         }
@@ -526,12 +543,6 @@ namespace QvPen.UdonScript
 
             if (!isSyncRoundActive || isSerializationInFlight || !Networking.IsOwner(gameObject))
                 return;
-
-            if (Time.time < joinGraceDeadline)
-            {
-                ScheduleNextRoundPacket();
-                return;
-            }
 
             if (abortCurrentRound)
             {
@@ -696,9 +707,16 @@ namespace QvPen.UdonScript
         {
             inkIndex = Mathf.Max(-1, inkIndex);
 
-            while (++inkIndex < linesBuffer.Length)
+            while (++inkIndex < inkIdBuffer.Count)
             {
-                var ink = linesBuffer[inkIndex];
+                if (!inkIdBuffer.TryGetValue(inkIndex, TokenType.Int, out var inkIdToken))
+                    continue;
+
+                var inkObject = pen._GetInk(inkIdToken.Int);
+                if (!Utilities.IsValid(inkObject) || inkObject.transform.parent != inkPoolSynced)
+                    continue;
+
+                var ink = inkObject.GetComponent<LineRenderer>();
                 if (Utilities.IsValid(ink))
                     return ink;
             }

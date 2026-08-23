@@ -214,7 +214,7 @@ namespace QvPen.UdonScript
 
             colorGradient = gradient;
             pen._UpdateInkData();
-            NotifyPenColorChanged();
+            NotifyPenColorChanged(gradient);
         }
 
         public void _SetDoubleClickEnabled(bool value) => pen._SetDoubleClickEnabled(value);
@@ -308,7 +308,7 @@ namespace QvPen.UdonScript
             }
         }
 
-        private void NotifyPenColorChanged()
+        private void NotifyPenColorChanged(Gradient gradient)
         {
             for (int i = 0, n = listenerList.Count; i < n; i++)
             {
@@ -320,7 +320,7 @@ namespace QvPen.UdonScript
                 if (!Utilities.IsValid(listener))
                     continue;
 
-                listener._OnPenColorChanged();
+                listener._OnPenColorChanged(gradient);
             }
         }
 

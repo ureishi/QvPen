@@ -1,4 +1,4 @@
-﻿/*
+/*
  Original file :
  Storage for distribution - phi16
  https://github.com/phi16/VRC_storage
@@ -6,6 +6,7 @@
  LICENSE : CC0
 */
 
+// 2026-08-24 added fog, render tags, endpoint color interpolation, and clip-space division guards.
 // 2024-01-01 added shadowcaster -- Silent
 // 2020-04-16 seeing vertex color.
 // 2019-09-26 customized for QvPen v2.
@@ -21,6 +22,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 	}
 	SubShader
 	{
+		Tags { "Queue" = "Geometry" "RenderType" = "Opaque" }
 		LOD 100
 		Cull Off
 
@@ -47,6 +49,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			float2 uv : TEXCOORD0;
 			float4 color : COLOR;
 			float d : TEXCOORD1;
+			UNITY_FOG_COORDS(2)
 		};
 
 		float _Width;
@@ -73,10 +76,13 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 
 			g2f o;
 			o.uv = 0;
-			o.color = IN[0].color;
 			
 			const float4 p = UnityObjectToClipPos(IN[0].vertex);
 			const float4 q = UnityObjectToClipPos(IN[1].vertex);
+			const float minClipW = 0.00001;
+			if(p.w <= minClipW || q.w <= minClipW)
+				return;
+
 			const float aspectRatio = -_ScreenParams.y / _ScreenParams.x;
 			float2 d = p.xy / p.w - q.xy / q.w;
 			d.x /= aspectRatio;
@@ -91,39 +97,53 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			n.xy *= w;
 			
 			o.d = 0;
+			o.color = IN[0].color;
 			o.vertex = p + n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			o.vertex = p - n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
+			o.color = IN[1].color;
 			o.vertex = q + n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			o.vertex = q - n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			stream.RestartStrip();
 			
 			o.d = 1;
 			w *= 2;
 			if(IN[1].uv.x >= 0.999999) {
+				o.color = IN[1].color;
 				n.xy = (o.uv = float2(0, 1)) * w;
 				o.vertex = q + n;
+				UNITY_TRANSFER_FOG(o, o.vertex);
 				stream.Append(o);
 				n.xy = (o.uv = float2(-0.866, -0.5)) * w;
 				o.vertex = q + n;
+				UNITY_TRANSFER_FOG(o, o.vertex);
 				stream.Append(o);
 				n.xy = (o.uv = float2(0.866, -0.5)) * w;
 				o.vertex = q + n;
+				UNITY_TRANSFER_FOG(o, o.vertex);
 				stream.Append(o);
 				stream.RestartStrip();
 			}
 			
+			o.color = IN[0].color;
 			n.xy = (o.uv = float2(0, 1)) * w;
 			o.vertex = p + n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			n.xy = (o.uv = float2(-0.866, -0.5)) * w;
 			o.vertex = p + n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			n.xy = (o.uv = float2(0.866, -0.5)) * w;
 			o.vertex = p + n;
+			UNITY_TRANSFER_FOG(o, o.vertex);
 			stream.Append(o);
 			stream.RestartStrip();
 		}
@@ -133,10 +153,12 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			const float l = length(i.uv);
 			clip(0.5 - min(i.d, l));
 			#if UNITY_COLORSPACE_GAMMA
-				return float4(i.color.rgb, 1);
+				fixed4 color = float4(i.color.rgb, 1);
 			#else
-				return float4(GammaToLinearSpace(i.color.rgb), 1);
+				fixed4 color = float4(GammaToLinearSpace(i.color.rgb), 1);
 			#endif
+			UNITY_APPLY_FOG(i.fogCoord, color);
+			return color;
 		}
 		ENDCG
 		
@@ -171,6 +193,7 @@ Shader "QvPen/rounded_trail_for_qv_pen"
 			#pragma vertex vert
 			#pragma geometry geom
 			#pragma fragment frag
+			#pragma multi_compile_fog
 
 			ENDCG
 		}

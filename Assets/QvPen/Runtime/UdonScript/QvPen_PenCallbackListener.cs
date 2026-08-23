@@ -8,6 +8,6 @@ namespace QvPen.UdonScript
     {
         public virtual void _OnPenPickup() { }
         public virtual void _OnPenDrop() { }
-        public virtual void _OnPenColorChanged() { }
+        public virtual void _OnPenColorChanged(Gradient gradient) { }
     }
 }
